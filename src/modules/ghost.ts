@@ -427,7 +427,8 @@ export default class GhostModule extends Module {
 			for(let j=0; j<19; j++)
 			{
                 // 14 - 16 are dummy area, 17 is C1 Closed
-				if(j >= 14){
+				if(j >= 14)
+				{
 					j = 18; // GID_RUNAREA_HIROSHIMA
 				}
 				let rampVal = 0;

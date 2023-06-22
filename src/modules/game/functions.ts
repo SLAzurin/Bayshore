@@ -96,6 +96,7 @@ export async function updateCar(body: wm.protobuf.SaveGameResultRequest, car: an
             tuneHandling: tuneHandling,
             windowSticker: body.car!.windowSticker!,
             lastPlayedAt: timestamps,
+            regionId: body.car!.regionId!,
             rgStamp: common.sanitizeInputNotZero(body.rgResult?.rgStamp),
             stampSheetCount: common.sanitizeInputNotZero(body.rgResult?.stampSheetCount)
         }

@@ -3,13 +3,14 @@ import { Writer } from "protobufjs";
 import { Config } from "../../config";
 import Long from "long";
 
+
 // getProtobufRevision: Number
 // Given the headers from a request, filters
 // the 'application/x-protobuf' property from the
 // request and returns the value. If not found, 
 // returns null.
-function getProtobufRevision(headers: string[]) {
-
+function getProtobufRevision(headers: string[])
+{
     try {
         // Find protobuf revision headers
         const filtered = headers.filter(
@@ -17,14 +18,17 @@ function getProtobufRevision(headers: string[]) {
         );
 
         // At least one header is found
-        if (filtered.length > 0) {
+        if (filtered.length > 0)
+        {
             // These should be all the same, just take the first one
             const header = filtered.pop();
 
             // Header is not null
-            if (header) {
+            if (header)
+            {
                 // Header includes a semicolon
-                if (header.includes('=')) {
+                if (header.includes('='))
+                {
                     // Retrieves the protobuf revision from the header, 
                     // strips any trailing whitespace and converts to int
                     const value = Number(header.split('=')[1].trimEnd());
@@ -55,9 +59,11 @@ function getProtobufRevision(headers: string[]) {
     }
 }
 
+
 // sendResponse(message, res): Void
 // Sends the server response to the client
-export function sendResponse(message: Writer, res: Response, headers: string[]) {
+export function sendResponse(message: Writer, res: Response, headers: string[])
+{
     try {
 
         // Get config
@@ -74,13 +80,14 @@ export function sendResponse(message: Writer, res: Response, headers: string[]) 
             .status(200);
 
         // If revision check is enabled
-        if (config.gameOptions.revisionCheck) {
-
+        if (config.gameOptions.revisionCheck) 
+        {
             // Get the protobuf revision from the headers
             let revision = getProtobufRevision(headers);
 
             // Revision does not match
-            if (revision !== 8053) {
+            if (revision !== 8053)
+            {
                 throw Error(`Protobuf revision does not match!`);
             }
         }
@@ -101,7 +108,8 @@ export function sendResponse(message: Writer, res: Response, headers: string[]) 
 // getBigIntFromLong(n: Long): BigInt
 // Given a Long data object, converts 
 // it into a BigInt and returns it.
-export function getBigIntFromLong(n: Long) {
+export function getBigIntFromLong(n: Long)
+{
     // Create the default value
     let bigInt = BigInt(0);
 
@@ -119,26 +127,30 @@ export function getBigIntFromLong(n: Long) {
 
 
 // Undefined Input Sanitization
-export function sanitizeInput(value: any) {
+export function sanitizeInput(value: any)
+{
     return (value == null || value == undefined) ? undefined : value;
 }
 
 
 // Undefined and Zero Input Sanitization
-export function sanitizeInputNotZero(value: any) {
+export function sanitizeInputNotZero(value: any)
+{
     return (value !== null && value !== undefined && value !== 0) ? value : undefined;
 }
 
 
 // Get Time Stamp
-export function getTimeStamp(date: Date = new Date()) {
+export function getTimeStamp(date: Date = new Date())
+{
     // Return a timestamp string for the current / provided time
     return String("[" + date.toLocaleString() + "]");
 }
 
 
 // Write Log
-export async function writeLog(message: string) {
+export async function writeLog(message: string)
+{
     try {
         // Get the current timestamp
         const timestamp: string = getTimeStamp();
@@ -155,4 +167,29 @@ export async function writeLog(message: string) {
     catch {
         // Failed
     }
+}
+
+
+// Trim the mojibake 
+export function trimMojibake(value: string)
+{
+    // Trim Mojibake
+    let trimStart = value.length;
+    for(let i=0; i<value.length; i++)
+    {
+        if(value[i] == "�")
+        {
+            trimStart = i;
+            break;
+        }
+    }
+
+    // Mojibake found
+    if(trimStart !== value.length)
+    {
+        let trimWord = value.substring(trimStart, value.length);
+        value = value.replace(trimWord, '');
+    }
+
+    return value;
 }

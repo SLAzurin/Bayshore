@@ -38,8 +38,8 @@ export default class GameModule extends Module {
 
 			// Declare some variable for message response
 			let ghostModePlay:boolean = false;
-			let updateNewTrail:boolean = true; 
-			let OCMModePlay:boolean = false; 
+			let updateNewTrail:boolean = true;
+			let OCMModePlay:boolean = false;
 
 			// Switch on the gamemode
 			switch (body.gameMode) 

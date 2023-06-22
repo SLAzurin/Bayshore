@@ -100,7 +100,7 @@ export default class CarModule extends Module {
 
 			// Check if user's other car have unique window sticker
 			let windowSticker = await carFunctions.getWindowSticker(body.userId);
-			let additionalWindowStickerInsert = windowSticker.additionalWindowStickerInsert
+			let additionalWindowStickerInsert = windowSticker.additionalWindowStickerInsert;
 			
 			/// Switch on tune status
 			let getCarTune = await carFunctions.getCarTune(tune, carInsert);
@@ -212,7 +212,8 @@ export default class CarModule extends Module {
 				if(body.earnedItems.length !== 0)
 				{
 					console.log('Car Item reward available, continuing ...');
-					for(let i=0; i<body.earnedItems.length; i++){
+					for(let i=0; i<body.earnedItems.length; i++)
+					{
 						await prisma.carItem.create({
 							data: {
 								carId: body.carId,

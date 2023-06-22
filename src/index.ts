@@ -7,7 +7,8 @@ dotenv.config({path: __dirname + '/.env'});
 
 let tracing: any = {};
 
-if (process.env.OPENTELEMETRY_ENABLED === "true") {
+if (process.env.OPENTELEMETRY_ENABLED === "true")
+{
     console.log('Enabling OpenTelemetry-compatible tracing...');
     tracing = require('./tracing');
     tracing.startTracing();
@@ -50,7 +51,8 @@ app.use(bodyParser.raw({
 }));
 
 let useSentry = !!Config.getConfig().sentryDsn;
-if (useSentry) {
+if (useSentry)
+{
     Sentry.init({
         dsn: Config.getConfig().sentryDsn,
         integrations: [
@@ -64,7 +66,8 @@ if (useSentry) {
     });
 }
 
-if (process.env.OPENTELEMETRY_ENABLED === "true") {
+if (process.env.OPENTELEMETRY_ENABLED === "true")
+{
     tracing.startHttpMetrics([
         {
             app,
@@ -87,7 +90,8 @@ if (process.env.OPENTELEMETRY_ENABLED === "true") {
     ]);
 }
 
-if (useSentry) {
+if (useSentry) 
+{
     app.use(Sentry.Handlers.requestHandler());
     app.use(Sentry.Handlers.tracingHandler());
 }
@@ -103,7 +107,10 @@ muchaApp.use((req, res, next) => {
 });
 
 allnetApp.use((req, res, next) => {
-    common.writeLog(`[ALLNET] ${req.method} ${req.url}`);
+    if(req.url.includes('/sys/servlet/PowerOn'))
+    {
+        common.writeLog(`[ALLNET] ${req.method} ${req.url}`);
+    }
     next()
 });
 
@@ -152,22 +159,22 @@ let cert = fs.readFileSync('./server_wangan.crt');
 
 // Create the (ALL.Net) server
 http.createServer(allnetApp).listen(PORT_ALLNET, '0.0.0.0', 511, () => {
-    console.log(`ALL.net server listening on port ${PORT_ALLNET}!`);
+    common.writeLog(`ALL.net server listening on port ${PORT_ALLNET}!`);
     let unix = Config.getConfig().unix;
     if (unix && process.platform == 'linux') {
-        console.log('Downgrading permissions...');
+        common.writeLog('Downgrading permissions...');
         process.setgid!(unix.setgid);
         process.setuid!(unix.setuid);
-        console.log('Done!');
+        common.writeLog('Done!');
     }
 })
 
 // Create the mucha server
 https.createServer({key, cert}, muchaApp).listen(PORT_MUCHA, '0.0.0.0', 511, () => {
-    console.log(`Mucha server listening on port ${PORT_MUCHA}!`);
+    common.writeLog(`Mucha server listening on port ${PORT_MUCHA}!`);
 })
 
 // Create the game server
 https.createServer({key, cert}, app).listen(PORT_BNGI, '0.0.0.0', 511, () => {
-    console.log(`Game server listening on port ${PORT_BNGI}!`);
+    common.writeLog(`Game server listening on port ${PORT_BNGI}!`);
 })
