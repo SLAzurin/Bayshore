@@ -129,21 +129,24 @@ export async function saveGhostBattleResult(body: wm.protobuf.SaveGameResultRequ
             }
 
             let ghostResults = common.sanitizeInput(ghostResult)
-            let rgRegionsScore = await opponentsRegion(ghostResults);
-            let rgRegions: number[] = car.rgRegions || [];
+            let rgRegionsId = await opponentsRegion(ghostResults);
 
-            if(rgRegions.length !== (dataGhost.rgWinCount % 100) - rgRegionsScore.length)
+            let rgRegions: number[] = car.rgRegions || [];
+            let realLength = (dataGhost.rgWinCount % 100) - rgRegionsId.length;
+            let missingLength = realLength - rgRegions.length;
+
+            if(missingLength > 0)
             {
-                rgRegions = new Array((dataGhost.rgWinCount % 100) - rgRegionsScore.length - rgRegions.length).fill(18)
+                rgRegions = new Array(missingLength).fill(18);
             }
 
-            let mergedRegion = [...rgRegions, ...rgRegionsScore];
+            dataGhost.rgRegions = [...rgRegions, ...rgRegionsId];
 
             // More than 100
-            if(mergedRegion.length > 100)
+            if(dataGhost.rgRegions.length > 100)
             {
-                const excess = mergedRegion.length - 100;
-                mergedRegion = mergedRegion.slice(-excess);
+                const excess = dataGhost.rgRegions.length - 100;
+                dataGhost.rgRegions = dataGhost.rgRegions.slice(-excess);
             }
         }
 

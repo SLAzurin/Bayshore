@@ -298,15 +298,25 @@ export default class GhostModule extends Module {
 
             let country = 'JPN';
             let regionId: number = 20;
-            if(ghostExpeditionRegion!.opponentCountry === 'IDN')
-            {
-                country = 'IDN';
-                regionId = 18;
-            }
-            else if(ghostExpeditionRegion!.opponentCountry === 'AUS')
+            if(ghostExpeditionRegion!.opponentCountry === 'AUS')
             {
                 country = 'AUS';
                 regionId = 2;
+            }
+            else if(ghostExpeditionRegion!.opponentCountry === 'BRN')
+            {
+                country = 'BRN';
+                regionId = 7;
+            }
+            else if(ghostExpeditionRegion!.opponentCountry === 'CAN')
+            {
+                country = 'CAN';
+                regionId = 8;
+            }
+            else if(ghostExpeditionRegion!.opponentCountry === 'KHM')
+            {
+                country = 'KHM';
+                regionId = 9;
             }
             else if(ghostExpeditionRegion!.opponentCountry === 'CHN')
             {
@@ -318,10 +328,70 @@ export default class GhostModule extends Module {
                 country = 'HKG';
                 regionId = 15;
             }
+            else if(ghostExpeditionRegion!.opponentCountry === 'IND')
+            {
+                country = 'IND';
+                regionId = 17;
+            }
+            else if(ghostExpeditionRegion!.opponentCountry === 'IDN')
+            {
+                country = 'IDN';
+                regionId = 18;
+            }
+            else if(ghostExpeditionRegion!.opponentCountry === 'KOR')
+            {
+                country = 'KOR';
+                regionId = 21;
+            }
+            else if(ghostExpeditionRegion!.opponentCountry === 'MAC')
+            {
+                country = 'MAC';
+                regionId = 22;
+            }
+            else if(ghostExpeditionRegion!.opponentCountry === 'MYS')
+            {
+                country = 'MYS';
+                regionId = 23;
+            }
+            else if(ghostExpeditionRegion!.opponentCountry === 'NZL')
+            {
+                country = 'NZL';
+                regionId = 26;
+            }
             else if(ghostExpeditionRegion!.opponentCountry === 'PHL')
             {
                 country = 'PHL';
                 regionId = 30;
+            }
+            else if(ghostExpeditionRegion!.opponentCountry === 'SGP')
+            {
+                country = 'SGP';
+                regionId = 34;
+            }
+            else if(ghostExpeditionRegion!.opponentCountry === 'LKA')
+            {
+                country = 'LKA';
+                regionId = 37;
+            }
+            else if(ghostExpeditionRegion!.opponentCountry === 'TWN')
+            {
+                country = 'TWN';
+                regionId = 39;
+            }
+            else if(ghostExpeditionRegion!.opponentCountry === 'THA')
+            {
+                country = 'THA';
+                regionId = 40;
+            }
+            else if(ghostExpeditionRegion!.opponentCountry === 'USA')
+            {
+                country = 'USA';
+                regionId = 44;
+            }
+            else if(ghostExpeditionRegion!.opponentCountry === 'VNM')
+            {
+                country = 'VNM';
+                regionId = 46;
             }
 
             // Get Canditate list
