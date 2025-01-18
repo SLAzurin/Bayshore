@@ -1,5 +1,5 @@
 # Bayshore
-Wangan Midnight Maximum Tune server reimplementation written in TypeScript.<br>
+Wangan Midnight Maximum Tune 6 server reimplementation written in TypeScript.<br>
 This repo is based on the original repo [ProjectAsakura/Bayshore](https://github.com/ProjectAsakura/Bayshore)
 
 ## Branch
