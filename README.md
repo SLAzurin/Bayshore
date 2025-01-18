@@ -1,19 +1,13 @@
-### THIS PROJECT IS CURRENTLY UNSUPPORTED. DO NOT MESSAGE ANYONE FOR HELP
+# Bayshore
+Wangan Midnight Maximum Tune 6R server reimplementation written in TypeScript.<br>
+This repo is based on the original repo [ProjectAsakura/Bayshore](https://github.com/ProjectAsakura/Bayshore)
 
-# Bayshore 6R
-Wangan Midnight Maximum Tune 6R server reimplementation written in TypeScript
-
-this repo is based on the original repo (https://github.com/ProjectAsakura/Bayshore)
-
-## What is working
- - Same like 6
- - VSORG [Expedition] (some of them maybe... expedition saving works)
- - Highway [New Mode] (some of them maybe... highway saving works)
- - Ghost Trophies Saving
- 
- ## What is not working 
- - Transfer from 6
- - Wanted Info for each area (game will crash... idk why)
+## Branch
+- [WMMT5](../../tree/master_5)
+- [WMMT5DX](../../tree/master_5dx)
+- [WMMT5DX+](../../tree/master_5dxp)
+- [WMMT6](../../tree/master_6)
+- [WMMT6R](../../tree/master_6r)
 
 ## Credits
 This software is part of [Project Asakura](https://github.com/ProjectAsakura).
@@ -25,11 +19,3 @@ Special thanks:
  - [Emi (PockyWitch)](https://twitter.com/ChocomintPuppy) - code, technical explanation, help with SSL, a lot more. You are the reason all of this is possible in the first place, Emi.
  - [derole](https://derole.co.uk) - code, technical help, OpenBanapass.
  - [The Wangan Midnight Emulation Discord server](https://discord.gg/r3nbd4x) - helping me out on a bunch of stuff.
-
-## Donations
-Donations are not required, however I'm only one person, and I'm still a student, so if you want to thank me for my work, [please buy me a coffee or two](https://ko-fi.com/lostkagamine).
-
-This won't get you anything other than my gratitude, the entire project is and will always remain available to everyone for free.
-
-## On TeknoParrot
-The TeknoParrot team (TeknoGods) are not authorised to use **any part** of this project. **Do not integrate any portion of Bayshore into TeknoParrot.**
