@@ -3,10 +3,7 @@ Wangan Midnight Maximum Tune 6 server reimplementation written in TypeScript.<br
 This repo is based on the original repo [ProjectAsakura/Bayshore](https://github.com/ProjectAsakura/Bayshore)
 
 ## Branch
-<<<<<<< HEAD
 - [WMMT4](../../tree/master_4)
-=======
->>>>>>> bb459cd40562d005f448185fe9ebceb5b2caa16b
 - [WMMT5](../../tree/master_5)
 - [WMMT5DX](../../tree/master_5dx)
 - [WMMT5DX+](../../tree/master_5dxp)
