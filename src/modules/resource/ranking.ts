@@ -8,7 +8,7 @@ import wmsrv from "../../wmmt/service.proto";
 export async function getTimeAttackRanking()
 {
     // Empty list ranking records
-    let lists: wmsrv.wm5.protobuf.Ranking.List[] = [];
+    let lists: wmsrv.v388.protobuf.Ranking.List[] = [];
 
     // Get the user TA data
     for(let i=0; i<25; i++) // GID_TACOURSE ID
@@ -28,7 +28,7 @@ export async function getTimeAttackRanking()
         if(ta_time.length > 0)
         { 
             // Empty list of ranking records for user time attack
-            let list_ta: wmsrv.wm5.protobuf.Ranking.Entry[] = []; 
+            let list_ta: wmsrv.v388.protobuf.Ranking.Entry[] = []; 
 
             // Get the TA time data
             for(let j=0; j<ta_time.length; j++)
@@ -41,7 +41,7 @@ export async function getTimeAttackRanking()
                 });
 
                 // Push the data to the ranking data
-                list_ta.push(wmsrv.wm5.protobuf.Ranking.Entry.create({ 
+                list_ta.push(wmsrv.v388.protobuf.Ranking.Entry.create({ 
                     carId: ta_time[j].carId,
                     rank: car_ta!.level,
                     result: ta_time[j].time,
@@ -71,7 +71,7 @@ export async function getTimeAttackRanking()
                     }
 
                     // Push the data to the ranking data
-                    list_ta.push(wmsrv.wm5.protobuf.Ranking.Entry.create({ 
+                    list_ta.push(wmsrv.v388.protobuf.Ranking.Entry.create({ 
                         carId: 0,
                         rank: 0,
                         result: resultTime,
@@ -88,7 +88,7 @@ export async function getTimeAttackRanking()
                 }
             }
 
-            lists.push(new wmsrv.wm5.protobuf.Ranking.List({
+            lists.push(new wmsrv.v388.protobuf.Ranking.List({
                 rankingType: i, // RANKING_TA_*AREA*
                 topRecords: list_ta
             }));
@@ -97,7 +97,7 @@ export async function getTimeAttackRanking()
         else
         { 
             // Empty list of ranking records for ＧＵＥＳＴ time attack
-            let list_ta: wmsrv.wm5.protobuf.Ranking.Entry[] = []; 
+            let list_ta: wmsrv.v388.protobuf.Ranking.Entry[] = []; 
 
             // Generate the top 10 ＧＵＥＳＴ TA time data
             for(let j=0; j<11; j++){ 
@@ -109,7 +109,7 @@ export async function getTimeAttackRanking()
                 }
 
                 // Push the ＧＵＥＳＴ data to the ranking data
-                list_ta.push(wmsrv.wm5.protobuf.Ranking.Entry.create({ 
+                list_ta.push(wmsrv.v388.protobuf.Ranking.Entry.create({ 
                     carId: 0,
                     rank: 0,
                     result: resulttime,
@@ -126,7 +126,7 @@ export async function getTimeAttackRanking()
             }
 
             // Push the certain area ranking data to the list
-            lists.push(new wmsrv.wm5.protobuf.Ranking.List({ 
+            lists.push(new wmsrv.v388.protobuf.Ranking.List({ 
                 rankingType: i, // RANKING_TA_*AREA*
                 topRecords: list_ta // Top 10 TA time record data
             }));
@@ -141,7 +141,7 @@ export async function getTimeAttackRanking()
 export async function getVSOutrunRanking()
 {
     // Empty list ranking records
-    let lists: wmsrv.wm5.protobuf.Ranking.List[] = [];
+    let lists: wmsrv.v388.protobuf.Ranking.List[] = [];
 
     // Get the user VS Stars data
     let car_vs = await prisma.car.findMany({ 
@@ -152,13 +152,13 @@ export async function getVSOutrunRanking()
     });
 
     // Empty list of ranking records for VS Stars
-    let list_vs: wmsrv.wm5.protobuf.Ranking.Entry[] = []; 
+    let list_vs: wmsrv.v388.protobuf.Ranking.Entry[] = []; 
 
     // Get the VS stars data
     for(let i=0; i<car_vs.length; i++)
     { 
         // Push the car data to the ranking data
-        list_vs.push(wmsrv.wm5.protobuf.Ranking.Entry.create({ 
+        list_vs.push(wmsrv.v388.protobuf.Ranking.Entry.create({ 
             carId: car_vs[i].carId,
             rank: car_vs[i].level,
             result: car_vs[i].vsStarCount,
@@ -181,7 +181,7 @@ export async function getVSOutrunRanking()
         for(let j=car_vs.length; j<21; j++){ 
 
             // Push the ＧＵＥＳＴ data to the ranking data
-            list_vs.push(wmsrv.wm5.protobuf.Ranking.Entry.create({ 
+            list_vs.push(wmsrv.v388.protobuf.Ranking.Entry.create({ 
                 carId: 0,
                 rank: 0,
                 result: 0,
@@ -199,7 +199,7 @@ export async function getVSOutrunRanking()
     }
 
     // Push the data
-    lists.push(new wmsrv.wm5.protobuf.Ranking.List({
+    lists.push(new wmsrv.v388.protobuf.Ranking.List({
         rankingType: 100, // RANKING_VS_STAR
         topRecords: list_vs // Top 20 VS stars record data
     }));
@@ -212,7 +212,7 @@ export async function getVSOutrunRanking()
 export async function getGhostTrophiesRanking()
 {
     // Empty list ranking records
-    let lists: wmsrv.wm5.protobuf.Ranking.List[] = [];
+    let lists: wmsrv.v388.protobuf.Ranking.List[] = [];
 
     // Get the user Ghost Trophies data
     let car_ghost = await prisma.car.findMany({ 
@@ -223,13 +223,13 @@ export async function getGhostTrophiesRanking()
     });
 
     // Empty list of ranking records for Ghost Battle Win
-    let list_ghost: wmsrv.wm5.protobuf.Ranking.Entry[] = []; 
+    let list_ghost: wmsrv.v388.protobuf.Ranking.Entry[] = []; 
 
     // Get the Ghost Battle Win data
     for(let i=0; i<car_ghost.length; i++)
     { 
         // Push the car data to the ranking data
-        list_ghost.push(wmsrv.wm5.protobuf.Ranking.Entry.create({ 
+        list_ghost.push(wmsrv.v388.protobuf.Ranking.Entry.create({ 
             carId: car_ghost[i].carId,
             rank: car_ghost[i].level,
             result: car_ghost[i].maxiCoin,
@@ -252,7 +252,7 @@ export async function getGhostTrophiesRanking()
         for(let j=car_ghost.length; j<21; j++)
         {
             // Push the ＧＵＥＳＴ data to the ranking data
-            list_ghost.push(wmsrv.wm5.protobuf.Ranking.Entry.create({ 
+            list_ghost.push(wmsrv.v388.protobuf.Ranking.Entry.create({ 
                 carId: 0,
                 rank: 0,
                 result: 0,
@@ -270,7 +270,7 @@ export async function getGhostTrophiesRanking()
     }
 
     // Push the data
-    lists.push(new wmsrv.wm5.protobuf.Ranking.List({
+    lists.push(new wmsrv.v388.protobuf.Ranking.List({
         rankingType: 101, // RANKING_GHOST_DEFEATED_COUNT
         topRecords: list_ghost // Top 20 Ghost Win record data
     }));

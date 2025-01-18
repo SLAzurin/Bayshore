@@ -1,11 +1,10 @@
 import { Application } from "express";
 import { Module } from "module";
 import { prisma } from "..";
-import { User } from "@prisma/client";
 import Long from "long";
 
 // Import Proto
-import * as wm from "../wmmt/wm5.proto";
+import * as wm from "../wmmt/v388.proto";
 
 // Import Util
 import * as common from "./util/common";
@@ -18,7 +17,7 @@ export default class CarModule extends Module {
 		app.post('/method/load_car', async (req, res) => {
 
             // Get the request body for the load car request
-			let body = wm.wm5.protobuf.LoadCarRequest.decode(req.body);
+			let body = wm.v388.protobuf.LoadCarRequest.decode(req.body);
 
             // Get the car (required data only) with the given id
 			let car = await prisma.car.findFirst({
@@ -38,7 +37,7 @@ export default class CarModule extends Module {
 
             // Response data
 			let msg = {
-				error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+				error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 				car: {
 					...car!,
 				},
@@ -49,7 +48,7 @@ export default class CarModule extends Module {
 			};
 
             // Generate the load car response message
-			let message = wm.wm5.protobuf.LoadCarResponse.encode(msg);
+			let message = wm.v388.protobuf.LoadCarResponse.encode(msg);
 
 			// Send the response
             common.sendResponse(message, res);
@@ -60,7 +59,7 @@ export default class CarModule extends Module {
 		app.post('/method/create_car', async (req, res) => {
 
 			// Get the request body for the create car request
-			let body = wm.wm5.protobuf.CreateCarRequest.decode(req.body);
+			let body = wm.v388.protobuf.CreateCarRequest.decode(req.body);
 			
 			// Trim Mojibake
 			body.cardChipId = body.cardChipId.replace('��������0000', '');
@@ -69,7 +68,7 @@ export default class CarModule extends Module {
 			let date = Math.floor(new Date().getTime() / 1000)
 
 			// Retrieve user from card chip / user id
-			let user: User | null;
+			let user;
 
 			// User ID provided, use that
 			if (body.userId) 
@@ -246,17 +245,18 @@ export default class CarModule extends Module {
 
 			// Response data
             let msg = {
-                error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+                error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 				carId: car.carId,
 				car,
 				...carInsert,
 				...additionalInsert,
 				...additionalTeamInsert,
-				rgStamp: 1
+				rgStamp: 1,
+				searchCode: '0'
             }
 
             // Generate the load car response message
-            let message = wm.wm5.protobuf.CreateCarResponse.encode(msg);
+            let message = wm.v388.protobuf.CreateCarResponse.encode(msg);
 
             // Send the response
             common.sendResponse(message, res);
@@ -267,7 +267,7 @@ export default class CarModule extends Module {
 		app.post('/method/update_car', async (req, res) => {
 
 			// Get the request body for the update car request
-			let body = wm.wm5.protobuf.UpdateCarRequest.decode(req.body);
+			let body = wm.v388.protobuf.UpdateCarRequest.decode(req.body);
 
 			// Get the ghost result for the car
 			let cars = body?.car;
@@ -292,16 +292,13 @@ export default class CarModule extends Module {
 					mirror: common.sanitizeInput(cars.mirror),
 					sticker: common.sanitizeInput(cars.sticker),
 					stickerColor: common.sanitizeInput(cars.stickerColor),
-					sideSticker: common.sanitizeInput(cars.sideSticker),
 					neon: common.sanitizeInput(cars.neon),
 					trunk: common.sanitizeInput(cars.trunk),
 					plate: common.sanitizeInput(cars.plate),
 					plateColor: common.sanitizeInput(cars.plateColor),
-					plateNumber: common.sanitizeInput(cars.plateNumber),
 					specialSticker: common.sanitizeInput(cars.specialSticker),
     				specialStickerColor: common.sanitizeInput(cars.specialStickerColor),
 					aura: common.sanitizeInput(cars.aura),
-					auraMotif: common.sanitizeInput(cars.auraMotif),
 					lastPlayedAt: date,
 					teamSticker: cars.teamSticker,
 				}
@@ -337,95 +334,13 @@ export default class CarModule extends Module {
 				}
 			});
 
-			// Get car item (custom color or discarded card)
-			if(body.earnedItems.length !== 0)
-			{
-				console.log('Car Item reward available, continuing ...');
-
-				for(let i=0; i<body.earnedItems.length; i++)
-				{
-					await prisma.carItem.create({
-						data: {
-							carId: body.carId,
-							category: body.earnedItems[i].category,
-							itemId: body.earnedItems[i].itemId,
-							amount: 1
-						}
-					});
-				}
-			}
-
-			// Update the GT Wing (custom wing) info
-			// Get the GT Wing data for the car
-			let gtWing = body.car?.gtWing;
-			let dataGTWing: any;
-
-			// GT Wing is set
-			if (gtWing)
-			{
-				dataGTWing = {
-					pillar: common.sanitizeInput(gtWing.pillar), 
-					pillarMaterial: common.sanitizeInput(gtWing.pillarMaterial), 
-					mainWing: common.sanitizeInput(gtWing.mainWing), 
-					mainWingColor: common.sanitizeInput(gtWing.mainWingColor), 
-					wingTip: common.sanitizeInput(gtWing.wingTip), 
-					material: common.sanitizeInput(gtWing.material), 
-				}
-
-				await prisma.carGTWing.update({
-					where: {
-						dbId: body.carId
-					}, 
-					data: dataGTWing
-				})
-			}
-			// Check if this is in getting new custom color screen or not
-			else if(body.car?.carId !== null && body.car?.carId !== undefined)
-			{
-				// GT Wing not set
-				if(gtWing === undefined || gtWing === null)
-				{
-					dataGTWing = {
-						pillar: 0, 
-						pillarMaterial: 0, 
-						mainWing: 0, 
-						mainWingColor: 0, 
-						wingTip: 0, 
-						material: 0, 
-					}
-
-					await prisma.carGTWing.update({
-						where: {
-							dbId: body.carId
-						}, 
-						data: dataGTWing
-					})
-				}
-			}
-			
-			// Update Maxi Gold Balance
-			if(body.maxiGold !== null && body.maxiGold !== undefined
-				&& body.car?.userId !== null && body.car?.userId !== undefined)
-			{
-				let maxiGold = body.maxiGold;
-
-				await prisma.user.update({
-					where:{
-						id: body.car.userId
-					},
-					data:{
-						maxiGold: maxiGold
-					}
-				})
-			}
-
 			// Response data
             let msg = {
-                error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+                error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
             }
 
 			// Encode the response
-            let message = wm.wm5.protobuf.UpdateCarResponse.encode(msg);
+            let message = wm.v388.protobuf.UpdateCarResponse.encode(msg);
 
             // Send the response
             common.sendResponse(message, res);
@@ -436,18 +351,18 @@ export default class CarModule extends Module {
 		app.post('/method/grant_car_right', async (req, res) => {
 
 			// Get the request body
-            let body = wm.wm5.protobuf.GrantCarRightRequest.decode(req.body)
+            let body = wm.v388.protobuf.GrantCarRightRequest.decode(req.body)
 
 			// TODO: Make this feature working properly
 			// This is literally just bare-bones so the shit boots
 
 			// Response data
 			let msg = {
-				error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+				error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 			}
 
 			// Encode the response
-			let message = wm.wm5.protobuf.GrantCarRightResponse.encode(msg);
+			let message = wm.v388.protobuf.GrantCarRightResponse.encode(msg);
 
 			// Send the response to the client
             common.sendResponse(message, res);
@@ -458,22 +373,22 @@ export default class CarModule extends Module {
 		app.post('/method/load_car_campaign_info', async (req, res) => {
 
 			// Get the request body
-            let body = wm.wm5.protobuf.LoadCarCampaignInfoRequest.decode(req.body)
+            let body = wm.v388.protobuf.LoadCarCampaignInfoRequest.decode(req.body)
 
 			// TODO: Make this feature working properly
 			// This is literally just bare-bones so the shit boots
 
 			// Response data
 			let msg = {
-				error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
-				carCampaignUserState: wm.wm5.protobuf.CarCampaignUserState.CAR_CAMPAIGN_NOT_ACCEPTED,
+				error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
+				carCampaignUserState: wm.v388.protobuf.CarCampaignUserState.CAR_CAMPAIGN_NOT_ACCEPTED,
 				numOfPieces: 0,
 				numOfRemainingLotteries: 0,
 				lotteryOpenBits: 0
 			}
 
 			// Encode the response
-			let message = wm.wm5.protobuf.LoadCarCampaignInfoResponse.encode(msg);
+			let message = wm.v388.protobuf.LoadCarCampaignInfoResponse.encode(msg);
 
 			// Send the response to the client
             common.sendResponse(message, res);
@@ -484,18 +399,18 @@ export default class CarModule extends Module {
 		app.post('/method/accept_car_campaign', async (req, res) => {
 
 			// Get the request body
-            let body = wm.wm5.protobuf.AcceptCarCampaignRequest.decode(req.body)
+            let body = wm.v388.protobuf.AcceptCarCampaignRequest.decode(req.body)
 
 			// TODO: Make this feature working properly
 			// This is literally just bare-bones so the shit boots
 
 			// Response data
 			let msg = {
-				error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+				error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 			}
 
 			// Encode the response
-			let message = wm.wm5.protobuf.AcceptCarCampaignResponse.encode(msg);
+			let message = wm.v388.protobuf.AcceptCarCampaignResponse.encode(msg);
 
 			// Send the response to the client
             common.sendResponse(message, res);
@@ -506,41 +421,18 @@ export default class CarModule extends Module {
 		app.post('/method/save_car_campaign_info', async (req, res) => {
 
 			// Get the request body
-            let body = wm.wm5.protobuf.SaveCarCampaignInfoRequest.decode(req.body)
+            let body = wm.v388.protobuf.SaveCarCampaignInfoRequest.decode(req.body)
 
 			// TODO: Make this feature working properly
 			// This is literally just bare-bones so the shit boots
 
 			// Response data
 			let msg = {
-				error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+				error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 			}
 
 			// Encode the response
-			let message = wm.wm5.protobuf.SaveCarCampaignInfoResponse.encode(msg);
-
-			// Send the response to the client
-            common.sendResponse(message, res);
-		})
-
-
-		// Rename Car
-		app.post('/method/rename_car', async (req, res) => {
-
-			// Get the request body
-            let body = wm.wm5.protobuf.RenameCarRequest.decode(req.body)
-
-			// TODO: Make this feature working properly
-			// This is literally just bare-bones so the shit boots
-
-			// Response data
-			let msg = {
-				error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
-				userId: 0
-			}
-
-			// Encode the response
-			let message = wm.wm5.protobuf.RenameCarResponse.encode(msg);
+			let message = wm.v388.protobuf.SaveCarCampaignInfoResponse.encode(msg);
 
 			// Send the response to the client
             common.sendResponse(message, res);

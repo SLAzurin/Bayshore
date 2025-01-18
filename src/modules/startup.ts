@@ -3,7 +3,7 @@ import { Module } from "module";
 import { prisma } from "..";
 
 // Import Proto
-import * as wm from "../wmmt/wm5.proto";
+import * as wm from "../wmmt/v388.proto";
 
 // Import Util
 import * as common from "./util/common";
@@ -16,11 +16,11 @@ export default class StartupModule extends Module {
         app.post('/method/register_system_info', async (req, res) => {
 
             // Get the request body
-            let body = wm.wm5.protobuf.RegisterSystemInfoRequest.decode(req.body);
+            let body = wm.v388.protobuf.RegisterSystemInfoRequest.decode(req.body);
             
             // Response data
             let msg = {
-                error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+                error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
                 regionId: body.allnetRegion0,
                 placeId: body.regionName0,
 
@@ -55,11 +55,15 @@ export default class StartupModule extends Module {
                 scratchAvailable: true,
                 displayOfScratchTerms: true,
                 scratchNotes: 'Scratch Scratch Meow Meow',
-                scratchTerms: 'Scratch',  
+                scratchTerms: 'Scratch',
+                pajeroDiscloseAt: 0,
+                successionCloseAnnouncementStartAt: 0,
+                successionCloseAt: 0,
+                successionCloseAnnouncementEndAt: 0
             }
 
             // Encode the response
-            let message = wm.wm5.protobuf.RegisterSystemInfoResponse.encode(msg);
+            let message = wm.v388.protobuf.RegisterSystemInfoResponse.encode(msg);
 
             // Send the response to the client
             common.sendResponse(message, res);
@@ -69,18 +73,18 @@ export default class StartupModule extends Module {
         // Ping
         app.post('/method/ping', (req, res) => {
 
-            let body = wm.wm5.protobuf.PingRequest.decode(req.body);
+            let body = wm.v388.protobuf.PingRequest.decode(req.body);
 
             // Response data
             let ping = {
-                error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+                error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
                 pong: body.ping || 1,
                 bnidServerAvailable: true,
                 banacoinAvailable: true
             };
 
             // Encode the response
-            let message = wm.wm5.protobuf.PingResponse.encode(ping);
+            let message = wm.v388.protobuf.PingResponse.encode(ping);
 
             // Send the response to the client
             common.sendResponse(message, res);
@@ -90,18 +94,18 @@ export default class StartupModule extends Module {
         // Register System Stats
 		app.post('/method/register_system_stats', async (req, res) => {
 
-            let body = wm.wm5.protobuf.RegisterSystemStatsRequest.decode(req.body);
+            let body = wm.v388.protobuf.RegisterSystemStatsRequest.decode(req.body);
 
             // TODO: Actual stuff here
             // This is literally just bare-bones so the shit boots
 
 			// Response data
 			let msg = {
-				error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+				error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 			}
 
 			// Encode the response
-			let message = wm.wm5.protobuf.RegisterSystemStatsResponse.encode(msg);
+			let message = wm.v388.protobuf.RegisterSystemStatsResponse.encode(msg);
 
 			// Send the response to the client
             common.sendResponse(message, res);
@@ -111,19 +115,19 @@ export default class StartupModule extends Module {
         // Ask Access Code
         app.post('/method/ask_access_code', async (req, res) => {
 
-            let body = wm.wm5.protobuf.AskAccessCodeRequest.decode(req.body);
+            let body = wm.v388.protobuf.AskAccessCodeRequest.decode(req.body);
 
             // TODO: Actual stuff here
             // This is literally just bare-bones so the shit boots
 
 			// Response data
 			let msg = {
-				error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+				error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
                 accessCode: '278313042069'
 			}
 
 			// Encode the response
-			let message = wm.wm5.protobuf.AskAccessCodeResponse.encode(msg);
+			let message = wm.v388.protobuf.AskAccessCodeResponse.encode(msg);
 
 			// Send the response to the client
             common.sendResponse(message, res);

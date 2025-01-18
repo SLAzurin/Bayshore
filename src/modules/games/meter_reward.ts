@@ -1,11 +1,11 @@
 import { prisma } from "../..";
 
 // Import Proto
-import { wm5 } from "../../wmmt/wm5.proto";
+import { v388 } from "../../wmmt/v388.proto";
 
 
 // Save story result
-export async function giveMeterRewards(body: wm5.protobuf.SaveGameResultRequest)
+export async function giveMeterRewards(body: v388.protobuf.SaveGameResultRequest)
 {
     // Get user's available meter data
     let carItemCount = await prisma.carItem.count({ 

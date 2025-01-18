@@ -4,7 +4,7 @@ import { prisma } from "..";
 import { Config } from "../config";
 
 // Import Proto
-import * as wm from "../wmmt/wm5.proto";
+import * as wm from "../wmmt/v388.proto";
 
 // Import Util
 import * as common from "./util/common";
@@ -21,7 +21,7 @@ export default class GameModule extends Module {
 		app.post('/method/save_game_result', async (req, res) => {
 
 			// Get the request body for the save game result request
-			let body = wm.wm5.protobuf.SaveGameResultRequest.decode(req.body);
+			let body = wm.v388.protobuf.SaveGameResultRequest.decode(req.body);
 
 			// Get the user's car
 			let car = await prisma.car.findFirst({
@@ -51,7 +51,7 @@ export default class GameModule extends Module {
 			switch (body.gameMode) 
 			{
 				// Save Story Result
-				case wm.wm5.protobuf.GameMode.MODE_STORY:
+				case wm.v388.protobuf.GameMode.MODE_STORY:
 				{
 					// Calling save story result function (BASE_PATH/src/util/games/story.ts)
 					await story.saveStoryResult(body, car); 
@@ -61,7 +61,7 @@ export default class GameModule extends Module {
 				}
 
 				// Save Time Attack Result
-				case wm.wm5.protobuf.GameMode.MODE_TIME_ATTACK:
+				case wm.v388.protobuf.GameMode.MODE_TIME_ATTACK:
 				{
 					// Calling save time attack result function (BASE_PATH/src/util/games/time_attack.ts)
 					await time_attack.saveTimeAttackResult(body);
@@ -71,37 +71,20 @@ export default class GameModule extends Module {
 				}
 
 				// Save Ghost Battle Result
-				case wm.wm5.protobuf.GameMode.MODE_GHOST_BATTLE:
+				case wm.v388.protobuf.GameMode.MODE_GHOST_BATTLE:
 				{
 					// Break the switch case
 					break;
 				}
 
 				// Save Versus Battle Result
-				case wm.wm5.protobuf.GameMode.MODE_VS_BATTLE:
+				case wm.v388.protobuf.GameMode.MODE_VS_BATTLE:
 				{
 					// Calling save vs battle result function (BASE_PATH/src/util/games/versus.ts)
 					await versus.saveVersusBattleResult(body, car); 
 
 					// Break the switch case
 					break;
-				}
-			}
-
-			// Get car item
-			// Car item reward from the game is available
-			if(body.earnedItems.length !== 0)
-			{
-				console.log('Car Item reward available, continuing ...');
-				for(let i=0; i<body.earnedItems.length; i++){
-					await prisma.carItem.create({
-						data: {
-							carId: body.carId,
-							category: body.earnedItems[i].category,
-							itemId: body.earnedItems[i].itemId,
-							amount: 1
-						}
-					});
 				}
 			}
 			
@@ -133,7 +116,6 @@ export default class GameModule extends Module {
 				},
 				data: {
 					aura: body.car!.aura!,
-					auraMotif: body.car!.auraMotif!,
 					odometer: body.odometer,
 					playCount: body.playCount,
 					level: body.car!.level!,
@@ -170,33 +152,13 @@ export default class GameModule extends Module {
 			// Update user
 			let user = await prisma.user.findFirst({
 				where: {
-					id: body.car!.userId!
+					id: car?.userId
 				}
 			});
 
 			// User object exists
 			if (user)
 			{
-				// Get user tutorials
-				let storedTutorials = user?.confirmedTutorials;
-
-				// Update any seen tutorials
-				for(let i=0; i<body.confirmedTutorials.length; i++)
-				{
-					// Get the index of the selected tutorial
-					let indexTutoral = storedTutorials.indexOf(body.confirmedTutorials[i]);
-
-					// Only splice array when item is found
-					if (indexTutoral > -1) 
-					{ 
-						storedTutorials.splice(indexTutoral, 1); // 2nd parameter means remove one item only
-					}
-
-					// Add it back to the front
-					storedTutorials.unshift(body.confirmedTutorials[i]);
-				}
-
-
 				// Get the order of the user's cars
 				let carOrder = user?.carOrder;
 
@@ -217,10 +179,9 @@ export default class GameModule extends Module {
 				// Update the values
 				await prisma.user.update({
 					where: {
-						id: body.car!.userId!
+						id: car?.userId
 					},
 					data: {
-						confirmedTutorials: storedTutorials, 
 						carOrder: carOrder
 					}
 				});
@@ -236,7 +197,7 @@ export default class GameModule extends Module {
 				console.log('Normal Ghost Battle Session Found');
 
 				msg = {
-					error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+					error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 
 					// Set session for saving ghost trail Normal Ghost Battle Mode
 					ghostSessionId: Math.floor(Math.random() * 50) + 1 
@@ -249,7 +210,7 @@ export default class GameModule extends Module {
 				console.log('Crown Ghost Battle Session Found');
 
 				msg = {
-					error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+					error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 
 					// Set session for saving ghost trail Crown Ghost Battle Mode
 					ghostSessionId: Math.floor(Math.random() * 50) + 51 
@@ -262,7 +223,7 @@ export default class GameModule extends Module {
 				console.log('OCM Ghost Battle Session Found');
 
 				msg = {
-					error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+					error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 
 					// Set session for saving ghost trail OCM Ghost Battle Mode
 					ghostSessionId: Math.floor(Math.random() * 100) + 101 
@@ -272,14 +233,14 @@ export default class GameModule extends Module {
 			else
 			{ 
 				msg = {
-					error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS
+					error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS
 
 					// No session for saving ghost trail (not playing Ghost Battle Mode / Retiring)
 				}
 			}
 			
 			// Encode the response
-			let message = wm.wm5.protobuf.SaveGameResultResponse.encode(msg);
+			let message = wm.v388.protobuf.SaveGameResultResponse.encode(msg);
 
             // Send the response to the client
             common.sendResponse(message, res);
@@ -290,10 +251,10 @@ export default class GameModule extends Module {
 		app.post('/method/load_game_history', async (req, res) => {
 			
 			// Get the request content
-			let body = wm.wm5.protobuf.LoadGameHistoryRequest.decode(req.body);
+			let body = wm.v388.protobuf.LoadGameHistoryRequest.decode(req.body);
 
 			// Empty list of time attack records for the player's car
-			let ta_records : wm.wm5.protobuf.LoadGameHistoryResponse.TimeAttackRecord[] = [];
+			let ta_records : wm.v388.protobuf.LoadGameHistoryResponse.TimeAttackRecord[] = [];
 
 			// Get the car info
 			let car = await prisma.car.findFirst({
@@ -384,7 +345,7 @@ export default class GameModule extends Module {
 				}
 
 				// Generate the time attack record object and add it to the list
-				ta_records.push(wm.wm5.protobuf.LoadGameHistoryResponse.TimeAttackRecord.create({
+				ta_records.push(wm.v388.protobuf.LoadGameHistoryResponse.TimeAttackRecord.create({
 					course: record.course, 
 					time: record.time, 
 					tunePower: record.tunePower,
@@ -401,7 +362,7 @@ export default class GameModule extends Module {
 			
 			// Response data
 			let msg = {
-                error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+                error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 				taRecords: ta_records,
 				taRankingUpdatedAt: date,
 				ghostHistory: [],
@@ -412,7 +373,7 @@ export default class GameModule extends Module {
             }
 
 			// Encode the response
-            let message = wm.wm5.protobuf.LoadGameHistoryResponse.encode(msg);
+            let message = wm.v388.protobuf.LoadGameHistoryResponse.encode(msg);
             
 			// Send the response to the client
             common.sendResponse(message, res);
@@ -424,11 +385,11 @@ export default class GameModule extends Module {
 
 			// Response data
             let msg = {
-				error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+				error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 			};
 
 			// Encode the response
-			let message = wm.wm5.protobuf.SaveChargeResponse.encode(msg);
+			let message = wm.v388.protobuf.SaveChargeResponse.encode(msg);
 			
 			// Send the response to the client
             common.sendResponse(message, res);

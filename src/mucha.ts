@@ -38,7 +38,7 @@ export default class MuchaModule extends Module {
 
         app.post('/boardauth.do', (req, res) => {
             let serverTime = moment().format('YYYYMMDDHHmm');
-            let utcServerTime = moment().utc().format('YYYYMMDDHHmm');
+            let utcServerTime = moment().utc().format('YYYYMMDDHHmmss');
 
             let shopName = Config.getConfig().shopName;
             let shopNick = Config.getConfig().shopNickname;
@@ -72,7 +72,7 @@ export default class MuchaModule extends Module {
                 PLACE_ID: req.body.placeId,
                 PREFECTURE_ID: "14",
                 SERVER_TIME: serverTime,
-                UTC_SERVER_TIME: utcServerTime,
+                SERVER_TIME_UTC: utcServerTime,
                 SHOP_NAME: shopName,
                 SHOP_NAME_EN: shopName,
                 SHOP_NICKNAME: shopNick,

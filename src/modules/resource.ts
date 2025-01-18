@@ -4,7 +4,7 @@ import { Config } from "../config";
 import { prisma } from "..";
 
 // Import Proto
-import * as wm from "../wmmt/wm5.proto";
+import * as wm from "../wmmt/v388.proto";
 import * as wmsrv from "../wmmt/service.proto";
 
 // Import Util
@@ -22,10 +22,10 @@ export default class ResourceModule extends Module {
             console.log('place list');
 
             // Empty list of place records
-            let places: wm.wm5.protobuf.Place[] = [];
+            let places: wm.v388.protobuf.Place[] = [];
 
             // Response data
-            places.push(new wm.wm5.protobuf.Place({
+            places.push(new wm.v388.protobuf.Place({
                 placeId: Config.getConfig().placeId || 'JPN0123',
                 regionId: Number(Config.getConfig().regionId) || 1,
                 shopName: Config.getConfig().shopName || 'Bayshore',
@@ -56,7 +56,7 @@ export default class ResourceModule extends Module {
             }
 
             // Encode the response
-            let message = wm.wm5.protobuf.PlaceList.encode({places});
+            let message = wm.v388.protobuf.PlaceList.encode({places});
 
              // Send the response to the client
              common.sendResponse(message, res);
@@ -69,7 +69,7 @@ export default class ResourceModule extends Module {
             console.log('ranking');
             
             // Empty list of all ranking records (Combination of TA, VS Stars, and Ghost Battle Win)
-            let lists: wmsrv.wm5.protobuf.Ranking.List[] = [];
+            let lists: wmsrv.v388.protobuf.Ranking.List[] = [];
 
             // Get TA Ranking
             let rankingTA = await ranking.getTimeAttackRanking();
@@ -84,7 +84,7 @@ export default class ResourceModule extends Module {
             lists.push( ...rankingGhostTrophies.lists );
             
             // Encode the response
-			let message = wmsrv.wm5.protobuf.Ranking.encode({lists});
+			let message = wmsrv.v388.protobuf.Ranking.encode({lists});
 
             // Send the response to the client
             common.sendResponse(message, res);
@@ -97,7 +97,7 @@ export default class ResourceModule extends Module {
             console.log('crown_list');
 
             // Empty list of crown records
-            let crowns: wmsrv.wm5.protobuf.Crown[] = []; 
+            let crowns: wmsrv.v388.protobuf.Crown[] = []; 
 
             // Get Crown List
             let crown_lists = await crown_list.getCrownList();
@@ -109,7 +109,7 @@ export default class ResourceModule extends Module {
             };
 
             // Encode the response
-            let message = wmsrv.wm5.protobuf.CrownList.encode(msg);
+            let message = wmsrv.v388.protobuf.CrownList.encode(msg);
 
             // Send the response to the client
             common.sendResponse(message, res);
@@ -126,13 +126,13 @@ export default class ResourceModule extends Module {
 
 			// Response data
 			let msg = {
-				error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+				error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
                 files: null,
                 interval: null
 			}
 
 			// Encode the response
-			let message = wm.wm5.protobuf.FileList.encode(msg);
+			let message = wm.v388.protobuf.FileList.encode(msg);
 
 			// Send the response to the client
             common.sendResponse(message, res);
@@ -145,10 +145,10 @@ export default class ResourceModule extends Module {
             // Try Catch
 			try
 			{
-                let summary: wm.wm5.protobuf.CarSummaryCount.SearchCount[] = [];
+                let summary: wm.v388.protobuf.CarSummaryCount.SearchCount[] = [];
                 
                 // Encode the response
-                let message = wm.wm5.protobuf.CarSummaryCount.encode({summary});
+                let message = wm.v388.protobuf.CarSummaryCount.encode({summary});
 
                 // Send the response to the client
                 common.sendResponse(message, res);

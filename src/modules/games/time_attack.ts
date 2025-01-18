@@ -1,11 +1,11 @@
 import { prisma } from "../..";
 
 // Import Proto
-import { wm5 } from "../../wmmt/wm5.proto";
+import { v388 } from "../../wmmt/v388.proto";
 
 
 // Save time attack result
-export async function saveTimeAttackResult(body: wm5.protobuf.SaveGameResultRequest)
+export async function saveTimeAttackResult(body: v388.protobuf.SaveGameResultRequest)
 {
     // If the game was not retired / timed out
     if (!(body.retired || body.timeup)) 

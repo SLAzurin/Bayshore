@@ -1,9 +1,9 @@
 // Import Proto
-import { wm5 } from "../../../wmmt/wm5.proto";
+import { v388 } from "../../../wmmt/v388.proto";
 
 
 // Save story result
-export async function checkCurrentStep(body: wm5.protobuf.SaveGameResultRequest)
+export async function checkCurrentStep(body: v388.protobuf.SaveGameResultRequest)
 {
     // Get current step for updating the user's ghost level
     let currentStep = 0;

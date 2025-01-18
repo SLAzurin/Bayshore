@@ -3,7 +3,7 @@ import { Module } from "module";
 import { prisma } from "..";
 
 // Import Proto
-import * as wm from "../wmmt/wm5.proto";
+import * as wm from "../wmmt/v388.proto";
 
 // Import Util
 import * as common from "./util/common";
@@ -16,7 +16,7 @@ export default class TimeAttackModule extends Module {
 		app.post('/method/load_time_attack_record', async (req, res) => {
 
             // Get the request body for the load terminal information request
-            let body = wm.wm5.protobuf.LoadTimeAttackRecordRequest.decode(req.body);
+            let body = wm.v388.protobuf.LoadTimeAttackRecordRequest.decode(req.body);
 
 			let taRecordsForModel = await prisma.timeAttackRecord.findMany({
 				take: 100,
@@ -51,13 +51,13 @@ export default class TimeAttackModule extends Module {
 
                 // Response data
 				let msg = {
-					error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+					error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 					wholeRanking: taRecordsOverall.map(a => a.time),
 					modelRanking: taRecordsForModel.map(a => a.time)
 				};
                 
 				// Encode the response
-                let message = wm.wm5.protobuf.LoadTimeAttackRecordResponse.encode(msg);
+                let message = wm.v388.protobuf.LoadTimeAttackRecordResponse.encode(msg);
 
                 // Send the response to the client
                 common.sendResponse(message, res);
@@ -66,7 +66,7 @@ export default class TimeAttackModule extends Module {
 
 			// Response data
             let msg = {
-                error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+                error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 				wholeRanking: taRecordsOverall.map(a => a.time),
 				modelRanking: taRecordsForModel.map(a => a.time),
 				personalBestTime: taRecordPb.time,
@@ -80,7 +80,7 @@ export default class TimeAttackModule extends Module {
             };
 
 			// Encode the response
-            let message = wm.wm5.protobuf.LoadTimeAttackRecordResponse.encode(msg);
+            let message = wm.v388.protobuf.LoadTimeAttackRecordResponse.encode(msg);
 
             // Send the response to the client
             common.sendResponse(message, res);

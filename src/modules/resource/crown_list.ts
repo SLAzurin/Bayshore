@@ -8,7 +8,7 @@ import wmsrv from "../../wmmt/service.proto";
 export async function getCrownList()
 {
     // Empty list of crown records
-    let list_crown: wmsrv.wm5.protobuf.Crown[] = [];
+    let list_crown: wmsrv.v388.protobuf.Crown[] = [];
 
     // Get the current date/time (unix epoch)
     let date = Math.floor(new Date().getTime() / 1000);
@@ -78,7 +78,7 @@ export async function getCrownList()
                 }
 
                 // Push the car data to the crown holder data
-                list_crown.push(wmsrv.wm5.protobuf.Crown.create({  
+                list_crown.push(wmsrv.v388.protobuf.Crown.create({  
                     carId: car_crown[counter].carId,
                     area: car_crown[counter].area, // GID_RUNAREA_C1 - GID_RUNAREA_TURNPIKE & GID_RUNAREA_HIROSHIMA
                     unlockAt: car_crown[counter].playedAt,
@@ -93,7 +93,7 @@ export async function getCrownList()
             else
             { 
                 // Push the default data by the game to the crown holder data
-                list_crown.push(wmsrv.wm5.protobuf.Crown.create({ 
+                list_crown.push(wmsrv.v388.protobuf.Crown.create({ 
                     carId: 999999999-i,
                     area: i, // GID_RUNAREA_C1 - GID_RUNAREA_TURNPIKE & GID_RUNAREA_HIROSHIMA
                     unlockAt: date - 1000,
@@ -117,7 +117,7 @@ export async function getCrownList()
             // GID_RUNAREA_HIROSHIMA
             if(i === 18)
             {
-                let listCrown = wmsrv.wm5.protobuf.Crown.create({  
+                let listCrown = wmsrv.v388.protobuf.Crown.create({  
                     carId: 999999999-i,
                     area: i,
                     unlockAt: 0,
@@ -129,7 +129,7 @@ export async function getCrownList()
             // GID_RUNAREA_C1 - GID_RUNAREA_TURNPIKE
             else
             {
-                list_crown.push(wmsrv.wm5.protobuf.Crown.create({ 
+                list_crown.push(wmsrv.v388.protobuf.Crown.create({ 
                     carId: 999999999-i,
                     area: i,
                     unlockAt: 0,

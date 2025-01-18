@@ -4,7 +4,7 @@ import { Module } from "module";
 import { prisma } from "..";
 
 // Import Proto
-import * as wm from "../wmmt/wm5.proto";
+import * as wm from "../wmmt/v388.proto";
 
 // Import Util
 import * as common from "./util/common";
@@ -17,7 +17,7 @@ export default class UserModule extends Module {
 		app.post('/method/load_user', async (req, res) => {
 
             // Get the request body for the load user request
-			let body = wm.wm5.protobuf.LoadUserRequest.decode(req.body);
+			let body = wm.v388.protobuf.LoadUserRequest.decode(req.body);
 
 			// Trim Mojibake
 			body.cardChipId = body.cardChipId.replace('��������0000', '');
@@ -39,7 +39,7 @@ export default class UserModule extends Module {
 				console.log('no such user');
 
 				let msg = {
-					error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+					error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 					numOfOwnedCars: Number(0),
 					cars: [],
 
@@ -50,13 +50,14 @@ export default class UserModule extends Module {
 					hp600Count: Number(0),
 					tutorials: Number(0),
 					membership: Number(0),
-					transferred: false
+					transferred: false,
+					hasHp600Car: false
 				};
 
 				if (!body.cardChipId || !body.accessCode) 
 				{
 					let msg = {
-						error: wm.wm5.protobuf.ErrorCode.ERR_ID_BANNED,
+						error: wm.v388.protobuf.ErrorCode.ERR_ID_BANNED,
 						numOfOwnedCars: Number(0),
 
 						shopGrade: Number(0),
@@ -66,11 +67,12 @@ export default class UserModule extends Module {
 						hp600Count: Number(0),
 						tutorials: Number(0),
 						membership: Number(0),
-						transferred: false
+						transferred: false,
+						hasHp600Car: false
 					}
 
 					// Encode the response
-					let message = wm.wm5.protobuf.LoadUserResponse.encode(msg);
+					let message = wm.v388.protobuf.LoadUserResponse.encode(msg);
 
 					// Send the response to the client
 					common.sendResponse(message, res);
@@ -96,41 +98,19 @@ export default class UserModule extends Module {
 
 					if (!user) 
 					{
-						msg.error = wm.wm5.protobuf.ErrorCode.ERR_REQUEST;
+						msg.error = wm.v388.protobuf.ErrorCode.ERR_REQUEST;
 					}
-
-					let ftTicketGrant = Config.getConfig().gameOptions.grantFullTuneTicketToNewUsers;
-
-					// TODO: Make full tune ticket saving and load
-					/*if (ftTicketGrant > 0) 
-					{
-						console.log(`Granting Full-Tune Ticket x${ftTicketGrant} to new user...`);
-
-						for (let i=0; i<ftTicketGrant; i++) 
-						{
-							await prisma.userItem.create({
-								data: {
-									userId: user.id,
-									category: wm.wm5.protobuf.ItemCategory.CAT_CAR_TICKET,
-									itemId: 5, 
-									type: 0 // Car Ticket
-								}
-							});
-						}
-
-						console.log('Done!');
-					}*/
 				}
 				// New card registration is not allowed / closed
 				else
 				{
 					console.log('New card / user registration is closed');
 					
-					msg.error = wm.wm5.protobuf.ErrorCode.ERR_REQUEST;
+					msg.error = wm.v388.protobuf.ErrorCode.ERR_REQUEST;
 				}
 
 				// Encode the response
-				let message = wm.wm5.protobuf.LoadUserResponse.encode(msg);
+				let message = wm.v388.protobuf.LoadUserResponse.encode(msg);
 
 				// Send the response to the client
 				common.sendResponse(message, res);
@@ -142,7 +122,7 @@ export default class UserModule extends Module {
 			if (user.carOrder.length > 0)
 			{
 				// Sort the player's car list using the car order property
-				user.cars = user.cars.sort(function(a, b){
+				user.cars = user.cars.sort(function(a: any, b: any){
 
 					// User, and both car IDs exist
 					if (user)
@@ -191,7 +171,7 @@ export default class UserModule extends Module {
 
 			// Response data
 			let msg = {
-				error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+				error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 
 				// User Bannapassport
 				banapassportAmId: 1,
@@ -210,17 +190,16 @@ export default class UserModule extends Module {
 				cars: user.cars.slice(0, body.maxCars), 
 
 				// TODO: make saving to FT Ticket
-				carCoupon: wm.wm5.protobuf.CarCreationCoupon.CAR_COUPON_HP600,
 				hp600Count: user.hp600Count, // Discarded Card
 
 				// Accepted Tutorials
 				tutorials: userTutorials,
 
 				// Car Campaign
-				carCampaignUserState: wm.wm5.protobuf.CarCampaignUserState.CAR_CAMPAIGN_NOT_ACCEPTED,
+				carCampaignUserState: wm.v388.protobuf.CarCampaignUserState.CAR_CAMPAIGN_NOT_ACCEPTED,
 
 				// Competition (OCM)
-				competitionUserState: wm.wm5.protobuf.GhostCompetitionParticipantState.COMPETITION_NOT_PARTICIPATED,
+				competitionUserState: wm.v388.protobuf.GhostCompetitionParticipantState.COMPETITION_NOT_PARTICIPATED,
 
 				// Team
 				teamId: null,
@@ -229,6 +208,7 @@ export default class UserModule extends Module {
 
 				// Maxi.Net
 				membership: 0,
+				hasHp600Car: false,
 
 				// Card Transfer(?)
 				transferred: false,
@@ -243,11 +223,11 @@ export default class UserModule extends Module {
             // Response data if user is banned
 			if (user.userBanned) 
 			{
-				msg.error = wm.wm5.protobuf.ErrorCode.ERR_ID_BANNED;
+				msg.error = wm.v388.protobuf.ErrorCode.ERR_ID_BANNED;
 			}
 
             // Encode the response
-			let message = wm.wm5.protobuf.LoadUserResponse.encode(msg);
+			let message = wm.v388.protobuf.LoadUserResponse.encode(msg);
 
             // Send the response to the client
             common.sendResponse(message, res);
@@ -267,7 +247,7 @@ export default class UserModule extends Module {
 			// otherwise the terminal crashes.
 
 			// Get the request body for the create user request
-			let body = wm.wm5.protobuf.CreateUserRequest.decode(req.body);
+			let body = wm.v388.protobuf.CreateUserRequest.decode(req.body);
 
 			// Get the user info via the card chip id
 			let user = await prisma.user.findFirst({
@@ -285,7 +265,7 @@ export default class UserModule extends Module {
 			{
                 msg = {
                     // Success error message
-                    error : wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+                    error : wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 
                     // User's user id
                     userId : user?.id
@@ -295,7 +275,7 @@ export default class UserModule extends Module {
 			{
                 msg = {
                     // User not found error message
-                    error : wm.wm5.protobuf.ErrorCode.ERR_NOT_FOUND, 
+                    error : wm.v388.protobuf.ErrorCode.ERR_NOT_FOUND, 
 
                     // No user id
                     userId : 0
@@ -303,68 +283,9 @@ export default class UserModule extends Module {
 			}
 
 			// Generate the response for the create user request
-			let message = wm.wm5.protobuf.CreateUserResponse.encode(msg);
+			let message = wm.v388.protobuf.CreateUserResponse.encode(msg);
 
             // Send response to client
-            common.sendResponse(message, res);
-		});
-
-
-        // Load Drive Information
-        app.post('/method/load_drive_information', async (req, res) => {
-
-            // Get the request body for the load drive information request
-			let body = wm.wm5.protobuf.LoadDriveInformationRequest.decode(req.body);
-
-            // TODO: Add notices to config
-			let notice = (Config.getConfig().notices || []);
-
-            // Create the notice window objects
-			let noticeWindows = notice.map(a => wm.wm5.protobuf.NoticeEntry.NOTICE_TEAM_JOINED);
-
-            // Response data
-            let msg = {
-                error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,	
-				noticeWindow: noticeWindows,
-				noticeWindowMessage: notice,
-				transferNotice: {
-					needToSeeTransferred: false,
-					needToRenameCar: false,
-					needToRenameTeam: false
-				},
-				restrictedModels: [],
-				announceFeature: false,
-				announceMobile: false,
-				numOfVsContinueTickets: 0
-            }
-
-            // Encode the response
-            let message = wm.wm5.protobuf.LoadDriveInformationResponse.encode(msg);
-            
-            // Send the response to the client
-            common.sendResponse(message, res);
-        })
-
-
-		// Start Transfer
-		app.post('/method/start_transfer', async (req, res) => {
-
-			// Get the request body
-            let body = wm.wm5.protobuf.StartTransferRequest.decode(req.body)
-
-			// TODO: Make this feature working properly
-			// This is literally just bare-bones so the shit boots
-
-			// Response data
-			let msg = {
-				error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
-				userId: 0
-			}
-
-			// Encode the response
-			let message = wm.wm5.protobuf.StartTransferResponse.encode(msg);
-
-			// Send the response to the client
             common.sendResponse(message, res);
 		})
 	}

@@ -2,7 +2,7 @@ import Long from "long";
 import { prisma } from "../..";
 
 // Import Proto
-import { wm5 } from "../../wmmt/wm5.proto";
+import { v388 } from "../../wmmt/v388.proto";
 
 // Import Util
 import * as common from "../util/common";
@@ -10,7 +10,7 @@ import * as check_step from "../games/games_util/check_step";
 
 
 // Save story result
-export async function saveStoryResult(body: wm5.protobuf.SaveGameResultRequest, car: any)
+export async function saveStoryResult(body: v388.protobuf.SaveGameResultRequest, car: any)
 {
     // If the game was not retired / timed out
     if (!(body.retired || body.timeup)) 

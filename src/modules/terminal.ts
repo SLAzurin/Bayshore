@@ -4,7 +4,7 @@ import { Module } from "module";
 import { prisma } from "..";
 
 // Import Proto
-import * as wm from "../wmmt/wm5.proto";
+import * as wm from "../wmmt/v388.proto";
 import * as wmsrv from "../wmmt/service.proto";
 
 // Import Util
@@ -14,35 +14,6 @@ import * as common from "./util/common";
 export default class TerminalModule extends Module {
     register(app: Application): void {
 
-        // Load upon enter terminal
-		app.post('/method/load_terminal_information', async (req, res) => {
-
-            // Get the request body for the load terminal information request
-            let body = wm.wm5.protobuf.LoadTerminalInformationRequest.decode(req.body);
-
-			// Response data
-			let msg = {
-				error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
-
-				maxiGoldReceivable: true,
-				prizeReceivable: true,
-				transferNotice: {
-					needToSeeTransferred: false,
-					needToRenameCar: false,
-					needToRenameTeam: false
-				},
-				announceFeature: false,
-				freeScratched: true
-			}
-
-            // Encode the response
-			let message = wm.wm5.protobuf.LoadTerminalInformationResponse.encode(msg);
-
-			// Send the response to the client
-            common.sendResponse(message, res);
-		})
-
-		
 		// Car Summary Request (for bookmarks, also for search ghost by name)
 		app.get('/resource/car_summary', async (req, res) => {
 
@@ -128,7 +99,7 @@ export default class TerminalModule extends Module {
 			}
 
 			// Encode the response
-			let message = wmsrv.wm5.protobuf.CarSummary.encode(msg);
+			let message = wmsrv.v388.protobuf.CarSummary.encode(msg);
 
 			// Send the response to the client
             common.sendResponse(message, res);
@@ -139,7 +110,7 @@ export default class TerminalModule extends Module {
 		app.post('/method/save_terminal_result', async (req, res) => {
 
 			// Get the contents from the request
-			let body = wm.wm5.protobuf.SaveTerminalResultRequest.decode(req.body);
+			let body = wm.v388.protobuf.SaveTerminalResultRequest.decode(req.body);
 
 			// user id is required field
 			let user = await prisma.user.findFirst({
@@ -150,25 +121,6 @@ export default class TerminalModule extends Module {
 
 			if(user)
 			{
-				// Get user tutorials
-				let storedTutorials = user?.confirmedTutorials;
-
-				// Update any seen tutorials
-				for(let i=0; i<body.confirmedTutorials.length; i++)
-				{
-					// Get the index of the selected tutorial
-					let indexTutoral = storedTutorials.indexOf(body.confirmedTutorials[i]);
-
-					// Only splice array when item is found
-					if (indexTutoral > -1) 
-					{ 
-						storedTutorials.splice(indexTutoral, 1); // 2nd parameter means remove one item only
-					}
-
-					// Add it back to the front
-					storedTutorials.unshift(body.confirmedTutorials[i]);
-				}
-
 				// If the car order was modified
 				// Update the car order in the table
 				if (body.carOrder.length > 0)
@@ -186,11 +138,11 @@ export default class TerminalModule extends Module {
 
 			// Response data
 			let msg = {
-				error: wm.wm5.protobuf.ErrorCode.ERR_SUCCESS,
+				error: wm.v388.protobuf.ErrorCode.ERR_SUCCESS,
 			}
 
 			// Encode the response
-			let message = wm.wm5.protobuf.SaveTerminalResultResponse.encode(msg);
+			let message = wm.v388.protobuf.SaveTerminalResultResponse.encode(msg);
 
 			// Send the response to the client
             common.sendResponse(message, res);

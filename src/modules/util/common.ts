@@ -13,7 +13,7 @@ export function sendResponse(message: Writer, res: Response)
     // Built the response data
     let r = res
         .header('Server', 'v388 wangan')
-        .header('Content-Type', 'application/x-protobuf; revision=1290')
+        .header('Content-Type', 'application/x-protobuf; revision=3332')
         .header('Content-Length', end.length.toString())
         .status(200);
 
