@@ -1,11 +1,14 @@
 # Bayshore
-Wangan Midnight Maximum Tune 5DX server reimplementation written in TypeScript
+Wangan Midnight Maximum Tune 5DX server reimplementation written in TypeScript.<br>
+This repo is based on the original repo [ProjectAsakura/Bayshore](https://github.com/ProjectAsakura/Bayshore)
 
-this repo is based on the original repo (https://github.com/ProjectAsakura/Bayshore)
-
-## What is working and not working
- - Transfer from 5 (5DX+ and above ofc can't la but ez to make it possible...)
- - other tbh idk lmao...
+## Branch
+- [WMMT4](../../tree/master_4)
+- [WMMT5](../../tree/master_5)
+- [WMMT5DX](../../tree/master_5dx)
+- [WMMT5DX+](../../tree/master_5dxp)
+- [WMMT6](../../tree/master_6)
+- [WMMT6R](../../tree/master_6r)
 
 ## Credits
 This software is part of [Project Asakura](https://github.com/ProjectAsakura).
