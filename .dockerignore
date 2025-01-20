@@ -3,3 +3,4 @@ dist/
 *.example
 *.example.json
 *.bat
+Dockerfile

@@ -14,7 +14,9 @@ COPY . .
 # Copy game configuration file
 COPY config.json .
 
-RUN npm install
+RUN apk add --no-cache openssl
+
+RUN npm install --legacy-peer-deps --frozen-lockfile
 
 # ALLnet
 EXPOSE 80
@@ -28,6 +30,7 @@ RUN npm run build_protos
 
 # Compile the application source code
 RUN npx tsc
+RUN npx prisma generate
 
 # Entrypoint
 CMD ["node", "dist"]
