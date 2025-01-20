@@ -3,3 +3,5 @@ dist/
 *.example
 *.example.json
 *.bat
+Dockerfile
+node_modules

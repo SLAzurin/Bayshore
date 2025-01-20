@@ -1,4 +1,5 @@
 FROM node:18-alpine
+RUN apk add --no-cache openssl
 
 WORKDIR /server
 
@@ -14,7 +15,7 @@ COPY . .
 # Copy game configuration file
 COPY config.json .
 
-RUN npm install
+RUN npm install --frozen-lockfile
 
 # ALLnet
 EXPOSE 80
@@ -27,6 +28,7 @@ EXPOSE 9002
 RUN npm run build_protos
 
 # Compile the application source code
+RUN npx prisma generate
 RUN npx tsc
 
 # Entrypoint
