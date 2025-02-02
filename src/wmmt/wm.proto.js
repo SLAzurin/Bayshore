@@ -963,6 +963,14 @@ export const wm = $root.wm = (() => {
              * @property {number} ghostSelectionMaxRedoWait RegisterSystemInfoResponse ghostSelectionMaxRedoWait
              * @property {wm.protobuf.IGhostExpeditionSchedule|null} [expeditionSchedule] RegisterSystemInfoResponse expeditionSchedule
              * @property {boolean|null} [expeditionEventWasHeld] RegisterSystemInfoResponse expeditionEventWasHeld
+             * @property {Array.<number>|null} [bingoNumbers] RegisterSystemInfoResponse bingoNumbers
+             * @property {Array.<wm.protobuf.IBingoPrize>|null} [bingoPrize] RegisterSystemInfoResponse bingoPrize
+             * @property {Array.<wm.protobuf.IGhostKoshienWonShop>|null} [koshienWonShopName] RegisterSystemInfoResponse koshienWonShopName
+             * @property {wm.protobuf.RegisterSystemInfoResponse.IGhostKoshienInfo|null} [koshienInfo] RegisterSystemInfoResponse koshienInfo
+             * @property {boolean|null} [koshienEventWasHeld] RegisterSystemInfoResponse koshienEventWasHeld
+             * @property {wm.protobuf.ICarItem|null} [specialPresentItem] RegisterSystemInfoResponse specialPresentItem
+             * @property {number|null} [previousKoshienId] RegisterSystemInfoResponse previousKoshienId
+             * @property {wm.protobuf.IGhostKoshienPrize|null} [previousKoshienPrize] RegisterSystemInfoResponse previousKoshienPrize
              */
 
             /**
@@ -975,6 +983,9 @@ export const wm = $root.wm = (() => {
              */
             function RegisterSystemInfoResponse(properties) {
                 this.allowedClientLogTypes = [];
+                this.bingoNumbers = [];
+                this.bingoPrize = [];
+                this.koshienWonShopName = [];
                 if (properties)
                     for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -1086,6 +1097,70 @@ export const wm = $root.wm = (() => {
             RegisterSystemInfoResponse.prototype.expeditionEventWasHeld = false;
 
             /**
+             * RegisterSystemInfoResponse bingoNumbers.
+             * @member {Array.<number>} bingoNumbers
+             * @memberof wm.protobuf.RegisterSystemInfoResponse
+             * @instance
+             */
+            RegisterSystemInfoResponse.prototype.bingoNumbers = $util.emptyArray;
+
+            /**
+             * RegisterSystemInfoResponse bingoPrize.
+             * @member {Array.<wm.protobuf.IBingoPrize>} bingoPrize
+             * @memberof wm.protobuf.RegisterSystemInfoResponse
+             * @instance
+             */
+            RegisterSystemInfoResponse.prototype.bingoPrize = $util.emptyArray;
+
+            /**
+             * RegisterSystemInfoResponse koshienWonShopName.
+             * @member {Array.<wm.protobuf.IGhostKoshienWonShop>} koshienWonShopName
+             * @memberof wm.protobuf.RegisterSystemInfoResponse
+             * @instance
+             */
+            RegisterSystemInfoResponse.prototype.koshienWonShopName = $util.emptyArray;
+
+            /**
+             * RegisterSystemInfoResponse koshienInfo.
+             * @member {wm.protobuf.RegisterSystemInfoResponse.IGhostKoshienInfo|null|undefined} koshienInfo
+             * @memberof wm.protobuf.RegisterSystemInfoResponse
+             * @instance
+             */
+            RegisterSystemInfoResponse.prototype.koshienInfo = null;
+
+            /**
+             * RegisterSystemInfoResponse koshienEventWasHeld.
+             * @member {boolean} koshienEventWasHeld
+             * @memberof wm.protobuf.RegisterSystemInfoResponse
+             * @instance
+             */
+            RegisterSystemInfoResponse.prototype.koshienEventWasHeld = false;
+
+            /**
+             * RegisterSystemInfoResponse specialPresentItem.
+             * @member {wm.protobuf.ICarItem|null|undefined} specialPresentItem
+             * @memberof wm.protobuf.RegisterSystemInfoResponse
+             * @instance
+             */
+            RegisterSystemInfoResponse.prototype.specialPresentItem = null;
+
+            /**
+             * RegisterSystemInfoResponse previousKoshienId.
+             * @member {number} previousKoshienId
+             * @memberof wm.protobuf.RegisterSystemInfoResponse
+             * @instance
+             */
+            RegisterSystemInfoResponse.prototype.previousKoshienId = 0;
+
+            /**
+             * RegisterSystemInfoResponse previousKoshienPrize.
+             * @member {wm.protobuf.IGhostKoshienPrize|null|undefined} previousKoshienPrize
+             * @memberof wm.protobuf.RegisterSystemInfoResponse
+             * @instance
+             */
+            RegisterSystemInfoResponse.prototype.previousKoshienPrize = null;
+
+            /**
              * Creates a new RegisterSystemInfoResponse instance using the specified properties.
              * @function create
              * @memberof wm.protobuf.RegisterSystemInfoResponse
@@ -1133,6 +1208,25 @@ export const wm = $root.wm = (() => {
                     $root.wm.protobuf.GhostExpeditionSchedule.encode(message.expeditionSchedule, writer.uint32(/* id 30, wireType 2 =*/242).fork()).ldelim();
                 if (message.expeditionEventWasHeld != null && Object.hasOwnProperty.call(message, "expeditionEventWasHeld"))
                     writer.uint32(/* id 31, wireType 0 =*/248).bool(message.expeditionEventWasHeld);
+                if (message.bingoNumbers != null && message.bingoNumbers.length)
+                    for (let i = 0; i < message.bingoNumbers.length; ++i)
+                        writer.uint32(/* id 32, wireType 0 =*/256).uint32(message.bingoNumbers[i]);
+                if (message.bingoPrize != null && message.bingoPrize.length)
+                    for (let i = 0; i < message.bingoPrize.length; ++i)
+                        $root.wm.protobuf.BingoPrize.encode(message.bingoPrize[i], writer.uint32(/* id 33, wireType 2 =*/266).fork()).ldelim();
+                if (message.koshienWonShopName != null && message.koshienWonShopName.length)
+                    for (let i = 0; i < message.koshienWonShopName.length; ++i)
+                        $root.wm.protobuf.GhostKoshienWonShop.encode(message.koshienWonShopName[i], writer.uint32(/* id 35, wireType 2 =*/282).fork()).ldelim();
+                if (message.koshienInfo != null && Object.hasOwnProperty.call(message, "koshienInfo"))
+                    $root.wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo.encode(message.koshienInfo, writer.uint32(/* id 37, wireType 2 =*/298).fork()).ldelim();
+                if (message.koshienEventWasHeld != null && Object.hasOwnProperty.call(message, "koshienEventWasHeld"))
+                    writer.uint32(/* id 38, wireType 0 =*/304).bool(message.koshienEventWasHeld);
+                if (message.specialPresentItem != null && Object.hasOwnProperty.call(message, "specialPresentItem"))
+                    $root.wm.protobuf.CarItem.encode(message.specialPresentItem, writer.uint32(/* id 39, wireType 2 =*/314).fork()).ldelim();
+                if (message.previousKoshienId != null && Object.hasOwnProperty.call(message, "previousKoshienId"))
+                    writer.uint32(/* id 40, wireType 0 =*/320).uint32(message.previousKoshienId);
+                if (message.previousKoshienPrize != null && Object.hasOwnProperty.call(message, "previousKoshienPrize"))
+                    $root.wm.protobuf.GhostKoshienPrize.encode(message.previousKoshienPrize, writer.uint32(/* id 41, wireType 2 =*/330).fork()).ldelim();
                 return writer;
             };
 
@@ -1226,6 +1320,49 @@ export const wm = $root.wm = (() => {
                             message.expeditionEventWasHeld = reader.bool();
                             break;
                         }
+                    case 32: {
+                            if (!(message.bingoNumbers && message.bingoNumbers.length))
+                                message.bingoNumbers = [];
+                            if ((tag & 7) === 2) {
+                                let end2 = reader.uint32() + reader.pos;
+                                while (reader.pos < end2)
+                                    message.bingoNumbers.push(reader.uint32());
+                            } else
+                                message.bingoNumbers.push(reader.uint32());
+                            break;
+                        }
+                    case 33: {
+                            if (!(message.bingoPrize && message.bingoPrize.length))
+                                message.bingoPrize = [];
+                            message.bingoPrize.push($root.wm.protobuf.BingoPrize.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    case 35: {
+                            if (!(message.koshienWonShopName && message.koshienWonShopName.length))
+                                message.koshienWonShopName = [];
+                            message.koshienWonShopName.push($root.wm.protobuf.GhostKoshienWonShop.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    case 37: {
+                            message.koshienInfo = $root.wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 38: {
+                            message.koshienEventWasHeld = reader.bool();
+                            break;
+                        }
+                    case 39: {
+                            message.specialPresentItem = $root.wm.protobuf.CarItem.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 40: {
+                            message.previousKoshienId = reader.uint32();
+                            break;
+                        }
+                    case 41: {
+                            message.previousKoshienPrize = $root.wm.protobuf.GhostKoshienPrize.decode(reader, reader.uint32());
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -1288,6 +1425,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (!$util.isInteger(message.regionId))
@@ -1339,6 +1482,52 @@ export const wm = $root.wm = (() => {
                 if (message.expeditionEventWasHeld != null && message.hasOwnProperty("expeditionEventWasHeld"))
                     if (typeof message.expeditionEventWasHeld !== "boolean")
                         return "expeditionEventWasHeld: boolean expected";
+                if (message.bingoNumbers != null && message.hasOwnProperty("bingoNumbers")) {
+                    if (!Array.isArray(message.bingoNumbers))
+                        return "bingoNumbers: array expected";
+                    for (let i = 0; i < message.bingoNumbers.length; ++i)
+                        if (!$util.isInteger(message.bingoNumbers[i]))
+                            return "bingoNumbers: integer[] expected";
+                }
+                if (message.bingoPrize != null && message.hasOwnProperty("bingoPrize")) {
+                    if (!Array.isArray(message.bingoPrize))
+                        return "bingoPrize: array expected";
+                    for (let i = 0; i < message.bingoPrize.length; ++i) {
+                        let error = $root.wm.protobuf.BingoPrize.verify(message.bingoPrize[i]);
+                        if (error)
+                            return "bingoPrize." + error;
+                    }
+                }
+                if (message.koshienWonShopName != null && message.hasOwnProperty("koshienWonShopName")) {
+                    if (!Array.isArray(message.koshienWonShopName))
+                        return "koshienWonShopName: array expected";
+                    for (let i = 0; i < message.koshienWonShopName.length; ++i) {
+                        let error = $root.wm.protobuf.GhostKoshienWonShop.verify(message.koshienWonShopName[i]);
+                        if (error)
+                            return "koshienWonShopName." + error;
+                    }
+                }
+                if (message.koshienInfo != null && message.hasOwnProperty("koshienInfo")) {
+                    let error = $root.wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo.verify(message.koshienInfo);
+                    if (error)
+                        return "koshienInfo." + error;
+                }
+                if (message.koshienEventWasHeld != null && message.hasOwnProperty("koshienEventWasHeld"))
+                    if (typeof message.koshienEventWasHeld !== "boolean")
+                        return "koshienEventWasHeld: boolean expected";
+                if (message.specialPresentItem != null && message.hasOwnProperty("specialPresentItem")) {
+                    let error = $root.wm.protobuf.CarItem.verify(message.specialPresentItem);
+                    if (error)
+                        return "specialPresentItem." + error;
+                }
+                if (message.previousKoshienId != null && message.hasOwnProperty("previousKoshienId"))
+                    if (!$util.isInteger(message.previousKoshienId))
+                        return "previousKoshienId: integer expected";
+                if (message.previousKoshienPrize != null && message.hasOwnProperty("previousKoshienPrize")) {
+                    let error = $root.wm.protobuf.GhostKoshienPrize.verify(message.previousKoshienPrize);
+                    if (error)
+                        return "previousKoshienPrize." + error;
+                }
                 return null;
             };
 
@@ -1403,6 +1592,30 @@ export const wm = $root.wm = (() => {
                 case 13:
                     message.error = 13;
                     break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
+                    break;
                 }
                 if (object.regionId != null)
                     message.regionId = object.regionId >>> 0;
@@ -1455,6 +1668,52 @@ export const wm = $root.wm = (() => {
                 }
                 if (object.expeditionEventWasHeld != null)
                     message.expeditionEventWasHeld = Boolean(object.expeditionEventWasHeld);
+                if (object.bingoNumbers) {
+                    if (!Array.isArray(object.bingoNumbers))
+                        throw TypeError(".wm.protobuf.RegisterSystemInfoResponse.bingoNumbers: array expected");
+                    message.bingoNumbers = [];
+                    for (let i = 0; i < object.bingoNumbers.length; ++i)
+                        message.bingoNumbers[i] = object.bingoNumbers[i] >>> 0;
+                }
+                if (object.bingoPrize) {
+                    if (!Array.isArray(object.bingoPrize))
+                        throw TypeError(".wm.protobuf.RegisterSystemInfoResponse.bingoPrize: array expected");
+                    message.bingoPrize = [];
+                    for (let i = 0; i < object.bingoPrize.length; ++i) {
+                        if (typeof object.bingoPrize[i] !== "object")
+                            throw TypeError(".wm.protobuf.RegisterSystemInfoResponse.bingoPrize: object expected");
+                        message.bingoPrize[i] = $root.wm.protobuf.BingoPrize.fromObject(object.bingoPrize[i]);
+                    }
+                }
+                if (object.koshienWonShopName) {
+                    if (!Array.isArray(object.koshienWonShopName))
+                        throw TypeError(".wm.protobuf.RegisterSystemInfoResponse.koshienWonShopName: array expected");
+                    message.koshienWonShopName = [];
+                    for (let i = 0; i < object.koshienWonShopName.length; ++i) {
+                        if (typeof object.koshienWonShopName[i] !== "object")
+                            throw TypeError(".wm.protobuf.RegisterSystemInfoResponse.koshienWonShopName: object expected");
+                        message.koshienWonShopName[i] = $root.wm.protobuf.GhostKoshienWonShop.fromObject(object.koshienWonShopName[i]);
+                    }
+                }
+                if (object.koshienInfo != null) {
+                    if (typeof object.koshienInfo !== "object")
+                        throw TypeError(".wm.protobuf.RegisterSystemInfoResponse.koshienInfo: object expected");
+                    message.koshienInfo = $root.wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo.fromObject(object.koshienInfo);
+                }
+                if (object.koshienEventWasHeld != null)
+                    message.koshienEventWasHeld = Boolean(object.koshienEventWasHeld);
+                if (object.specialPresentItem != null) {
+                    if (typeof object.specialPresentItem !== "object")
+                        throw TypeError(".wm.protobuf.RegisterSystemInfoResponse.specialPresentItem: object expected");
+                    message.specialPresentItem = $root.wm.protobuf.CarItem.fromObject(object.specialPresentItem);
+                }
+                if (object.previousKoshienId != null)
+                    message.previousKoshienId = object.previousKoshienId >>> 0;
+                if (object.previousKoshienPrize != null) {
+                    if (typeof object.previousKoshienPrize !== "object")
+                        throw TypeError(".wm.protobuf.RegisterSystemInfoResponse.previousKoshienPrize: object expected");
+                    message.previousKoshienPrize = $root.wm.protobuf.GhostKoshienPrize.fromObject(object.previousKoshienPrize);
+                }
                 return message;
             };
 
@@ -1471,8 +1730,12 @@ export const wm = $root.wm = (() => {
                 if (!options)
                     options = {};
                 let object = {};
-                if (options.arrays || options.defaults)
+                if (options.arrays || options.defaults) {
                     object.allowedClientLogTypes = [];
+                    object.bingoNumbers = [];
+                    object.bingoPrize = [];
+                    object.koshienWonShopName = [];
+                }
                 if (options.defaults) {
                     object.error = options.enums === String ? "ERR_SUCCESS" : 0;
                     object.regionId = 0;
@@ -1486,6 +1749,11 @@ export const wm = $root.wm = (() => {
                     object.ghostSelectionMaxRedoWait = 0;
                     object.expeditionSchedule = null;
                     object.expeditionEventWasHeld = false;
+                    object.koshienInfo = null;
+                    object.koshienEventWasHeld = false;
+                    object.specialPresentItem = null;
+                    object.previousKoshienId = 0;
+                    object.previousKoshienPrize = null;
                 }
                 if (message.error != null && message.hasOwnProperty("error"))
                     object.error = options.enums === String ? $root.wm.protobuf.ErrorCode[message.error] : message.error;
@@ -1516,6 +1784,31 @@ export const wm = $root.wm = (() => {
                     object.expeditionSchedule = $root.wm.protobuf.GhostExpeditionSchedule.toObject(message.expeditionSchedule, options);
                 if (message.expeditionEventWasHeld != null && message.hasOwnProperty("expeditionEventWasHeld"))
                     object.expeditionEventWasHeld = message.expeditionEventWasHeld;
+                if (message.bingoNumbers && message.bingoNumbers.length) {
+                    object.bingoNumbers = [];
+                    for (let j = 0; j < message.bingoNumbers.length; ++j)
+                        object.bingoNumbers[j] = message.bingoNumbers[j];
+                }
+                if (message.bingoPrize && message.bingoPrize.length) {
+                    object.bingoPrize = [];
+                    for (let j = 0; j < message.bingoPrize.length; ++j)
+                        object.bingoPrize[j] = $root.wm.protobuf.BingoPrize.toObject(message.bingoPrize[j], options);
+                }
+                if (message.koshienWonShopName && message.koshienWonShopName.length) {
+                    object.koshienWonShopName = [];
+                    for (let j = 0; j < message.koshienWonShopName.length; ++j)
+                        object.koshienWonShopName[j] = $root.wm.protobuf.GhostKoshienWonShop.toObject(message.koshienWonShopName[j], options);
+                }
+                if (message.koshienInfo != null && message.hasOwnProperty("koshienInfo"))
+                    object.koshienInfo = $root.wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo.toObject(message.koshienInfo, options);
+                if (message.koshienEventWasHeld != null && message.hasOwnProperty("koshienEventWasHeld"))
+                    object.koshienEventWasHeld = message.koshienEventWasHeld;
+                if (message.specialPresentItem != null && message.hasOwnProperty("specialPresentItem"))
+                    object.specialPresentItem = $root.wm.protobuf.CarItem.toObject(message.specialPresentItem, options);
+                if (message.previousKoshienId != null && message.hasOwnProperty("previousKoshienId"))
+                    object.previousKoshienId = message.previousKoshienId;
+                if (message.previousKoshienPrize != null && message.hasOwnProperty("previousKoshienPrize"))
+                    object.previousKoshienPrize = $root.wm.protobuf.GhostKoshienPrize.toObject(message.previousKoshienPrize, options);
                 return object;
             };
 
@@ -1544,6 +1837,314 @@ export const wm = $root.wm = (() => {
                 }
                 return typeUrlPrefix + "/wm.protobuf.RegisterSystemInfoResponse";
             };
+
+            RegisterSystemInfoResponse.GhostKoshienInfo = (function() {
+
+                /**
+                 * Properties of a GhostKoshienInfo.
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse
+                 * @interface IGhostKoshienInfo
+                 * @property {wm.protobuf.IGhostKoshienSchedule} koshienSchedule GhostKoshienInfo koshienSchedule
+                 * @property {wm.protobuf.IGhostKoshienPrize} koshienPrize GhostKoshienInfo koshienPrize
+                 * @property {boolean} reception GhostKoshienInfo reception
+                 * @property {boolean|null} [isKoshienShop] GhostKoshienInfo isKoshienShop
+                 * @property {boolean} qualified GhostKoshienInfo qualified
+                 */
+
+                /**
+                 * Constructs a new GhostKoshienInfo.
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse
+                 * @classdesc Represents a GhostKoshienInfo.
+                 * @implements IGhostKoshienInfo
+                 * @constructor
+                 * @param {wm.protobuf.RegisterSystemInfoResponse.IGhostKoshienInfo=} [properties] Properties to set
+                 */
+                function GhostKoshienInfo(properties) {
+                    if (properties)
+                        for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * GhostKoshienInfo koshienSchedule.
+                 * @member {wm.protobuf.IGhostKoshienSchedule} koshienSchedule
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo
+                 * @instance
+                 */
+                GhostKoshienInfo.prototype.koshienSchedule = null;
+
+                /**
+                 * GhostKoshienInfo koshienPrize.
+                 * @member {wm.protobuf.IGhostKoshienPrize} koshienPrize
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo
+                 * @instance
+                 */
+                GhostKoshienInfo.prototype.koshienPrize = null;
+
+                /**
+                 * GhostKoshienInfo reception.
+                 * @member {boolean} reception
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo
+                 * @instance
+                 */
+                GhostKoshienInfo.prototype.reception = false;
+
+                /**
+                 * GhostKoshienInfo isKoshienShop.
+                 * @member {boolean} isKoshienShop
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo
+                 * @instance
+                 */
+                GhostKoshienInfo.prototype.isKoshienShop = false;
+
+                /**
+                 * GhostKoshienInfo qualified.
+                 * @member {boolean} qualified
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo
+                 * @instance
+                 */
+                GhostKoshienInfo.prototype.qualified = false;
+
+                /**
+                 * Creates a new GhostKoshienInfo instance using the specified properties.
+                 * @function create
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo
+                 * @static
+                 * @param {wm.protobuf.RegisterSystemInfoResponse.IGhostKoshienInfo=} [properties] Properties to set
+                 * @returns {wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo} GhostKoshienInfo instance
+                 */
+                GhostKoshienInfo.create = function create(properties) {
+                    return new GhostKoshienInfo(properties);
+                };
+
+                /**
+                 * Encodes the specified GhostKoshienInfo message. Does not implicitly {@link wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo.verify|verify} messages.
+                 * @function encode
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo
+                 * @static
+                 * @param {wm.protobuf.RegisterSystemInfoResponse.IGhostKoshienInfo} message GhostKoshienInfo message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                GhostKoshienInfo.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    $root.wm.protobuf.GhostKoshienSchedule.encode(message.koshienSchedule, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                    $root.wm.protobuf.GhostKoshienPrize.encode(message.koshienPrize, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                    writer.uint32(/* id 3, wireType 0 =*/24).bool(message.reception);
+                    if (message.isKoshienShop != null && Object.hasOwnProperty.call(message, "isKoshienShop"))
+                        writer.uint32(/* id 4, wireType 0 =*/32).bool(message.isKoshienShop);
+                    writer.uint32(/* id 5, wireType 0 =*/40).bool(message.qualified);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified GhostKoshienInfo message, length delimited. Does not implicitly {@link wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo
+                 * @static
+                 * @param {wm.protobuf.RegisterSystemInfoResponse.IGhostKoshienInfo} message GhostKoshienInfo message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                GhostKoshienInfo.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a GhostKoshienInfo message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo} GhostKoshienInfo
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                GhostKoshienInfo.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo();
+                    while (reader.pos < end) {
+                        let tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.koshienSchedule = $root.wm.protobuf.GhostKoshienSchedule.decode(reader, reader.uint32());
+                                break;
+                            }
+                        case 2: {
+                                message.koshienPrize = $root.wm.protobuf.GhostKoshienPrize.decode(reader, reader.uint32());
+                                break;
+                            }
+                        case 3: {
+                                message.reception = reader.bool();
+                                break;
+                            }
+                        case 4: {
+                                message.isKoshienShop = reader.bool();
+                                break;
+                            }
+                        case 5: {
+                                message.qualified = reader.bool();
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    if (!message.hasOwnProperty("koshienSchedule"))
+                        throw $util.ProtocolError("missing required 'koshienSchedule'", { instance: message });
+                    if (!message.hasOwnProperty("koshienPrize"))
+                        throw $util.ProtocolError("missing required 'koshienPrize'", { instance: message });
+                    if (!message.hasOwnProperty("reception"))
+                        throw $util.ProtocolError("missing required 'reception'", { instance: message });
+                    if (!message.hasOwnProperty("qualified"))
+                        throw $util.ProtocolError("missing required 'qualified'", { instance: message });
+                    return message;
+                };
+
+                /**
+                 * Decodes a GhostKoshienInfo message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo} GhostKoshienInfo
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                GhostKoshienInfo.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a GhostKoshienInfo message.
+                 * @function verify
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                GhostKoshienInfo.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    {
+                        let error = $root.wm.protobuf.GhostKoshienSchedule.verify(message.koshienSchedule);
+                        if (error)
+                            return "koshienSchedule." + error;
+                    }
+                    {
+                        let error = $root.wm.protobuf.GhostKoshienPrize.verify(message.koshienPrize);
+                        if (error)
+                            return "koshienPrize." + error;
+                    }
+                    if (typeof message.reception !== "boolean")
+                        return "reception: boolean expected";
+                    if (message.isKoshienShop != null && message.hasOwnProperty("isKoshienShop"))
+                        if (typeof message.isKoshienShop !== "boolean")
+                            return "isKoshienShop: boolean expected";
+                    if (typeof message.qualified !== "boolean")
+                        return "qualified: boolean expected";
+                    return null;
+                };
+
+                /**
+                 * Creates a GhostKoshienInfo message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo} GhostKoshienInfo
+                 */
+                GhostKoshienInfo.fromObject = function fromObject(object) {
+                    if (object instanceof $root.wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo)
+                        return object;
+                    let message = new $root.wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo();
+                    if (object.koshienSchedule != null) {
+                        if (typeof object.koshienSchedule !== "object")
+                            throw TypeError(".wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo.koshienSchedule: object expected");
+                        message.koshienSchedule = $root.wm.protobuf.GhostKoshienSchedule.fromObject(object.koshienSchedule);
+                    }
+                    if (object.koshienPrize != null) {
+                        if (typeof object.koshienPrize !== "object")
+                            throw TypeError(".wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo.koshienPrize: object expected");
+                        message.koshienPrize = $root.wm.protobuf.GhostKoshienPrize.fromObject(object.koshienPrize);
+                    }
+                    if (object.reception != null)
+                        message.reception = Boolean(object.reception);
+                    if (object.isKoshienShop != null)
+                        message.isKoshienShop = Boolean(object.isKoshienShop);
+                    if (object.qualified != null)
+                        message.qualified = Boolean(object.qualified);
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a GhostKoshienInfo message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo
+                 * @static
+                 * @param {wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo} message GhostKoshienInfo
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                GhostKoshienInfo.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    let object = {};
+                    if (options.defaults) {
+                        object.koshienSchedule = null;
+                        object.koshienPrize = null;
+                        object.reception = false;
+                        object.isKoshienShop = false;
+                        object.qualified = false;
+                    }
+                    if (message.koshienSchedule != null && message.hasOwnProperty("koshienSchedule"))
+                        object.koshienSchedule = $root.wm.protobuf.GhostKoshienSchedule.toObject(message.koshienSchedule, options);
+                    if (message.koshienPrize != null && message.hasOwnProperty("koshienPrize"))
+                        object.koshienPrize = $root.wm.protobuf.GhostKoshienPrize.toObject(message.koshienPrize, options);
+                    if (message.reception != null && message.hasOwnProperty("reception"))
+                        object.reception = message.reception;
+                    if (message.isKoshienShop != null && message.hasOwnProperty("isKoshienShop"))
+                        object.isKoshienShop = message.isKoshienShop;
+                    if (message.qualified != null && message.hasOwnProperty("qualified"))
+                        object.qualified = message.qualified;
+                    return object;
+                };
+
+                /**
+                 * Converts this GhostKoshienInfo to JSON.
+                 * @function toJSON
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                GhostKoshienInfo.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the default type url for GhostKoshienInfo
+                 * @function getTypeUrl
+                 * @memberof wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                GhostKoshienInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo";
+                };
+
+                return GhostKoshienInfo;
+            })();
 
             return RegisterSystemInfoResponse;
         })();
@@ -2645,6 +3246,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -2710,6 +3317,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -2801,7 +3432,7 @@ export const wm = $root.wm = (() => {
              * @memberof wm.protobuf.RegisterGhostTrailRequest
              * @instance
              */
-            RegisterGhostTrailRequest.prototype.ghostSessionId = 0;
+            RegisterGhostTrailRequest.prototype.ghostSessionId = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
             /**
              * RegisterGhostTrailRequest ghost.
@@ -3108,7 +3739,11 @@ export const wm = $root.wm = (() => {
                     options = {};
                 let object = {};
                 if (options.defaults) {
-                    object.ghostSessionId = 0;
+                    if ($util.Long) {
+                        let long = new $util.Long(0, 0, true);
+                        object.ghostSessionId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.ghostSessionId = options.longs === String ? "0" : 0;
                     object.ghost = null;
                     if (options.bytes === String)
                         object.trail = "";
@@ -3321,6 +3956,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -3386,6 +4027,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -3876,6 +4541,13 @@ export const wm = $root.wm = (() => {
              * @property {boolean} ghostVs_2Locked LoadUserResponse ghostVs_2Locked
              * @property {boolean} ghostVs_3Locked LoadUserResponse ghostVs_3Locked
              * @property {boolean} ghostHighwayLocked LoadUserResponse ghostHighwayLocked
+             * @property {number} bingoMismatchNumberAcquiredCount LoadUserResponse bingoMismatchNumberAcquiredCount
+             * @property {Array.<wm.protobuf.IBingoPrize>|null} [previousAcquiredBingoPrize] LoadUserResponse previousAcquiredBingoPrize
+             * @property {wm.protobuf.GhostKoshienParticipantState|null} [koshienUserState] LoadUserResponse koshienUserState
+             * @property {wm.protobuf.GhostKoshienParticipantState|null} [koshienLastPlayedState] LoadUserResponse koshienLastPlayedState
+             * @property {string|null} [koshienRegistPlaceId] LoadUserResponse koshienRegistPlaceId
+             * @property {number} receivedNumOfItems LoadUserResponse receivedNumOfItems
+             * @property {number} bingoPlayedCount LoadUserResponse bingoPlayedCount
              */
 
             /**
@@ -3891,6 +4563,7 @@ export const wm = $root.wm = (() => {
                 this.carStates = [];
                 this.unusedCarTickets = [];
                 this.tutorials = [];
+                this.previousAcquiredBingoPrize = [];
                 if (properties)
                     for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -4130,6 +4803,62 @@ export const wm = $root.wm = (() => {
             LoadUserResponse.prototype.ghostHighwayLocked = false;
 
             /**
+             * LoadUserResponse bingoMismatchNumberAcquiredCount.
+             * @member {number} bingoMismatchNumberAcquiredCount
+             * @memberof wm.protobuf.LoadUserResponse
+             * @instance
+             */
+            LoadUserResponse.prototype.bingoMismatchNumberAcquiredCount = 0;
+
+            /**
+             * LoadUserResponse previousAcquiredBingoPrize.
+             * @member {Array.<wm.protobuf.IBingoPrize>} previousAcquiredBingoPrize
+             * @memberof wm.protobuf.LoadUserResponse
+             * @instance
+             */
+            LoadUserResponse.prototype.previousAcquiredBingoPrize = $util.emptyArray;
+
+            /**
+             * LoadUserResponse koshienUserState.
+             * @member {wm.protobuf.GhostKoshienParticipantState} koshienUserState
+             * @memberof wm.protobuf.LoadUserResponse
+             * @instance
+             */
+            LoadUserResponse.prototype.koshienUserState = 1;
+
+            /**
+             * LoadUserResponse koshienLastPlayedState.
+             * @member {wm.protobuf.GhostKoshienParticipantState} koshienLastPlayedState
+             * @memberof wm.protobuf.LoadUserResponse
+             * @instance
+             */
+            LoadUserResponse.prototype.koshienLastPlayedState = 1;
+
+            /**
+             * LoadUserResponse koshienRegistPlaceId.
+             * @member {string} koshienRegistPlaceId
+             * @memberof wm.protobuf.LoadUserResponse
+             * @instance
+             */
+            LoadUserResponse.prototype.koshienRegistPlaceId = "";
+
+            /**
+             * LoadUserResponse receivedNumOfItems.
+             * @member {number} receivedNumOfItems
+             * @memberof wm.protobuf.LoadUserResponse
+             * @instance
+             */
+            LoadUserResponse.prototype.receivedNumOfItems = 0;
+
+            /**
+             * LoadUserResponse bingoPlayedCount.
+             * @member {number} bingoPlayedCount
+             * @memberof wm.protobuf.LoadUserResponse
+             * @instance
+             */
+            LoadUserResponse.prototype.bingoPlayedCount = 0;
+
+            /**
              * Creates a new LoadUserResponse instance using the specified properties.
              * @function create
              * @memberof wm.protobuf.LoadUserResponse
@@ -4207,6 +4936,18 @@ export const wm = $root.wm = (() => {
                 writer.uint32(/* id 34, wireType 0 =*/272).bool(message.ghostVs_2Locked);
                 writer.uint32(/* id 35, wireType 0 =*/280).bool(message.ghostVs_3Locked);
                 writer.uint32(/* id 36, wireType 0 =*/288).bool(message.ghostHighwayLocked);
+                writer.uint32(/* id 38, wireType 0 =*/304).uint32(message.bingoMismatchNumberAcquiredCount);
+                if (message.previousAcquiredBingoPrize != null && message.previousAcquiredBingoPrize.length)
+                    for (let i = 0; i < message.previousAcquiredBingoPrize.length; ++i)
+                        $root.wm.protobuf.BingoPrize.encode(message.previousAcquiredBingoPrize[i], writer.uint32(/* id 39, wireType 2 =*/314).fork()).ldelim();
+                if (message.koshienUserState != null && Object.hasOwnProperty.call(message, "koshienUserState"))
+                    writer.uint32(/* id 41, wireType 0 =*/328).int32(message.koshienUserState);
+                writer.uint32(/* id 42, wireType 0 =*/336).uint32(message.receivedNumOfItems);
+                if (message.koshienRegistPlaceId != null && Object.hasOwnProperty.call(message, "koshienRegistPlaceId"))
+                    writer.uint32(/* id 43, wireType 2 =*/346).string(message.koshienRegistPlaceId);
+                writer.uint32(/* id 44, wireType 0 =*/352).uint32(message.bingoPlayedCount);
+                if (message.koshienLastPlayedState != null && Object.hasOwnProperty.call(message, "koshienLastPlayedState"))
+                    writer.uint32(/* id 45, wireType 0 =*/360).int32(message.koshienLastPlayedState);
                 return writer;
             };
 
@@ -4370,6 +5111,36 @@ export const wm = $root.wm = (() => {
                             message.ghostHighwayLocked = reader.bool();
                             break;
                         }
+                    case 38: {
+                            message.bingoMismatchNumberAcquiredCount = reader.uint32();
+                            break;
+                        }
+                    case 39: {
+                            if (!(message.previousAcquiredBingoPrize && message.previousAcquiredBingoPrize.length))
+                                message.previousAcquiredBingoPrize = [];
+                            message.previousAcquiredBingoPrize.push($root.wm.protobuf.BingoPrize.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    case 41: {
+                            message.koshienUserState = reader.int32();
+                            break;
+                        }
+                    case 45: {
+                            message.koshienLastPlayedState = reader.int32();
+                            break;
+                        }
+                    case 43: {
+                            message.koshienRegistPlaceId = reader.string();
+                            break;
+                        }
+                    case 42: {
+                            message.receivedNumOfItems = reader.uint32();
+                            break;
+                        }
+                    case 44: {
+                            message.bingoPlayedCount = reader.uint32();
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -4391,6 +5162,12 @@ export const wm = $root.wm = (() => {
                     throw $util.ProtocolError("missing required 'ghostVs_3Locked'", { instance: message });
                 if (!message.hasOwnProperty("ghostHighwayLocked"))
                     throw $util.ProtocolError("missing required 'ghostHighwayLocked'", { instance: message });
+                if (!message.hasOwnProperty("bingoMismatchNumberAcquiredCount"))
+                    throw $util.ProtocolError("missing required 'bingoMismatchNumberAcquiredCount'", { instance: message });
+                if (!message.hasOwnProperty("receivedNumOfItems"))
+                    throw $util.ProtocolError("missing required 'receivedNumOfItems'", { instance: message });
+                if (!message.hasOwnProperty("bingoPlayedCount"))
+                    throw $util.ProtocolError("missing required 'bingoPlayedCount'", { instance: message });
                 return message;
             };
 
@@ -4436,6 +5213,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.unlockAt != null && message.hasOwnProperty("unlockAt"))
@@ -4560,6 +5343,56 @@ export const wm = $root.wm = (() => {
                     return "ghostVs_3Locked: boolean expected";
                 if (typeof message.ghostHighwayLocked !== "boolean")
                     return "ghostHighwayLocked: boolean expected";
+                if (!$util.isInteger(message.bingoMismatchNumberAcquiredCount))
+                    return "bingoMismatchNumberAcquiredCount: integer expected";
+                if (message.previousAcquiredBingoPrize != null && message.hasOwnProperty("previousAcquiredBingoPrize")) {
+                    if (!Array.isArray(message.previousAcquiredBingoPrize))
+                        return "previousAcquiredBingoPrize: array expected";
+                    for (let i = 0; i < message.previousAcquiredBingoPrize.length; ++i) {
+                        let error = $root.wm.protobuf.BingoPrize.verify(message.previousAcquiredBingoPrize[i]);
+                        if (error)
+                            return "previousAcquiredBingoPrize." + error;
+                    }
+                }
+                if (message.koshienUserState != null && message.hasOwnProperty("koshienUserState"))
+                    switch (message.koshienUserState) {
+                    default:
+                        return "koshienUserState: enum value expected";
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                    case 9:
+                    case 10:
+                        break;
+                    }
+                if (message.koshienLastPlayedState != null && message.hasOwnProperty("koshienLastPlayedState"))
+                    switch (message.koshienLastPlayedState) {
+                    default:
+                        return "koshienLastPlayedState: enum value expected";
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                    case 9:
+                    case 10:
+                        break;
+                    }
+                if (message.koshienRegistPlaceId != null && message.hasOwnProperty("koshienRegistPlaceId"))
+                    if (!$util.isString(message.koshienRegistPlaceId))
+                        return "koshienRegistPlaceId: string expected";
+                if (!$util.isInteger(message.receivedNumOfItems))
+                    return "receivedNumOfItems: integer expected";
+                if (!$util.isInteger(message.bingoPlayedCount))
+                    return "bingoPlayedCount: integer expected";
                 return null;
             };
 
@@ -4623,6 +5456,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.unlockAt != null)
@@ -4761,6 +5618,108 @@ export const wm = $root.wm = (() => {
                     message.ghostVs_3Locked = Boolean(object.ghostVs_3Locked);
                 if (object.ghostHighwayLocked != null)
                     message.ghostHighwayLocked = Boolean(object.ghostHighwayLocked);
+                if (object.bingoMismatchNumberAcquiredCount != null)
+                    message.bingoMismatchNumberAcquiredCount = object.bingoMismatchNumberAcquiredCount >>> 0;
+                if (object.previousAcquiredBingoPrize) {
+                    if (!Array.isArray(object.previousAcquiredBingoPrize))
+                        throw TypeError(".wm.protobuf.LoadUserResponse.previousAcquiredBingoPrize: array expected");
+                    message.previousAcquiredBingoPrize = [];
+                    for (let i = 0; i < object.previousAcquiredBingoPrize.length; ++i) {
+                        if (typeof object.previousAcquiredBingoPrize[i] !== "object")
+                            throw TypeError(".wm.protobuf.LoadUserResponse.previousAcquiredBingoPrize: object expected");
+                        message.previousAcquiredBingoPrize[i] = $root.wm.protobuf.BingoPrize.fromObject(object.previousAcquiredBingoPrize[i]);
+                    }
+                }
+                switch (object.koshienUserState) {
+                case "KOSHIEN_NOT_PARTICIPATED":
+                case 1:
+                    message.koshienUserState = 1;
+                    break;
+                case "KOSHIEN_FIRST_QUALIFIED":
+                case 2:
+                    message.koshienUserState = 2;
+                    break;
+                case "KOSHIEN_SECOND_QUALIFIED":
+                case 3:
+                    message.koshienUserState = 3;
+                    break;
+                case "KOSHIEN_REGION_PARTICIPATED":
+                case 4:
+                    message.koshienUserState = 4;
+                    break;
+                case "KOSHIEN_PARTICIPATED":
+                case 5:
+                    message.koshienUserState = 5;
+                    break;
+                case "KOSHIEN_FIRST_QUALIFIED_LOSE":
+                case 6:
+                    message.koshienUserState = 6;
+                    break;
+                case "KOSHIEN_SECOND_QUALIFIED_LOSE":
+                case 7:
+                    message.koshienUserState = 7;
+                    break;
+                case "KOSHIEN_REGION_PARTICIPATED_LOSE":
+                case 8:
+                    message.koshienUserState = 8;
+                    break;
+                case "KOSHIEN_WON":
+                case 9:
+                    message.koshienUserState = 9;
+                    break;
+                case "KOSHIEN_UNUSED":
+                case 10:
+                    message.koshienUserState = 10;
+                    break;
+                }
+                switch (object.koshienLastPlayedState) {
+                case "KOSHIEN_NOT_PARTICIPATED":
+                case 1:
+                    message.koshienLastPlayedState = 1;
+                    break;
+                case "KOSHIEN_FIRST_QUALIFIED":
+                case 2:
+                    message.koshienLastPlayedState = 2;
+                    break;
+                case "KOSHIEN_SECOND_QUALIFIED":
+                case 3:
+                    message.koshienLastPlayedState = 3;
+                    break;
+                case "KOSHIEN_REGION_PARTICIPATED":
+                case 4:
+                    message.koshienLastPlayedState = 4;
+                    break;
+                case "KOSHIEN_PARTICIPATED":
+                case 5:
+                    message.koshienLastPlayedState = 5;
+                    break;
+                case "KOSHIEN_FIRST_QUALIFIED_LOSE":
+                case 6:
+                    message.koshienLastPlayedState = 6;
+                    break;
+                case "KOSHIEN_SECOND_QUALIFIED_LOSE":
+                case 7:
+                    message.koshienLastPlayedState = 7;
+                    break;
+                case "KOSHIEN_REGION_PARTICIPATED_LOSE":
+                case 8:
+                    message.koshienLastPlayedState = 8;
+                    break;
+                case "KOSHIEN_WON":
+                case 9:
+                    message.koshienLastPlayedState = 9;
+                    break;
+                case "KOSHIEN_UNUSED":
+                case 10:
+                    message.koshienLastPlayedState = 10;
+                    break;
+                }
+                if (object.koshienRegistPlaceId != null)
+                    message.koshienRegistPlaceId = String(object.koshienRegistPlaceId);
+                if (object.receivedNumOfItems != null)
+                    message.receivedNumOfItems = object.receivedNumOfItems >>> 0;
+                if (object.bingoPlayedCount != null)
+                    message.bingoPlayedCount = object.bingoPlayedCount >>> 0;
                 return message;
             };
 
@@ -4782,6 +5741,7 @@ export const wm = $root.wm = (() => {
                     object.carStates = [];
                     object.unusedCarTickets = [];
                     object.tutorials = [];
+                    object.previousAcquiredBingoPrize = [];
                 }
                 if (options.defaults) {
                     object.error = options.enums === String ? "ERR_SUCCESS" : 0;
@@ -4809,6 +5769,12 @@ export const wm = $root.wm = (() => {
                     object.ghostVs_2Locked = false;
                     object.ghostVs_3Locked = false;
                     object.ghostHighwayLocked = false;
+                    object.bingoMismatchNumberAcquiredCount = 0;
+                    object.koshienUserState = options.enums === String ? "KOSHIEN_NOT_PARTICIPATED" : 1;
+                    object.receivedNumOfItems = 0;
+                    object.koshienRegistPlaceId = "";
+                    object.bingoPlayedCount = 0;
+                    object.koshienLastPlayedState = options.enums === String ? "KOSHIEN_NOT_PARTICIPATED" : 1;
                 }
                 if (message.error != null && message.hasOwnProperty("error"))
                     object.error = options.enums === String ? $root.wm.protobuf.ErrorCode[message.error] : message.error;
@@ -4880,6 +5846,23 @@ export const wm = $root.wm = (() => {
                     object.ghostVs_3Locked = message.ghostVs_3Locked;
                 if (message.ghostHighwayLocked != null && message.hasOwnProperty("ghostHighwayLocked"))
                     object.ghostHighwayLocked = message.ghostHighwayLocked;
+                if (message.bingoMismatchNumberAcquiredCount != null && message.hasOwnProperty("bingoMismatchNumberAcquiredCount"))
+                    object.bingoMismatchNumberAcquiredCount = message.bingoMismatchNumberAcquiredCount;
+                if (message.previousAcquiredBingoPrize && message.previousAcquiredBingoPrize.length) {
+                    object.previousAcquiredBingoPrize = [];
+                    for (let j = 0; j < message.previousAcquiredBingoPrize.length; ++j)
+                        object.previousAcquiredBingoPrize[j] = $root.wm.protobuf.BingoPrize.toObject(message.previousAcquiredBingoPrize[j], options);
+                }
+                if (message.koshienUserState != null && message.hasOwnProperty("koshienUserState"))
+                    object.koshienUserState = options.enums === String ? $root.wm.protobuf.GhostKoshienParticipantState[message.koshienUserState] : message.koshienUserState;
+                if (message.receivedNumOfItems != null && message.hasOwnProperty("receivedNumOfItems"))
+                    object.receivedNumOfItems = message.receivedNumOfItems;
+                if (message.koshienRegistPlaceId != null && message.hasOwnProperty("koshienRegistPlaceId"))
+                    object.koshienRegistPlaceId = message.koshienRegistPlaceId;
+                if (message.bingoPlayedCount != null && message.hasOwnProperty("bingoPlayedCount"))
+                    object.bingoPlayedCount = message.bingoPlayedCount;
+                if (message.koshienLastPlayedState != null && message.hasOwnProperty("koshienLastPlayedState"))
+                    object.koshienLastPlayedState = options.enums === String ? $root.wm.protobuf.GhostKoshienParticipantState[message.koshienLastPlayedState] : message.koshienLastPlayedState;
                 return object;
             };
 
@@ -4921,6 +5904,8 @@ export const wm = $root.wm = (() => {
                  * @property {boolean} eventJoined CarState eventJoined
                  * @property {boolean} transferred CarState transferred
                  * @property {number|null} [driveLastPlayedAt] CarState driveLastPlayedAt
+                 * @property {wm.protobuf.GhostKoshienParticipantState|null} [koshienState] CarState koshienState
+                 * @property {boolean|null} [koshienQualified] CarState koshienQualified
                  */
 
                 /**
@@ -4987,6 +5972,22 @@ export const wm = $root.wm = (() => {
                 CarState.prototype.driveLastPlayedAt = 0;
 
                 /**
+                 * CarState koshienState.
+                 * @member {wm.protobuf.GhostKoshienParticipantState} koshienState
+                 * @memberof wm.protobuf.LoadUserResponse.CarState
+                 * @instance
+                 */
+                CarState.prototype.koshienState = 1;
+
+                /**
+                 * CarState koshienQualified.
+                 * @member {boolean} koshienQualified
+                 * @memberof wm.protobuf.LoadUserResponse.CarState
+                 * @instance
+                 */
+                CarState.prototype.koshienQualified = false;
+
+                /**
                  * Creates a new CarState instance using the specified properties.
                  * @function create
                  * @memberof wm.protobuf.LoadUserResponse.CarState
@@ -5018,6 +6019,10 @@ export const wm = $root.wm = (() => {
                     writer.uint32(/* id 6, wireType 0 =*/48).bool(message.transferred);
                     if (message.driveLastPlayedAt != null && Object.hasOwnProperty.call(message, "driveLastPlayedAt"))
                         writer.uint32(/* id 7, wireType 0 =*/56).uint32(message.driveLastPlayedAt);
+                    if (message.koshienState != null && Object.hasOwnProperty.call(message, "koshienState"))
+                        writer.uint32(/* id 8, wireType 0 =*/64).int32(message.koshienState);
+                    if (message.koshienQualified != null && Object.hasOwnProperty.call(message, "koshienQualified"))
+                        writer.uint32(/* id 9, wireType 0 =*/72).bool(message.koshienQualified);
                     return writer;
                 };
 
@@ -5074,6 +6079,14 @@ export const wm = $root.wm = (() => {
                             }
                         case 7: {
                                 message.driveLastPlayedAt = reader.uint32();
+                                break;
+                            }
+                        case 8: {
+                                message.koshienState = reader.int32();
+                                break;
+                            }
+                        case 9: {
+                                message.koshienQualified = reader.bool();
                                 break;
                             }
                         default:
@@ -5140,6 +6153,25 @@ export const wm = $root.wm = (() => {
                     if (message.driveLastPlayedAt != null && message.hasOwnProperty("driveLastPlayedAt"))
                         if (!$util.isInteger(message.driveLastPlayedAt))
                             return "driveLastPlayedAt: integer expected";
+                    if (message.koshienState != null && message.hasOwnProperty("koshienState"))
+                        switch (message.koshienState) {
+                        default:
+                            return "koshienState: enum value expected";
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                        case 5:
+                        case 6:
+                        case 7:
+                        case 8:
+                        case 9:
+                        case 10:
+                            break;
+                        }
+                    if (message.koshienQualified != null && message.hasOwnProperty("koshienQualified"))
+                        if (typeof message.koshienQualified !== "boolean")
+                            return "koshienQualified: boolean expected";
                     return null;
                 };
 
@@ -5183,6 +6215,50 @@ export const wm = $root.wm = (() => {
                         message.transferred = Boolean(object.transferred);
                     if (object.driveLastPlayedAt != null)
                         message.driveLastPlayedAt = object.driveLastPlayedAt >>> 0;
+                    switch (object.koshienState) {
+                    case "KOSHIEN_NOT_PARTICIPATED":
+                    case 1:
+                        message.koshienState = 1;
+                        break;
+                    case "KOSHIEN_FIRST_QUALIFIED":
+                    case 2:
+                        message.koshienState = 2;
+                        break;
+                    case "KOSHIEN_SECOND_QUALIFIED":
+                    case 3:
+                        message.koshienState = 3;
+                        break;
+                    case "KOSHIEN_REGION_PARTICIPATED":
+                    case 4:
+                        message.koshienState = 4;
+                        break;
+                    case "KOSHIEN_PARTICIPATED":
+                    case 5:
+                        message.koshienState = 5;
+                        break;
+                    case "KOSHIEN_FIRST_QUALIFIED_LOSE":
+                    case 6:
+                        message.koshienState = 6;
+                        break;
+                    case "KOSHIEN_SECOND_QUALIFIED_LOSE":
+                    case 7:
+                        message.koshienState = 7;
+                        break;
+                    case "KOSHIEN_REGION_PARTICIPATED_LOSE":
+                    case 8:
+                        message.koshienState = 8;
+                        break;
+                    case "KOSHIEN_WON":
+                    case 9:
+                        message.koshienState = 9;
+                        break;
+                    case "KOSHIEN_UNUSED":
+                    case 10:
+                        message.koshienState = 10;
+                        break;
+                    }
+                    if (object.koshienQualified != null)
+                        message.koshienQualified = Boolean(object.koshienQualified);
                     return message;
                 };
 
@@ -5206,6 +6282,8 @@ export const wm = $root.wm = (() => {
                         object.eventJoined = false;
                         object.transferred = false;
                         object.driveLastPlayedAt = 0;
+                        object.koshienState = options.enums === String ? "KOSHIEN_NOT_PARTICIPATED" : 1;
+                        object.koshienQualified = false;
                     }
                     if (message.hasOpponentGhost != null && message.hasOwnProperty("hasOpponentGhost"))
                         object.hasOpponentGhost = message.hasOpponentGhost;
@@ -5219,6 +6297,10 @@ export const wm = $root.wm = (() => {
                         object.transferred = message.transferred;
                     if (message.driveLastPlayedAt != null && message.hasOwnProperty("driveLastPlayedAt"))
                         object.driveLastPlayedAt = message.driveLastPlayedAt;
+                    if (message.koshienState != null && message.hasOwnProperty("koshienState"))
+                        object.koshienState = options.enums === String ? $root.wm.protobuf.GhostKoshienParticipantState[message.koshienState] : message.koshienState;
+                    if (message.koshienQualified != null && message.hasOwnProperty("koshienQualified"))
+                        object.koshienQualified = message.koshienQualified;
                     return object;
                 };
 
@@ -5779,6 +6861,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -5844,6 +6932,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -6379,6 +7491,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.noticeWindow != null && message.hasOwnProperty("noticeWindow")) {
@@ -6500,6 +7618,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.noticeWindow) {
@@ -7017,6 +8159,7 @@ export const wm = $root.wm = (() => {
              * @property {number|null} [driveLastPlayedAt] LoadCarResponse driveLastPlayedAt
              * @property {wm.protobuf.LoadCarResponse.IStoryInsurance|null} [insurance] LoadCarResponse insurance
              * @property {wm.protobuf.GhostExpeditionParticipantState|null} [ghostExpeditionState] LoadCarResponse ghostExpeditionState
+             * @property {Array.<wm.protobuf.ICarItem>|null} [koshienPrize] LoadCarResponse koshienPrize
              */
 
             /**
@@ -7033,6 +8176,7 @@ export const wm = $root.wm = (() => {
                 this.specialTitles = [];
                 this.earnedTitles = [];
                 this.ownedItems = [];
+                this.koshienPrize = [];
                 if (properties)
                     for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -7349,7 +8493,7 @@ export const wm = $root.wm = (() => {
              * @memberof wm.protobuf.LoadCarResponse
              * @instance
              */
-            LoadCarResponse.prototype.stLoseBits = 0;
+            LoadCarResponse.prototype.stLoseBits = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
             /**
              * LoadCarResponse stConsecutiveWins.
@@ -7413,7 +8557,7 @@ export const wm = $root.wm = (() => {
              * @memberof wm.protobuf.LoadCarResponse
              * @instance
              */
-            LoadCarResponse.prototype.opponentTrailId = 0;
+            LoadCarResponse.prototype.opponentTrailId = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
             /**
              * LoadCarResponse opponentCompetitionId.
@@ -7502,6 +8646,14 @@ export const wm = $root.wm = (() => {
              * @instance
              */
             LoadCarResponse.prototype.ghostExpeditionState = 1;
+
+            /**
+             * LoadCarResponse koshienPrize.
+             * @member {Array.<wm.protobuf.ICarItem>} koshienPrize
+             * @memberof wm.protobuf.LoadCarResponse
+             * @instance
+             */
+            LoadCarResponse.prototype.koshienPrize = $util.emptyArray;
 
             /**
              * Creates a new LoadCarResponse instance using the specified properties.
@@ -7607,6 +8759,9 @@ export const wm = $root.wm = (() => {
                 writer.uint32(/* id 71, wireType 0 =*/568).uint32(message.rgHighwayPreviousDice);
                 if (message.numOfStampTargetCars != null && Object.hasOwnProperty.call(message, "numOfStampTargetCars"))
                     writer.uint32(/* id 72, wireType 0 =*/576).uint32(message.numOfStampTargetCars);
+                if (message.koshienPrize != null && message.koshienPrize.length)
+                    for (let i = 0; i < message.koshienPrize.length; ++i)
+                        $root.wm.protobuf.CarItem.encode(message.koshienPrize[i], writer.uint32(/* id 73, wireType 2 =*/586).fork()).ldelim();
                 return writer;
             };
 
@@ -7893,6 +9048,12 @@ export const wm = $root.wm = (() => {
                             message.ghostExpeditionState = reader.int32();
                             break;
                         }
+                    case 73: {
+                            if (!(message.koshienPrize && message.koshienPrize.length))
+                                message.koshienPrize = [];
+                            message.koshienPrize.push($root.wm.protobuf.CarItem.decode(reader, reader.uint32()));
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -8025,6 +9186,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 {
@@ -8200,6 +9367,15 @@ export const wm = $root.wm = (() => {
                     case 3:
                         break;
                     }
+                if (message.koshienPrize != null && message.hasOwnProperty("koshienPrize")) {
+                    if (!Array.isArray(message.koshienPrize))
+                        return "koshienPrize: array expected";
+                    for (let i = 0; i < message.koshienPrize.length; ++i) {
+                        let error = $root.wm.protobuf.CarItem.verify(message.koshienPrize[i]);
+                        if (error)
+                            return "koshienPrize." + error;
+                    }
+                }
                 return null;
             };
 
@@ -8263,6 +9439,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.car != null) {
@@ -8451,6 +9651,16 @@ export const wm = $root.wm = (() => {
                     message.ghostExpeditionState = 3;
                     break;
                 }
+                if (object.koshienPrize) {
+                    if (!Array.isArray(object.koshienPrize))
+                        throw TypeError(".wm.protobuf.LoadCarResponse.koshienPrize: array expected");
+                    message.koshienPrize = [];
+                    for (let i = 0; i < object.koshienPrize.length; ++i) {
+                        if (typeof object.koshienPrize[i] !== "object")
+                            throw TypeError(".wm.protobuf.LoadCarResponse.koshienPrize: object expected");
+                        message.koshienPrize[i] = $root.wm.protobuf.CarItem.fromObject(object.koshienPrize[i]);
+                    }
+                }
                 return message;
             };
 
@@ -8473,6 +9683,7 @@ export const wm = $root.wm = (() => {
                     object.specialTitles = [];
                     object.earnedTitles = [];
                     object.ownedItems = [];
+                    object.koshienPrize = [];
                 }
                 if (options.defaults) {
                     object.error = options.enums === String ? "ERR_SUCCESS" : 0;
@@ -8503,13 +9714,21 @@ export const wm = $root.wm = (() => {
                     object.stClearBits = 0;
                     object.stClearDivCount = 0;
                     object.stClearCount = 0;
-                    object.stLoseBits = 0;
+                    if ($util.Long) {
+                        let long = new $util.Long(0, 0, true);
+                        object.stLoseBits = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.stLoseBits = options.longs === String ? "0" : 0;
                     object.stConsecutiveWins = 0;
                     object.stConsecutiveWinsMax = 0;
                     object.challenger = null;
                     object.challengerReturnCount = 0;
                     object.opponentGhost = null;
-                    object.opponentTrailId = 0;
+                    if ($util.Long) {
+                        let long = new $util.Long(0, 0, true);
+                        object.opponentTrailId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.opponentTrailId = options.longs === String ? "0" : 0;
                     object.opponentCompetitionId = 0;
                     object.competitionParameter = null;
                     object.auraMotifAutoChange = false;
@@ -8666,6 +9885,11 @@ export const wm = $root.wm = (() => {
                     object.rgHighwayPreviousDice = message.rgHighwayPreviousDice;
                 if (message.numOfStampTargetCars != null && message.hasOwnProperty("numOfStampTargetCars"))
                     object.numOfStampTargetCars = message.numOfStampTargetCars;
+                if (message.koshienPrize && message.koshienPrize.length) {
+                    object.koshienPrize = [];
+                    for (let j = 0; j < message.koshienPrize.length; ++j)
+                        object.koshienPrize[j] = $root.wm.protobuf.CarItem.toObject(message.koshienPrize[j], options);
+                }
                 return object;
             };
 
@@ -9491,7 +10715,7 @@ export const wm = $root.wm = (() => {
              * @memberof wm.protobuf.CreateCarResponse
              * @instance
              */
-            CreateCarResponse.prototype.stLoseBits = 0;
+            CreateCarResponse.prototype.stLoseBits = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
             /**
              * CreateCarResponse stConsecutiveWins.
@@ -9706,6 +10930,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.accessCode != null && message.hasOwnProperty("accessCode"))
@@ -9806,6 +11036,30 @@ export const wm = $root.wm = (() => {
                 case 13:
                     message.error = 13;
                     break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
+                    break;
                 }
                 if (object.accessCode != null)
                     message.accessCode = String(object.accessCode);
@@ -9864,7 +11118,11 @@ export const wm = $root.wm = (() => {
                     object.stClearBits = 0;
                     object.stClearDivCount = 0;
                     object.stClearCount = 0;
-                    object.stLoseBits = 0;
+                    if ($util.Long) {
+                        let long = new $util.Long(0, 0, true);
+                        object.stLoseBits = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.stLoseBits = options.longs === String ? "0" : 0;
                     object.stConsecutiveWins = 0;
                     object.stConsecutiveWinsMax = 0;
                     object.fullTunedCarCouponUnreceivableAt = 0;
@@ -10406,6 +11664,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.taRecords != null && message.hasOwnProperty("taRecords")) {
@@ -10504,6 +11768,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.taRecords) {
@@ -12348,6 +13636,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -12413,6 +13707,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -12493,6 +13811,7 @@ export const wm = $root.wm = (() => {
              * @property {wm.protobuf.SaveGameResultRequest.ITimeAttackResult|null} [taResult] SaveGameResultRequest taResult
              * @property {wm.protobuf.SaveGameResultRequest.IVersusBattleResult|null} [vsResult] SaveGameResultRequest vsResult
              * @property {wm.protobuf.SaveGameResultRequest.IGhostBattleResult|null} [rgResult] SaveGameResultRequest rgResult
+             * @property {wm.protobuf.GhostKoshienParticipantState|null} [koshienLastPlayedState] SaveGameResultRequest koshienLastPlayedState
              */
 
             /**
@@ -12676,6 +13995,14 @@ export const wm = $root.wm = (() => {
             SaveGameResultRequest.prototype.rgResult = null;
 
             /**
+             * SaveGameResultRequest koshienLastPlayedState.
+             * @member {wm.protobuf.GhostKoshienParticipantState} koshienLastPlayedState
+             * @memberof wm.protobuf.SaveGameResultRequest
+             * @instance
+             */
+            SaveGameResultRequest.prototype.koshienLastPlayedState = 1;
+
+            /**
              * Creates a new SaveGameResultRequest instance using the specified properties.
              * @function create
              * @memberof wm.protobuf.SaveGameResultRequest
@@ -12738,6 +14065,8 @@ export const wm = $root.wm = (() => {
                     $root.wm.protobuf.SaveGameResultRequest.VersusBattleResult.encode(message.vsResult, writer.uint32(/* id 24, wireType 2 =*/194).fork()).ldelim();
                 if (message.rgResult != null && Object.hasOwnProperty.call(message, "rgResult"))
                     $root.wm.protobuf.SaveGameResultRequest.GhostBattleResult.encode(message.rgResult, writer.uint32(/* id 25, wireType 2 =*/202).fork()).ldelim();
+                if (message.koshienLastPlayedState != null && Object.hasOwnProperty.call(message, "koshienLastPlayedState"))
+                    writer.uint32(/* id 26, wireType 0 =*/208).int32(message.koshienLastPlayedState);
                 return writer;
             };
 
@@ -12870,6 +14199,10 @@ export const wm = $root.wm = (() => {
                         }
                     case 25: {
                             message.rgResult = $root.wm.protobuf.SaveGameResultRequest.GhostBattleResult.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 26: {
+                            message.koshienLastPlayedState = reader.int32();
                             break;
                         }
                     default:
@@ -13017,6 +14350,16 @@ export const wm = $root.wm = (() => {
                         case 49:
                         case 50:
                         case 51:
+                        case 52:
+                        case 53:
+                        case 54:
+                        case 55:
+                        case 56:
+                        case 57:
+                        case 58:
+                        case 59:
+                        case 60:
+                        case 61:
                             break;
                         }
                 }
@@ -13072,6 +14415,22 @@ export const wm = $root.wm = (() => {
                     if (error)
                         return "rgResult." + error;
                 }
+                if (message.koshienLastPlayedState != null && message.hasOwnProperty("koshienLastPlayedState"))
+                    switch (message.koshienLastPlayedState) {
+                    default:
+                        return "koshienLastPlayedState: enum value expected";
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                    case 9:
+                    case 10:
+                        break;
+                    }
                 return null;
             };
 
@@ -13350,6 +14709,46 @@ export const wm = $root.wm = (() => {
                         case 51:
                             message.confirmedTutorials[i] = 51;
                             break;
+                        case "TUTORIAL_ID_GHOST_BINGO_NEW":
+                        case 52:
+                            message.confirmedTutorials[i] = 52;
+                            break;
+                        case "TUTORIAL_ID_UNUSED_53":
+                        case 53:
+                            message.confirmedTutorials[i] = 53;
+                            break;
+                        case "TUTORIAL_ID_GHOST_BINGO_LINK":
+                        case 54:
+                            message.confirmedTutorials[i] = 54;
+                            break;
+                        case "TUTORIAL_ID_GHOST_KOSHIEN_NEW":
+                        case 55:
+                            message.confirmedTutorials[i] = 55;
+                            break;
+                        case "TUTORIAL_ID_GHOST_KOSHIEN_NOTICE":
+                        case 56:
+                            message.confirmedTutorials[i] = 56;
+                            break;
+                        case "TUTORIAL_ID_GHOST_KOSHIEN_MVP_UPDATE":
+                        case 57:
+                            message.confirmedTutorials[i] = 57;
+                            break;
+                        case "TUTORIAL_ID_BINGO_LUCKY_CHANCE":
+                        case 58:
+                            message.confirmedTutorials[i] = 58;
+                            break;
+                        case "TUTORIAL_ID_GHOST_KOSHIEN_FINISHED":
+                        case 59:
+                            message.confirmedTutorials[i] = 59;
+                            break;
+                        case "TUTORIAL_ID_GHOST_KOSHIEN_AFTEREVENT":
+                        case 60:
+                            message.confirmedTutorials[i] = 60;
+                            break;
+                        case "TUTORIAL_ID_GHOST_BINGO_AREA":
+                        case 61:
+                            message.confirmedTutorials[i] = 61;
+                            break;
                         }
                 }
                 if (object.earnedItems) {
@@ -13406,6 +14805,48 @@ export const wm = $root.wm = (() => {
                         throw TypeError(".wm.protobuf.SaveGameResultRequest.rgResult: object expected");
                     message.rgResult = $root.wm.protobuf.SaveGameResultRequest.GhostBattleResult.fromObject(object.rgResult);
                 }
+                switch (object.koshienLastPlayedState) {
+                case "KOSHIEN_NOT_PARTICIPATED":
+                case 1:
+                    message.koshienLastPlayedState = 1;
+                    break;
+                case "KOSHIEN_FIRST_QUALIFIED":
+                case 2:
+                    message.koshienLastPlayedState = 2;
+                    break;
+                case "KOSHIEN_SECOND_QUALIFIED":
+                case 3:
+                    message.koshienLastPlayedState = 3;
+                    break;
+                case "KOSHIEN_REGION_PARTICIPATED":
+                case 4:
+                    message.koshienLastPlayedState = 4;
+                    break;
+                case "KOSHIEN_PARTICIPATED":
+                case 5:
+                    message.koshienLastPlayedState = 5;
+                    break;
+                case "KOSHIEN_FIRST_QUALIFIED_LOSE":
+                case 6:
+                    message.koshienLastPlayedState = 6;
+                    break;
+                case "KOSHIEN_SECOND_QUALIFIED_LOSE":
+                case 7:
+                    message.koshienLastPlayedState = 7;
+                    break;
+                case "KOSHIEN_REGION_PARTICIPATED_LOSE":
+                case 8:
+                    message.koshienLastPlayedState = 8;
+                    break;
+                case "KOSHIEN_WON":
+                case 9:
+                    message.koshienLastPlayedState = 9;
+                    break;
+                case "KOSHIEN_UNUSED":
+                case 10:
+                    message.koshienLastPlayedState = 10;
+                    break;
+                }
                 return message;
             };
 
@@ -13445,6 +14886,7 @@ export const wm = $root.wm = (() => {
                     object.taResult = null;
                     object.vsResult = null;
                     object.rgResult = null;
+                    object.koshienLastPlayedState = options.enums === String ? "KOSHIEN_NOT_PARTICIPATED" : 1;
                 }
                 if (message.carId != null && message.hasOwnProperty("carId"))
                     object.carId = message.carId;
@@ -13501,6 +14943,8 @@ export const wm = $root.wm = (() => {
                     object.vsResult = $root.wm.protobuf.SaveGameResultRequest.VersusBattleResult.toObject(message.vsResult, options);
                 if (message.rgResult != null && message.hasOwnProperty("rgResult"))
                     object.rgResult = $root.wm.protobuf.SaveGameResultRequest.GhostBattleResult.toObject(message.rgResult, options);
+                if (message.koshienLastPlayedState != null && message.hasOwnProperty("koshienLastPlayedState"))
+                    object.koshienLastPlayedState = options.enums === String ? $root.wm.protobuf.GhostKoshienParticipantState[message.koshienLastPlayedState] : message.koshienLastPlayedState;
                 return object;
             };
 
@@ -13617,7 +15061,7 @@ export const wm = $root.wm = (() => {
                  * @memberof wm.protobuf.SaveGameResultRequest.StoryResult
                  * @instance
                  */
-                StoryResult.prototype.stLoseBits = 0;
+                StoryResult.prototype.stLoseBits = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
                 /**
                  * StoryResult stConsecutiveWins.
@@ -13890,7 +15334,11 @@ export const wm = $root.wm = (() => {
                         object.stClearBits = 0;
                         object.stClearDivCount = 0;
                         object.stClearCount = 0;
-                        object.stLoseBits = 0;
+                        if ($util.Long) {
+                            let long = new $util.Long(0, 0, true);
+                            object.stLoseBits = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                        } else
+                            object.stLoseBits = options.longs === String ? "0" : 0;
                         object.stConsecutiveWins = 0;
                         object.stPlayedStory = 0;
                         object.stCompleted_100Episodes = false;
@@ -14423,6 +15871,7 @@ export const wm = $root.wm = (() => {
                  * @property {number} vsPlayCount VersusBattleResult vsPlayCount
                  * @property {number|null} [vsBurstCount] VersusBattleResult vsBurstCount
                  * @property {number|null} [vsStarCount] VersusBattleResult vsStarCount
+                 * @property {number|null} [vsStarCountMax] VersusBattleResult vsStarCountMax
                  * @property {number|null} [vsCoolOrWild] VersusBattleResult vsCoolOrWild
                  * @property {number|null} [vsSmoothOrRough] VersusBattleResult vsSmoothOrRough
                  * @property {number|null} [vsTripleStarMedals] VersusBattleResult vsTripleStarMedals
@@ -14520,6 +15969,14 @@ export const wm = $root.wm = (() => {
                 VersusBattleResult.prototype.vsStarCount = 0;
 
                 /**
+                 * VersusBattleResult vsStarCountMax.
+                 * @member {number} vsStarCountMax
+                 * @memberof wm.protobuf.SaveGameResultRequest.VersusBattleResult
+                 * @instance
+                 */
+                VersusBattleResult.prototype.vsStarCountMax = 0;
+
+                /**
                  * VersusBattleResult vsCoolOrWild.
                  * @member {number} vsCoolOrWild
                  * @memberof wm.protobuf.SaveGameResultRequest.VersusBattleResult
@@ -14614,6 +16071,8 @@ export const wm = $root.wm = (() => {
                         writer.uint32(/* id 13, wireType 0 =*/104).uint32(message.vsSingleStarMedals);
                     if (message.vsPlainMedals != null && Object.hasOwnProperty.call(message, "vsPlainMedals"))
                         writer.uint32(/* id 14, wireType 0 =*/112).uint32(message.vsPlainMedals);
+                    if (message.vsStarCountMax != null && Object.hasOwnProperty.call(message, "vsStarCountMax"))
+                        writer.uint32(/* id 15, wireType 0 =*/120).uint32(message.vsStarCountMax);
                     writer.uint32(/* id 17, wireType 0 =*/136).uint32(message.area);
                     writer.uint32(/* id 18, wireType 0 =*/144).bool(message.isMorning);
                     return writer;
@@ -14691,6 +16150,10 @@ export const wm = $root.wm = (() => {
                             }
                         case 8: {
                                 message.vsStarCount = reader.uint32();
+                                break;
+                            }
+                        case 15: {
+                                message.vsStarCountMax = reader.uint32();
                                 break;
                             }
                         case 9: {
@@ -14789,6 +16252,9 @@ export const wm = $root.wm = (() => {
                     if (message.vsStarCount != null && message.hasOwnProperty("vsStarCount"))
                         if (!$util.isInteger(message.vsStarCount))
                             return "vsStarCount: integer expected";
+                    if (message.vsStarCountMax != null && message.hasOwnProperty("vsStarCountMax"))
+                        if (!$util.isInteger(message.vsStarCountMax))
+                            return "vsStarCountMax: integer expected";
                     if (message.vsCoolOrWild != null && message.hasOwnProperty("vsCoolOrWild"))
                         if (!$util.isInteger(message.vsCoolOrWild))
                             return "vsCoolOrWild: integer expected";
@@ -14845,6 +16311,8 @@ export const wm = $root.wm = (() => {
                         message.vsBurstCount = object.vsBurstCount >>> 0;
                     if (object.vsStarCount != null)
                         message.vsStarCount = object.vsStarCount >>> 0;
+                    if (object.vsStarCountMax != null)
+                        message.vsStarCountMax = object.vsStarCountMax >>> 0;
                     if (object.vsCoolOrWild != null)
                         message.vsCoolOrWild = object.vsCoolOrWild | 0;
                     if (object.vsSmoothOrRough != null)
@@ -14888,6 +16356,7 @@ export const wm = $root.wm = (() => {
                         object.vsDoubleStarMedals = 0;
                         object.vsSingleStarMedals = 0;
                         object.vsPlainMedals = 0;
+                        object.vsStarCountMax = 0;
                         object.area = 0;
                         object.isMorning = false;
                     }
@@ -14920,6 +16389,8 @@ export const wm = $root.wm = (() => {
                         object.vsSingleStarMedals = message.vsSingleStarMedals;
                     if (message.vsPlainMedals != null && message.hasOwnProperty("vsPlainMedals"))
                         object.vsPlainMedals = message.vsPlainMedals;
+                    if (message.vsStarCountMax != null && message.hasOwnProperty("vsStarCountMax"))
+                        object.vsStarCountMax = message.vsStarCountMax;
                     if (message.area != null && message.hasOwnProperty("area"))
                         object.area = message.area;
                     if (message.isMorning != null && message.hasOwnProperty("isMorning"))
@@ -14982,6 +16453,9 @@ export const wm = $root.wm = (() => {
                  * @property {boolean|null} [acquireAllCrowns] GhostBattleResult acquireAllCrowns
                  * @property {wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostExpeditionResult|null} [expeditionResult] GhostBattleResult expeditionResult
                  * @property {wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostHighwayResult|null} [highwayResult] GhostBattleResult highwayResult
+                 * @property {number|null} [koshienId] GhostBattleResult koshienId
+                 * @property {number|null} [koshienPeriodId] GhostBattleResult koshienPeriodId
+                 * @property {number|null} [koshienUpdateCount] GhostBattleResult koshienUpdateCount
                  */
 
                 /**
@@ -15164,6 +16638,30 @@ export const wm = $root.wm = (() => {
                 GhostBattleResult.prototype.highwayResult = null;
 
                 /**
+                 * GhostBattleResult koshienId.
+                 * @member {number} koshienId
+                 * @memberof wm.protobuf.SaveGameResultRequest.GhostBattleResult
+                 * @instance
+                 */
+                GhostBattleResult.prototype.koshienId = 0;
+
+                /**
+                 * GhostBattleResult koshienPeriodId.
+                 * @member {number} koshienPeriodId
+                 * @memberof wm.protobuf.SaveGameResultRequest.GhostBattleResult
+                 * @instance
+                 */
+                GhostBattleResult.prototype.koshienPeriodId = 0;
+
+                /**
+                 * GhostBattleResult koshienUpdateCount.
+                 * @member {number} koshienUpdateCount
+                 * @memberof wm.protobuf.SaveGameResultRequest.GhostBattleResult
+                 * @instance
+                 */
+                GhostBattleResult.prototype.koshienUpdateCount = 0;
+
+                /**
                  * Creates a new GhostBattleResult instance using the specified properties.
                  * @function create
                  * @memberof wm.protobuf.SaveGameResultRequest.GhostBattleResult
@@ -15227,6 +16725,12 @@ export const wm = $root.wm = (() => {
                         writer.uint32(/* id 27, wireType 0 =*/216).uint32(message.rgTrophy);
                     if (message.highwayResult != null && Object.hasOwnProperty.call(message, "highwayResult"))
                         $root.wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostHighwayResult.encode(message.highwayResult, writer.uint32(/* id 28, wireType 2 =*/226).fork()).ldelim();
+                    if (message.koshienId != null && Object.hasOwnProperty.call(message, "koshienId"))
+                        writer.uint32(/* id 30, wireType 0 =*/240).uint32(message.koshienId);
+                    if (message.koshienPeriodId != null && Object.hasOwnProperty.call(message, "koshienPeriodId"))
+                        writer.uint32(/* id 31, wireType 0 =*/248).uint32(message.koshienPeriodId);
+                    if (message.koshienUpdateCount != null && Object.hasOwnProperty.call(message, "koshienUpdateCount"))
+                        writer.uint32(/* id 32, wireType 0 =*/256).uint32(message.koshienUpdateCount);
                     return writer;
                 };
 
@@ -15364,6 +16868,18 @@ export const wm = $root.wm = (() => {
                                 message.highwayResult = $root.wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostHighwayResult.decode(reader, reader.uint32());
                                 break;
                             }
+                        case 30: {
+                                message.koshienId = reader.uint32();
+                                break;
+                            }
+                        case 31: {
+                                message.koshienPeriodId = reader.uint32();
+                                break;
+                            }
+                        case 32: {
+                                message.koshienUpdateCount = reader.uint32();
+                                break;
+                            }
                         default:
                             reader.skipType(tag & 7);
                             break;
@@ -15448,6 +16964,8 @@ export const wm = $root.wm = (() => {
                     case 23:
                     case 24:
                     case 25:
+                    case 26:
+                    case 27:
                         break;
                     }
                     if (message.stampSheetCount != null && message.hasOwnProperty("stampSheetCount"))
@@ -15513,6 +17031,15 @@ export const wm = $root.wm = (() => {
                         if (error)
                             return "highwayResult." + error;
                     }
+                    if (message.koshienId != null && message.hasOwnProperty("koshienId"))
+                        if (!$util.isInteger(message.koshienId))
+                            return "koshienId: integer expected";
+                    if (message.koshienPeriodId != null && message.hasOwnProperty("koshienPeriodId"))
+                        if (!$util.isInteger(message.koshienPeriodId))
+                            return "koshienPeriodId: integer expected";
+                    if (message.koshienUpdateCount != null && message.hasOwnProperty("koshienUpdateCount"))
+                        if (!$util.isInteger(message.koshienUpdateCount))
+                            return "koshienUpdateCount: integer expected";
                     return null;
                 };
 
@@ -15643,6 +17170,14 @@ export const wm = $root.wm = (() => {
                     case 25:
                         message.selectionMethod = 25;
                         break;
+                    case "GHOST_BINGO_CHALLENGE":
+                    case 26:
+                        message.selectionMethod = 26;
+                        break;
+                    case "GHOST_KOSHIEN":
+                    case 27:
+                        message.selectionMethod = 27;
+                        break;
                     }
                     if (object.stampSheetCount != null)
                         message.stampSheetCount = object.stampSheetCount >>> 0;
@@ -15697,6 +17232,12 @@ export const wm = $root.wm = (() => {
                             throw TypeError(".wm.protobuf.SaveGameResultRequest.GhostBattleResult.highwayResult: object expected");
                         message.highwayResult = $root.wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostHighwayResult.fromObject(object.highwayResult);
                     }
+                    if (object.koshienId != null)
+                        message.koshienId = object.koshienId >>> 0;
+                    if (object.koshienPeriodId != null)
+                        message.koshienPeriodId = object.koshienPeriodId >>> 0;
+                    if (object.koshienUpdateCount != null)
+                        message.koshienUpdateCount = object.koshienUpdateCount >>> 0;
                     return message;
                 };
 
@@ -15736,6 +17277,9 @@ export const wm = $root.wm = (() => {
                         object.expeditionResult = null;
                         object.rgTrophy = 0;
                         object.highwayResult = null;
+                        object.koshienId = 0;
+                        object.koshienPeriodId = 0;
+                        object.koshienUpdateCount = 0;
                     }
                     if (message.opponents && message.opponents.length) {
                         object.opponents = [];
@@ -15789,6 +17333,12 @@ export const wm = $root.wm = (() => {
                         object.rgTrophy = message.rgTrophy;
                     if (message.highwayResult != null && message.hasOwnProperty("highwayResult"))
                         object.highwayResult = $root.wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostHighwayResult.toObject(message.highwayResult, options);
+                    if (message.koshienId != null && message.hasOwnProperty("koshienId"))
+                        object.koshienId = message.koshienId;
+                    if (message.koshienPeriodId != null && message.hasOwnProperty("koshienPeriodId"))
+                        object.koshienPeriodId = message.koshienPeriodId;
+                    if (message.koshienUpdateCount != null && message.hasOwnProperty("koshienUpdateCount"))
+                        object.koshienUpdateCount = message.koshienUpdateCount;
                     return object;
                 };
 
@@ -15829,6 +17379,7 @@ export const wm = $root.wm = (() => {
                      * @property {number} tunePower GhostBattleOpponent tunePower
                      * @property {number} tuneHandling GhostBattleOpponent tuneHandling
                      * @property {boolean|null} [receiveStamp] GhostBattleOpponent receiveStamp
+                     * @property {number|null} [bingoNumber] GhostBattleOpponent bingoNumber
                      */
 
                     /**
@@ -15887,6 +17438,14 @@ export const wm = $root.wm = (() => {
                     GhostBattleOpponent.prototype.receiveStamp = false;
 
                     /**
+                     * GhostBattleOpponent bingoNumber.
+                     * @member {number} bingoNumber
+                     * @memberof wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostBattleOpponent
+                     * @instance
+                     */
+                    GhostBattleOpponent.prototype.bingoNumber = 0;
+
+                    /**
                      * Creates a new GhostBattleOpponent instance using the specified properties.
                      * @function create
                      * @memberof wm.protobuf.SaveGameResultRequest.GhostBattleResult.GhostBattleOpponent
@@ -15916,6 +17475,8 @@ export const wm = $root.wm = (() => {
                         writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.tuneHandling);
                         if (message.receiveStamp != null && Object.hasOwnProperty.call(message, "receiveStamp"))
                             writer.uint32(/* id 5, wireType 0 =*/40).bool(message.receiveStamp);
+                        if (message.bingoNumber != null && Object.hasOwnProperty.call(message, "bingoNumber"))
+                            writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.bingoNumber);
                         return writer;
                     };
 
@@ -15968,6 +17529,10 @@ export const wm = $root.wm = (() => {
                                 }
                             case 5: {
                                     message.receiveStamp = reader.bool();
+                                    break;
+                                }
+                            case 6: {
+                                    message.bingoNumber = reader.uint32();
                                     break;
                                 }
                             default:
@@ -16024,6 +17589,9 @@ export const wm = $root.wm = (() => {
                         if (message.receiveStamp != null && message.hasOwnProperty("receiveStamp"))
                             if (typeof message.receiveStamp !== "boolean")
                                 return "receiveStamp: boolean expected";
+                        if (message.bingoNumber != null && message.hasOwnProperty("bingoNumber"))
+                            if (!$util.isInteger(message.bingoNumber))
+                                return "bingoNumber: integer expected";
                         return null;
                     };
 
@@ -16049,6 +17617,8 @@ export const wm = $root.wm = (() => {
                             message.tuneHandling = object.tuneHandling >>> 0;
                         if (object.receiveStamp != null)
                             message.receiveStamp = Boolean(object.receiveStamp);
+                        if (object.bingoNumber != null)
+                            message.bingoNumber = object.bingoNumber >>> 0;
                         return message;
                     };
 
@@ -16071,6 +17641,7 @@ export const wm = $root.wm = (() => {
                             object.tunePower = 0;
                             object.tuneHandling = 0;
                             object.receiveStamp = false;
+                            object.bingoNumber = 0;
                         }
                         if (message.result != null && message.hasOwnProperty("result"))
                             object.result = message.result;
@@ -16082,6 +17653,8 @@ export const wm = $root.wm = (() => {
                             object.tuneHandling = message.tuneHandling;
                         if (message.receiveStamp != null && message.hasOwnProperty("receiveStamp"))
                             object.receiveStamp = message.receiveStamp;
+                        if (message.bingoNumber != null && message.hasOwnProperty("bingoNumber"))
+                            object.bingoNumber = message.bingoNumber;
                         return object;
                     };
 
@@ -16843,7 +18416,7 @@ export const wm = $root.wm = (() => {
              * @memberof wm.protobuf.SaveGameResultResponse
              * @instance
              */
-            SaveGameResultResponse.prototype.ghostSessionId = 0;
+            SaveGameResultResponse.prototype.ghostSessionId = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
             /**
              * SaveGameResultResponse availableTickets.
@@ -16983,6 +18556,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.ghostSessionId != null && message.hasOwnProperty("ghostSessionId"))
@@ -17061,6 +18640,30 @@ export const wm = $root.wm = (() => {
                 case 13:
                     message.error = 13;
                     break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
+                    break;
                 }
                 if (object.ghostSessionId != null)
                     if ($util.Long)
@@ -17101,7 +18704,11 @@ export const wm = $root.wm = (() => {
                     object.availableTickets = [];
                 if (options.defaults) {
                     object.error = options.enums === String ? "ERR_SUCCESS" : 0;
-                    object.ghostSessionId = 0;
+                    if ($util.Long) {
+                        let long = new $util.Long(0, 0, true);
+                        object.ghostSessionId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.ghostSessionId = options.longs === String ? "0" : 0;
                 }
                 if (message.error != null && message.hasOwnProperty("error"))
                     object.error = options.enums === String ? $root.wm.protobuf.ErrorCode[message.error] : message.error;
@@ -17791,6 +19398,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -17856,6 +19469,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -18131,6 +19768,7 @@ export const wm = $root.wm = (() => {
              * @property {number} stampSheetCount LoadGhostBattleInfoResponse stampSheetCount
              * @property {Array.<number>|null} [stampSheet] LoadGhostBattleInfoResponse stampSheet
              * @property {Array.<number>|null} [stampReturnStats] LoadGhostBattleInfoResponse stampReturnStats
+             * @property {Array.<number>|null} [acquiredBingoNumbers] LoadGhostBattleInfoResponse acquiredBingoNumbers
              */
 
             /**
@@ -18151,6 +19789,7 @@ export const wm = $root.wm = (() => {
                 this.weakenedCars = [];
                 this.stampSheet = [];
                 this.stampReturnStats = [];
+                this.acquiredBingoNumbers = [];
                 if (properties)
                     for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -18254,6 +19893,14 @@ export const wm = $root.wm = (() => {
             LoadGhostBattleInfoResponse.prototype.stampReturnStats = $util.emptyArray;
 
             /**
+             * LoadGhostBattleInfoResponse acquiredBingoNumbers.
+             * @member {Array.<number>} acquiredBingoNumbers
+             * @memberof wm.protobuf.LoadGhostBattleInfoResponse
+             * @instance
+             */
+            LoadGhostBattleInfoResponse.prototype.acquiredBingoNumbers = $util.emptyArray;
+
+            /**
              * Creates a new LoadGhostBattleInfoResponse instance using the specified properties.
              * @function create
              * @memberof wm.protobuf.LoadGhostBattleInfoResponse
@@ -18307,6 +19954,9 @@ export const wm = $root.wm = (() => {
                     for (let i = 0; i < message.previousVersionStampTargetCars.length; ++i)
                         $root.wm.protobuf.PreviousVersionStampTargetCar.encode(message.previousVersionStampTargetCars[i], writer.uint32(/* id 12, wireType 2 =*/98).fork()).ldelim();
                 writer.uint32(/* id 13, wireType 0 =*/104).bool(message.promotedToBuddy);
+                if (message.acquiredBingoNumbers != null && message.acquiredBingoNumbers.length)
+                    for (let i = 0; i < message.acquiredBingoNumbers.length; ++i)
+                        writer.uint32(/* id 15, wireType 0 =*/120).uint32(message.acquiredBingoNumbers[i]);
                 return writer;
             };
 
@@ -18417,6 +20067,17 @@ export const wm = $root.wm = (() => {
                                 message.stampReturnStats.push(reader.uint32());
                             break;
                         }
+                    case 15: {
+                            if (!(message.acquiredBingoNumbers && message.acquiredBingoNumbers.length))
+                                message.acquiredBingoNumbers = [];
+                            if ((tag & 7) === 2) {
+                                let end2 = reader.uint32() + reader.pos;
+                                while (reader.pos < end2)
+                                    message.acquiredBingoNumbers.push(reader.uint32());
+                            } else
+                                message.acquiredBingoNumbers.push(reader.uint32());
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -18473,6 +20134,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.friendCars != null && message.hasOwnProperty("friendCars")) {
@@ -18556,6 +20223,13 @@ export const wm = $root.wm = (() => {
                         if (!$util.isInteger(message.stampReturnStats[i]))
                             return "stampReturnStats: integer[] expected";
                 }
+                if (message.acquiredBingoNumbers != null && message.hasOwnProperty("acquiredBingoNumbers")) {
+                    if (!Array.isArray(message.acquiredBingoNumbers))
+                        return "acquiredBingoNumbers: array expected";
+                    for (let i = 0; i < message.acquiredBingoNumbers.length; ++i)
+                        if (!$util.isInteger(message.acquiredBingoNumbers[i]))
+                            return "acquiredBingoNumbers: integer[] expected";
+                }
                 return null;
             };
 
@@ -18619,6 +20293,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.friendCars) {
@@ -18709,6 +20407,13 @@ export const wm = $root.wm = (() => {
                     for (let i = 0; i < object.stampReturnStats.length; ++i)
                         message.stampReturnStats[i] = object.stampReturnStats[i] >>> 0;
                 }
+                if (object.acquiredBingoNumbers) {
+                    if (!Array.isArray(object.acquiredBingoNumbers))
+                        throw TypeError(".wm.protobuf.LoadGhostBattleInfoResponse.acquiredBingoNumbers: array expected");
+                    message.acquiredBingoNumbers = [];
+                    for (let i = 0; i < object.acquiredBingoNumbers.length; ++i)
+                        message.acquiredBingoNumbers[i] = object.acquiredBingoNumbers[i] >>> 0;
+                }
                 return message;
             };
 
@@ -18735,6 +20440,7 @@ export const wm = $root.wm = (() => {
                     object.weakenedCars = [];
                     object.bookmarkedCars = [];
                     object.previousVersionStampTargetCars = [];
+                    object.acquiredBingoNumbers = [];
                 }
                 if (options.defaults) {
                     object.error = options.enums === String ? "ERR_SUCCESS" : 0;
@@ -18792,6 +20498,11 @@ export const wm = $root.wm = (() => {
                 }
                 if (message.promotedToBuddy != null && message.hasOwnProperty("promotedToBuddy"))
                     object.promotedToBuddy = message.promotedToBuddy;
+                if (message.acquiredBingoNumbers && message.acquiredBingoNumbers.length) {
+                    object.acquiredBingoNumbers = [];
+                    for (let j = 0; j < message.acquiredBingoNumbers.length; ++j)
+                        object.acquiredBingoNumbers[j] = message.acquiredBingoNumbers[j];
+                }
                 return object;
             };
 
@@ -19463,6 +21174,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.cars != null && message.hasOwnProperty("cars")) {
@@ -19546,6 +21263,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.cars) {
@@ -20029,6 +21770,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -20094,6 +21841,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -20679,6 +22450,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.periodId != null && message.hasOwnProperty("periodId"))
@@ -20778,6 +22555,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.periodId != null)
@@ -20894,6 +22695,805 @@ export const wm = $root.wm = (() => {
             };
 
             return LoadGhostCompetitionInfoResponse;
+        })();
+
+        protobuf.LoadGhostKoshienInfoRequest = (function() {
+
+            /**
+             * Properties of a LoadGhostKoshienInfoRequest.
+             * @memberof wm.protobuf
+             * @interface ILoadGhostKoshienInfoRequest
+             * @property {number} carId LoadGhostKoshienInfoRequest carId
+             * @property {number} koshienId LoadGhostKoshienInfoRequest koshienId
+             * @property {string} placeId LoadGhostKoshienInfoRequest placeId
+             */
+
+            /**
+             * Constructs a new LoadGhostKoshienInfoRequest.
+             * @memberof wm.protobuf
+             * @classdesc Represents a LoadGhostKoshienInfoRequest.
+             * @implements ILoadGhostKoshienInfoRequest
+             * @constructor
+             * @param {wm.protobuf.ILoadGhostKoshienInfoRequest=} [properties] Properties to set
+             */
+            function LoadGhostKoshienInfoRequest(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * LoadGhostKoshienInfoRequest carId.
+             * @member {number} carId
+             * @memberof wm.protobuf.LoadGhostKoshienInfoRequest
+             * @instance
+             */
+            LoadGhostKoshienInfoRequest.prototype.carId = 0;
+
+            /**
+             * LoadGhostKoshienInfoRequest koshienId.
+             * @member {number} koshienId
+             * @memberof wm.protobuf.LoadGhostKoshienInfoRequest
+             * @instance
+             */
+            LoadGhostKoshienInfoRequest.prototype.koshienId = 0;
+
+            /**
+             * LoadGhostKoshienInfoRequest placeId.
+             * @member {string} placeId
+             * @memberof wm.protobuf.LoadGhostKoshienInfoRequest
+             * @instance
+             */
+            LoadGhostKoshienInfoRequest.prototype.placeId = "";
+
+            /**
+             * Creates a new LoadGhostKoshienInfoRequest instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.LoadGhostKoshienInfoRequest
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienInfoRequest=} [properties] Properties to set
+             * @returns {wm.protobuf.LoadGhostKoshienInfoRequest} LoadGhostKoshienInfoRequest instance
+             */
+            LoadGhostKoshienInfoRequest.create = function create(properties) {
+                return new LoadGhostKoshienInfoRequest(properties);
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienInfoRequest message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienInfoRequest.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.LoadGhostKoshienInfoRequest
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienInfoRequest} message LoadGhostKoshienInfoRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienInfoRequest.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.carId);
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.koshienId);
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.placeId);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienInfoRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienInfoRequest.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienInfoRequest
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienInfoRequest} message LoadGhostKoshienInfoRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienInfoRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienInfoRequest message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.LoadGhostKoshienInfoRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.LoadGhostKoshienInfoRequest} LoadGhostKoshienInfoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienInfoRequest.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostKoshienInfoRequest();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.carId = reader.uint32();
+                            break;
+                        }
+                    case 2: {
+                            message.koshienId = reader.uint32();
+                            break;
+                        }
+                    case 3: {
+                            message.placeId = reader.string();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("carId"))
+                    throw $util.ProtocolError("missing required 'carId'", { instance: message });
+                if (!message.hasOwnProperty("koshienId"))
+                    throw $util.ProtocolError("missing required 'koshienId'", { instance: message });
+                if (!message.hasOwnProperty("placeId"))
+                    throw $util.ProtocolError("missing required 'placeId'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienInfoRequest message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienInfoRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.LoadGhostKoshienInfoRequest} LoadGhostKoshienInfoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienInfoRequest.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a LoadGhostKoshienInfoRequest message.
+             * @function verify
+             * @memberof wm.protobuf.LoadGhostKoshienInfoRequest
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            LoadGhostKoshienInfoRequest.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (!$util.isInteger(message.carId))
+                    return "carId: integer expected";
+                if (!$util.isInteger(message.koshienId))
+                    return "koshienId: integer expected";
+                if (!$util.isString(message.placeId))
+                    return "placeId: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a LoadGhostKoshienInfoRequest message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.LoadGhostKoshienInfoRequest
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.LoadGhostKoshienInfoRequest} LoadGhostKoshienInfoRequest
+             */
+            LoadGhostKoshienInfoRequest.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.LoadGhostKoshienInfoRequest)
+                    return object;
+                let message = new $root.wm.protobuf.LoadGhostKoshienInfoRequest();
+                if (object.carId != null)
+                    message.carId = object.carId >>> 0;
+                if (object.koshienId != null)
+                    message.koshienId = object.koshienId >>> 0;
+                if (object.placeId != null)
+                    message.placeId = String(object.placeId);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienInfoRequest message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.LoadGhostKoshienInfoRequest
+             * @static
+             * @param {wm.protobuf.LoadGhostKoshienInfoRequest} message LoadGhostKoshienInfoRequest
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            LoadGhostKoshienInfoRequest.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.defaults) {
+                    object.carId = 0;
+                    object.koshienId = 0;
+                    object.placeId = "";
+                }
+                if (message.carId != null && message.hasOwnProperty("carId"))
+                    object.carId = message.carId;
+                if (message.koshienId != null && message.hasOwnProperty("koshienId"))
+                    object.koshienId = message.koshienId;
+                if (message.placeId != null && message.hasOwnProperty("placeId"))
+                    object.placeId = message.placeId;
+                return object;
+            };
+
+            /**
+             * Converts this LoadGhostKoshienInfoRequest to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.LoadGhostKoshienInfoRequest
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            LoadGhostKoshienInfoRequest.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienInfoRequest
+             * @function getTypeUrl
+             * @memberof wm.protobuf.LoadGhostKoshienInfoRequest
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            LoadGhostKoshienInfoRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.LoadGhostKoshienInfoRequest";
+            };
+
+            return LoadGhostKoshienInfoRequest;
+        })();
+
+        protobuf.LoadGhostKoshienInfoResponse = (function() {
+
+            /**
+             * Properties of a LoadGhostKoshienInfoResponse.
+             * @memberof wm.protobuf
+             * @interface ILoadGhostKoshienInfoResponse
+             * @property {wm.protobuf.ErrorCode} error LoadGhostKoshienInfoResponse error
+             * @property {number|null} [koshienPeriodId] LoadGhostKoshienInfoResponse koshienPeriodId
+             * @property {boolean} closed LoadGhostKoshienInfoResponse closed
+             * @property {number|null} [result] LoadGhostKoshienInfoResponse result
+             * @property {number|null} [rank] LoadGhostKoshienInfoResponse rank
+             * @property {Array.<wm.protobuf.IPlace>|null} [topShop] LoadGhostKoshienInfoResponse topShop
+             * @property {Array.<number>|null} [parameters] LoadGhostKoshienInfoResponse parameters
+             * @property {boolean} isGhostControl LoadGhostKoshienInfoResponse isGhostControl
+             * @property {Array.<number>|null} [topResults] LoadGhostKoshienInfoResponse topResults
+             */
+
+            /**
+             * Constructs a new LoadGhostKoshienInfoResponse.
+             * @memberof wm.protobuf
+             * @classdesc Represents a LoadGhostKoshienInfoResponse.
+             * @implements ILoadGhostKoshienInfoResponse
+             * @constructor
+             * @param {wm.protobuf.ILoadGhostKoshienInfoResponse=} [properties] Properties to set
+             */
+            function LoadGhostKoshienInfoResponse(properties) {
+                this.topShop = [];
+                this.parameters = [];
+                this.topResults = [];
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * LoadGhostKoshienInfoResponse error.
+             * @member {wm.protobuf.ErrorCode} error
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @instance
+             */
+            LoadGhostKoshienInfoResponse.prototype.error = 0;
+
+            /**
+             * LoadGhostKoshienInfoResponse koshienPeriodId.
+             * @member {number} koshienPeriodId
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @instance
+             */
+            LoadGhostKoshienInfoResponse.prototype.koshienPeriodId = 0;
+
+            /**
+             * LoadGhostKoshienInfoResponse closed.
+             * @member {boolean} closed
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @instance
+             */
+            LoadGhostKoshienInfoResponse.prototype.closed = false;
+
+            /**
+             * LoadGhostKoshienInfoResponse result.
+             * @member {number} result
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @instance
+             */
+            LoadGhostKoshienInfoResponse.prototype.result = 0;
+
+            /**
+             * LoadGhostKoshienInfoResponse rank.
+             * @member {number} rank
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @instance
+             */
+            LoadGhostKoshienInfoResponse.prototype.rank = 0;
+
+            /**
+             * LoadGhostKoshienInfoResponse topShop.
+             * @member {Array.<wm.protobuf.IPlace>} topShop
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @instance
+             */
+            LoadGhostKoshienInfoResponse.prototype.topShop = $util.emptyArray;
+
+            /**
+             * LoadGhostKoshienInfoResponse parameters.
+             * @member {Array.<number>} parameters
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @instance
+             */
+            LoadGhostKoshienInfoResponse.prototype.parameters = $util.emptyArray;
+
+            /**
+             * LoadGhostKoshienInfoResponse isGhostControl.
+             * @member {boolean} isGhostControl
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @instance
+             */
+            LoadGhostKoshienInfoResponse.prototype.isGhostControl = false;
+
+            /**
+             * LoadGhostKoshienInfoResponse topResults.
+             * @member {Array.<number>} topResults
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @instance
+             */
+            LoadGhostKoshienInfoResponse.prototype.topResults = $util.emptyArray;
+
+            /**
+             * Creates a new LoadGhostKoshienInfoResponse instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienInfoResponse=} [properties] Properties to set
+             * @returns {wm.protobuf.LoadGhostKoshienInfoResponse} LoadGhostKoshienInfoResponse instance
+             */
+            LoadGhostKoshienInfoResponse.create = function create(properties) {
+                return new LoadGhostKoshienInfoResponse(properties);
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienInfoResponse message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienInfoResponse.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienInfoResponse} message LoadGhostKoshienInfoResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienInfoResponse.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.error);
+                if (message.koshienPeriodId != null && Object.hasOwnProperty.call(message, "koshienPeriodId"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.koshienPeriodId);
+                writer.uint32(/* id 3, wireType 0 =*/24).bool(message.closed);
+                if (message.result != null && Object.hasOwnProperty.call(message, "result"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).sint32(message.result);
+                if (message.rank != null && Object.hasOwnProperty.call(message, "rank"))
+                    writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.rank);
+                if (message.topShop != null && message.topShop.length)
+                    for (let i = 0; i < message.topShop.length; ++i)
+                        $root.wm.protobuf.Place.encode(message.topShop[i], writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+                if (message.parameters != null && message.parameters.length)
+                    for (let i = 0; i < message.parameters.length; ++i)
+                        writer.uint32(/* id 9, wireType 5 =*/77).float(message.parameters[i]);
+                writer.uint32(/* id 10, wireType 0 =*/80).bool(message.isGhostControl);
+                if (message.topResults != null && message.topResults.length) {
+                    writer.uint32(/* id 12, wireType 2 =*/98).fork();
+                    for (let i = 0; i < message.topResults.length; ++i)
+                        writer.sint32(message.topResults[i]);
+                    writer.ldelim();
+                }
+                return writer;
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienInfoResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienInfoResponse.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienInfoResponse} message LoadGhostKoshienInfoResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienInfoResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienInfoResponse message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.LoadGhostKoshienInfoResponse} LoadGhostKoshienInfoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienInfoResponse.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostKoshienInfoResponse();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.error = reader.int32();
+                            break;
+                        }
+                    case 2: {
+                            message.koshienPeriodId = reader.uint32();
+                            break;
+                        }
+                    case 3: {
+                            message.closed = reader.bool();
+                            break;
+                        }
+                    case 5: {
+                            message.result = reader.sint32();
+                            break;
+                        }
+                    case 6: {
+                            message.rank = reader.uint32();
+                            break;
+                        }
+                    case 7: {
+                            if (!(message.topShop && message.topShop.length))
+                                message.topShop = [];
+                            message.topShop.push($root.wm.protobuf.Place.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    case 9: {
+                            if (!(message.parameters && message.parameters.length))
+                                message.parameters = [];
+                            if ((tag & 7) === 2) {
+                                let end2 = reader.uint32() + reader.pos;
+                                while (reader.pos < end2)
+                                    message.parameters.push(reader.float());
+                            } else
+                                message.parameters.push(reader.float());
+                            break;
+                        }
+                    case 10: {
+                            message.isGhostControl = reader.bool();
+                            break;
+                        }
+                    case 12: {
+                            if (!(message.topResults && message.topResults.length))
+                                message.topResults = [];
+                            if ((tag & 7) === 2) {
+                                let end2 = reader.uint32() + reader.pos;
+                                while (reader.pos < end2)
+                                    message.topResults.push(reader.sint32());
+                            } else
+                                message.topResults.push(reader.sint32());
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("error"))
+                    throw $util.ProtocolError("missing required 'error'", { instance: message });
+                if (!message.hasOwnProperty("closed"))
+                    throw $util.ProtocolError("missing required 'closed'", { instance: message });
+                if (!message.hasOwnProperty("isGhostControl"))
+                    throw $util.ProtocolError("missing required 'isGhostControl'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienInfoResponse message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.LoadGhostKoshienInfoResponse} LoadGhostKoshienInfoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienInfoResponse.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a LoadGhostKoshienInfoResponse message.
+             * @function verify
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            LoadGhostKoshienInfoResponse.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                switch (message.error) {
+                default:
+                    return "error: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 9:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
+                    break;
+                }
+                if (message.koshienPeriodId != null && message.hasOwnProperty("koshienPeriodId"))
+                    if (!$util.isInteger(message.koshienPeriodId))
+                        return "koshienPeriodId: integer expected";
+                if (typeof message.closed !== "boolean")
+                    return "closed: boolean expected";
+                if (message.result != null && message.hasOwnProperty("result"))
+                    if (!$util.isInteger(message.result))
+                        return "result: integer expected";
+                if (message.rank != null && message.hasOwnProperty("rank"))
+                    if (!$util.isInteger(message.rank))
+                        return "rank: integer expected";
+                if (message.topShop != null && message.hasOwnProperty("topShop")) {
+                    if (!Array.isArray(message.topShop))
+                        return "topShop: array expected";
+                    for (let i = 0; i < message.topShop.length; ++i) {
+                        let error = $root.wm.protobuf.Place.verify(message.topShop[i]);
+                        if (error)
+                            return "topShop." + error;
+                    }
+                }
+                if (message.parameters != null && message.hasOwnProperty("parameters")) {
+                    if (!Array.isArray(message.parameters))
+                        return "parameters: array expected";
+                    for (let i = 0; i < message.parameters.length; ++i)
+                        if (typeof message.parameters[i] !== "number")
+                            return "parameters: number[] expected";
+                }
+                if (typeof message.isGhostControl !== "boolean")
+                    return "isGhostControl: boolean expected";
+                if (message.topResults != null && message.hasOwnProperty("topResults")) {
+                    if (!Array.isArray(message.topResults))
+                        return "topResults: array expected";
+                    for (let i = 0; i < message.topResults.length; ++i)
+                        if (!$util.isInteger(message.topResults[i]))
+                            return "topResults: integer[] expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a LoadGhostKoshienInfoResponse message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.LoadGhostKoshienInfoResponse} LoadGhostKoshienInfoResponse
+             */
+            LoadGhostKoshienInfoResponse.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.LoadGhostKoshienInfoResponse)
+                    return object;
+                let message = new $root.wm.protobuf.LoadGhostKoshienInfoResponse();
+                switch (object.error) {
+                case "ERR_SUCCESS":
+                case 0:
+                    message.error = 0;
+                    break;
+                case "ERR_REQUEST":
+                case 1:
+                    message.error = 1;
+                    break;
+                case "ERR_NOT_FOUND":
+                case 2:
+                    message.error = 2;
+                    break;
+                case "ERR_ID_SERVER":
+                case 3:
+                    message.error = 3;
+                    break;
+                case "ERR_ID_BANNED":
+                case 4:
+                    message.error = 4;
+                    break;
+                case "ERR_USER_LOCKED":
+                case 5:
+                    message.error = 5;
+                    break;
+                case "ERR_USER_VERSION":
+                case 6:
+                    message.error = 6;
+                    break;
+                case "ERR_NAME_CONFLICTED":
+                case 7:
+                    message.error = 7;
+                    break;
+                case "ERR_FORBIDDEN":
+                case 9:
+                    message.error = 9;
+                    break;
+                case "ERR_USER_SUCCEEDED":
+                case 11:
+                    message.error = 11;
+                    break;
+                case "ERR_BEING_TRANSFERRED":
+                case 12:
+                    message.error = 12;
+                    break;
+                case "ERR_SCRATCH_LOCKED":
+                case 13:
+                    message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
+                    break;
+                }
+                if (object.koshienPeriodId != null)
+                    message.koshienPeriodId = object.koshienPeriodId >>> 0;
+                if (object.closed != null)
+                    message.closed = Boolean(object.closed);
+                if (object.result != null)
+                    message.result = object.result | 0;
+                if (object.rank != null)
+                    message.rank = object.rank >>> 0;
+                if (object.topShop) {
+                    if (!Array.isArray(object.topShop))
+                        throw TypeError(".wm.protobuf.LoadGhostKoshienInfoResponse.topShop: array expected");
+                    message.topShop = [];
+                    for (let i = 0; i < object.topShop.length; ++i) {
+                        if (typeof object.topShop[i] !== "object")
+                            throw TypeError(".wm.protobuf.LoadGhostKoshienInfoResponse.topShop: object expected");
+                        message.topShop[i] = $root.wm.protobuf.Place.fromObject(object.topShop[i]);
+                    }
+                }
+                if (object.parameters) {
+                    if (!Array.isArray(object.parameters))
+                        throw TypeError(".wm.protobuf.LoadGhostKoshienInfoResponse.parameters: array expected");
+                    message.parameters = [];
+                    for (let i = 0; i < object.parameters.length; ++i)
+                        message.parameters[i] = Number(object.parameters[i]);
+                }
+                if (object.isGhostControl != null)
+                    message.isGhostControl = Boolean(object.isGhostControl);
+                if (object.topResults) {
+                    if (!Array.isArray(object.topResults))
+                        throw TypeError(".wm.protobuf.LoadGhostKoshienInfoResponse.topResults: array expected");
+                    message.topResults = [];
+                    for (let i = 0; i < object.topResults.length; ++i)
+                        message.topResults[i] = object.topResults[i] | 0;
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienInfoResponse message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @static
+             * @param {wm.protobuf.LoadGhostKoshienInfoResponse} message LoadGhostKoshienInfoResponse
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            LoadGhostKoshienInfoResponse.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.arrays || options.defaults) {
+                    object.topShop = [];
+                    object.parameters = [];
+                    object.topResults = [];
+                }
+                if (options.defaults) {
+                    object.error = options.enums === String ? "ERR_SUCCESS" : 0;
+                    object.koshienPeriodId = 0;
+                    object.closed = false;
+                    object.result = 0;
+                    object.rank = 0;
+                    object.isGhostControl = false;
+                }
+                if (message.error != null && message.hasOwnProperty("error"))
+                    object.error = options.enums === String ? $root.wm.protobuf.ErrorCode[message.error] : message.error;
+                if (message.koshienPeriodId != null && message.hasOwnProperty("koshienPeriodId"))
+                    object.koshienPeriodId = message.koshienPeriodId;
+                if (message.closed != null && message.hasOwnProperty("closed"))
+                    object.closed = message.closed;
+                if (message.result != null && message.hasOwnProperty("result"))
+                    object.result = message.result;
+                if (message.rank != null && message.hasOwnProperty("rank"))
+                    object.rank = message.rank;
+                if (message.topShop && message.topShop.length) {
+                    object.topShop = [];
+                    for (let j = 0; j < message.topShop.length; ++j)
+                        object.topShop[j] = $root.wm.protobuf.Place.toObject(message.topShop[j], options);
+                }
+                if (message.parameters && message.parameters.length) {
+                    object.parameters = [];
+                    for (let j = 0; j < message.parameters.length; ++j)
+                        object.parameters[j] = options.json && !isFinite(message.parameters[j]) ? String(message.parameters[j]) : message.parameters[j];
+                }
+                if (message.isGhostControl != null && message.hasOwnProperty("isGhostControl"))
+                    object.isGhostControl = message.isGhostControl;
+                if (message.topResults && message.topResults.length) {
+                    object.topResults = [];
+                    for (let j = 0; j < message.topResults.length; ++j)
+                        object.topResults[j] = message.topResults[j];
+                }
+                return object;
+            };
+
+            /**
+             * Converts this LoadGhostKoshienInfoResponse to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            LoadGhostKoshienInfoResponse.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienInfoResponse
+             * @function getTypeUrl
+             * @memberof wm.protobuf.LoadGhostKoshienInfoResponse
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            LoadGhostKoshienInfoResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.LoadGhostKoshienInfoResponse";
+            };
+
+            return LoadGhostKoshienInfoResponse;
         })();
 
         protobuf.LoadTimeAttackRecordRequest = (function() {
@@ -21467,6 +24067,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.wholeRanking != null && message.hasOwnProperty("wholeRanking")) {
@@ -21570,6 +24176,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.wholeRanking) {
@@ -21974,6 +24604,16 @@ export const wm = $root.wm = (() => {
                         case 49:
                         case 50:
                         case 51:
+                        case 52:
+                        case 53:
+                        case 54:
+                        case 55:
+                        case 56:
+                        case 57:
+                        case 58:
+                        case 59:
+                        case 60:
+                        case 61:
                             break;
                         }
                 }
@@ -22221,6 +24861,46 @@ export const wm = $root.wm = (() => {
                         case 51:
                             message.confirmedTutorials[i] = 51;
                             break;
+                        case "TUTORIAL_ID_GHOST_BINGO_NEW":
+                        case 52:
+                            message.confirmedTutorials[i] = 52;
+                            break;
+                        case "TUTORIAL_ID_UNUSED_53":
+                        case 53:
+                            message.confirmedTutorials[i] = 53;
+                            break;
+                        case "TUTORIAL_ID_GHOST_BINGO_LINK":
+                        case 54:
+                            message.confirmedTutorials[i] = 54;
+                            break;
+                        case "TUTORIAL_ID_GHOST_KOSHIEN_NEW":
+                        case 55:
+                            message.confirmedTutorials[i] = 55;
+                            break;
+                        case "TUTORIAL_ID_GHOST_KOSHIEN_NOTICE":
+                        case 56:
+                            message.confirmedTutorials[i] = 56;
+                            break;
+                        case "TUTORIAL_ID_GHOST_KOSHIEN_MVP_UPDATE":
+                        case 57:
+                            message.confirmedTutorials[i] = 57;
+                            break;
+                        case "TUTORIAL_ID_BINGO_LUCKY_CHANCE":
+                        case 58:
+                            message.confirmedTutorials[i] = 58;
+                            break;
+                        case "TUTORIAL_ID_GHOST_KOSHIEN_FINISHED":
+                        case 59:
+                            message.confirmedTutorials[i] = 59;
+                            break;
+                        case "TUTORIAL_ID_GHOST_KOSHIEN_AFTEREVENT":
+                        case 60:
+                            message.confirmedTutorials[i] = 60;
+                            break;
+                        case "TUTORIAL_ID_GHOST_BINGO_AREA":
+                        case 61:
+                            message.confirmedTutorials[i] = 61;
+                            break;
                         }
                 }
                 if (object.garageMenuEntered != null)
@@ -22445,6 +25125,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -22510,6 +25196,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -22930,6 +25640,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (!$util.isInteger(message.pong))
@@ -22997,6 +25713,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.pong != null)
@@ -23276,6 +26016,7 @@ export const wm = $root.wm = (() => {
              * @property {boolean} announceFeature LoadTerminalInformationResponse announceFeature
              * @property {boolean} freeScratched LoadTerminalInformationResponse freeScratched
              * @property {Array.<number>|null} [restrictedModels] LoadTerminalInformationResponse restrictedModels
+             * @property {Array.<wm.protobuf.IUserItem>|null} [availableTickets] LoadTerminalInformationResponse availableTickets
              */
 
             /**
@@ -23292,6 +26033,7 @@ export const wm = $root.wm = (() => {
                 this.noticeWindow = [];
                 this.noticeWindowMessage = [];
                 this.restrictedModels = [];
+                this.availableTickets = [];
                 if (properties)
                     for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -23379,6 +26121,14 @@ export const wm = $root.wm = (() => {
             LoadTerminalInformationResponse.prototype.restrictedModels = $util.emptyArray;
 
             /**
+             * LoadTerminalInformationResponse availableTickets.
+             * @member {Array.<wm.protobuf.IUserItem>} availableTickets
+             * @memberof wm.protobuf.LoadTerminalInformationResponse
+             * @instance
+             */
+            LoadTerminalInformationResponse.prototype.availableTickets = $util.emptyArray;
+
+            /**
              * Creates a new LoadTerminalInformationResponse instance using the specified properties.
              * @function create
              * @memberof wm.protobuf.LoadTerminalInformationResponse
@@ -23422,6 +26172,9 @@ export const wm = $root.wm = (() => {
                 writer.uint32(/* id 16, wireType 0 =*/128).bool(message.announceFeature);
                 writer.uint32(/* id 17, wireType 0 =*/136).bool(message.prizeReceivable);
                 writer.uint32(/* id 18, wireType 0 =*/144).bool(message.freeScratched);
+                if (message.availableTickets != null && message.availableTickets.length)
+                    for (let i = 0; i < message.availableTickets.length; ++i)
+                        $root.wm.protobuf.UserItem.encode(message.availableTickets[i], writer.uint32(/* id 19, wireType 2 =*/154).fork()).ldelim();
                 return writer;
             };
 
@@ -23516,6 +26269,12 @@ export const wm = $root.wm = (() => {
                                 message.restrictedModels.push(reader.uint32());
                             break;
                         }
+                    case 19: {
+                            if (!(message.availableTickets && message.availableTickets.length))
+                                message.availableTickets = [];
+                            message.availableTickets.push($root.wm.protobuf.UserItem.decode(reader, reader.uint32()));
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -23576,6 +26335,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (typeof message.prizeReceivable !== "boolean")
@@ -23641,6 +26406,15 @@ export const wm = $root.wm = (() => {
                         if (!$util.isInteger(message.restrictedModels[i]))
                             return "restrictedModels: integer[] expected";
                 }
+                if (message.availableTickets != null && message.hasOwnProperty("availableTickets")) {
+                    if (!Array.isArray(message.availableTickets))
+                        return "availableTickets: array expected";
+                    for (let i = 0; i < message.availableTickets.length; ++i) {
+                        let error = $root.wm.protobuf.UserItem.verify(message.availableTickets[i]);
+                        if (error)
+                            return "availableTickets." + error;
+                    }
+                }
                 return null;
             };
 
@@ -23704,6 +26478,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.prizeReceivable != null)
@@ -23805,6 +26603,16 @@ export const wm = $root.wm = (() => {
                     for (let i = 0; i < object.restrictedModels.length; ++i)
                         message.restrictedModels[i] = object.restrictedModels[i] >>> 0;
                 }
+                if (object.availableTickets) {
+                    if (!Array.isArray(object.availableTickets))
+                        throw TypeError(".wm.protobuf.LoadTerminalInformationResponse.availableTickets: array expected");
+                    message.availableTickets = [];
+                    for (let i = 0; i < object.availableTickets.length; ++i) {
+                        if (typeof object.availableTickets[i] !== "object")
+                            throw TypeError(".wm.protobuf.LoadTerminalInformationResponse.availableTickets: object expected");
+                        message.availableTickets[i] = $root.wm.protobuf.UserItem.fromObject(object.availableTickets[i]);
+                    }
+                }
                 return message;
             };
 
@@ -23827,6 +26635,7 @@ export const wm = $root.wm = (() => {
                     object.noticeMessage = [];
                     object.noticeWindow = [];
                     object.noticeWindowMessage = [];
+                    object.availableTickets = [];
                 }
                 if (options.defaults) {
                     object.error = options.enums === String ? "ERR_SUCCESS" : 0;
@@ -23870,6 +26679,11 @@ export const wm = $root.wm = (() => {
                     object.prizeReceivable = message.prizeReceivable;
                 if (message.freeScratched != null && message.hasOwnProperty("freeScratched"))
                     object.freeScratched = message.freeScratched;
+                if (message.availableTickets && message.availableTickets.length) {
+                    object.availableTickets = [];
+                    for (let j = 0; j < message.availableTickets.length; ++j)
+                        object.availableTickets[j] = $root.wm.protobuf.UserItem.toObject(message.availableTickets[j], options);
+                }
                 return object;
             };
 
@@ -24801,6 +27615,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.accessCode != null && message.hasOwnProperty("accessCode"))
@@ -24877,6 +27697,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.accessCode != null)
@@ -25318,6 +28162,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (!$util.isString(message.accessCode))
@@ -25385,6 +28235,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.accessCode != null)
@@ -25819,6 +28693,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -25884,6 +28764,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -26335,6 +29239,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -26400,6 +29310,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -26908,6 +29842,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.periodId != null && message.hasOwnProperty("periodId"))
@@ -26997,6 +29937,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.periodId != null)
@@ -27575,6 +30539,4020 @@ export const wm = $root.wm = (() => {
             return LoadGhostCompetitionRankingResponse;
         })();
 
+        protobuf.LoadGhostKoshienRankingRequest = (function() {
+
+            /**
+             * Properties of a LoadGhostKoshienRankingRequest.
+             * @memberof wm.protobuf
+             * @interface ILoadGhostKoshienRankingRequest
+             * @property {number} carId LoadGhostKoshienRankingRequest carId
+             * @property {number} koshienId LoadGhostKoshienRankingRequest koshienId
+             * @property {string} placeId LoadGhostKoshienRankingRequest placeId
+             * @property {number} roundId LoadGhostKoshienRankingRequest roundId
+             */
+
+            /**
+             * Constructs a new LoadGhostKoshienRankingRequest.
+             * @memberof wm.protobuf
+             * @classdesc Represents a LoadGhostKoshienRankingRequest.
+             * @implements ILoadGhostKoshienRankingRequest
+             * @constructor
+             * @param {wm.protobuf.ILoadGhostKoshienRankingRequest=} [properties] Properties to set
+             */
+            function LoadGhostKoshienRankingRequest(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * LoadGhostKoshienRankingRequest carId.
+             * @member {number} carId
+             * @memberof wm.protobuf.LoadGhostKoshienRankingRequest
+             * @instance
+             */
+            LoadGhostKoshienRankingRequest.prototype.carId = 0;
+
+            /**
+             * LoadGhostKoshienRankingRequest koshienId.
+             * @member {number} koshienId
+             * @memberof wm.protobuf.LoadGhostKoshienRankingRequest
+             * @instance
+             */
+            LoadGhostKoshienRankingRequest.prototype.koshienId = 0;
+
+            /**
+             * LoadGhostKoshienRankingRequest placeId.
+             * @member {string} placeId
+             * @memberof wm.protobuf.LoadGhostKoshienRankingRequest
+             * @instance
+             */
+            LoadGhostKoshienRankingRequest.prototype.placeId = "";
+
+            /**
+             * LoadGhostKoshienRankingRequest roundId.
+             * @member {number} roundId
+             * @memberof wm.protobuf.LoadGhostKoshienRankingRequest
+             * @instance
+             */
+            LoadGhostKoshienRankingRequest.prototype.roundId = 0;
+
+            /**
+             * Creates a new LoadGhostKoshienRankingRequest instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.LoadGhostKoshienRankingRequest
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienRankingRequest=} [properties] Properties to set
+             * @returns {wm.protobuf.LoadGhostKoshienRankingRequest} LoadGhostKoshienRankingRequest instance
+             */
+            LoadGhostKoshienRankingRequest.create = function create(properties) {
+                return new LoadGhostKoshienRankingRequest(properties);
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienRankingRequest message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingRequest.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.LoadGhostKoshienRankingRequest
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienRankingRequest} message LoadGhostKoshienRankingRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienRankingRequest.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.carId);
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.koshienId);
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.placeId);
+                writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.roundId);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienRankingRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingRequest.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienRankingRequest
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienRankingRequest} message LoadGhostKoshienRankingRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienRankingRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienRankingRequest message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.LoadGhostKoshienRankingRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.LoadGhostKoshienRankingRequest} LoadGhostKoshienRankingRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienRankingRequest.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostKoshienRankingRequest();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.carId = reader.uint32();
+                            break;
+                        }
+                    case 2: {
+                            message.koshienId = reader.uint32();
+                            break;
+                        }
+                    case 3: {
+                            message.placeId = reader.string();
+                            break;
+                        }
+                    case 4: {
+                            message.roundId = reader.uint32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("carId"))
+                    throw $util.ProtocolError("missing required 'carId'", { instance: message });
+                if (!message.hasOwnProperty("koshienId"))
+                    throw $util.ProtocolError("missing required 'koshienId'", { instance: message });
+                if (!message.hasOwnProperty("placeId"))
+                    throw $util.ProtocolError("missing required 'placeId'", { instance: message });
+                if (!message.hasOwnProperty("roundId"))
+                    throw $util.ProtocolError("missing required 'roundId'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienRankingRequest message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienRankingRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.LoadGhostKoshienRankingRequest} LoadGhostKoshienRankingRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienRankingRequest.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a LoadGhostKoshienRankingRequest message.
+             * @function verify
+             * @memberof wm.protobuf.LoadGhostKoshienRankingRequest
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            LoadGhostKoshienRankingRequest.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (!$util.isInteger(message.carId))
+                    return "carId: integer expected";
+                if (!$util.isInteger(message.koshienId))
+                    return "koshienId: integer expected";
+                if (!$util.isString(message.placeId))
+                    return "placeId: string expected";
+                if (!$util.isInteger(message.roundId))
+                    return "roundId: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a LoadGhostKoshienRankingRequest message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.LoadGhostKoshienRankingRequest
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.LoadGhostKoshienRankingRequest} LoadGhostKoshienRankingRequest
+             */
+            LoadGhostKoshienRankingRequest.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.LoadGhostKoshienRankingRequest)
+                    return object;
+                let message = new $root.wm.protobuf.LoadGhostKoshienRankingRequest();
+                if (object.carId != null)
+                    message.carId = object.carId >>> 0;
+                if (object.koshienId != null)
+                    message.koshienId = object.koshienId >>> 0;
+                if (object.placeId != null)
+                    message.placeId = String(object.placeId);
+                if (object.roundId != null)
+                    message.roundId = object.roundId >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienRankingRequest message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.LoadGhostKoshienRankingRequest
+             * @static
+             * @param {wm.protobuf.LoadGhostKoshienRankingRequest} message LoadGhostKoshienRankingRequest
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            LoadGhostKoshienRankingRequest.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.defaults) {
+                    object.carId = 0;
+                    object.koshienId = 0;
+                    object.placeId = "";
+                    object.roundId = 0;
+                }
+                if (message.carId != null && message.hasOwnProperty("carId"))
+                    object.carId = message.carId;
+                if (message.koshienId != null && message.hasOwnProperty("koshienId"))
+                    object.koshienId = message.koshienId;
+                if (message.placeId != null && message.hasOwnProperty("placeId"))
+                    object.placeId = message.placeId;
+                if (message.roundId != null && message.hasOwnProperty("roundId"))
+                    object.roundId = message.roundId;
+                return object;
+            };
+
+            /**
+             * Converts this LoadGhostKoshienRankingRequest to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.LoadGhostKoshienRankingRequest
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            LoadGhostKoshienRankingRequest.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienRankingRequest
+             * @function getTypeUrl
+             * @memberof wm.protobuf.LoadGhostKoshienRankingRequest
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            LoadGhostKoshienRankingRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.LoadGhostKoshienRankingRequest";
+            };
+
+            return LoadGhostKoshienRankingRequest;
+        })();
+
+        protobuf.LoadGhostKoshienRankingResponse = (function() {
+
+            /**
+             * Properties of a LoadGhostKoshienRankingResponse.
+             * @memberof wm.protobuf
+             * @interface ILoadGhostKoshienRankingResponse
+             * @property {wm.protobuf.ErrorCode} error LoadGhostKoshienRankingResponse error
+             * @property {Array.<boolean>|null} [roundQualified] LoadGhostKoshienRankingResponse roundQualified
+             * @property {wm.protobuf.IGhostKoshienSchedule|null} [koshienSchedule] LoadGhostKoshienRankingResponse koshienSchedule
+             * @property {wm.protobuf.LoadGhostKoshienRankingResponse.IUserInfo|null} [ownRankingEntry] LoadGhostKoshienRankingResponse ownRankingEntry
+             * @property {Array.<wm.protobuf.LoadGhostKoshienRankingResponse.IEntry>|null} [rankingEntries] LoadGhostKoshienRankingResponse rankingEntries
+             * @property {number|null} [rankingUpdatedAt] LoadGhostKoshienRankingResponse rankingUpdatedAt
+             * @property {wm.protobuf.LoadGhostKoshienRankingResponse.IRecord|null} [ownRecord] LoadGhostKoshienRankingResponse ownRecord
+             * @property {wm.protobuf.LoadGhostKoshienRankingResponse.IPlaceRecord|null} [placeRecord] LoadGhostKoshienRankingResponse placeRecord
+             */
+
+            /**
+             * Constructs a new LoadGhostKoshienRankingResponse.
+             * @memberof wm.protobuf
+             * @classdesc Represents a LoadGhostKoshienRankingResponse.
+             * @implements ILoadGhostKoshienRankingResponse
+             * @constructor
+             * @param {wm.protobuf.ILoadGhostKoshienRankingResponse=} [properties] Properties to set
+             */
+            function LoadGhostKoshienRankingResponse(properties) {
+                this.roundQualified = [];
+                this.rankingEntries = [];
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * LoadGhostKoshienRankingResponse error.
+             * @member {wm.protobuf.ErrorCode} error
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @instance
+             */
+            LoadGhostKoshienRankingResponse.prototype.error = 0;
+
+            /**
+             * LoadGhostKoshienRankingResponse roundQualified.
+             * @member {Array.<boolean>} roundQualified
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @instance
+             */
+            LoadGhostKoshienRankingResponse.prototype.roundQualified = $util.emptyArray;
+
+            /**
+             * LoadGhostKoshienRankingResponse koshienSchedule.
+             * @member {wm.protobuf.IGhostKoshienSchedule|null|undefined} koshienSchedule
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @instance
+             */
+            LoadGhostKoshienRankingResponse.prototype.koshienSchedule = null;
+
+            /**
+             * LoadGhostKoshienRankingResponse ownRankingEntry.
+             * @member {wm.protobuf.LoadGhostKoshienRankingResponse.IUserInfo|null|undefined} ownRankingEntry
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @instance
+             */
+            LoadGhostKoshienRankingResponse.prototype.ownRankingEntry = null;
+
+            /**
+             * LoadGhostKoshienRankingResponse rankingEntries.
+             * @member {Array.<wm.protobuf.LoadGhostKoshienRankingResponse.IEntry>} rankingEntries
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @instance
+             */
+            LoadGhostKoshienRankingResponse.prototype.rankingEntries = $util.emptyArray;
+
+            /**
+             * LoadGhostKoshienRankingResponse rankingUpdatedAt.
+             * @member {number} rankingUpdatedAt
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @instance
+             */
+            LoadGhostKoshienRankingResponse.prototype.rankingUpdatedAt = 0;
+
+            /**
+             * LoadGhostKoshienRankingResponse ownRecord.
+             * @member {wm.protobuf.LoadGhostKoshienRankingResponse.IRecord|null|undefined} ownRecord
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @instance
+             */
+            LoadGhostKoshienRankingResponse.prototype.ownRecord = null;
+
+            /**
+             * LoadGhostKoshienRankingResponse placeRecord.
+             * @member {wm.protobuf.LoadGhostKoshienRankingResponse.IPlaceRecord|null|undefined} placeRecord
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @instance
+             */
+            LoadGhostKoshienRankingResponse.prototype.placeRecord = null;
+
+            /**
+             * Creates a new LoadGhostKoshienRankingResponse instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienRankingResponse=} [properties] Properties to set
+             * @returns {wm.protobuf.LoadGhostKoshienRankingResponse} LoadGhostKoshienRankingResponse instance
+             */
+            LoadGhostKoshienRankingResponse.create = function create(properties) {
+                return new LoadGhostKoshienRankingResponse(properties);
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienRankingResponse message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienRankingResponse} message LoadGhostKoshienRankingResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienRankingResponse.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.error);
+                if (message.koshienSchedule != null && Object.hasOwnProperty.call(message, "koshienSchedule"))
+                    $root.wm.protobuf.GhostKoshienSchedule.encode(message.koshienSchedule, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                if (message.ownRankingEntry != null && Object.hasOwnProperty.call(message, "ownRankingEntry"))
+                    $root.wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo.encode(message.ownRankingEntry, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                if (message.rankingEntries != null && message.rankingEntries.length)
+                    for (let i = 0; i < message.rankingEntries.length; ++i)
+                        $root.wm.protobuf.LoadGhostKoshienRankingResponse.Entry.encode(message.rankingEntries[i], writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                if (message.ownRecord != null && Object.hasOwnProperty.call(message, "ownRecord"))
+                    $root.wm.protobuf.LoadGhostKoshienRankingResponse.Record.encode(message.ownRecord, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                if (message.roundQualified != null && message.roundQualified.length)
+                    for (let i = 0; i < message.roundQualified.length; ++i)
+                        writer.uint32(/* id 8, wireType 0 =*/64).bool(message.roundQualified[i]);
+                if (message.placeRecord != null && Object.hasOwnProperty.call(message, "placeRecord"))
+                    $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.encode(message.placeRecord, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
+                if (message.rankingUpdatedAt != null && Object.hasOwnProperty.call(message, "rankingUpdatedAt"))
+                    writer.uint32(/* id 10, wireType 0 =*/80).uint32(message.rankingUpdatedAt);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienRankingResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienRankingResponse} message LoadGhostKoshienRankingResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienRankingResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienRankingResponse message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.LoadGhostKoshienRankingResponse} LoadGhostKoshienRankingResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienRankingResponse.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostKoshienRankingResponse();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.error = reader.int32();
+                            break;
+                        }
+                    case 8: {
+                            if (!(message.roundQualified && message.roundQualified.length))
+                                message.roundQualified = [];
+                            if ((tag & 7) === 2) {
+                                let end2 = reader.uint32() + reader.pos;
+                                while (reader.pos < end2)
+                                    message.roundQualified.push(reader.bool());
+                            } else
+                                message.roundQualified.push(reader.bool());
+                            break;
+                        }
+                    case 3: {
+                            message.koshienSchedule = $root.wm.protobuf.GhostKoshienSchedule.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 4: {
+                            message.ownRankingEntry = $root.wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 5: {
+                            if (!(message.rankingEntries && message.rankingEntries.length))
+                                message.rankingEntries = [];
+                            message.rankingEntries.push($root.wm.protobuf.LoadGhostKoshienRankingResponse.Entry.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    case 10: {
+                            message.rankingUpdatedAt = reader.uint32();
+                            break;
+                        }
+                    case 6: {
+                            message.ownRecord = $root.wm.protobuf.LoadGhostKoshienRankingResponse.Record.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 9: {
+                            message.placeRecord = $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.decode(reader, reader.uint32());
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("error"))
+                    throw $util.ProtocolError("missing required 'error'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienRankingResponse message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.LoadGhostKoshienRankingResponse} LoadGhostKoshienRankingResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienRankingResponse.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a LoadGhostKoshienRankingResponse message.
+             * @function verify
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            LoadGhostKoshienRankingResponse.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                switch (message.error) {
+                default:
+                    return "error: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 9:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
+                    break;
+                }
+                if (message.roundQualified != null && message.hasOwnProperty("roundQualified")) {
+                    if (!Array.isArray(message.roundQualified))
+                        return "roundQualified: array expected";
+                    for (let i = 0; i < message.roundQualified.length; ++i)
+                        if (typeof message.roundQualified[i] !== "boolean")
+                            return "roundQualified: boolean[] expected";
+                }
+                if (message.koshienSchedule != null && message.hasOwnProperty("koshienSchedule")) {
+                    let error = $root.wm.protobuf.GhostKoshienSchedule.verify(message.koshienSchedule);
+                    if (error)
+                        return "koshienSchedule." + error;
+                }
+                if (message.ownRankingEntry != null && message.hasOwnProperty("ownRankingEntry")) {
+                    let error = $root.wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo.verify(message.ownRankingEntry);
+                    if (error)
+                        return "ownRankingEntry." + error;
+                }
+                if (message.rankingEntries != null && message.hasOwnProperty("rankingEntries")) {
+                    if (!Array.isArray(message.rankingEntries))
+                        return "rankingEntries: array expected";
+                    for (let i = 0; i < message.rankingEntries.length; ++i) {
+                        let error = $root.wm.protobuf.LoadGhostKoshienRankingResponse.Entry.verify(message.rankingEntries[i]);
+                        if (error)
+                            return "rankingEntries." + error;
+                    }
+                }
+                if (message.rankingUpdatedAt != null && message.hasOwnProperty("rankingUpdatedAt"))
+                    if (!$util.isInteger(message.rankingUpdatedAt))
+                        return "rankingUpdatedAt: integer expected";
+                if (message.ownRecord != null && message.hasOwnProperty("ownRecord")) {
+                    let error = $root.wm.protobuf.LoadGhostKoshienRankingResponse.Record.verify(message.ownRecord);
+                    if (error)
+                        return "ownRecord." + error;
+                }
+                if (message.placeRecord != null && message.hasOwnProperty("placeRecord")) {
+                    let error = $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.verify(message.placeRecord);
+                    if (error)
+                        return "placeRecord." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a LoadGhostKoshienRankingResponse message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.LoadGhostKoshienRankingResponse} LoadGhostKoshienRankingResponse
+             */
+            LoadGhostKoshienRankingResponse.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.LoadGhostKoshienRankingResponse)
+                    return object;
+                let message = new $root.wm.protobuf.LoadGhostKoshienRankingResponse();
+                switch (object.error) {
+                case "ERR_SUCCESS":
+                case 0:
+                    message.error = 0;
+                    break;
+                case "ERR_REQUEST":
+                case 1:
+                    message.error = 1;
+                    break;
+                case "ERR_NOT_FOUND":
+                case 2:
+                    message.error = 2;
+                    break;
+                case "ERR_ID_SERVER":
+                case 3:
+                    message.error = 3;
+                    break;
+                case "ERR_ID_BANNED":
+                case 4:
+                    message.error = 4;
+                    break;
+                case "ERR_USER_LOCKED":
+                case 5:
+                    message.error = 5;
+                    break;
+                case "ERR_USER_VERSION":
+                case 6:
+                    message.error = 6;
+                    break;
+                case "ERR_NAME_CONFLICTED":
+                case 7:
+                    message.error = 7;
+                    break;
+                case "ERR_FORBIDDEN":
+                case 9:
+                    message.error = 9;
+                    break;
+                case "ERR_USER_SUCCEEDED":
+                case 11:
+                    message.error = 11;
+                    break;
+                case "ERR_BEING_TRANSFERRED":
+                case 12:
+                    message.error = 12;
+                    break;
+                case "ERR_SCRATCH_LOCKED":
+                case 13:
+                    message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
+                    break;
+                }
+                if (object.roundQualified) {
+                    if (!Array.isArray(object.roundQualified))
+                        throw TypeError(".wm.protobuf.LoadGhostKoshienRankingResponse.roundQualified: array expected");
+                    message.roundQualified = [];
+                    for (let i = 0; i < object.roundQualified.length; ++i)
+                        message.roundQualified[i] = Boolean(object.roundQualified[i]);
+                }
+                if (object.koshienSchedule != null) {
+                    if (typeof object.koshienSchedule !== "object")
+                        throw TypeError(".wm.protobuf.LoadGhostKoshienRankingResponse.koshienSchedule: object expected");
+                    message.koshienSchedule = $root.wm.protobuf.GhostKoshienSchedule.fromObject(object.koshienSchedule);
+                }
+                if (object.ownRankingEntry != null) {
+                    if (typeof object.ownRankingEntry !== "object")
+                        throw TypeError(".wm.protobuf.LoadGhostKoshienRankingResponse.ownRankingEntry: object expected");
+                    message.ownRankingEntry = $root.wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo.fromObject(object.ownRankingEntry);
+                }
+                if (object.rankingEntries) {
+                    if (!Array.isArray(object.rankingEntries))
+                        throw TypeError(".wm.protobuf.LoadGhostKoshienRankingResponse.rankingEntries: array expected");
+                    message.rankingEntries = [];
+                    for (let i = 0; i < object.rankingEntries.length; ++i) {
+                        if (typeof object.rankingEntries[i] !== "object")
+                            throw TypeError(".wm.protobuf.LoadGhostKoshienRankingResponse.rankingEntries: object expected");
+                        message.rankingEntries[i] = $root.wm.protobuf.LoadGhostKoshienRankingResponse.Entry.fromObject(object.rankingEntries[i]);
+                    }
+                }
+                if (object.rankingUpdatedAt != null)
+                    message.rankingUpdatedAt = object.rankingUpdatedAt >>> 0;
+                if (object.ownRecord != null) {
+                    if (typeof object.ownRecord !== "object")
+                        throw TypeError(".wm.protobuf.LoadGhostKoshienRankingResponse.ownRecord: object expected");
+                    message.ownRecord = $root.wm.protobuf.LoadGhostKoshienRankingResponse.Record.fromObject(object.ownRecord);
+                }
+                if (object.placeRecord != null) {
+                    if (typeof object.placeRecord !== "object")
+                        throw TypeError(".wm.protobuf.LoadGhostKoshienRankingResponse.placeRecord: object expected");
+                    message.placeRecord = $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.fromObject(object.placeRecord);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienRankingResponse message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @static
+             * @param {wm.protobuf.LoadGhostKoshienRankingResponse} message LoadGhostKoshienRankingResponse
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            LoadGhostKoshienRankingResponse.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.arrays || options.defaults) {
+                    object.rankingEntries = [];
+                    object.roundQualified = [];
+                }
+                if (options.defaults) {
+                    object.error = options.enums === String ? "ERR_SUCCESS" : 0;
+                    object.koshienSchedule = null;
+                    object.ownRankingEntry = null;
+                    object.ownRecord = null;
+                    object.placeRecord = null;
+                    object.rankingUpdatedAt = 0;
+                }
+                if (message.error != null && message.hasOwnProperty("error"))
+                    object.error = options.enums === String ? $root.wm.protobuf.ErrorCode[message.error] : message.error;
+                if (message.koshienSchedule != null && message.hasOwnProperty("koshienSchedule"))
+                    object.koshienSchedule = $root.wm.protobuf.GhostKoshienSchedule.toObject(message.koshienSchedule, options);
+                if (message.ownRankingEntry != null && message.hasOwnProperty("ownRankingEntry"))
+                    object.ownRankingEntry = $root.wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo.toObject(message.ownRankingEntry, options);
+                if (message.rankingEntries && message.rankingEntries.length) {
+                    object.rankingEntries = [];
+                    for (let j = 0; j < message.rankingEntries.length; ++j)
+                        object.rankingEntries[j] = $root.wm.protobuf.LoadGhostKoshienRankingResponse.Entry.toObject(message.rankingEntries[j], options);
+                }
+                if (message.ownRecord != null && message.hasOwnProperty("ownRecord"))
+                    object.ownRecord = $root.wm.protobuf.LoadGhostKoshienRankingResponse.Record.toObject(message.ownRecord, options);
+                if (message.roundQualified && message.roundQualified.length) {
+                    object.roundQualified = [];
+                    for (let j = 0; j < message.roundQualified.length; ++j)
+                        object.roundQualified[j] = message.roundQualified[j];
+                }
+                if (message.placeRecord != null && message.hasOwnProperty("placeRecord"))
+                    object.placeRecord = $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.toObject(message.placeRecord, options);
+                if (message.rankingUpdatedAt != null && message.hasOwnProperty("rankingUpdatedAt"))
+                    object.rankingUpdatedAt = message.rankingUpdatedAt;
+                return object;
+            };
+
+            /**
+             * Converts this LoadGhostKoshienRankingResponse to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            LoadGhostKoshienRankingResponse.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienRankingResponse
+             * @function getTypeUrl
+             * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            LoadGhostKoshienRankingResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.LoadGhostKoshienRankingResponse";
+            };
+
+            LoadGhostKoshienRankingResponse.UserInfo = (function() {
+
+                /**
+                 * Properties of a UserInfo.
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+                 * @interface IUserInfo
+                 * @property {number} result UserInfo result
+                 * @property {number} regionId UserInfo regionId
+                 * @property {string} placeId UserInfo placeId
+                 * @property {string} name UserInfo name
+                 * @property {number} model UserInfo model
+                 * @property {Array.<wm.protobuf.IGhostKoshienRoundRank>|null} [roundRank] UserInfo roundRank
+                 * @property {number} visualModel UserInfo visualModel
+                 * @property {number} defaultColor UserInfo defaultColor
+                 */
+
+                /**
+                 * Constructs a new UserInfo.
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+                 * @classdesc Represents a UserInfo.
+                 * @implements IUserInfo
+                 * @constructor
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IUserInfo=} [properties] Properties to set
+                 */
+                function UserInfo(properties) {
+                    this.roundRank = [];
+                    if (properties)
+                        for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * UserInfo result.
+                 * @member {number} result
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @instance
+                 */
+                UserInfo.prototype.result = 0;
+
+                /**
+                 * UserInfo regionId.
+                 * @member {number} regionId
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @instance
+                 */
+                UserInfo.prototype.regionId = 0;
+
+                /**
+                 * UserInfo placeId.
+                 * @member {string} placeId
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @instance
+                 */
+                UserInfo.prototype.placeId = "";
+
+                /**
+                 * UserInfo name.
+                 * @member {string} name
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @instance
+                 */
+                UserInfo.prototype.name = "";
+
+                /**
+                 * UserInfo model.
+                 * @member {number} model
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @instance
+                 */
+                UserInfo.prototype.model = 0;
+
+                /**
+                 * UserInfo roundRank.
+                 * @member {Array.<wm.protobuf.IGhostKoshienRoundRank>} roundRank
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @instance
+                 */
+                UserInfo.prototype.roundRank = $util.emptyArray;
+
+                /**
+                 * UserInfo visualModel.
+                 * @member {number} visualModel
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @instance
+                 */
+                UserInfo.prototype.visualModel = 0;
+
+                /**
+                 * UserInfo defaultColor.
+                 * @member {number} defaultColor
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @instance
+                 */
+                UserInfo.prototype.defaultColor = 0;
+
+                /**
+                 * Creates a new UserInfo instance using the specified properties.
+                 * @function create
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IUserInfo=} [properties] Properties to set
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo} UserInfo instance
+                 */
+                UserInfo.create = function create(properties) {
+                    return new UserInfo(properties);
+                };
+
+                /**
+                 * Encodes the specified UserInfo message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo.verify|verify} messages.
+                 * @function encode
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IUserInfo} message UserInfo message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                UserInfo.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    writer.uint32(/* id 1, wireType 0 =*/8).sint32(message.result);
+                    writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.regionId);
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.placeId);
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.name);
+                    writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.model);
+                    if (message.roundRank != null && message.roundRank.length)
+                        for (let i = 0; i < message.roundRank.length; ++i)
+                            $root.wm.protobuf.GhostKoshienRoundRank.encode(message.roundRank[i], writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                    writer.uint32(/* id 7, wireType 0 =*/56).uint32(message.visualModel);
+                    writer.uint32(/* id 8, wireType 0 =*/64).uint32(message.defaultColor);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified UserInfo message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IUserInfo} message UserInfo message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                UserInfo.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a UserInfo message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo} UserInfo
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                UserInfo.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo();
+                    while (reader.pos < end) {
+                        let tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.result = reader.sint32();
+                                break;
+                            }
+                        case 2: {
+                                message.regionId = reader.uint32();
+                                break;
+                            }
+                        case 3: {
+                                message.placeId = reader.string();
+                                break;
+                            }
+                        case 4: {
+                                message.name = reader.string();
+                                break;
+                            }
+                        case 5: {
+                                message.model = reader.uint32();
+                                break;
+                            }
+                        case 6: {
+                                if (!(message.roundRank && message.roundRank.length))
+                                    message.roundRank = [];
+                                message.roundRank.push($root.wm.protobuf.GhostKoshienRoundRank.decode(reader, reader.uint32()));
+                                break;
+                            }
+                        case 7: {
+                                message.visualModel = reader.uint32();
+                                break;
+                            }
+                        case 8: {
+                                message.defaultColor = reader.uint32();
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    if (!message.hasOwnProperty("result"))
+                        throw $util.ProtocolError("missing required 'result'", { instance: message });
+                    if (!message.hasOwnProperty("regionId"))
+                        throw $util.ProtocolError("missing required 'regionId'", { instance: message });
+                    if (!message.hasOwnProperty("placeId"))
+                        throw $util.ProtocolError("missing required 'placeId'", { instance: message });
+                    if (!message.hasOwnProperty("name"))
+                        throw $util.ProtocolError("missing required 'name'", { instance: message });
+                    if (!message.hasOwnProperty("model"))
+                        throw $util.ProtocolError("missing required 'model'", { instance: message });
+                    if (!message.hasOwnProperty("visualModel"))
+                        throw $util.ProtocolError("missing required 'visualModel'", { instance: message });
+                    if (!message.hasOwnProperty("defaultColor"))
+                        throw $util.ProtocolError("missing required 'defaultColor'", { instance: message });
+                    return message;
+                };
+
+                /**
+                 * Decodes a UserInfo message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo} UserInfo
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                UserInfo.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a UserInfo message.
+                 * @function verify
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                UserInfo.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (!$util.isInteger(message.result))
+                        return "result: integer expected";
+                    if (!$util.isInteger(message.regionId))
+                        return "regionId: integer expected";
+                    if (!$util.isString(message.placeId))
+                        return "placeId: string expected";
+                    if (!$util.isString(message.name))
+                        return "name: string expected";
+                    if (!$util.isInteger(message.model))
+                        return "model: integer expected";
+                    if (message.roundRank != null && message.hasOwnProperty("roundRank")) {
+                        if (!Array.isArray(message.roundRank))
+                            return "roundRank: array expected";
+                        for (let i = 0; i < message.roundRank.length; ++i) {
+                            let error = $root.wm.protobuf.GhostKoshienRoundRank.verify(message.roundRank[i]);
+                            if (error)
+                                return "roundRank." + error;
+                        }
+                    }
+                    if (!$util.isInteger(message.visualModel))
+                        return "visualModel: integer expected";
+                    if (!$util.isInteger(message.defaultColor))
+                        return "defaultColor: integer expected";
+                    return null;
+                };
+
+                /**
+                 * Creates a UserInfo message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo} UserInfo
+                 */
+                UserInfo.fromObject = function fromObject(object) {
+                    if (object instanceof $root.wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo)
+                        return object;
+                    let message = new $root.wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo();
+                    if (object.result != null)
+                        message.result = object.result | 0;
+                    if (object.regionId != null)
+                        message.regionId = object.regionId >>> 0;
+                    if (object.placeId != null)
+                        message.placeId = String(object.placeId);
+                    if (object.name != null)
+                        message.name = String(object.name);
+                    if (object.model != null)
+                        message.model = object.model >>> 0;
+                    if (object.roundRank) {
+                        if (!Array.isArray(object.roundRank))
+                            throw TypeError(".wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo.roundRank: array expected");
+                        message.roundRank = [];
+                        for (let i = 0; i < object.roundRank.length; ++i) {
+                            if (typeof object.roundRank[i] !== "object")
+                                throw TypeError(".wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo.roundRank: object expected");
+                            message.roundRank[i] = $root.wm.protobuf.GhostKoshienRoundRank.fromObject(object.roundRank[i]);
+                        }
+                    }
+                    if (object.visualModel != null)
+                        message.visualModel = object.visualModel >>> 0;
+                    if (object.defaultColor != null)
+                        message.defaultColor = object.defaultColor >>> 0;
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a UserInfo message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo} message UserInfo
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                UserInfo.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    let object = {};
+                    if (options.arrays || options.defaults)
+                        object.roundRank = [];
+                    if (options.defaults) {
+                        object.result = 0;
+                        object.regionId = 0;
+                        object.placeId = "";
+                        object.name = "";
+                        object.model = 0;
+                        object.visualModel = 0;
+                        object.defaultColor = 0;
+                    }
+                    if (message.result != null && message.hasOwnProperty("result"))
+                        object.result = message.result;
+                    if (message.regionId != null && message.hasOwnProperty("regionId"))
+                        object.regionId = message.regionId;
+                    if (message.placeId != null && message.hasOwnProperty("placeId"))
+                        object.placeId = message.placeId;
+                    if (message.name != null && message.hasOwnProperty("name"))
+                        object.name = message.name;
+                    if (message.model != null && message.hasOwnProperty("model"))
+                        object.model = message.model;
+                    if (message.roundRank && message.roundRank.length) {
+                        object.roundRank = [];
+                        for (let j = 0; j < message.roundRank.length; ++j)
+                            object.roundRank[j] = $root.wm.protobuf.GhostKoshienRoundRank.toObject(message.roundRank[j], options);
+                    }
+                    if (message.visualModel != null && message.hasOwnProperty("visualModel"))
+                        object.visualModel = message.visualModel;
+                    if (message.defaultColor != null && message.hasOwnProperty("defaultColor"))
+                        object.defaultColor = message.defaultColor;
+                    return object;
+                };
+
+                /**
+                 * Converts this UserInfo to JSON.
+                 * @function toJSON
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                UserInfo.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the default type url for UserInfo
+                 * @function getTypeUrl
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                UserInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo";
+                };
+
+                return UserInfo;
+            })();
+
+            LoadGhostKoshienRankingResponse.Entry = (function() {
+
+                /**
+                 * Properties of an Entry.
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+                 * @interface IEntry
+                 * @property {number} rank Entry rank
+                 * @property {number} result Entry result
+                 * @property {number} regionId Entry regionId
+                 * @property {string} placeId Entry placeId
+                 * @property {number} model Entry model
+                 * @property {string} shopName Entry shopName
+                 * @property {number} playedAt Entry playedAt
+                 * @property {number} visualModel Entry visualModel
+                 * @property {number} defaultColor Entry defaultColor
+                 */
+
+                /**
+                 * Constructs a new Entry.
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+                 * @classdesc Represents an Entry.
+                 * @implements IEntry
+                 * @constructor
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IEntry=} [properties] Properties to set
+                 */
+                function Entry(properties) {
+                    if (properties)
+                        for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * Entry rank.
+                 * @member {number} rank
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @instance
+                 */
+                Entry.prototype.rank = 0;
+
+                /**
+                 * Entry result.
+                 * @member {number} result
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @instance
+                 */
+                Entry.prototype.result = 0;
+
+                /**
+                 * Entry regionId.
+                 * @member {number} regionId
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @instance
+                 */
+                Entry.prototype.regionId = 0;
+
+                /**
+                 * Entry placeId.
+                 * @member {string} placeId
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @instance
+                 */
+                Entry.prototype.placeId = "";
+
+                /**
+                 * Entry model.
+                 * @member {number} model
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @instance
+                 */
+                Entry.prototype.model = 0;
+
+                /**
+                 * Entry shopName.
+                 * @member {string} shopName
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @instance
+                 */
+                Entry.prototype.shopName = "";
+
+                /**
+                 * Entry playedAt.
+                 * @member {number} playedAt
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @instance
+                 */
+                Entry.prototype.playedAt = 0;
+
+                /**
+                 * Entry visualModel.
+                 * @member {number} visualModel
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @instance
+                 */
+                Entry.prototype.visualModel = 0;
+
+                /**
+                 * Entry defaultColor.
+                 * @member {number} defaultColor
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @instance
+                 */
+                Entry.prototype.defaultColor = 0;
+
+                /**
+                 * Creates a new Entry instance using the specified properties.
+                 * @function create
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IEntry=} [properties] Properties to set
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.Entry} Entry instance
+                 */
+                Entry.create = function create(properties) {
+                    return new Entry(properties);
+                };
+
+                /**
+                 * Encodes the specified Entry message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.Entry.verify|verify} messages.
+                 * @function encode
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IEntry} message Entry message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Entry.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.rank);
+                    writer.uint32(/* id 2, wireType 0 =*/16).sint32(message.result);
+                    writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.regionId);
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.placeId);
+                    writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.model);
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.shopName);
+                    writer.uint32(/* id 7, wireType 0 =*/56).uint32(message.playedAt);
+                    writer.uint32(/* id 8, wireType 0 =*/64).uint32(message.visualModel);
+                    writer.uint32(/* id 9, wireType 0 =*/72).uint32(message.defaultColor);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified Entry message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.Entry.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IEntry} message Entry message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Entry.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes an Entry message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.Entry} Entry
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Entry.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostKoshienRankingResponse.Entry();
+                    while (reader.pos < end) {
+                        let tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.rank = reader.uint32();
+                                break;
+                            }
+                        case 2: {
+                                message.result = reader.sint32();
+                                break;
+                            }
+                        case 3: {
+                                message.regionId = reader.uint32();
+                                break;
+                            }
+                        case 4: {
+                                message.placeId = reader.string();
+                                break;
+                            }
+                        case 5: {
+                                message.model = reader.uint32();
+                                break;
+                            }
+                        case 6: {
+                                message.shopName = reader.string();
+                                break;
+                            }
+                        case 7: {
+                                message.playedAt = reader.uint32();
+                                break;
+                            }
+                        case 8: {
+                                message.visualModel = reader.uint32();
+                                break;
+                            }
+                        case 9: {
+                                message.defaultColor = reader.uint32();
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    if (!message.hasOwnProperty("rank"))
+                        throw $util.ProtocolError("missing required 'rank'", { instance: message });
+                    if (!message.hasOwnProperty("result"))
+                        throw $util.ProtocolError("missing required 'result'", { instance: message });
+                    if (!message.hasOwnProperty("regionId"))
+                        throw $util.ProtocolError("missing required 'regionId'", { instance: message });
+                    if (!message.hasOwnProperty("placeId"))
+                        throw $util.ProtocolError("missing required 'placeId'", { instance: message });
+                    if (!message.hasOwnProperty("model"))
+                        throw $util.ProtocolError("missing required 'model'", { instance: message });
+                    if (!message.hasOwnProperty("shopName"))
+                        throw $util.ProtocolError("missing required 'shopName'", { instance: message });
+                    if (!message.hasOwnProperty("playedAt"))
+                        throw $util.ProtocolError("missing required 'playedAt'", { instance: message });
+                    if (!message.hasOwnProperty("visualModel"))
+                        throw $util.ProtocolError("missing required 'visualModel'", { instance: message });
+                    if (!message.hasOwnProperty("defaultColor"))
+                        throw $util.ProtocolError("missing required 'defaultColor'", { instance: message });
+                    return message;
+                };
+
+                /**
+                 * Decodes an Entry message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.Entry} Entry
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Entry.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies an Entry message.
+                 * @function verify
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                Entry.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (!$util.isInteger(message.rank))
+                        return "rank: integer expected";
+                    if (!$util.isInteger(message.result))
+                        return "result: integer expected";
+                    if (!$util.isInteger(message.regionId))
+                        return "regionId: integer expected";
+                    if (!$util.isString(message.placeId))
+                        return "placeId: string expected";
+                    if (!$util.isInteger(message.model))
+                        return "model: integer expected";
+                    if (!$util.isString(message.shopName))
+                        return "shopName: string expected";
+                    if (!$util.isInteger(message.playedAt))
+                        return "playedAt: integer expected";
+                    if (!$util.isInteger(message.visualModel))
+                        return "visualModel: integer expected";
+                    if (!$util.isInteger(message.defaultColor))
+                        return "defaultColor: integer expected";
+                    return null;
+                };
+
+                /**
+                 * Creates an Entry message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.Entry} Entry
+                 */
+                Entry.fromObject = function fromObject(object) {
+                    if (object instanceof $root.wm.protobuf.LoadGhostKoshienRankingResponse.Entry)
+                        return object;
+                    let message = new $root.wm.protobuf.LoadGhostKoshienRankingResponse.Entry();
+                    if (object.rank != null)
+                        message.rank = object.rank >>> 0;
+                    if (object.result != null)
+                        message.result = object.result | 0;
+                    if (object.regionId != null)
+                        message.regionId = object.regionId >>> 0;
+                    if (object.placeId != null)
+                        message.placeId = String(object.placeId);
+                    if (object.model != null)
+                        message.model = object.model >>> 0;
+                    if (object.shopName != null)
+                        message.shopName = String(object.shopName);
+                    if (object.playedAt != null)
+                        message.playedAt = object.playedAt >>> 0;
+                    if (object.visualModel != null)
+                        message.visualModel = object.visualModel >>> 0;
+                    if (object.defaultColor != null)
+                        message.defaultColor = object.defaultColor >>> 0;
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from an Entry message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.Entry} message Entry
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                Entry.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    let object = {};
+                    if (options.defaults) {
+                        object.rank = 0;
+                        object.result = 0;
+                        object.regionId = 0;
+                        object.placeId = "";
+                        object.model = 0;
+                        object.shopName = "";
+                        object.playedAt = 0;
+                        object.visualModel = 0;
+                        object.defaultColor = 0;
+                    }
+                    if (message.rank != null && message.hasOwnProperty("rank"))
+                        object.rank = message.rank;
+                    if (message.result != null && message.hasOwnProperty("result"))
+                        object.result = message.result;
+                    if (message.regionId != null && message.hasOwnProperty("regionId"))
+                        object.regionId = message.regionId;
+                    if (message.placeId != null && message.hasOwnProperty("placeId"))
+                        object.placeId = message.placeId;
+                    if (message.model != null && message.hasOwnProperty("model"))
+                        object.model = message.model;
+                    if (message.shopName != null && message.hasOwnProperty("shopName"))
+                        object.shopName = message.shopName;
+                    if (message.playedAt != null && message.hasOwnProperty("playedAt"))
+                        object.playedAt = message.playedAt;
+                    if (message.visualModel != null && message.hasOwnProperty("visualModel"))
+                        object.visualModel = message.visualModel;
+                    if (message.defaultColor != null && message.hasOwnProperty("defaultColor"))
+                        object.defaultColor = message.defaultColor;
+                    return object;
+                };
+
+                /**
+                 * Converts this Entry to JSON.
+                 * @function toJSON
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                Entry.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the default type url for Entry
+                 * @function getTypeUrl
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Entry
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                Entry.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/wm.protobuf.LoadGhostKoshienRankingResponse.Entry";
+                };
+
+                return Entry;
+            })();
+
+            LoadGhostKoshienRankingResponse.Record = (function() {
+
+                /**
+                 * Properties of a Record.
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+                 * @interface IRecord
+                 * @property {number} challengeCount Record challengeCount
+                 * @property {number} updateCount Record updateCount
+                 * @property {number} result Record result
+                 */
+
+                /**
+                 * Constructs a new Record.
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+                 * @classdesc Represents a Record.
+                 * @implements IRecord
+                 * @constructor
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IRecord=} [properties] Properties to set
+                 */
+                function Record(properties) {
+                    if (properties)
+                        for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * Record challengeCount.
+                 * @member {number} challengeCount
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Record
+                 * @instance
+                 */
+                Record.prototype.challengeCount = 0;
+
+                /**
+                 * Record updateCount.
+                 * @member {number} updateCount
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Record
+                 * @instance
+                 */
+                Record.prototype.updateCount = 0;
+
+                /**
+                 * Record result.
+                 * @member {number} result
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Record
+                 * @instance
+                 */
+                Record.prototype.result = 0;
+
+                /**
+                 * Creates a new Record instance using the specified properties.
+                 * @function create
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Record
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IRecord=} [properties] Properties to set
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.Record} Record instance
+                 */
+                Record.create = function create(properties) {
+                    return new Record(properties);
+                };
+
+                /**
+                 * Encodes the specified Record message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.Record.verify|verify} messages.
+                 * @function encode
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Record
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IRecord} message Record message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Record.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.challengeCount);
+                    writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.updateCount);
+                    writer.uint32(/* id 3, wireType 0 =*/24).sint32(message.result);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified Record message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.Record.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Record
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IRecord} message Record message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Record.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a Record message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Record
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.Record} Record
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Record.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostKoshienRankingResponse.Record();
+                    while (reader.pos < end) {
+                        let tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.challengeCount = reader.uint32();
+                                break;
+                            }
+                        case 2: {
+                                message.updateCount = reader.uint32();
+                                break;
+                            }
+                        case 3: {
+                                message.result = reader.sint32();
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    if (!message.hasOwnProperty("challengeCount"))
+                        throw $util.ProtocolError("missing required 'challengeCount'", { instance: message });
+                    if (!message.hasOwnProperty("updateCount"))
+                        throw $util.ProtocolError("missing required 'updateCount'", { instance: message });
+                    if (!message.hasOwnProperty("result"))
+                        throw $util.ProtocolError("missing required 'result'", { instance: message });
+                    return message;
+                };
+
+                /**
+                 * Decodes a Record message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Record
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.Record} Record
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Record.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a Record message.
+                 * @function verify
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Record
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                Record.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (!$util.isInteger(message.challengeCount))
+                        return "challengeCount: integer expected";
+                    if (!$util.isInteger(message.updateCount))
+                        return "updateCount: integer expected";
+                    if (!$util.isInteger(message.result))
+                        return "result: integer expected";
+                    return null;
+                };
+
+                /**
+                 * Creates a Record message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Record
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.Record} Record
+                 */
+                Record.fromObject = function fromObject(object) {
+                    if (object instanceof $root.wm.protobuf.LoadGhostKoshienRankingResponse.Record)
+                        return object;
+                    let message = new $root.wm.protobuf.LoadGhostKoshienRankingResponse.Record();
+                    if (object.challengeCount != null)
+                        message.challengeCount = object.challengeCount >>> 0;
+                    if (object.updateCount != null)
+                        message.updateCount = object.updateCount >>> 0;
+                    if (object.result != null)
+                        message.result = object.result | 0;
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a Record message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Record
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.Record} message Record
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                Record.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    let object = {};
+                    if (options.defaults) {
+                        object.challengeCount = 0;
+                        object.updateCount = 0;
+                        object.result = 0;
+                    }
+                    if (message.challengeCount != null && message.hasOwnProperty("challengeCount"))
+                        object.challengeCount = message.challengeCount;
+                    if (message.updateCount != null && message.hasOwnProperty("updateCount"))
+                        object.updateCount = message.updateCount;
+                    if (message.result != null && message.hasOwnProperty("result"))
+                        object.result = message.result;
+                    return object;
+                };
+
+                /**
+                 * Converts this Record to JSON.
+                 * @function toJSON
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Record
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                Record.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the default type url for Record
+                 * @function getTypeUrl
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.Record
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                Record.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/wm.protobuf.LoadGhostKoshienRankingResponse.Record";
+                };
+
+                return Record;
+            })();
+
+            LoadGhostKoshienRankingResponse.PlaceRecord = (function() {
+
+                /**
+                 * Properties of a PlaceRecord.
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+                 * @interface IPlaceRecord
+                 * @property {Array.<wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar>|null} [challengeCount] PlaceRecord challengeCount
+                 * @property {Array.<wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar>|null} [updateCount] PlaceRecord updateCount
+                 * @property {Array.<wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar>|null} [result] PlaceRecord result
+                 */
+
+                /**
+                 * Constructs a new PlaceRecord.
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse
+                 * @classdesc Represents a PlaceRecord.
+                 * @implements IPlaceRecord
+                 * @constructor
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IPlaceRecord=} [properties] Properties to set
+                 */
+                function PlaceRecord(properties) {
+                    this.challengeCount = [];
+                    this.updateCount = [];
+                    this.result = [];
+                    if (properties)
+                        for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * PlaceRecord challengeCount.
+                 * @member {Array.<wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar>} challengeCount
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord
+                 * @instance
+                 */
+                PlaceRecord.prototype.challengeCount = $util.emptyArray;
+
+                /**
+                 * PlaceRecord updateCount.
+                 * @member {Array.<wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar>} updateCount
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord
+                 * @instance
+                 */
+                PlaceRecord.prototype.updateCount = $util.emptyArray;
+
+                /**
+                 * PlaceRecord result.
+                 * @member {Array.<wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar>} result
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord
+                 * @instance
+                 */
+                PlaceRecord.prototype.result = $util.emptyArray;
+
+                /**
+                 * Creates a new PlaceRecord instance using the specified properties.
+                 * @function create
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IPlaceRecord=} [properties] Properties to set
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord} PlaceRecord instance
+                 */
+                PlaceRecord.create = function create(properties) {
+                    return new PlaceRecord(properties);
+                };
+
+                /**
+                 * Encodes the specified PlaceRecord message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.verify|verify} messages.
+                 * @function encode
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IPlaceRecord} message PlaceRecord message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                PlaceRecord.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.challengeCount != null && message.challengeCount.length)
+                        for (let i = 0; i < message.challengeCount.length; ++i)
+                            $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.encode(message.challengeCount[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                    if (message.updateCount != null && message.updateCount.length)
+                        for (let i = 0; i < message.updateCount.length; ++i)
+                            $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.encode(message.updateCount[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                    if (message.result != null && message.result.length)
+                        for (let i = 0; i < message.result.length; ++i)
+                            $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.encode(message.result[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified PlaceRecord message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.IPlaceRecord} message PlaceRecord message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                PlaceRecord.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a PlaceRecord message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord} PlaceRecord
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                PlaceRecord.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord();
+                    while (reader.pos < end) {
+                        let tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1: {
+                                if (!(message.challengeCount && message.challengeCount.length))
+                                    message.challengeCount = [];
+                                message.challengeCount.push($root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.decode(reader, reader.uint32()));
+                                break;
+                            }
+                        case 2: {
+                                if (!(message.updateCount && message.updateCount.length))
+                                    message.updateCount = [];
+                                message.updateCount.push($root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.decode(reader, reader.uint32()));
+                                break;
+                            }
+                        case 3: {
+                                if (!(message.result && message.result.length))
+                                    message.result = [];
+                                message.result.push($root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.decode(reader, reader.uint32()));
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+
+                /**
+                 * Decodes a PlaceRecord message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord} PlaceRecord
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                PlaceRecord.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a PlaceRecord message.
+                 * @function verify
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                PlaceRecord.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.challengeCount != null && message.hasOwnProperty("challengeCount")) {
+                        if (!Array.isArray(message.challengeCount))
+                            return "challengeCount: array expected";
+                        for (let i = 0; i < message.challengeCount.length; ++i) {
+                            let error = $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.verify(message.challengeCount[i]);
+                            if (error)
+                                return "challengeCount." + error;
+                        }
+                    }
+                    if (message.updateCount != null && message.hasOwnProperty("updateCount")) {
+                        if (!Array.isArray(message.updateCount))
+                            return "updateCount: array expected";
+                        for (let i = 0; i < message.updateCount.length; ++i) {
+                            let error = $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.verify(message.updateCount[i]);
+                            if (error)
+                                return "updateCount." + error;
+                        }
+                    }
+                    if (message.result != null && message.hasOwnProperty("result")) {
+                        if (!Array.isArray(message.result))
+                            return "result: array expected";
+                        for (let i = 0; i < message.result.length; ++i) {
+                            let error = $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.verify(message.result[i]);
+                            if (error)
+                                return "result." + error;
+                        }
+                    }
+                    return null;
+                };
+
+                /**
+                 * Creates a PlaceRecord message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord} PlaceRecord
+                 */
+                PlaceRecord.fromObject = function fromObject(object) {
+                    if (object instanceof $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord)
+                        return object;
+                    let message = new $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord();
+                    if (object.challengeCount) {
+                        if (!Array.isArray(object.challengeCount))
+                            throw TypeError(".wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.challengeCount: array expected");
+                        message.challengeCount = [];
+                        for (let i = 0; i < object.challengeCount.length; ++i) {
+                            if (typeof object.challengeCount[i] !== "object")
+                                throw TypeError(".wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.challengeCount: object expected");
+                            message.challengeCount[i] = $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.fromObject(object.challengeCount[i]);
+                        }
+                    }
+                    if (object.updateCount) {
+                        if (!Array.isArray(object.updateCount))
+                            throw TypeError(".wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.updateCount: array expected");
+                        message.updateCount = [];
+                        for (let i = 0; i < object.updateCount.length; ++i) {
+                            if (typeof object.updateCount[i] !== "object")
+                                throw TypeError(".wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.updateCount: object expected");
+                            message.updateCount[i] = $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.fromObject(object.updateCount[i]);
+                        }
+                    }
+                    if (object.result) {
+                        if (!Array.isArray(object.result))
+                            throw TypeError(".wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.result: array expected");
+                        message.result = [];
+                        for (let i = 0; i < object.result.length; ++i) {
+                            if (typeof object.result[i] !== "object")
+                                throw TypeError(".wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.result: object expected");
+                            message.result[i] = $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.fromObject(object.result[i]);
+                        }
+                    }
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a PlaceRecord message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord} message PlaceRecord
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                PlaceRecord.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    let object = {};
+                    if (options.arrays || options.defaults) {
+                        object.challengeCount = [];
+                        object.updateCount = [];
+                        object.result = [];
+                    }
+                    if (message.challengeCount && message.challengeCount.length) {
+                        object.challengeCount = [];
+                        for (let j = 0; j < message.challengeCount.length; ++j)
+                            object.challengeCount[j] = $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.toObject(message.challengeCount[j], options);
+                    }
+                    if (message.updateCount && message.updateCount.length) {
+                        object.updateCount = [];
+                        for (let j = 0; j < message.updateCount.length; ++j)
+                            object.updateCount[j] = $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.toObject(message.updateCount[j], options);
+                    }
+                    if (message.result && message.result.length) {
+                        object.result = [];
+                        for (let j = 0; j < message.result.length; ++j)
+                            object.result[j] = $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.toObject(message.result[j], options);
+                    }
+                    return object;
+                };
+
+                /**
+                 * Converts this PlaceRecord to JSON.
+                 * @function toJSON
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                PlaceRecord.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the default type url for PlaceRecord
+                 * @function getTypeUrl
+                 * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                PlaceRecord.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord";
+                };
+
+                PlaceRecord.ParticipantCar = (function() {
+
+                    /**
+                     * Properties of a ParticipantCar.
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord
+                     * @interface IParticipantCar
+                     * @property {number} carId ParticipantCar carId
+                     * @property {number|null} [result] ParticipantCar result
+                     * @property {number|null} [challengeCount] ParticipantCar challengeCount
+                     * @property {number|null} [updateCount] ParticipantCar updateCount
+                     */
+
+                    /**
+                     * Constructs a new ParticipantCar.
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord
+                     * @classdesc Represents a ParticipantCar.
+                     * @implements IParticipantCar
+                     * @constructor
+                     * @param {wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar=} [properties] Properties to set
+                     */
+                    function ParticipantCar(properties) {
+                        if (properties)
+                            for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+
+                    /**
+                     * ParticipantCar carId.
+                     * @member {number} carId
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar
+                     * @instance
+                     */
+                    ParticipantCar.prototype.carId = 0;
+
+                    /**
+                     * ParticipantCar result.
+                     * @member {number} result
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar
+                     * @instance
+                     */
+                    ParticipantCar.prototype.result = 0;
+
+                    /**
+                     * ParticipantCar challengeCount.
+                     * @member {number} challengeCount
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar
+                     * @instance
+                     */
+                    ParticipantCar.prototype.challengeCount = 0;
+
+                    /**
+                     * ParticipantCar updateCount.
+                     * @member {number} updateCount
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar
+                     * @instance
+                     */
+                    ParticipantCar.prototype.updateCount = 0;
+
+                    /**
+                     * Creates a new ParticipantCar instance using the specified properties.
+                     * @function create
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar
+                     * @static
+                     * @param {wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar=} [properties] Properties to set
+                     * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar} ParticipantCar instance
+                     */
+                    ParticipantCar.create = function create(properties) {
+                        return new ParticipantCar(properties);
+                    };
+
+                    /**
+                     * Encodes the specified ParticipantCar message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.verify|verify} messages.
+                     * @function encode
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar
+                     * @static
+                     * @param {wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar} message ParticipantCar message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    ParticipantCar.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.carId);
+                        if (message.result != null && Object.hasOwnProperty.call(message, "result"))
+                            writer.uint32(/* id 2, wireType 0 =*/16).sint32(message.result);
+                        if (message.challengeCount != null && Object.hasOwnProperty.call(message, "challengeCount"))
+                            writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.challengeCount);
+                        if (message.updateCount != null && Object.hasOwnProperty.call(message, "updateCount"))
+                            writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.updateCount);
+                        return writer;
+                    };
+
+                    /**
+                     * Encodes the specified ParticipantCar message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.verify|verify} messages.
+                     * @function encodeDelimited
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar
+                     * @static
+                     * @param {wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar} message ParticipantCar message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    ParticipantCar.encodeDelimited = function encodeDelimited(message, writer) {
+                        return this.encode(message, writer).ldelim();
+                    };
+
+                    /**
+                     * Decodes a ParticipantCar message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar} ParticipantCar
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    ParticipantCar.decode = function decode(reader, length) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar();
+                        while (reader.pos < end) {
+                            let tag = reader.uint32();
+                            switch (tag >>> 3) {
+                            case 1: {
+                                    message.carId = reader.uint32();
+                                    break;
+                                }
+                            case 2: {
+                                    message.result = reader.sint32();
+                                    break;
+                                }
+                            case 3: {
+                                    message.challengeCount = reader.uint32();
+                                    break;
+                                }
+                            case 4: {
+                                    message.updateCount = reader.uint32();
+                                    break;
+                                }
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        if (!message.hasOwnProperty("carId"))
+                            throw $util.ProtocolError("missing required 'carId'", { instance: message });
+                        return message;
+                    };
+
+                    /**
+                     * Decodes a ParticipantCar message from the specified reader or buffer, length delimited.
+                     * @function decodeDelimited
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar} ParticipantCar
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    ParticipantCar.decodeDelimited = function decodeDelimited(reader) {
+                        if (!(reader instanceof $Reader))
+                            reader = new $Reader(reader);
+                        return this.decode(reader, reader.uint32());
+                    };
+
+                    /**
+                     * Verifies a ParticipantCar message.
+                     * @function verify
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar
+                     * @static
+                     * @param {Object.<string,*>} message Plain object to verify
+                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                     */
+                    ParticipantCar.verify = function verify(message) {
+                        if (typeof message !== "object" || message === null)
+                            return "object expected";
+                        if (!$util.isInteger(message.carId))
+                            return "carId: integer expected";
+                        if (message.result != null && message.hasOwnProperty("result"))
+                            if (!$util.isInteger(message.result))
+                                return "result: integer expected";
+                        if (message.challengeCount != null && message.hasOwnProperty("challengeCount"))
+                            if (!$util.isInteger(message.challengeCount))
+                                return "challengeCount: integer expected";
+                        if (message.updateCount != null && message.hasOwnProperty("updateCount"))
+                            if (!$util.isInteger(message.updateCount))
+                                return "updateCount: integer expected";
+                        return null;
+                    };
+
+                    /**
+                     * Creates a ParticipantCar message from a plain object. Also converts values to their respective internal types.
+                     * @function fromObject
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar
+                     * @static
+                     * @param {Object.<string,*>} object Plain object
+                     * @returns {wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar} ParticipantCar
+                     */
+                    ParticipantCar.fromObject = function fromObject(object) {
+                        if (object instanceof $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar)
+                            return object;
+                        let message = new $root.wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar();
+                        if (object.carId != null)
+                            message.carId = object.carId >>> 0;
+                        if (object.result != null)
+                            message.result = object.result | 0;
+                        if (object.challengeCount != null)
+                            message.challengeCount = object.challengeCount >>> 0;
+                        if (object.updateCount != null)
+                            message.updateCount = object.updateCount >>> 0;
+                        return message;
+                    };
+
+                    /**
+                     * Creates a plain object from a ParticipantCar message. Also converts values to other types if specified.
+                     * @function toObject
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar
+                     * @static
+                     * @param {wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar} message ParticipantCar
+                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                     * @returns {Object.<string,*>} Plain object
+                     */
+                    ParticipantCar.toObject = function toObject(message, options) {
+                        if (!options)
+                            options = {};
+                        let object = {};
+                        if (options.defaults) {
+                            object.carId = 0;
+                            object.result = 0;
+                            object.challengeCount = 0;
+                            object.updateCount = 0;
+                        }
+                        if (message.carId != null && message.hasOwnProperty("carId"))
+                            object.carId = message.carId;
+                        if (message.result != null && message.hasOwnProperty("result"))
+                            object.result = message.result;
+                        if (message.challengeCount != null && message.hasOwnProperty("challengeCount"))
+                            object.challengeCount = message.challengeCount;
+                        if (message.updateCount != null && message.hasOwnProperty("updateCount"))
+                            object.updateCount = message.updateCount;
+                        return object;
+                    };
+
+                    /**
+                     * Converts this ParticipantCar to JSON.
+                     * @function toJSON
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar
+                     * @instance
+                     * @returns {Object.<string,*>} JSON object
+                     */
+                    ParticipantCar.prototype.toJSON = function toJSON() {
+                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                    };
+
+                    /**
+                     * Gets the default type url for ParticipantCar
+                     * @function getTypeUrl
+                     * @memberof wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar
+                     * @static
+                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns {string} The default type url
+                     */
+                    ParticipantCar.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                        if (typeUrlPrefix === undefined) {
+                            typeUrlPrefix = "type.googleapis.com";
+                        }
+                        return typeUrlPrefix + "/wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar";
+                    };
+
+                    return ParticipantCar;
+                })();
+
+                return PlaceRecord;
+            })();
+
+            return LoadGhostKoshienRankingResponse;
+        })();
+
+        protobuf.LoadGhostKoshienRoundRequest = (function() {
+
+            /**
+             * Properties of a LoadGhostKoshienRoundRequest.
+             * @memberof wm.protobuf
+             * @interface ILoadGhostKoshienRoundRequest
+             * @property {number} userId LoadGhostKoshienRoundRequest userId
+             * @property {number} koshienId LoadGhostKoshienRoundRequest koshienId
+             * @property {number} roundId LoadGhostKoshienRoundRequest roundId
+             */
+
+            /**
+             * Constructs a new LoadGhostKoshienRoundRequest.
+             * @memberof wm.protobuf
+             * @classdesc Represents a LoadGhostKoshienRoundRequest.
+             * @implements ILoadGhostKoshienRoundRequest
+             * @constructor
+             * @param {wm.protobuf.ILoadGhostKoshienRoundRequest=} [properties] Properties to set
+             */
+            function LoadGhostKoshienRoundRequest(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * LoadGhostKoshienRoundRequest userId.
+             * @member {number} userId
+             * @memberof wm.protobuf.LoadGhostKoshienRoundRequest
+             * @instance
+             */
+            LoadGhostKoshienRoundRequest.prototype.userId = 0;
+
+            /**
+             * LoadGhostKoshienRoundRequest koshienId.
+             * @member {number} koshienId
+             * @memberof wm.protobuf.LoadGhostKoshienRoundRequest
+             * @instance
+             */
+            LoadGhostKoshienRoundRequest.prototype.koshienId = 0;
+
+            /**
+             * LoadGhostKoshienRoundRequest roundId.
+             * @member {number} roundId
+             * @memberof wm.protobuf.LoadGhostKoshienRoundRequest
+             * @instance
+             */
+            LoadGhostKoshienRoundRequest.prototype.roundId = 0;
+
+            /**
+             * Creates a new LoadGhostKoshienRoundRequest instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.LoadGhostKoshienRoundRequest
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienRoundRequest=} [properties] Properties to set
+             * @returns {wm.protobuf.LoadGhostKoshienRoundRequest} LoadGhostKoshienRoundRequest instance
+             */
+            LoadGhostKoshienRoundRequest.create = function create(properties) {
+                return new LoadGhostKoshienRoundRequest(properties);
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienRoundRequest message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRoundRequest.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.LoadGhostKoshienRoundRequest
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienRoundRequest} message LoadGhostKoshienRoundRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienRoundRequest.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.koshienId);
+                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.userId);
+                writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.roundId);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienRoundRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRoundRequest.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienRoundRequest
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienRoundRequest} message LoadGhostKoshienRoundRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienRoundRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienRoundRequest message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.LoadGhostKoshienRoundRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.LoadGhostKoshienRoundRequest} LoadGhostKoshienRoundRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienRoundRequest.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostKoshienRoundRequest();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 3: {
+                            message.userId = reader.uint32();
+                            break;
+                        }
+                    case 2: {
+                            message.koshienId = reader.uint32();
+                            break;
+                        }
+                    case 4: {
+                            message.roundId = reader.uint32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("userId"))
+                    throw $util.ProtocolError("missing required 'userId'", { instance: message });
+                if (!message.hasOwnProperty("koshienId"))
+                    throw $util.ProtocolError("missing required 'koshienId'", { instance: message });
+                if (!message.hasOwnProperty("roundId"))
+                    throw $util.ProtocolError("missing required 'roundId'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienRoundRequest message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienRoundRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.LoadGhostKoshienRoundRequest} LoadGhostKoshienRoundRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienRoundRequest.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a LoadGhostKoshienRoundRequest message.
+             * @function verify
+             * @memberof wm.protobuf.LoadGhostKoshienRoundRequest
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            LoadGhostKoshienRoundRequest.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (!$util.isInteger(message.userId))
+                    return "userId: integer expected";
+                if (!$util.isInteger(message.koshienId))
+                    return "koshienId: integer expected";
+                if (!$util.isInteger(message.roundId))
+                    return "roundId: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a LoadGhostKoshienRoundRequest message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.LoadGhostKoshienRoundRequest
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.LoadGhostKoshienRoundRequest} LoadGhostKoshienRoundRequest
+             */
+            LoadGhostKoshienRoundRequest.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.LoadGhostKoshienRoundRequest)
+                    return object;
+                let message = new $root.wm.protobuf.LoadGhostKoshienRoundRequest();
+                if (object.userId != null)
+                    message.userId = object.userId >>> 0;
+                if (object.koshienId != null)
+                    message.koshienId = object.koshienId >>> 0;
+                if (object.roundId != null)
+                    message.roundId = object.roundId >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienRoundRequest message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.LoadGhostKoshienRoundRequest
+             * @static
+             * @param {wm.protobuf.LoadGhostKoshienRoundRequest} message LoadGhostKoshienRoundRequest
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            LoadGhostKoshienRoundRequest.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.defaults) {
+                    object.koshienId = 0;
+                    object.userId = 0;
+                    object.roundId = 0;
+                }
+                if (message.koshienId != null && message.hasOwnProperty("koshienId"))
+                    object.koshienId = message.koshienId;
+                if (message.userId != null && message.hasOwnProperty("userId"))
+                    object.userId = message.userId;
+                if (message.roundId != null && message.hasOwnProperty("roundId"))
+                    object.roundId = message.roundId;
+                return object;
+            };
+
+            /**
+             * Converts this LoadGhostKoshienRoundRequest to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.LoadGhostKoshienRoundRequest
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            LoadGhostKoshienRoundRequest.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienRoundRequest
+             * @function getTypeUrl
+             * @memberof wm.protobuf.LoadGhostKoshienRoundRequest
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            LoadGhostKoshienRoundRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.LoadGhostKoshienRoundRequest";
+            };
+
+            return LoadGhostKoshienRoundRequest;
+        })();
+
+        protobuf.LoadGhostKoshienRoundResponse = (function() {
+
+            /**
+             * Properties of a LoadGhostKoshienRoundResponse.
+             * @memberof wm.protobuf
+             * @interface ILoadGhostKoshienRoundResponse
+             * @property {wm.protobuf.IPlace|null} [participantShop] LoadGhostKoshienRoundResponse participantShop
+             * @property {boolean} currentQualified LoadGhostKoshienRoundResponse currentQualified
+             * @property {boolean|null} [previousRoundQualified] LoadGhostKoshienRoundResponse previousRoundQualified
+             * @property {Array.<wm.protobuf.LoadGhostKoshienRoundResponse.IGhostKoshienRepresentedCar>|null} [koshienRepresentedCar] LoadGhostKoshienRoundResponse koshienRepresentedCar
+             */
+
+            /**
+             * Constructs a new LoadGhostKoshienRoundResponse.
+             * @memberof wm.protobuf
+             * @classdesc Represents a LoadGhostKoshienRoundResponse.
+             * @implements ILoadGhostKoshienRoundResponse
+             * @constructor
+             * @param {wm.protobuf.ILoadGhostKoshienRoundResponse=} [properties] Properties to set
+             */
+            function LoadGhostKoshienRoundResponse(properties) {
+                this.koshienRepresentedCar = [];
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * LoadGhostKoshienRoundResponse participantShop.
+             * @member {wm.protobuf.IPlace|null|undefined} participantShop
+             * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+             * @instance
+             */
+            LoadGhostKoshienRoundResponse.prototype.participantShop = null;
+
+            /**
+             * LoadGhostKoshienRoundResponse currentQualified.
+             * @member {boolean} currentQualified
+             * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+             * @instance
+             */
+            LoadGhostKoshienRoundResponse.prototype.currentQualified = false;
+
+            /**
+             * LoadGhostKoshienRoundResponse previousRoundQualified.
+             * @member {boolean} previousRoundQualified
+             * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+             * @instance
+             */
+            LoadGhostKoshienRoundResponse.prototype.previousRoundQualified = false;
+
+            /**
+             * LoadGhostKoshienRoundResponse koshienRepresentedCar.
+             * @member {Array.<wm.protobuf.LoadGhostKoshienRoundResponse.IGhostKoshienRepresentedCar>} koshienRepresentedCar
+             * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+             * @instance
+             */
+            LoadGhostKoshienRoundResponse.prototype.koshienRepresentedCar = $util.emptyArray;
+
+            /**
+             * Creates a new LoadGhostKoshienRoundResponse instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienRoundResponse=} [properties] Properties to set
+             * @returns {wm.protobuf.LoadGhostKoshienRoundResponse} LoadGhostKoshienRoundResponse instance
+             */
+            LoadGhostKoshienRoundResponse.create = function create(properties) {
+                return new LoadGhostKoshienRoundResponse(properties);
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienRoundResponse message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRoundResponse.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienRoundResponse} message LoadGhostKoshienRoundResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienRoundResponse.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.participantShop != null && Object.hasOwnProperty.call(message, "participantShop"))
+                    $root.wm.protobuf.Place.encode(message.participantShop, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.currentQualified);
+                if (message.previousRoundQualified != null && Object.hasOwnProperty.call(message, "previousRoundQualified"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).bool(message.previousRoundQualified);
+                if (message.koshienRepresentedCar != null && message.koshienRepresentedCar.length)
+                    for (let i = 0; i < message.koshienRepresentedCar.length; ++i)
+                        $root.wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar.encode(message.koshienRepresentedCar[i], writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienRoundResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRoundResponse.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienRoundResponse} message LoadGhostKoshienRoundResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienRoundResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienRoundResponse message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.LoadGhostKoshienRoundResponse} LoadGhostKoshienRoundResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienRoundResponse.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostKoshienRoundResponse();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.participantShop = $root.wm.protobuf.Place.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 2: {
+                            message.currentQualified = reader.bool();
+                            break;
+                        }
+                    case 3: {
+                            message.previousRoundQualified = reader.bool();
+                            break;
+                        }
+                    case 4: {
+                            if (!(message.koshienRepresentedCar && message.koshienRepresentedCar.length))
+                                message.koshienRepresentedCar = [];
+                            message.koshienRepresentedCar.push($root.wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("currentQualified"))
+                    throw $util.ProtocolError("missing required 'currentQualified'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienRoundResponse message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.LoadGhostKoshienRoundResponse} LoadGhostKoshienRoundResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienRoundResponse.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a LoadGhostKoshienRoundResponse message.
+             * @function verify
+             * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            LoadGhostKoshienRoundResponse.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.participantShop != null && message.hasOwnProperty("participantShop")) {
+                    let error = $root.wm.protobuf.Place.verify(message.participantShop);
+                    if (error)
+                        return "participantShop." + error;
+                }
+                if (typeof message.currentQualified !== "boolean")
+                    return "currentQualified: boolean expected";
+                if (message.previousRoundQualified != null && message.hasOwnProperty("previousRoundQualified"))
+                    if (typeof message.previousRoundQualified !== "boolean")
+                        return "previousRoundQualified: boolean expected";
+                if (message.koshienRepresentedCar != null && message.hasOwnProperty("koshienRepresentedCar")) {
+                    if (!Array.isArray(message.koshienRepresentedCar))
+                        return "koshienRepresentedCar: array expected";
+                    for (let i = 0; i < message.koshienRepresentedCar.length; ++i) {
+                        let error = $root.wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar.verify(message.koshienRepresentedCar[i]);
+                        if (error)
+                            return "koshienRepresentedCar." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a LoadGhostKoshienRoundResponse message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.LoadGhostKoshienRoundResponse} LoadGhostKoshienRoundResponse
+             */
+            LoadGhostKoshienRoundResponse.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.LoadGhostKoshienRoundResponse)
+                    return object;
+                let message = new $root.wm.protobuf.LoadGhostKoshienRoundResponse();
+                if (object.participantShop != null) {
+                    if (typeof object.participantShop !== "object")
+                        throw TypeError(".wm.protobuf.LoadGhostKoshienRoundResponse.participantShop: object expected");
+                    message.participantShop = $root.wm.protobuf.Place.fromObject(object.participantShop);
+                }
+                if (object.currentQualified != null)
+                    message.currentQualified = Boolean(object.currentQualified);
+                if (object.previousRoundQualified != null)
+                    message.previousRoundQualified = Boolean(object.previousRoundQualified);
+                if (object.koshienRepresentedCar) {
+                    if (!Array.isArray(object.koshienRepresentedCar))
+                        throw TypeError(".wm.protobuf.LoadGhostKoshienRoundResponse.koshienRepresentedCar: array expected");
+                    message.koshienRepresentedCar = [];
+                    for (let i = 0; i < object.koshienRepresentedCar.length; ++i) {
+                        if (typeof object.koshienRepresentedCar[i] !== "object")
+                            throw TypeError(".wm.protobuf.LoadGhostKoshienRoundResponse.koshienRepresentedCar: object expected");
+                        message.koshienRepresentedCar[i] = $root.wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar.fromObject(object.koshienRepresentedCar[i]);
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienRoundResponse message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+             * @static
+             * @param {wm.protobuf.LoadGhostKoshienRoundResponse} message LoadGhostKoshienRoundResponse
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            LoadGhostKoshienRoundResponse.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.arrays || options.defaults)
+                    object.koshienRepresentedCar = [];
+                if (options.defaults) {
+                    object.participantShop = null;
+                    object.currentQualified = false;
+                    object.previousRoundQualified = false;
+                }
+                if (message.participantShop != null && message.hasOwnProperty("participantShop"))
+                    object.participantShop = $root.wm.protobuf.Place.toObject(message.participantShop, options);
+                if (message.currentQualified != null && message.hasOwnProperty("currentQualified"))
+                    object.currentQualified = message.currentQualified;
+                if (message.previousRoundQualified != null && message.hasOwnProperty("previousRoundQualified"))
+                    object.previousRoundQualified = message.previousRoundQualified;
+                if (message.koshienRepresentedCar && message.koshienRepresentedCar.length) {
+                    object.koshienRepresentedCar = [];
+                    for (let j = 0; j < message.koshienRepresentedCar.length; ++j)
+                        object.koshienRepresentedCar[j] = $root.wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar.toObject(message.koshienRepresentedCar[j], options);
+                }
+                return object;
+            };
+
+            /**
+             * Converts this LoadGhostKoshienRoundResponse to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            LoadGhostKoshienRoundResponse.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienRoundResponse
+             * @function getTypeUrl
+             * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            LoadGhostKoshienRoundResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.LoadGhostKoshienRoundResponse";
+            };
+
+            LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar = (function() {
+
+                /**
+                 * Properties of a GhostKoshienRepresentedCar.
+                 * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+                 * @interface IGhostKoshienRepresentedCar
+                 * @property {wm.protobuf.ICar} representedCar GhostKoshienRepresentedCar representedCar
+                 * @property {wm.protobuf.IPlace|null} [representedShop] GhostKoshienRepresentedCar representedShop
+                 */
+
+                /**
+                 * Constructs a new GhostKoshienRepresentedCar.
+                 * @memberof wm.protobuf.LoadGhostKoshienRoundResponse
+                 * @classdesc Represents a GhostKoshienRepresentedCar.
+                 * @implements IGhostKoshienRepresentedCar
+                 * @constructor
+                 * @param {wm.protobuf.LoadGhostKoshienRoundResponse.IGhostKoshienRepresentedCar=} [properties] Properties to set
+                 */
+                function GhostKoshienRepresentedCar(properties) {
+                    if (properties)
+                        for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * GhostKoshienRepresentedCar representedCar.
+                 * @member {wm.protobuf.ICar} representedCar
+                 * @memberof wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar
+                 * @instance
+                 */
+                GhostKoshienRepresentedCar.prototype.representedCar = null;
+
+                /**
+                 * GhostKoshienRepresentedCar representedShop.
+                 * @member {wm.protobuf.IPlace|null|undefined} representedShop
+                 * @memberof wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar
+                 * @instance
+                 */
+                GhostKoshienRepresentedCar.prototype.representedShop = null;
+
+                /**
+                 * Creates a new GhostKoshienRepresentedCar instance using the specified properties.
+                 * @function create
+                 * @memberof wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRoundResponse.IGhostKoshienRepresentedCar=} [properties] Properties to set
+                 * @returns {wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar} GhostKoshienRepresentedCar instance
+                 */
+                GhostKoshienRepresentedCar.create = function create(properties) {
+                    return new GhostKoshienRepresentedCar(properties);
+                };
+
+                /**
+                 * Encodes the specified GhostKoshienRepresentedCar message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar.verify|verify} messages.
+                 * @function encode
+                 * @memberof wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRoundResponse.IGhostKoshienRepresentedCar} message GhostKoshienRepresentedCar message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                GhostKoshienRepresentedCar.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.representedShop != null && Object.hasOwnProperty.call(message, "representedShop"))
+                        $root.wm.protobuf.Place.encode(message.representedShop, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                    $root.wm.protobuf.Car.encode(message.representedCar, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified GhostKoshienRepresentedCar message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRoundResponse.IGhostKoshienRepresentedCar} message GhostKoshienRepresentedCar message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                GhostKoshienRepresentedCar.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a GhostKoshienRepresentedCar message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar} GhostKoshienRepresentedCar
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                GhostKoshienRepresentedCar.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar();
+                    while (reader.pos < end) {
+                        let tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 6: {
+                                message.representedCar = $root.wm.protobuf.Car.decode(reader, reader.uint32());
+                                break;
+                            }
+                        case 5: {
+                                message.representedShop = $root.wm.protobuf.Place.decode(reader, reader.uint32());
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    if (!message.hasOwnProperty("representedCar"))
+                        throw $util.ProtocolError("missing required 'representedCar'", { instance: message });
+                    return message;
+                };
+
+                /**
+                 * Decodes a GhostKoshienRepresentedCar message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar} GhostKoshienRepresentedCar
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                GhostKoshienRepresentedCar.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a GhostKoshienRepresentedCar message.
+                 * @function verify
+                 * @memberof wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                GhostKoshienRepresentedCar.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    {
+                        let error = $root.wm.protobuf.Car.verify(message.representedCar);
+                        if (error)
+                            return "representedCar." + error;
+                    }
+                    if (message.representedShop != null && message.hasOwnProperty("representedShop")) {
+                        let error = $root.wm.protobuf.Place.verify(message.representedShop);
+                        if (error)
+                            return "representedShop." + error;
+                    }
+                    return null;
+                };
+
+                /**
+                 * Creates a GhostKoshienRepresentedCar message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar} GhostKoshienRepresentedCar
+                 */
+                GhostKoshienRepresentedCar.fromObject = function fromObject(object) {
+                    if (object instanceof $root.wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar)
+                        return object;
+                    let message = new $root.wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar();
+                    if (object.representedCar != null) {
+                        if (typeof object.representedCar !== "object")
+                            throw TypeError(".wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar.representedCar: object expected");
+                        message.representedCar = $root.wm.protobuf.Car.fromObject(object.representedCar);
+                    }
+                    if (object.representedShop != null) {
+                        if (typeof object.representedShop !== "object")
+                            throw TypeError(".wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar.representedShop: object expected");
+                        message.representedShop = $root.wm.protobuf.Place.fromObject(object.representedShop);
+                    }
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a GhostKoshienRepresentedCar message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar} message GhostKoshienRepresentedCar
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                GhostKoshienRepresentedCar.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    let object = {};
+                    if (options.defaults) {
+                        object.representedShop = null;
+                        object.representedCar = null;
+                    }
+                    if (message.representedShop != null && message.hasOwnProperty("representedShop"))
+                        object.representedShop = $root.wm.protobuf.Place.toObject(message.representedShop, options);
+                    if (message.representedCar != null && message.hasOwnProperty("representedCar"))
+                        object.representedCar = $root.wm.protobuf.Car.toObject(message.representedCar, options);
+                    return object;
+                };
+
+                /**
+                 * Converts this GhostKoshienRepresentedCar to JSON.
+                 * @function toJSON
+                 * @memberof wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                GhostKoshienRepresentedCar.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the default type url for GhostKoshienRepresentedCar
+                 * @function getTypeUrl
+                 * @memberof wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                GhostKoshienRepresentedCar.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar";
+                };
+
+                return GhostKoshienRepresentedCar;
+            })();
+
+            return LoadGhostKoshienRoundResponse;
+        })();
+
+        protobuf.LoadGhostKoshienMvpRequest = (function() {
+
+            /**
+             * Properties of a LoadGhostKoshienMvpRequest.
+             * @memberof wm.protobuf
+             * @interface ILoadGhostKoshienMvpRequest
+             * @property {number} userId LoadGhostKoshienMvpRequest userId
+             * @property {number} koshienId LoadGhostKoshienMvpRequest koshienId
+             * @property {number} roundId LoadGhostKoshienMvpRequest roundId
+             */
+
+            /**
+             * Constructs a new LoadGhostKoshienMvpRequest.
+             * @memberof wm.protobuf
+             * @classdesc Represents a LoadGhostKoshienMvpRequest.
+             * @implements ILoadGhostKoshienMvpRequest
+             * @constructor
+             * @param {wm.protobuf.ILoadGhostKoshienMvpRequest=} [properties] Properties to set
+             */
+            function LoadGhostKoshienMvpRequest(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * LoadGhostKoshienMvpRequest userId.
+             * @member {number} userId
+             * @memberof wm.protobuf.LoadGhostKoshienMvpRequest
+             * @instance
+             */
+            LoadGhostKoshienMvpRequest.prototype.userId = 0;
+
+            /**
+             * LoadGhostKoshienMvpRequest koshienId.
+             * @member {number} koshienId
+             * @memberof wm.protobuf.LoadGhostKoshienMvpRequest
+             * @instance
+             */
+            LoadGhostKoshienMvpRequest.prototype.koshienId = 0;
+
+            /**
+             * LoadGhostKoshienMvpRequest roundId.
+             * @member {number} roundId
+             * @memberof wm.protobuf.LoadGhostKoshienMvpRequest
+             * @instance
+             */
+            LoadGhostKoshienMvpRequest.prototype.roundId = 0;
+
+            /**
+             * Creates a new LoadGhostKoshienMvpRequest instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.LoadGhostKoshienMvpRequest
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienMvpRequest=} [properties] Properties to set
+             * @returns {wm.protobuf.LoadGhostKoshienMvpRequest} LoadGhostKoshienMvpRequest instance
+             */
+            LoadGhostKoshienMvpRequest.create = function create(properties) {
+                return new LoadGhostKoshienMvpRequest(properties);
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienMvpRequest message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienMvpRequest.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.LoadGhostKoshienMvpRequest
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienMvpRequest} message LoadGhostKoshienMvpRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienMvpRequest.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.koshienId);
+                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.userId);
+                writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.roundId);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienMvpRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienMvpRequest.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienMvpRequest
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienMvpRequest} message LoadGhostKoshienMvpRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienMvpRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienMvpRequest message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.LoadGhostKoshienMvpRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.LoadGhostKoshienMvpRequest} LoadGhostKoshienMvpRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienMvpRequest.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostKoshienMvpRequest();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 3: {
+                            message.userId = reader.uint32();
+                            break;
+                        }
+                    case 2: {
+                            message.koshienId = reader.uint32();
+                            break;
+                        }
+                    case 4: {
+                            message.roundId = reader.uint32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("userId"))
+                    throw $util.ProtocolError("missing required 'userId'", { instance: message });
+                if (!message.hasOwnProperty("koshienId"))
+                    throw $util.ProtocolError("missing required 'koshienId'", { instance: message });
+                if (!message.hasOwnProperty("roundId"))
+                    throw $util.ProtocolError("missing required 'roundId'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienMvpRequest message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienMvpRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.LoadGhostKoshienMvpRequest} LoadGhostKoshienMvpRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienMvpRequest.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a LoadGhostKoshienMvpRequest message.
+             * @function verify
+             * @memberof wm.protobuf.LoadGhostKoshienMvpRequest
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            LoadGhostKoshienMvpRequest.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (!$util.isInteger(message.userId))
+                    return "userId: integer expected";
+                if (!$util.isInteger(message.koshienId))
+                    return "koshienId: integer expected";
+                if (!$util.isInteger(message.roundId))
+                    return "roundId: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a LoadGhostKoshienMvpRequest message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.LoadGhostKoshienMvpRequest
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.LoadGhostKoshienMvpRequest} LoadGhostKoshienMvpRequest
+             */
+            LoadGhostKoshienMvpRequest.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.LoadGhostKoshienMvpRequest)
+                    return object;
+                let message = new $root.wm.protobuf.LoadGhostKoshienMvpRequest();
+                if (object.userId != null)
+                    message.userId = object.userId >>> 0;
+                if (object.koshienId != null)
+                    message.koshienId = object.koshienId >>> 0;
+                if (object.roundId != null)
+                    message.roundId = object.roundId >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienMvpRequest message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.LoadGhostKoshienMvpRequest
+             * @static
+             * @param {wm.protobuf.LoadGhostKoshienMvpRequest} message LoadGhostKoshienMvpRequest
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            LoadGhostKoshienMvpRequest.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.defaults) {
+                    object.koshienId = 0;
+                    object.userId = 0;
+                    object.roundId = 0;
+                }
+                if (message.koshienId != null && message.hasOwnProperty("koshienId"))
+                    object.koshienId = message.koshienId;
+                if (message.userId != null && message.hasOwnProperty("userId"))
+                    object.userId = message.userId;
+                if (message.roundId != null && message.hasOwnProperty("roundId"))
+                    object.roundId = message.roundId;
+                return object;
+            };
+
+            /**
+             * Converts this LoadGhostKoshienMvpRequest to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.LoadGhostKoshienMvpRequest
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            LoadGhostKoshienMvpRequest.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienMvpRequest
+             * @function getTypeUrl
+             * @memberof wm.protobuf.LoadGhostKoshienMvpRequest
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            LoadGhostKoshienMvpRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.LoadGhostKoshienMvpRequest";
+            };
+
+            return LoadGhostKoshienMvpRequest;
+        })();
+
+        protobuf.LoadGhostKoshienMvpResponse = (function() {
+
+            /**
+             * Properties of a LoadGhostKoshienMvpResponse.
+             * @memberof wm.protobuf
+             * @interface ILoadGhostKoshienMvpResponse
+             * @property {string} shopName LoadGhostKoshienMvpResponse shopName
+             * @property {wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar} resultMvpCar LoadGhostKoshienMvpResponse resultMvpCar
+             * @property {wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar} challengeMvpCar LoadGhostKoshienMvpResponse challengeMvpCar
+             * @property {wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar} updateMvpCar LoadGhostKoshienMvpResponse updateMvpCar
+             */
+
+            /**
+             * Constructs a new LoadGhostKoshienMvpResponse.
+             * @memberof wm.protobuf
+             * @classdesc Represents a LoadGhostKoshienMvpResponse.
+             * @implements ILoadGhostKoshienMvpResponse
+             * @constructor
+             * @param {wm.protobuf.ILoadGhostKoshienMvpResponse=} [properties] Properties to set
+             */
+            function LoadGhostKoshienMvpResponse(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * LoadGhostKoshienMvpResponse shopName.
+             * @member {string} shopName
+             * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+             * @instance
+             */
+            LoadGhostKoshienMvpResponse.prototype.shopName = "";
+
+            /**
+             * LoadGhostKoshienMvpResponse resultMvpCar.
+             * @member {wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar} resultMvpCar
+             * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+             * @instance
+             */
+            LoadGhostKoshienMvpResponse.prototype.resultMvpCar = null;
+
+            /**
+             * LoadGhostKoshienMvpResponse challengeMvpCar.
+             * @member {wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar} challengeMvpCar
+             * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+             * @instance
+             */
+            LoadGhostKoshienMvpResponse.prototype.challengeMvpCar = null;
+
+            /**
+             * LoadGhostKoshienMvpResponse updateMvpCar.
+             * @member {wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar} updateMvpCar
+             * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+             * @instance
+             */
+            LoadGhostKoshienMvpResponse.prototype.updateMvpCar = null;
+
+            /**
+             * Creates a new LoadGhostKoshienMvpResponse instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienMvpResponse=} [properties] Properties to set
+             * @returns {wm.protobuf.LoadGhostKoshienMvpResponse} LoadGhostKoshienMvpResponse instance
+             */
+            LoadGhostKoshienMvpResponse.create = function create(properties) {
+                return new LoadGhostKoshienMvpResponse(properties);
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienMvpResponse message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienMvpResponse.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienMvpResponse} message LoadGhostKoshienMvpResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienMvpResponse.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.shopName);
+                $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.encode(message.resultMvpCar, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.encode(message.challengeMvpCar, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.encode(message.updateMvpCar, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified LoadGhostKoshienMvpResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienMvpResponse.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+             * @static
+             * @param {wm.protobuf.ILoadGhostKoshienMvpResponse} message LoadGhostKoshienMvpResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostKoshienMvpResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienMvpResponse message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.LoadGhostKoshienMvpResponse} LoadGhostKoshienMvpResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienMvpResponse.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostKoshienMvpResponse();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.shopName = reader.string();
+                            break;
+                        }
+                    case 2: {
+                            message.resultMvpCar = $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 3: {
+                            message.challengeMvpCar = $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 4: {
+                            message.updateMvpCar = $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.decode(reader, reader.uint32());
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("shopName"))
+                    throw $util.ProtocolError("missing required 'shopName'", { instance: message });
+                if (!message.hasOwnProperty("resultMvpCar"))
+                    throw $util.ProtocolError("missing required 'resultMvpCar'", { instance: message });
+                if (!message.hasOwnProperty("challengeMvpCar"))
+                    throw $util.ProtocolError("missing required 'challengeMvpCar'", { instance: message });
+                if (!message.hasOwnProperty("updateMvpCar"))
+                    throw $util.ProtocolError("missing required 'updateMvpCar'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a LoadGhostKoshienMvpResponse message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.LoadGhostKoshienMvpResponse} LoadGhostKoshienMvpResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostKoshienMvpResponse.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a LoadGhostKoshienMvpResponse message.
+             * @function verify
+             * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            LoadGhostKoshienMvpResponse.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (!$util.isString(message.shopName))
+                    return "shopName: string expected";
+                {
+                    let error = $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.verify(message.resultMvpCar);
+                    if (error)
+                        return "resultMvpCar." + error;
+                }
+                {
+                    let error = $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.verify(message.challengeMvpCar);
+                    if (error)
+                        return "challengeMvpCar." + error;
+                }
+                {
+                    let error = $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.verify(message.updateMvpCar);
+                    if (error)
+                        return "updateMvpCar." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a LoadGhostKoshienMvpResponse message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.LoadGhostKoshienMvpResponse} LoadGhostKoshienMvpResponse
+             */
+            LoadGhostKoshienMvpResponse.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.LoadGhostKoshienMvpResponse)
+                    return object;
+                let message = new $root.wm.protobuf.LoadGhostKoshienMvpResponse();
+                if (object.shopName != null)
+                    message.shopName = String(object.shopName);
+                if (object.resultMvpCar != null) {
+                    if (typeof object.resultMvpCar !== "object")
+                        throw TypeError(".wm.protobuf.LoadGhostKoshienMvpResponse.resultMvpCar: object expected");
+                    message.resultMvpCar = $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.fromObject(object.resultMvpCar);
+                }
+                if (object.challengeMvpCar != null) {
+                    if (typeof object.challengeMvpCar !== "object")
+                        throw TypeError(".wm.protobuf.LoadGhostKoshienMvpResponse.challengeMvpCar: object expected");
+                    message.challengeMvpCar = $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.fromObject(object.challengeMvpCar);
+                }
+                if (object.updateMvpCar != null) {
+                    if (typeof object.updateMvpCar !== "object")
+                        throw TypeError(".wm.protobuf.LoadGhostKoshienMvpResponse.updateMvpCar: object expected");
+                    message.updateMvpCar = $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.fromObject(object.updateMvpCar);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienMvpResponse message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+             * @static
+             * @param {wm.protobuf.LoadGhostKoshienMvpResponse} message LoadGhostKoshienMvpResponse
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            LoadGhostKoshienMvpResponse.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.defaults) {
+                    object.shopName = "";
+                    object.resultMvpCar = null;
+                    object.challengeMvpCar = null;
+                    object.updateMvpCar = null;
+                }
+                if (message.shopName != null && message.hasOwnProperty("shopName"))
+                    object.shopName = message.shopName;
+                if (message.resultMvpCar != null && message.hasOwnProperty("resultMvpCar"))
+                    object.resultMvpCar = $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.toObject(message.resultMvpCar, options);
+                if (message.challengeMvpCar != null && message.hasOwnProperty("challengeMvpCar"))
+                    object.challengeMvpCar = $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.toObject(message.challengeMvpCar, options);
+                if (message.updateMvpCar != null && message.hasOwnProperty("updateMvpCar"))
+                    object.updateMvpCar = $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.toObject(message.updateMvpCar, options);
+                return object;
+            };
+
+            /**
+             * Converts this LoadGhostKoshienMvpResponse to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            LoadGhostKoshienMvpResponse.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienMvpResponse
+             * @function getTypeUrl
+             * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            LoadGhostKoshienMvpResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.LoadGhostKoshienMvpResponse";
+            };
+
+            LoadGhostKoshienMvpResponse.GhostKoshienMvpCar = (function() {
+
+                /**
+                 * Properties of a GhostKoshienMvpCar.
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+                 * @interface IGhostKoshienMvpCar
+                 * @property {wm.protobuf.ICar} mvpCar GhostKoshienMvpCar mvpCar
+                 * @property {number|null} [result] GhostKoshienMvpCar result
+                 * @property {number|null} [challengeCount] GhostKoshienMvpCar challengeCount
+                 * @property {number|null} [updateCount] GhostKoshienMvpCar updateCount
+                 */
+
+                /**
+                 * Constructs a new GhostKoshienMvpCar.
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse
+                 * @classdesc Represents a GhostKoshienMvpCar.
+                 * @implements IGhostKoshienMvpCar
+                 * @constructor
+                 * @param {wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar=} [properties] Properties to set
+                 */
+                function GhostKoshienMvpCar(properties) {
+                    if (properties)
+                        for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * GhostKoshienMvpCar mvpCar.
+                 * @member {wm.protobuf.ICar} mvpCar
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar
+                 * @instance
+                 */
+                GhostKoshienMvpCar.prototype.mvpCar = null;
+
+                /**
+                 * GhostKoshienMvpCar result.
+                 * @member {number} result
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar
+                 * @instance
+                 */
+                GhostKoshienMvpCar.prototype.result = 0;
+
+                /**
+                 * GhostKoshienMvpCar challengeCount.
+                 * @member {number} challengeCount
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar
+                 * @instance
+                 */
+                GhostKoshienMvpCar.prototype.challengeCount = 0;
+
+                /**
+                 * GhostKoshienMvpCar updateCount.
+                 * @member {number} updateCount
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar
+                 * @instance
+                 */
+                GhostKoshienMvpCar.prototype.updateCount = 0;
+
+                /**
+                 * Creates a new GhostKoshienMvpCar instance using the specified properties.
+                 * @function create
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar=} [properties] Properties to set
+                 * @returns {wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar} GhostKoshienMvpCar instance
+                 */
+                GhostKoshienMvpCar.create = function create(properties) {
+                    return new GhostKoshienMvpCar(properties);
+                };
+
+                /**
+                 * Encodes the specified GhostKoshienMvpCar message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.verify|verify} messages.
+                 * @function encode
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar} message GhostKoshienMvpCar message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                GhostKoshienMvpCar.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.result != null && Object.hasOwnProperty.call(message, "result"))
+                        writer.uint32(/* id 6, wireType 0 =*/48).sint32(message.result);
+                    if (message.challengeCount != null && Object.hasOwnProperty.call(message, "challengeCount"))
+                        writer.uint32(/* id 7, wireType 0 =*/56).uint32(message.challengeCount);
+                    if (message.updateCount != null && Object.hasOwnProperty.call(message, "updateCount"))
+                        writer.uint32(/* id 8, wireType 0 =*/64).uint32(message.updateCount);
+                    $root.wm.protobuf.Car.encode(message.mvpCar, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified GhostKoshienMvpCar message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar} message GhostKoshienMvpCar message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                GhostKoshienMvpCar.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a GhostKoshienMvpCar message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar} GhostKoshienMvpCar
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                GhostKoshienMvpCar.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar();
+                    while (reader.pos < end) {
+                        let tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 9: {
+                                message.mvpCar = $root.wm.protobuf.Car.decode(reader, reader.uint32());
+                                break;
+                            }
+                        case 6: {
+                                message.result = reader.sint32();
+                                break;
+                            }
+                        case 7: {
+                                message.challengeCount = reader.uint32();
+                                break;
+                            }
+                        case 8: {
+                                message.updateCount = reader.uint32();
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    if (!message.hasOwnProperty("mvpCar"))
+                        throw $util.ProtocolError("missing required 'mvpCar'", { instance: message });
+                    return message;
+                };
+
+                /**
+                 * Decodes a GhostKoshienMvpCar message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar} GhostKoshienMvpCar
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                GhostKoshienMvpCar.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a GhostKoshienMvpCar message.
+                 * @function verify
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                GhostKoshienMvpCar.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    {
+                        let error = $root.wm.protobuf.Car.verify(message.mvpCar);
+                        if (error)
+                            return "mvpCar." + error;
+                    }
+                    if (message.result != null && message.hasOwnProperty("result"))
+                        if (!$util.isInteger(message.result))
+                            return "result: integer expected";
+                    if (message.challengeCount != null && message.hasOwnProperty("challengeCount"))
+                        if (!$util.isInteger(message.challengeCount))
+                            return "challengeCount: integer expected";
+                    if (message.updateCount != null && message.hasOwnProperty("updateCount"))
+                        if (!$util.isInteger(message.updateCount))
+                            return "updateCount: integer expected";
+                    return null;
+                };
+
+                /**
+                 * Creates a GhostKoshienMvpCar message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar} GhostKoshienMvpCar
+                 */
+                GhostKoshienMvpCar.fromObject = function fromObject(object) {
+                    if (object instanceof $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar)
+                        return object;
+                    let message = new $root.wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar();
+                    if (object.mvpCar != null) {
+                        if (typeof object.mvpCar !== "object")
+                            throw TypeError(".wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.mvpCar: object expected");
+                        message.mvpCar = $root.wm.protobuf.Car.fromObject(object.mvpCar);
+                    }
+                    if (object.result != null)
+                        message.result = object.result | 0;
+                    if (object.challengeCount != null)
+                        message.challengeCount = object.challengeCount >>> 0;
+                    if (object.updateCount != null)
+                        message.updateCount = object.updateCount >>> 0;
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a GhostKoshienMvpCar message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar
+                 * @static
+                 * @param {wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar} message GhostKoshienMvpCar
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                GhostKoshienMvpCar.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    let object = {};
+                    if (options.defaults) {
+                        object.result = 0;
+                        object.challengeCount = 0;
+                        object.updateCount = 0;
+                        object.mvpCar = null;
+                    }
+                    if (message.result != null && message.hasOwnProperty("result"))
+                        object.result = message.result;
+                    if (message.challengeCount != null && message.hasOwnProperty("challengeCount"))
+                        object.challengeCount = message.challengeCount;
+                    if (message.updateCount != null && message.hasOwnProperty("updateCount"))
+                        object.updateCount = message.updateCount;
+                    if (message.mvpCar != null && message.hasOwnProperty("mvpCar"))
+                        object.mvpCar = $root.wm.protobuf.Car.toObject(message.mvpCar, options);
+                    return object;
+                };
+
+                /**
+                 * Converts this GhostKoshienMvpCar to JSON.
+                 * @function toJSON
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                GhostKoshienMvpCar.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the default type url for GhostKoshienMvpCar
+                 * @function getTypeUrl
+                 * @memberof wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                GhostKoshienMvpCar.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar";
+                };
+
+                return GhostKoshienMvpCar;
+            })();
+
+            return LoadGhostKoshienMvpResponse;
+        })();
+
         protobuf.LoadUnreceivedUserItemsRequest = (function() {
 
             /**
@@ -27944,6 +34922,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.ownedUserItems != null && message.hasOwnProperty("ownedUserItems")) {
@@ -28018,6 +35002,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.ownedUserItems) {
@@ -28458,6 +35466,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.cars != null && message.hasOwnProperty("cars")) {
@@ -28532,6 +35546,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.cars) {
@@ -28998,6 +36036,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -29063,6 +36107,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -29498,6 +36566,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (!$util.isInteger(message.userId))
@@ -29568,6 +36642,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.userId != null)
@@ -29655,6 +36753,7 @@ export const wm = $root.wm = (() => {
              * @property {wm.protobuf.SaveScreenshotRequest.IGhostCompetitionResultMetadata|null} [competitionResultMetadata] SaveScreenshotRequest competitionResultMetadata
              * @property {wm.protobuf.SaveScreenshotRequest.ITimeAttackResultMetadata|null} [timeAttackResultMetadata] SaveScreenshotRequest timeAttackResultMetadata
              * @property {wm.protobuf.SaveScreenshotRequest.ILevelUpMetadata|null} [levelUpMetadata] SaveScreenshotRequest levelUpMetadata
+             * @property {wm.protobuf.SaveScreenshotRequest.IGhostKoshienResultMetadata|null} [koshienResultMetadata] SaveScreenshotRequest koshienResultMetadata
              */
 
             /**
@@ -29801,6 +36900,14 @@ export const wm = $root.wm = (() => {
             SaveScreenshotRequest.prototype.levelUpMetadata = null;
 
             /**
+             * SaveScreenshotRequest koshienResultMetadata.
+             * @member {wm.protobuf.SaveScreenshotRequest.IGhostKoshienResultMetadata|null|undefined} koshienResultMetadata
+             * @memberof wm.protobuf.SaveScreenshotRequest
+             * @instance
+             */
+            SaveScreenshotRequest.prototype.koshienResultMetadata = null;
+
+            /**
              * Creates a new SaveScreenshotRequest instance using the specified properties.
              * @function create
              * @memberof wm.protobuf.SaveScreenshotRequest
@@ -29853,6 +36960,8 @@ export const wm = $root.wm = (() => {
                     $root.wm.protobuf.SaveScreenshotRequest.TimeAttackResultMetadata.encode(message.timeAttackResultMetadata, writer.uint32(/* id 15, wireType 2 =*/122).fork()).ldelim();
                 if (message.levelUpMetadata != null && Object.hasOwnProperty.call(message, "levelUpMetadata"))
                     $root.wm.protobuf.SaveScreenshotRequest.LevelUpMetadata.encode(message.levelUpMetadata, writer.uint32(/* id 16, wireType 2 =*/130).fork()).ldelim();
+                if (message.koshienResultMetadata != null && Object.hasOwnProperty.call(message, "koshienResultMetadata"))
+                    $root.wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata.encode(message.koshienResultMetadata, writer.uint32(/* id 17, wireType 2 =*/138).fork()).ldelim();
                 return writer;
             };
 
@@ -29951,6 +37060,10 @@ export const wm = $root.wm = (() => {
                             message.levelUpMetadata = $root.wm.protobuf.SaveScreenshotRequest.LevelUpMetadata.decode(reader, reader.uint32());
                             break;
                         }
+                    case 17: {
+                            message.koshienResultMetadata = $root.wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata.decode(reader, reader.uint32());
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -30015,6 +37128,7 @@ export const wm = $root.wm = (() => {
                 case 8:
                 case 9:
                 case 10:
+                case 11:
                     break;
                 }
                 if (message.image != null && message.hasOwnProperty("image"))
@@ -30069,6 +37183,11 @@ export const wm = $root.wm = (() => {
                     let error = $root.wm.protobuf.SaveScreenshotRequest.LevelUpMetadata.verify(message.levelUpMetadata);
                     if (error)
                         return "levelUpMetadata." + error;
+                }
+                if (message.koshienResultMetadata != null && message.hasOwnProperty("koshienResultMetadata")) {
+                    let error = $root.wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata.verify(message.koshienResultMetadata);
+                    if (error)
+                        return "koshienResultMetadata." + error;
                 }
                 return null;
             };
@@ -30134,6 +37253,10 @@ export const wm = $root.wm = (() => {
                 case 10:
                     message.imageType = 10;
                     break;
+                case "SS_GHOST_KOSHIEN_RESULT":
+                case 11:
+                    message.imageType = 11;
+                    break;
                 }
                 if (object.image != null)
                     if (typeof object.image === "string")
@@ -30190,6 +37313,11 @@ export const wm = $root.wm = (() => {
                         throw TypeError(".wm.protobuf.SaveScreenshotRequest.levelUpMetadata: object expected");
                     message.levelUpMetadata = $root.wm.protobuf.SaveScreenshotRequest.LevelUpMetadata.fromObject(object.levelUpMetadata);
                 }
+                if (object.koshienResultMetadata != null) {
+                    if (typeof object.koshienResultMetadata !== "object")
+                        throw TypeError(".wm.protobuf.SaveScreenshotRequest.koshienResultMetadata: object expected");
+                    message.koshienResultMetadata = $root.wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata.fromObject(object.koshienResultMetadata);
+                }
                 return message;
             };
 
@@ -30229,6 +37357,7 @@ export const wm = $root.wm = (() => {
                     object.competitionResultMetadata = null;
                     object.timeAttackResultMetadata = null;
                     object.levelUpMetadata = null;
+                    object.koshienResultMetadata = null;
                 }
                 if (message.carId != null && message.hasOwnProperty("carId"))
                     object.carId = message.carId;
@@ -30262,6 +37391,8 @@ export const wm = $root.wm = (() => {
                     object.timeAttackResultMetadata = $root.wm.protobuf.SaveScreenshotRequest.TimeAttackResultMetadata.toObject(message.timeAttackResultMetadata, options);
                 if (message.levelUpMetadata != null && message.hasOwnProperty("levelUpMetadata"))
                     object.levelUpMetadata = $root.wm.protobuf.SaveScreenshotRequest.LevelUpMetadata.toObject(message.levelUpMetadata, options);
+                if (message.koshienResultMetadata != null && message.hasOwnProperty("koshienResultMetadata"))
+                    object.koshienResultMetadata = $root.wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata.toObject(message.koshienResultMetadata, options);
                 return object;
             };
 
@@ -33019,6 +40150,279 @@ export const wm = $root.wm = (() => {
                 return LevelUpMetadata;
             })();
 
+            SaveScreenshotRequest.GhostKoshienResultMetadata = (function() {
+
+                /**
+                 * Properties of a GhostKoshienResultMetadata.
+                 * @memberof wm.protobuf.SaveScreenshotRequest
+                 * @interface IGhostKoshienResultMetadata
+                 * @property {number} tunePower GhostKoshienResultMetadata tunePower
+                 * @property {number} tuneHandling GhostKoshienResultMetadata tuneHandling
+                 * @property {number|null} [rank] GhostKoshienResultMetadata rank
+                 * @property {number} result GhostKoshienResultMetadata result
+                 */
+
+                /**
+                 * Constructs a new GhostKoshienResultMetadata.
+                 * @memberof wm.protobuf.SaveScreenshotRequest
+                 * @classdesc Represents a GhostKoshienResultMetadata.
+                 * @implements IGhostKoshienResultMetadata
+                 * @constructor
+                 * @param {wm.protobuf.SaveScreenshotRequest.IGhostKoshienResultMetadata=} [properties] Properties to set
+                 */
+                function GhostKoshienResultMetadata(properties) {
+                    if (properties)
+                        for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * GhostKoshienResultMetadata tunePower.
+                 * @member {number} tunePower
+                 * @memberof wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata
+                 * @instance
+                 */
+                GhostKoshienResultMetadata.prototype.tunePower = 0;
+
+                /**
+                 * GhostKoshienResultMetadata tuneHandling.
+                 * @member {number} tuneHandling
+                 * @memberof wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata
+                 * @instance
+                 */
+                GhostKoshienResultMetadata.prototype.tuneHandling = 0;
+
+                /**
+                 * GhostKoshienResultMetadata rank.
+                 * @member {number} rank
+                 * @memberof wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata
+                 * @instance
+                 */
+                GhostKoshienResultMetadata.prototype.rank = 0;
+
+                /**
+                 * GhostKoshienResultMetadata result.
+                 * @member {number} result
+                 * @memberof wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata
+                 * @instance
+                 */
+                GhostKoshienResultMetadata.prototype.result = 0;
+
+                /**
+                 * Creates a new GhostKoshienResultMetadata instance using the specified properties.
+                 * @function create
+                 * @memberof wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata
+                 * @static
+                 * @param {wm.protobuf.SaveScreenshotRequest.IGhostKoshienResultMetadata=} [properties] Properties to set
+                 * @returns {wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata} GhostKoshienResultMetadata instance
+                 */
+                GhostKoshienResultMetadata.create = function create(properties) {
+                    return new GhostKoshienResultMetadata(properties);
+                };
+
+                /**
+                 * Encodes the specified GhostKoshienResultMetadata message. Does not implicitly {@link wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata.verify|verify} messages.
+                 * @function encode
+                 * @memberof wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata
+                 * @static
+                 * @param {wm.protobuf.SaveScreenshotRequest.IGhostKoshienResultMetadata} message GhostKoshienResultMetadata message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                GhostKoshienResultMetadata.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.tunePower);
+                    writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.tuneHandling);
+                    if (message.rank != null && Object.hasOwnProperty.call(message, "rank"))
+                        writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.rank);
+                    writer.uint32(/* id 4, wireType 0 =*/32).sint32(message.result);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified GhostKoshienResultMetadata message, length delimited. Does not implicitly {@link wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata
+                 * @static
+                 * @param {wm.protobuf.SaveScreenshotRequest.IGhostKoshienResultMetadata} message GhostKoshienResultMetadata message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                GhostKoshienResultMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a GhostKoshienResultMetadata message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata} GhostKoshienResultMetadata
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                GhostKoshienResultMetadata.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata();
+                    while (reader.pos < end) {
+                        let tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.tunePower = reader.uint32();
+                                break;
+                            }
+                        case 2: {
+                                message.tuneHandling = reader.uint32();
+                                break;
+                            }
+                        case 3: {
+                                message.rank = reader.uint32();
+                                break;
+                            }
+                        case 4: {
+                                message.result = reader.sint32();
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    if (!message.hasOwnProperty("tunePower"))
+                        throw $util.ProtocolError("missing required 'tunePower'", { instance: message });
+                    if (!message.hasOwnProperty("tuneHandling"))
+                        throw $util.ProtocolError("missing required 'tuneHandling'", { instance: message });
+                    if (!message.hasOwnProperty("result"))
+                        throw $util.ProtocolError("missing required 'result'", { instance: message });
+                    return message;
+                };
+
+                /**
+                 * Decodes a GhostKoshienResultMetadata message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata} GhostKoshienResultMetadata
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                GhostKoshienResultMetadata.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a GhostKoshienResultMetadata message.
+                 * @function verify
+                 * @memberof wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                GhostKoshienResultMetadata.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (!$util.isInteger(message.tunePower))
+                        return "tunePower: integer expected";
+                    if (!$util.isInteger(message.tuneHandling))
+                        return "tuneHandling: integer expected";
+                    if (message.rank != null && message.hasOwnProperty("rank"))
+                        if (!$util.isInteger(message.rank))
+                            return "rank: integer expected";
+                    if (!$util.isInteger(message.result))
+                        return "result: integer expected";
+                    return null;
+                };
+
+                /**
+                 * Creates a GhostKoshienResultMetadata message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata} GhostKoshienResultMetadata
+                 */
+                GhostKoshienResultMetadata.fromObject = function fromObject(object) {
+                    if (object instanceof $root.wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata)
+                        return object;
+                    let message = new $root.wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata();
+                    if (object.tunePower != null)
+                        message.tunePower = object.tunePower >>> 0;
+                    if (object.tuneHandling != null)
+                        message.tuneHandling = object.tuneHandling >>> 0;
+                    if (object.rank != null)
+                        message.rank = object.rank >>> 0;
+                    if (object.result != null)
+                        message.result = object.result | 0;
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a GhostKoshienResultMetadata message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata
+                 * @static
+                 * @param {wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata} message GhostKoshienResultMetadata
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                GhostKoshienResultMetadata.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    let object = {};
+                    if (options.defaults) {
+                        object.tunePower = 0;
+                        object.tuneHandling = 0;
+                        object.rank = 0;
+                        object.result = 0;
+                    }
+                    if (message.tunePower != null && message.hasOwnProperty("tunePower"))
+                        object.tunePower = message.tunePower;
+                    if (message.tuneHandling != null && message.hasOwnProperty("tuneHandling"))
+                        object.tuneHandling = message.tuneHandling;
+                    if (message.rank != null && message.hasOwnProperty("rank"))
+                        object.rank = message.rank;
+                    if (message.result != null && message.hasOwnProperty("result"))
+                        object.result = message.result;
+                    return object;
+                };
+
+                /**
+                 * Converts this GhostKoshienResultMetadata to JSON.
+                 * @function toJSON
+                 * @memberof wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                GhostKoshienResultMetadata.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the default type url for GhostKoshienResultMetadata
+                 * @function getTypeUrl
+                 * @memberof wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                GhostKoshienResultMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata";
+                };
+
+                return GhostKoshienResultMetadata;
+            })();
+
             SaveScreenshotRequest.OpponentCar = (function() {
 
                 /**
@@ -33419,6 +40823,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -33484,6 +40894,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -33957,6 +41391,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -34022,6 +41462,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -34496,6 +41960,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.scratchSheets != null && message.hasOwnProperty("scratchSheets")) {
@@ -34583,6 +42053,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.scratchSheets) {
@@ -35168,6 +42662,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.scratchSheets != null && message.hasOwnProperty("scratchSheets")) {
@@ -35251,6 +42751,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.scratchSheets) {
@@ -35715,6 +43239,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -35780,6 +43310,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -36253,6 +43807,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.carIds != null && message.hasOwnProperty("carIds")) {
@@ -36325,6 +43885,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.carIds) {
@@ -36788,6 +44372,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -36853,6 +44443,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -37318,6 +44932,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 switch (message.serialError) {
@@ -37403,6 +45023,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 switch (object.serialError) {
@@ -37922,6 +45566,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -37987,6 +45637,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -38438,6 +46112,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -38503,6 +46183,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 return message;
@@ -39063,6 +46767,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (!$util.isInteger(message.ramp))
@@ -39160,6 +46870,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.ramp != null)
@@ -39822,6 +47556,8 @@ export const wm = $root.wm = (() => {
                 case 23:
                 case 24:
                 case 25:
+                case 26:
+                case 27:
                     break;
                 }
                 if (!$util.isInteger(message.area))
@@ -39957,6 +47693,14 @@ export const wm = $root.wm = (() => {
                 case "GHOST_SELECT_BY_REGION_PLACE":
                 case 25:
                     message.selectionMethod = 25;
+                    break;
+                case "GHOST_BINGO_CHALLENGE":
+                case 26:
+                    message.selectionMethod = 26;
+                    break;
+                case "GHOST_KOSHIEN":
+                case 27:
+                    message.selectionMethod = 27;
                     break;
                 }
                 if (object.area != null)
@@ -40278,6 +48022,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (!$util.isInteger(message.ramp))
@@ -40375,6 +48125,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.ramp != null)
@@ -41228,6 +49002,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.data != null && message.hasOwnProperty("data")) {
@@ -41302,6 +49082,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.data) {
@@ -42133,6 +49937,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.data != null && message.hasOwnProperty("data")) {
@@ -42207,6 +50017,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.data) {
@@ -43138,6 +50972,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.sugorokuPoint != null && message.hasOwnProperty("sugorokuPoint"))
@@ -43233,6 +51073,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.sugorokuPoint != null)
@@ -43752,6 +51616,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.areas != null && message.hasOwnProperty("areas")) {
@@ -43837,6 +51707,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.areas) {
@@ -44903,6 +52797,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (message.candidates != null && message.hasOwnProperty("candidates")) {
@@ -44997,6 +52897,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.candidates) {
@@ -45532,6 +53456,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 if (!$util.isInteger(message.score))
@@ -45610,6 +53540,30 @@ export const wm = $root.wm = (() => {
                 case "ERR_SCRATCH_LOCKED":
                 case 13:
                     message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
                     break;
                 }
                 if (object.score != null)
@@ -46616,6 +54570,12 @@ export const wm = $root.wm = (() => {
                 case 11:
                 case 12:
                 case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                     break;
                 }
                 return null;
@@ -46682,6 +54642,30 @@ export const wm = $root.wm = (() => {
                 case 13:
                     message.error = 13;
                     break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
+                    break;
                 }
                 return message;
             };
@@ -46735,6 +54719,3455 @@ export const wm = $root.wm = (() => {
             return SaveNetworkStatResponse;
         })();
 
+        protobuf.LoadGhostBingoTargetsRequest = (function() {
+
+            /**
+             * Properties of a LoadGhostBingoTargetsRequest.
+             * @memberof wm.protobuf
+             * @interface ILoadGhostBingoTargetsRequest
+             * @property {number} carId LoadGhostBingoTargetsRequest carId
+             * @property {number} area LoadGhostBingoTargetsRequest area
+             */
+
+            /**
+             * Constructs a new LoadGhostBingoTargetsRequest.
+             * @memberof wm.protobuf
+             * @classdesc Represents a LoadGhostBingoTargetsRequest.
+             * @implements ILoadGhostBingoTargetsRequest
+             * @constructor
+             * @param {wm.protobuf.ILoadGhostBingoTargetsRequest=} [properties] Properties to set
+             */
+            function LoadGhostBingoTargetsRequest(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * LoadGhostBingoTargetsRequest carId.
+             * @member {number} carId
+             * @memberof wm.protobuf.LoadGhostBingoTargetsRequest
+             * @instance
+             */
+            LoadGhostBingoTargetsRequest.prototype.carId = 0;
+
+            /**
+             * LoadGhostBingoTargetsRequest area.
+             * @member {number} area
+             * @memberof wm.protobuf.LoadGhostBingoTargetsRequest
+             * @instance
+             */
+            LoadGhostBingoTargetsRequest.prototype.area = 0;
+
+            /**
+             * Creates a new LoadGhostBingoTargetsRequest instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.LoadGhostBingoTargetsRequest
+             * @static
+             * @param {wm.protobuf.ILoadGhostBingoTargetsRequest=} [properties] Properties to set
+             * @returns {wm.protobuf.LoadGhostBingoTargetsRequest} LoadGhostBingoTargetsRequest instance
+             */
+            LoadGhostBingoTargetsRequest.create = function create(properties) {
+                return new LoadGhostBingoTargetsRequest(properties);
+            };
+
+            /**
+             * Encodes the specified LoadGhostBingoTargetsRequest message. Does not implicitly {@link wm.protobuf.LoadGhostBingoTargetsRequest.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.LoadGhostBingoTargetsRequest
+             * @static
+             * @param {wm.protobuf.ILoadGhostBingoTargetsRequest} message LoadGhostBingoTargetsRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostBingoTargetsRequest.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.carId);
+                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.area);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified LoadGhostBingoTargetsRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostBingoTargetsRequest.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.LoadGhostBingoTargetsRequest
+             * @static
+             * @param {wm.protobuf.ILoadGhostBingoTargetsRequest} message LoadGhostBingoTargetsRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostBingoTargetsRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a LoadGhostBingoTargetsRequest message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.LoadGhostBingoTargetsRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.LoadGhostBingoTargetsRequest} LoadGhostBingoTargetsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostBingoTargetsRequest.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostBingoTargetsRequest();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.carId = reader.uint32();
+                            break;
+                        }
+                    case 3: {
+                            message.area = reader.uint32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("carId"))
+                    throw $util.ProtocolError("missing required 'carId'", { instance: message });
+                if (!message.hasOwnProperty("area"))
+                    throw $util.ProtocolError("missing required 'area'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a LoadGhostBingoTargetsRequest message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.LoadGhostBingoTargetsRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.LoadGhostBingoTargetsRequest} LoadGhostBingoTargetsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostBingoTargetsRequest.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a LoadGhostBingoTargetsRequest message.
+             * @function verify
+             * @memberof wm.protobuf.LoadGhostBingoTargetsRequest
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            LoadGhostBingoTargetsRequest.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (!$util.isInteger(message.carId))
+                    return "carId: integer expected";
+                if (!$util.isInteger(message.area))
+                    return "area: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a LoadGhostBingoTargetsRequest message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.LoadGhostBingoTargetsRequest
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.LoadGhostBingoTargetsRequest} LoadGhostBingoTargetsRequest
+             */
+            LoadGhostBingoTargetsRequest.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.LoadGhostBingoTargetsRequest)
+                    return object;
+                let message = new $root.wm.protobuf.LoadGhostBingoTargetsRequest();
+                if (object.carId != null)
+                    message.carId = object.carId >>> 0;
+                if (object.area != null)
+                    message.area = object.area >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a LoadGhostBingoTargetsRequest message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.LoadGhostBingoTargetsRequest
+             * @static
+             * @param {wm.protobuf.LoadGhostBingoTargetsRequest} message LoadGhostBingoTargetsRequest
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            LoadGhostBingoTargetsRequest.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.defaults) {
+                    object.carId = 0;
+                    object.area = 0;
+                }
+                if (message.carId != null && message.hasOwnProperty("carId"))
+                    object.carId = message.carId;
+                if (message.area != null && message.hasOwnProperty("area"))
+                    object.area = message.area;
+                return object;
+            };
+
+            /**
+             * Converts this LoadGhostBingoTargetsRequest to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.LoadGhostBingoTargetsRequest
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            LoadGhostBingoTargetsRequest.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for LoadGhostBingoTargetsRequest
+             * @function getTypeUrl
+             * @memberof wm.protobuf.LoadGhostBingoTargetsRequest
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            LoadGhostBingoTargetsRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.LoadGhostBingoTargetsRequest";
+            };
+
+            return LoadGhostBingoTargetsRequest;
+        })();
+
+        protobuf.LoadGhostBingoTargetsResponse = (function() {
+
+            /**
+             * Properties of a LoadGhostBingoTargetsResponse.
+             * @memberof wm.protobuf
+             * @interface ILoadGhostBingoTargetsResponse
+             * @property {wm.protobuf.ErrorCode} error LoadGhostBingoTargetsResponse error
+             * @property {Array.<wm.protobuf.IGhostCar>|null} [ghosts] LoadGhostBingoTargetsResponse ghosts
+             * @property {wm.protobuf.PathSelectionMethod} selectionMethod LoadGhostBingoTargetsResponse selectionMethod
+             * @property {Array.<wm.protobuf.LoadGhostBingoTargetsResponse.IRate>|null} [rates] LoadGhostBingoTargetsResponse rates
+             */
+
+            /**
+             * Constructs a new LoadGhostBingoTargetsResponse.
+             * @memberof wm.protobuf
+             * @classdesc Represents a LoadGhostBingoTargetsResponse.
+             * @implements ILoadGhostBingoTargetsResponse
+             * @constructor
+             * @param {wm.protobuf.ILoadGhostBingoTargetsResponse=} [properties] Properties to set
+             */
+            function LoadGhostBingoTargetsResponse(properties) {
+                this.ghosts = [];
+                this.rates = [];
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * LoadGhostBingoTargetsResponse error.
+             * @member {wm.protobuf.ErrorCode} error
+             * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+             * @instance
+             */
+            LoadGhostBingoTargetsResponse.prototype.error = 0;
+
+            /**
+             * LoadGhostBingoTargetsResponse ghosts.
+             * @member {Array.<wm.protobuf.IGhostCar>} ghosts
+             * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+             * @instance
+             */
+            LoadGhostBingoTargetsResponse.prototype.ghosts = $util.emptyArray;
+
+            /**
+             * LoadGhostBingoTargetsResponse selectionMethod.
+             * @member {wm.protobuf.PathSelectionMethod} selectionMethod
+             * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+             * @instance
+             */
+            LoadGhostBingoTargetsResponse.prototype.selectionMethod = 1;
+
+            /**
+             * LoadGhostBingoTargetsResponse rates.
+             * @member {Array.<wm.protobuf.LoadGhostBingoTargetsResponse.IRate>} rates
+             * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+             * @instance
+             */
+            LoadGhostBingoTargetsResponse.prototype.rates = $util.emptyArray;
+
+            /**
+             * Creates a new LoadGhostBingoTargetsResponse instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+             * @static
+             * @param {wm.protobuf.ILoadGhostBingoTargetsResponse=} [properties] Properties to set
+             * @returns {wm.protobuf.LoadGhostBingoTargetsResponse} LoadGhostBingoTargetsResponse instance
+             */
+            LoadGhostBingoTargetsResponse.create = function create(properties) {
+                return new LoadGhostBingoTargetsResponse(properties);
+            };
+
+            /**
+             * Encodes the specified LoadGhostBingoTargetsResponse message. Does not implicitly {@link wm.protobuf.LoadGhostBingoTargetsResponse.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+             * @static
+             * @param {wm.protobuf.ILoadGhostBingoTargetsResponse} message LoadGhostBingoTargetsResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostBingoTargetsResponse.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.error);
+                if (message.ghosts != null && message.ghosts.length)
+                    for (let i = 0; i < message.ghosts.length; ++i)
+                        $root.wm.protobuf.GhostCar.encode(message.ghosts[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.selectionMethod);
+                if (message.rates != null && message.rates.length)
+                    for (let i = 0; i < message.rates.length; ++i)
+                        $root.wm.protobuf.LoadGhostBingoTargetsResponse.Rate.encode(message.rates[i], writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified LoadGhostBingoTargetsResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostBingoTargetsResponse.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+             * @static
+             * @param {wm.protobuf.ILoadGhostBingoTargetsResponse} message LoadGhostBingoTargetsResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadGhostBingoTargetsResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a LoadGhostBingoTargetsResponse message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.LoadGhostBingoTargetsResponse} LoadGhostBingoTargetsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostBingoTargetsResponse.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostBingoTargetsResponse();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.error = reader.int32();
+                            break;
+                        }
+                    case 2: {
+                            if (!(message.ghosts && message.ghosts.length))
+                                message.ghosts = [];
+                            message.ghosts.push($root.wm.protobuf.GhostCar.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    case 4: {
+                            message.selectionMethod = reader.int32();
+                            break;
+                        }
+                    case 5: {
+                            if (!(message.rates && message.rates.length))
+                                message.rates = [];
+                            message.rates.push($root.wm.protobuf.LoadGhostBingoTargetsResponse.Rate.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("error"))
+                    throw $util.ProtocolError("missing required 'error'", { instance: message });
+                if (!message.hasOwnProperty("selectionMethod"))
+                    throw $util.ProtocolError("missing required 'selectionMethod'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a LoadGhostBingoTargetsResponse message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.LoadGhostBingoTargetsResponse} LoadGhostBingoTargetsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadGhostBingoTargetsResponse.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a LoadGhostBingoTargetsResponse message.
+             * @function verify
+             * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            LoadGhostBingoTargetsResponse.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                switch (message.error) {
+                default:
+                    return "error: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 9:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
+                    break;
+                }
+                if (message.ghosts != null && message.hasOwnProperty("ghosts")) {
+                    if (!Array.isArray(message.ghosts))
+                        return "ghosts: array expected";
+                    for (let i = 0; i < message.ghosts.length; ++i) {
+                        let error = $root.wm.protobuf.GhostCar.verify(message.ghosts[i]);
+                        if (error)
+                            return "ghosts." + error;
+                    }
+                }
+                switch (message.selectionMethod) {
+                default:
+                    return "selectionMethod: enum value expected";
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    break;
+                }
+                if (message.rates != null && message.hasOwnProperty("rates")) {
+                    if (!Array.isArray(message.rates))
+                        return "rates: array expected";
+                    for (let i = 0; i < message.rates.length; ++i) {
+                        let error = $root.wm.protobuf.LoadGhostBingoTargetsResponse.Rate.verify(message.rates[i]);
+                        if (error)
+                            return "rates." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a LoadGhostBingoTargetsResponse message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.LoadGhostBingoTargetsResponse} LoadGhostBingoTargetsResponse
+             */
+            LoadGhostBingoTargetsResponse.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.LoadGhostBingoTargetsResponse)
+                    return object;
+                let message = new $root.wm.protobuf.LoadGhostBingoTargetsResponse();
+                switch (object.error) {
+                case "ERR_SUCCESS":
+                case 0:
+                    message.error = 0;
+                    break;
+                case "ERR_REQUEST":
+                case 1:
+                    message.error = 1;
+                    break;
+                case "ERR_NOT_FOUND":
+                case 2:
+                    message.error = 2;
+                    break;
+                case "ERR_ID_SERVER":
+                case 3:
+                    message.error = 3;
+                    break;
+                case "ERR_ID_BANNED":
+                case 4:
+                    message.error = 4;
+                    break;
+                case "ERR_USER_LOCKED":
+                case 5:
+                    message.error = 5;
+                    break;
+                case "ERR_USER_VERSION":
+                case 6:
+                    message.error = 6;
+                    break;
+                case "ERR_NAME_CONFLICTED":
+                case 7:
+                    message.error = 7;
+                    break;
+                case "ERR_FORBIDDEN":
+                case 9:
+                    message.error = 9;
+                    break;
+                case "ERR_USER_SUCCEEDED":
+                case 11:
+                    message.error = 11;
+                    break;
+                case "ERR_BEING_TRANSFERRED":
+                case 12:
+                    message.error = 12;
+                    break;
+                case "ERR_SCRATCH_LOCKED":
+                case 13:
+                    message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
+                    break;
+                }
+                if (object.ghosts) {
+                    if (!Array.isArray(object.ghosts))
+                        throw TypeError(".wm.protobuf.LoadGhostBingoTargetsResponse.ghosts: array expected");
+                    message.ghosts = [];
+                    for (let i = 0; i < object.ghosts.length; ++i) {
+                        if (typeof object.ghosts[i] !== "object")
+                            throw TypeError(".wm.protobuf.LoadGhostBingoTargetsResponse.ghosts: object expected");
+                        message.ghosts[i] = $root.wm.protobuf.GhostCar.fromObject(object.ghosts[i]);
+                    }
+                }
+                switch (object.selectionMethod) {
+                case "PATH_NEW":
+                case 1:
+                    message.selectionMethod = 1;
+                    break;
+                case "PATH_PLAIN":
+                case 2:
+                    message.selectionMethod = 2;
+                    break;
+                case "PATH_FRIEND":
+                case 3:
+                    message.selectionMethod = 3;
+                    break;
+                case "PATH_NORMAL":
+                case 4:
+                    message.selectionMethod = 4;
+                    break;
+                case "PATH_CHALLENGER":
+                case 5:
+                    message.selectionMethod = 5;
+                    break;
+                }
+                if (object.rates) {
+                    if (!Array.isArray(object.rates))
+                        throw TypeError(".wm.protobuf.LoadGhostBingoTargetsResponse.rates: array expected");
+                    message.rates = [];
+                    for (let i = 0; i < object.rates.length; ++i) {
+                        if (typeof object.rates[i] !== "object")
+                            throw TypeError(".wm.protobuf.LoadGhostBingoTargetsResponse.rates: object expected");
+                        message.rates[i] = $root.wm.protobuf.LoadGhostBingoTargetsResponse.Rate.fromObject(object.rates[i]);
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a LoadGhostBingoTargetsResponse message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+             * @static
+             * @param {wm.protobuf.LoadGhostBingoTargetsResponse} message LoadGhostBingoTargetsResponse
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            LoadGhostBingoTargetsResponse.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.arrays || options.defaults) {
+                    object.ghosts = [];
+                    object.rates = [];
+                }
+                if (options.defaults) {
+                    object.error = options.enums === String ? "ERR_SUCCESS" : 0;
+                    object.selectionMethod = options.enums === String ? "PATH_NEW" : 1;
+                }
+                if (message.error != null && message.hasOwnProperty("error"))
+                    object.error = options.enums === String ? $root.wm.protobuf.ErrorCode[message.error] : message.error;
+                if (message.ghosts && message.ghosts.length) {
+                    object.ghosts = [];
+                    for (let j = 0; j < message.ghosts.length; ++j)
+                        object.ghosts[j] = $root.wm.protobuf.GhostCar.toObject(message.ghosts[j], options);
+                }
+                if (message.selectionMethod != null && message.hasOwnProperty("selectionMethod"))
+                    object.selectionMethod = options.enums === String ? $root.wm.protobuf.PathSelectionMethod[message.selectionMethod] : message.selectionMethod;
+                if (message.rates && message.rates.length) {
+                    object.rates = [];
+                    for (let j = 0; j < message.rates.length; ++j)
+                        object.rates[j] = $root.wm.protobuf.LoadGhostBingoTargetsResponse.Rate.toObject(message.rates[j], options);
+                }
+                return object;
+            };
+
+            /**
+             * Converts this LoadGhostBingoTargetsResponse to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            LoadGhostBingoTargetsResponse.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for LoadGhostBingoTargetsResponse
+             * @function getTypeUrl
+             * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            LoadGhostBingoTargetsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.LoadGhostBingoTargetsResponse";
+            };
+
+            LoadGhostBingoTargetsResponse.Rate = (function() {
+
+                /**
+                 * Properties of a Rate.
+                 * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+                 * @interface IRate
+                 * @property {number} carId Rate carId
+                 * @property {wm.protobuf.GhostRateType} type Rate type
+                 * @property {number|null} [rate] Rate rate
+                 */
+
+                /**
+                 * Constructs a new Rate.
+                 * @memberof wm.protobuf.LoadGhostBingoTargetsResponse
+                 * @classdesc Represents a Rate.
+                 * @implements IRate
+                 * @constructor
+                 * @param {wm.protobuf.LoadGhostBingoTargetsResponse.IRate=} [properties] Properties to set
+                 */
+                function Rate(properties) {
+                    if (properties)
+                        for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * Rate carId.
+                 * @member {number} carId
+                 * @memberof wm.protobuf.LoadGhostBingoTargetsResponse.Rate
+                 * @instance
+                 */
+                Rate.prototype.carId = 0;
+
+                /**
+                 * Rate type.
+                 * @member {wm.protobuf.GhostRateType} type
+                 * @memberof wm.protobuf.LoadGhostBingoTargetsResponse.Rate
+                 * @instance
+                 */
+                Rate.prototype.type = 1;
+
+                /**
+                 * Rate rate.
+                 * @member {number} rate
+                 * @memberof wm.protobuf.LoadGhostBingoTargetsResponse.Rate
+                 * @instance
+                 */
+                Rate.prototype.rate = 0;
+
+                /**
+                 * Creates a new Rate instance using the specified properties.
+                 * @function create
+                 * @memberof wm.protobuf.LoadGhostBingoTargetsResponse.Rate
+                 * @static
+                 * @param {wm.protobuf.LoadGhostBingoTargetsResponse.IRate=} [properties] Properties to set
+                 * @returns {wm.protobuf.LoadGhostBingoTargetsResponse.Rate} Rate instance
+                 */
+                Rate.create = function create(properties) {
+                    return new Rate(properties);
+                };
+
+                /**
+                 * Encodes the specified Rate message. Does not implicitly {@link wm.protobuf.LoadGhostBingoTargetsResponse.Rate.verify|verify} messages.
+                 * @function encode
+                 * @memberof wm.protobuf.LoadGhostBingoTargetsResponse.Rate
+                 * @static
+                 * @param {wm.protobuf.LoadGhostBingoTargetsResponse.IRate} message Rate message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Rate.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.carId);
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
+                    if (message.rate != null && Object.hasOwnProperty.call(message, "rate"))
+                        writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.rate);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified Rate message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostBingoTargetsResponse.Rate.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof wm.protobuf.LoadGhostBingoTargetsResponse.Rate
+                 * @static
+                 * @param {wm.protobuf.LoadGhostBingoTargetsResponse.IRate} message Rate message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Rate.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a Rate message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof wm.protobuf.LoadGhostBingoTargetsResponse.Rate
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {wm.protobuf.LoadGhostBingoTargetsResponse.Rate} Rate
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Rate.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadGhostBingoTargetsResponse.Rate();
+                    while (reader.pos < end) {
+                        let tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.carId = reader.uint32();
+                                break;
+                            }
+                        case 2: {
+                                message.type = reader.int32();
+                                break;
+                            }
+                        case 3: {
+                                message.rate = reader.uint32();
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    if (!message.hasOwnProperty("carId"))
+                        throw $util.ProtocolError("missing required 'carId'", { instance: message });
+                    if (!message.hasOwnProperty("type"))
+                        throw $util.ProtocolError("missing required 'type'", { instance: message });
+                    return message;
+                };
+
+                /**
+                 * Decodes a Rate message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof wm.protobuf.LoadGhostBingoTargetsResponse.Rate
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {wm.protobuf.LoadGhostBingoTargetsResponse.Rate} Rate
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Rate.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a Rate message.
+                 * @function verify
+                 * @memberof wm.protobuf.LoadGhostBingoTargetsResponse.Rate
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                Rate.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (!$util.isInteger(message.carId))
+                        return "carId: integer expected";
+                    switch (message.type) {
+                    default:
+                        return "type: enum value expected";
+                    case 1:
+                    case 2:
+                    case 3:
+                        break;
+                    }
+                    if (message.rate != null && message.hasOwnProperty("rate"))
+                        if (!$util.isInteger(message.rate))
+                            return "rate: integer expected";
+                    return null;
+                };
+
+                /**
+                 * Creates a Rate message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof wm.protobuf.LoadGhostBingoTargetsResponse.Rate
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {wm.protobuf.LoadGhostBingoTargetsResponse.Rate} Rate
+                 */
+                Rate.fromObject = function fromObject(object) {
+                    if (object instanceof $root.wm.protobuf.LoadGhostBingoTargetsResponse.Rate)
+                        return object;
+                    let message = new $root.wm.protobuf.LoadGhostBingoTargetsResponse.Rate();
+                    if (object.carId != null)
+                        message.carId = object.carId >>> 0;
+                    switch (object.type) {
+                    case "GHOST_RATE_UNKNOWN":
+                    case 1:
+                        message.type = 1;
+                        break;
+                    case "GHOST_RATE_INVALID":
+                    case 2:
+                        message.type = 2;
+                        break;
+                    case "GHOST_RATE_VALID":
+                    case 3:
+                        message.type = 3;
+                        break;
+                    }
+                    if (object.rate != null)
+                        message.rate = object.rate >>> 0;
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a Rate message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof wm.protobuf.LoadGhostBingoTargetsResponse.Rate
+                 * @static
+                 * @param {wm.protobuf.LoadGhostBingoTargetsResponse.Rate} message Rate
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                Rate.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    let object = {};
+                    if (options.defaults) {
+                        object.carId = 0;
+                        object.type = options.enums === String ? "GHOST_RATE_UNKNOWN" : 1;
+                        object.rate = 0;
+                    }
+                    if (message.carId != null && message.hasOwnProperty("carId"))
+                        object.carId = message.carId;
+                    if (message.type != null && message.hasOwnProperty("type"))
+                        object.type = options.enums === String ? $root.wm.protobuf.GhostRateType[message.type] : message.type;
+                    if (message.rate != null && message.hasOwnProperty("rate"))
+                        object.rate = message.rate;
+                    return object;
+                };
+
+                /**
+                 * Converts this Rate to JSON.
+                 * @function toJSON
+                 * @memberof wm.protobuf.LoadGhostBingoTargetsResponse.Rate
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                Rate.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the default type url for Rate
+                 * @function getTypeUrl
+                 * @memberof wm.protobuf.LoadGhostBingoTargetsResponse.Rate
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                Rate.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/wm.protobuf.LoadGhostBingoTargetsResponse.Rate";
+                };
+
+                return Rate;
+            })();
+
+            return LoadGhostBingoTargetsResponse;
+        })();
+
+        protobuf.LoadBingoStatsRequest = (function() {
+
+            /**
+             * Properties of a LoadBingoStatsRequest.
+             * @memberof wm.protobuf
+             * @interface ILoadBingoStatsRequest
+             * @property {number} userId LoadBingoStatsRequest userId
+             */
+
+            /**
+             * Constructs a new LoadBingoStatsRequest.
+             * @memberof wm.protobuf
+             * @classdesc Represents a LoadBingoStatsRequest.
+             * @implements ILoadBingoStatsRequest
+             * @constructor
+             * @param {wm.protobuf.ILoadBingoStatsRequest=} [properties] Properties to set
+             */
+            function LoadBingoStatsRequest(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * LoadBingoStatsRequest userId.
+             * @member {number} userId
+             * @memberof wm.protobuf.LoadBingoStatsRequest
+             * @instance
+             */
+            LoadBingoStatsRequest.prototype.userId = 0;
+
+            /**
+             * Creates a new LoadBingoStatsRequest instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.LoadBingoStatsRequest
+             * @static
+             * @param {wm.protobuf.ILoadBingoStatsRequest=} [properties] Properties to set
+             * @returns {wm.protobuf.LoadBingoStatsRequest} LoadBingoStatsRequest instance
+             */
+            LoadBingoStatsRequest.create = function create(properties) {
+                return new LoadBingoStatsRequest(properties);
+            };
+
+            /**
+             * Encodes the specified LoadBingoStatsRequest message. Does not implicitly {@link wm.protobuf.LoadBingoStatsRequest.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.LoadBingoStatsRequest
+             * @static
+             * @param {wm.protobuf.ILoadBingoStatsRequest} message LoadBingoStatsRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadBingoStatsRequest.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.userId);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified LoadBingoStatsRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadBingoStatsRequest.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.LoadBingoStatsRequest
+             * @static
+             * @param {wm.protobuf.ILoadBingoStatsRequest} message LoadBingoStatsRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadBingoStatsRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a LoadBingoStatsRequest message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.LoadBingoStatsRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.LoadBingoStatsRequest} LoadBingoStatsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadBingoStatsRequest.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadBingoStatsRequest();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.userId = reader.uint32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("userId"))
+                    throw $util.ProtocolError("missing required 'userId'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a LoadBingoStatsRequest message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.LoadBingoStatsRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.LoadBingoStatsRequest} LoadBingoStatsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadBingoStatsRequest.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a LoadBingoStatsRequest message.
+             * @function verify
+             * @memberof wm.protobuf.LoadBingoStatsRequest
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            LoadBingoStatsRequest.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (!$util.isInteger(message.userId))
+                    return "userId: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a LoadBingoStatsRequest message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.LoadBingoStatsRequest
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.LoadBingoStatsRequest} LoadBingoStatsRequest
+             */
+            LoadBingoStatsRequest.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.LoadBingoStatsRequest)
+                    return object;
+                let message = new $root.wm.protobuf.LoadBingoStatsRequest();
+                if (object.userId != null)
+                    message.userId = object.userId >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a LoadBingoStatsRequest message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.LoadBingoStatsRequest
+             * @static
+             * @param {wm.protobuf.LoadBingoStatsRequest} message LoadBingoStatsRequest
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            LoadBingoStatsRequest.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.defaults)
+                    object.userId = 0;
+                if (message.userId != null && message.hasOwnProperty("userId"))
+                    object.userId = message.userId;
+                return object;
+            };
+
+            /**
+             * Converts this LoadBingoStatsRequest to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.LoadBingoStatsRequest
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            LoadBingoStatsRequest.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for LoadBingoStatsRequest
+             * @function getTypeUrl
+             * @memberof wm.protobuf.LoadBingoStatsRequest
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            LoadBingoStatsRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.LoadBingoStatsRequest";
+            };
+
+            return LoadBingoStatsRequest;
+        })();
+
+        protobuf.LoadBingoStatsResponse = (function() {
+
+            /**
+             * Properties of a LoadBingoStatsResponse.
+             * @memberof wm.protobuf
+             * @interface ILoadBingoStatsResponse
+             * @property {wm.protobuf.ErrorCode} error LoadBingoStatsResponse error
+             * @property {Array.<number>|null} [acquiredBingoNumbers] LoadBingoStatsResponse acquiredBingoNumbers
+             * @property {number} receivedNumOfItems LoadBingoStatsResponse receivedNumOfItems
+             * @property {boolean} unreceivedItems LoadBingoStatsResponse unreceivedItems
+             */
+
+            /**
+             * Constructs a new LoadBingoStatsResponse.
+             * @memberof wm.protobuf
+             * @classdesc Represents a LoadBingoStatsResponse.
+             * @implements ILoadBingoStatsResponse
+             * @constructor
+             * @param {wm.protobuf.ILoadBingoStatsResponse=} [properties] Properties to set
+             */
+            function LoadBingoStatsResponse(properties) {
+                this.acquiredBingoNumbers = [];
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * LoadBingoStatsResponse error.
+             * @member {wm.protobuf.ErrorCode} error
+             * @memberof wm.protobuf.LoadBingoStatsResponse
+             * @instance
+             */
+            LoadBingoStatsResponse.prototype.error = 0;
+
+            /**
+             * LoadBingoStatsResponse acquiredBingoNumbers.
+             * @member {Array.<number>} acquiredBingoNumbers
+             * @memberof wm.protobuf.LoadBingoStatsResponse
+             * @instance
+             */
+            LoadBingoStatsResponse.prototype.acquiredBingoNumbers = $util.emptyArray;
+
+            /**
+             * LoadBingoStatsResponse receivedNumOfItems.
+             * @member {number} receivedNumOfItems
+             * @memberof wm.protobuf.LoadBingoStatsResponse
+             * @instance
+             */
+            LoadBingoStatsResponse.prototype.receivedNumOfItems = 0;
+
+            /**
+             * LoadBingoStatsResponse unreceivedItems.
+             * @member {boolean} unreceivedItems
+             * @memberof wm.protobuf.LoadBingoStatsResponse
+             * @instance
+             */
+            LoadBingoStatsResponse.prototype.unreceivedItems = false;
+
+            /**
+             * Creates a new LoadBingoStatsResponse instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.LoadBingoStatsResponse
+             * @static
+             * @param {wm.protobuf.ILoadBingoStatsResponse=} [properties] Properties to set
+             * @returns {wm.protobuf.LoadBingoStatsResponse} LoadBingoStatsResponse instance
+             */
+            LoadBingoStatsResponse.create = function create(properties) {
+                return new LoadBingoStatsResponse(properties);
+            };
+
+            /**
+             * Encodes the specified LoadBingoStatsResponse message. Does not implicitly {@link wm.protobuf.LoadBingoStatsResponse.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.LoadBingoStatsResponse
+             * @static
+             * @param {wm.protobuf.ILoadBingoStatsResponse} message LoadBingoStatsResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadBingoStatsResponse.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.error);
+                if (message.acquiredBingoNumbers != null && message.acquiredBingoNumbers.length)
+                    for (let i = 0; i < message.acquiredBingoNumbers.length; ++i)
+                        writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.acquiredBingoNumbers[i]);
+                writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.receivedNumOfItems);
+                writer.uint32(/* id 6, wireType 0 =*/48).bool(message.unreceivedItems);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified LoadBingoStatsResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadBingoStatsResponse.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.LoadBingoStatsResponse
+             * @static
+             * @param {wm.protobuf.ILoadBingoStatsResponse} message LoadBingoStatsResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LoadBingoStatsResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a LoadBingoStatsResponse message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.LoadBingoStatsResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.LoadBingoStatsResponse} LoadBingoStatsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadBingoStatsResponse.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.LoadBingoStatsResponse();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.error = reader.int32();
+                            break;
+                        }
+                    case 3: {
+                            if (!(message.acquiredBingoNumbers && message.acquiredBingoNumbers.length))
+                                message.acquiredBingoNumbers = [];
+                            if ((tag & 7) === 2) {
+                                let end2 = reader.uint32() + reader.pos;
+                                while (reader.pos < end2)
+                                    message.acquiredBingoNumbers.push(reader.uint32());
+                            } else
+                                message.acquiredBingoNumbers.push(reader.uint32());
+                            break;
+                        }
+                    case 5: {
+                            message.receivedNumOfItems = reader.uint32();
+                            break;
+                        }
+                    case 6: {
+                            message.unreceivedItems = reader.bool();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("error"))
+                    throw $util.ProtocolError("missing required 'error'", { instance: message });
+                if (!message.hasOwnProperty("receivedNumOfItems"))
+                    throw $util.ProtocolError("missing required 'receivedNumOfItems'", { instance: message });
+                if (!message.hasOwnProperty("unreceivedItems"))
+                    throw $util.ProtocolError("missing required 'unreceivedItems'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a LoadBingoStatsResponse message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.LoadBingoStatsResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.LoadBingoStatsResponse} LoadBingoStatsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LoadBingoStatsResponse.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a LoadBingoStatsResponse message.
+             * @function verify
+             * @memberof wm.protobuf.LoadBingoStatsResponse
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            LoadBingoStatsResponse.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                switch (message.error) {
+                default:
+                    return "error: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 9:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
+                    break;
+                }
+                if (message.acquiredBingoNumbers != null && message.hasOwnProperty("acquiredBingoNumbers")) {
+                    if (!Array.isArray(message.acquiredBingoNumbers))
+                        return "acquiredBingoNumbers: array expected";
+                    for (let i = 0; i < message.acquiredBingoNumbers.length; ++i)
+                        if (!$util.isInteger(message.acquiredBingoNumbers[i]))
+                            return "acquiredBingoNumbers: integer[] expected";
+                }
+                if (!$util.isInteger(message.receivedNumOfItems))
+                    return "receivedNumOfItems: integer expected";
+                if (typeof message.unreceivedItems !== "boolean")
+                    return "unreceivedItems: boolean expected";
+                return null;
+            };
+
+            /**
+             * Creates a LoadBingoStatsResponse message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.LoadBingoStatsResponse
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.LoadBingoStatsResponse} LoadBingoStatsResponse
+             */
+            LoadBingoStatsResponse.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.LoadBingoStatsResponse)
+                    return object;
+                let message = new $root.wm.protobuf.LoadBingoStatsResponse();
+                switch (object.error) {
+                case "ERR_SUCCESS":
+                case 0:
+                    message.error = 0;
+                    break;
+                case "ERR_REQUEST":
+                case 1:
+                    message.error = 1;
+                    break;
+                case "ERR_NOT_FOUND":
+                case 2:
+                    message.error = 2;
+                    break;
+                case "ERR_ID_SERVER":
+                case 3:
+                    message.error = 3;
+                    break;
+                case "ERR_ID_BANNED":
+                case 4:
+                    message.error = 4;
+                    break;
+                case "ERR_USER_LOCKED":
+                case 5:
+                    message.error = 5;
+                    break;
+                case "ERR_USER_VERSION":
+                case 6:
+                    message.error = 6;
+                    break;
+                case "ERR_NAME_CONFLICTED":
+                case 7:
+                    message.error = 7;
+                    break;
+                case "ERR_FORBIDDEN":
+                case 9:
+                    message.error = 9;
+                    break;
+                case "ERR_USER_SUCCEEDED":
+                case 11:
+                    message.error = 11;
+                    break;
+                case "ERR_BEING_TRANSFERRED":
+                case 12:
+                    message.error = 12;
+                    break;
+                case "ERR_SCRATCH_LOCKED":
+                case 13:
+                    message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
+                    break;
+                }
+                if (object.acquiredBingoNumbers) {
+                    if (!Array.isArray(object.acquiredBingoNumbers))
+                        throw TypeError(".wm.protobuf.LoadBingoStatsResponse.acquiredBingoNumbers: array expected");
+                    message.acquiredBingoNumbers = [];
+                    for (let i = 0; i < object.acquiredBingoNumbers.length; ++i)
+                        message.acquiredBingoNumbers[i] = object.acquiredBingoNumbers[i] >>> 0;
+                }
+                if (object.receivedNumOfItems != null)
+                    message.receivedNumOfItems = object.receivedNumOfItems >>> 0;
+                if (object.unreceivedItems != null)
+                    message.unreceivedItems = Boolean(object.unreceivedItems);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a LoadBingoStatsResponse message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.LoadBingoStatsResponse
+             * @static
+             * @param {wm.protobuf.LoadBingoStatsResponse} message LoadBingoStatsResponse
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            LoadBingoStatsResponse.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.arrays || options.defaults)
+                    object.acquiredBingoNumbers = [];
+                if (options.defaults) {
+                    object.error = options.enums === String ? "ERR_SUCCESS" : 0;
+                    object.receivedNumOfItems = 0;
+                    object.unreceivedItems = false;
+                }
+                if (message.error != null && message.hasOwnProperty("error"))
+                    object.error = options.enums === String ? $root.wm.protobuf.ErrorCode[message.error] : message.error;
+                if (message.acquiredBingoNumbers && message.acquiredBingoNumbers.length) {
+                    object.acquiredBingoNumbers = [];
+                    for (let j = 0; j < message.acquiredBingoNumbers.length; ++j)
+                        object.acquiredBingoNumbers[j] = message.acquiredBingoNumbers[j];
+                }
+                if (message.receivedNumOfItems != null && message.hasOwnProperty("receivedNumOfItems"))
+                    object.receivedNumOfItems = message.receivedNumOfItems;
+                if (message.unreceivedItems != null && message.hasOwnProperty("unreceivedItems"))
+                    object.unreceivedItems = message.unreceivedItems;
+                return object;
+            };
+
+            /**
+             * Converts this LoadBingoStatsResponse to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.LoadBingoStatsResponse
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            LoadBingoStatsResponse.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for LoadBingoStatsResponse
+             * @function getTypeUrl
+             * @memberof wm.protobuf.LoadBingoStatsResponse
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            LoadBingoStatsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.LoadBingoStatsResponse";
+            };
+
+            return LoadBingoStatsResponse;
+        })();
+
+        protobuf.BingoReceivableItemsRequest = (function() {
+
+            /**
+             * Properties of a BingoReceivableItemsRequest.
+             * @memberof wm.protobuf
+             * @interface IBingoReceivableItemsRequest
+             * @property {number} userId BingoReceivableItemsRequest userId
+             */
+
+            /**
+             * Constructs a new BingoReceivableItemsRequest.
+             * @memberof wm.protobuf
+             * @classdesc Represents a BingoReceivableItemsRequest.
+             * @implements IBingoReceivableItemsRequest
+             * @constructor
+             * @param {wm.protobuf.IBingoReceivableItemsRequest=} [properties] Properties to set
+             */
+            function BingoReceivableItemsRequest(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * BingoReceivableItemsRequest userId.
+             * @member {number} userId
+             * @memberof wm.protobuf.BingoReceivableItemsRequest
+             * @instance
+             */
+            BingoReceivableItemsRequest.prototype.userId = 0;
+
+            /**
+             * Creates a new BingoReceivableItemsRequest instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.BingoReceivableItemsRequest
+             * @static
+             * @param {wm.protobuf.IBingoReceivableItemsRequest=} [properties] Properties to set
+             * @returns {wm.protobuf.BingoReceivableItemsRequest} BingoReceivableItemsRequest instance
+             */
+            BingoReceivableItemsRequest.create = function create(properties) {
+                return new BingoReceivableItemsRequest(properties);
+            };
+
+            /**
+             * Encodes the specified BingoReceivableItemsRequest message. Does not implicitly {@link wm.protobuf.BingoReceivableItemsRequest.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.BingoReceivableItemsRequest
+             * @static
+             * @param {wm.protobuf.IBingoReceivableItemsRequest} message BingoReceivableItemsRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BingoReceivableItemsRequest.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.userId);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified BingoReceivableItemsRequest message, length delimited. Does not implicitly {@link wm.protobuf.BingoReceivableItemsRequest.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.BingoReceivableItemsRequest
+             * @static
+             * @param {wm.protobuf.IBingoReceivableItemsRequest} message BingoReceivableItemsRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BingoReceivableItemsRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a BingoReceivableItemsRequest message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.BingoReceivableItemsRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.BingoReceivableItemsRequest} BingoReceivableItemsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BingoReceivableItemsRequest.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.BingoReceivableItemsRequest();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.userId = reader.uint32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("userId"))
+                    throw $util.ProtocolError("missing required 'userId'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a BingoReceivableItemsRequest message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.BingoReceivableItemsRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.BingoReceivableItemsRequest} BingoReceivableItemsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BingoReceivableItemsRequest.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a BingoReceivableItemsRequest message.
+             * @function verify
+             * @memberof wm.protobuf.BingoReceivableItemsRequest
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BingoReceivableItemsRequest.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (!$util.isInteger(message.userId))
+                    return "userId: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a BingoReceivableItemsRequest message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.BingoReceivableItemsRequest
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.BingoReceivableItemsRequest} BingoReceivableItemsRequest
+             */
+            BingoReceivableItemsRequest.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.BingoReceivableItemsRequest)
+                    return object;
+                let message = new $root.wm.protobuf.BingoReceivableItemsRequest();
+                if (object.userId != null)
+                    message.userId = object.userId >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a BingoReceivableItemsRequest message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.BingoReceivableItemsRequest
+             * @static
+             * @param {wm.protobuf.BingoReceivableItemsRequest} message BingoReceivableItemsRequest
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BingoReceivableItemsRequest.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.defaults)
+                    object.userId = 0;
+                if (message.userId != null && message.hasOwnProperty("userId"))
+                    object.userId = message.userId;
+                return object;
+            };
+
+            /**
+             * Converts this BingoReceivableItemsRequest to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.BingoReceivableItemsRequest
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BingoReceivableItemsRequest.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for BingoReceivableItemsRequest
+             * @function getTypeUrl
+             * @memberof wm.protobuf.BingoReceivableItemsRequest
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            BingoReceivableItemsRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.BingoReceivableItemsRequest";
+            };
+
+            return BingoReceivableItemsRequest;
+        })();
+
+        protobuf.BingoReceivableItemsResponse = (function() {
+
+            /**
+             * Properties of a BingoReceivableItemsResponse.
+             * @memberof wm.protobuf
+             * @interface IBingoReceivableItemsResponse
+             * @property {wm.protobuf.ErrorCode} error BingoReceivableItemsResponse error
+             * @property {Array.<wm.protobuf.IUserItem>|null} [ownedUserItems] BingoReceivableItemsResponse ownedUserItems
+             */
+
+            /**
+             * Constructs a new BingoReceivableItemsResponse.
+             * @memberof wm.protobuf
+             * @classdesc Represents a BingoReceivableItemsResponse.
+             * @implements IBingoReceivableItemsResponse
+             * @constructor
+             * @param {wm.protobuf.IBingoReceivableItemsResponse=} [properties] Properties to set
+             */
+            function BingoReceivableItemsResponse(properties) {
+                this.ownedUserItems = [];
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * BingoReceivableItemsResponse error.
+             * @member {wm.protobuf.ErrorCode} error
+             * @memberof wm.protobuf.BingoReceivableItemsResponse
+             * @instance
+             */
+            BingoReceivableItemsResponse.prototype.error = 0;
+
+            /**
+             * BingoReceivableItemsResponse ownedUserItems.
+             * @member {Array.<wm.protobuf.IUserItem>} ownedUserItems
+             * @memberof wm.protobuf.BingoReceivableItemsResponse
+             * @instance
+             */
+            BingoReceivableItemsResponse.prototype.ownedUserItems = $util.emptyArray;
+
+            /**
+             * Creates a new BingoReceivableItemsResponse instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.BingoReceivableItemsResponse
+             * @static
+             * @param {wm.protobuf.IBingoReceivableItemsResponse=} [properties] Properties to set
+             * @returns {wm.protobuf.BingoReceivableItemsResponse} BingoReceivableItemsResponse instance
+             */
+            BingoReceivableItemsResponse.create = function create(properties) {
+                return new BingoReceivableItemsResponse(properties);
+            };
+
+            /**
+             * Encodes the specified BingoReceivableItemsResponse message. Does not implicitly {@link wm.protobuf.BingoReceivableItemsResponse.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.BingoReceivableItemsResponse
+             * @static
+             * @param {wm.protobuf.IBingoReceivableItemsResponse} message BingoReceivableItemsResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BingoReceivableItemsResponse.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.error);
+                if (message.ownedUserItems != null && message.ownedUserItems.length)
+                    for (let i = 0; i < message.ownedUserItems.length; ++i)
+                        $root.wm.protobuf.UserItem.encode(message.ownedUserItems[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified BingoReceivableItemsResponse message, length delimited. Does not implicitly {@link wm.protobuf.BingoReceivableItemsResponse.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.BingoReceivableItemsResponse
+             * @static
+             * @param {wm.protobuf.IBingoReceivableItemsResponse} message BingoReceivableItemsResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BingoReceivableItemsResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a BingoReceivableItemsResponse message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.BingoReceivableItemsResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.BingoReceivableItemsResponse} BingoReceivableItemsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BingoReceivableItemsResponse.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.BingoReceivableItemsResponse();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.error = reader.int32();
+                            break;
+                        }
+                    case 2: {
+                            if (!(message.ownedUserItems && message.ownedUserItems.length))
+                                message.ownedUserItems = [];
+                            message.ownedUserItems.push($root.wm.protobuf.UserItem.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("error"))
+                    throw $util.ProtocolError("missing required 'error'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a BingoReceivableItemsResponse message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.BingoReceivableItemsResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.BingoReceivableItemsResponse} BingoReceivableItemsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BingoReceivableItemsResponse.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a BingoReceivableItemsResponse message.
+             * @function verify
+             * @memberof wm.protobuf.BingoReceivableItemsResponse
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BingoReceivableItemsResponse.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                switch (message.error) {
+                default:
+                    return "error: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 9:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
+                    break;
+                }
+                if (message.ownedUserItems != null && message.hasOwnProperty("ownedUserItems")) {
+                    if (!Array.isArray(message.ownedUserItems))
+                        return "ownedUserItems: array expected";
+                    for (let i = 0; i < message.ownedUserItems.length; ++i) {
+                        let error = $root.wm.protobuf.UserItem.verify(message.ownedUserItems[i]);
+                        if (error)
+                            return "ownedUserItems." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a BingoReceivableItemsResponse message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.BingoReceivableItemsResponse
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.BingoReceivableItemsResponse} BingoReceivableItemsResponse
+             */
+            BingoReceivableItemsResponse.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.BingoReceivableItemsResponse)
+                    return object;
+                let message = new $root.wm.protobuf.BingoReceivableItemsResponse();
+                switch (object.error) {
+                case "ERR_SUCCESS":
+                case 0:
+                    message.error = 0;
+                    break;
+                case "ERR_REQUEST":
+                case 1:
+                    message.error = 1;
+                    break;
+                case "ERR_NOT_FOUND":
+                case 2:
+                    message.error = 2;
+                    break;
+                case "ERR_ID_SERVER":
+                case 3:
+                    message.error = 3;
+                    break;
+                case "ERR_ID_BANNED":
+                case 4:
+                    message.error = 4;
+                    break;
+                case "ERR_USER_LOCKED":
+                case 5:
+                    message.error = 5;
+                    break;
+                case "ERR_USER_VERSION":
+                case 6:
+                    message.error = 6;
+                    break;
+                case "ERR_NAME_CONFLICTED":
+                case 7:
+                    message.error = 7;
+                    break;
+                case "ERR_FORBIDDEN":
+                case 9:
+                    message.error = 9;
+                    break;
+                case "ERR_USER_SUCCEEDED":
+                case 11:
+                    message.error = 11;
+                    break;
+                case "ERR_BEING_TRANSFERRED":
+                case 12:
+                    message.error = 12;
+                    break;
+                case "ERR_SCRATCH_LOCKED":
+                case 13:
+                    message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
+                    break;
+                }
+                if (object.ownedUserItems) {
+                    if (!Array.isArray(object.ownedUserItems))
+                        throw TypeError(".wm.protobuf.BingoReceivableItemsResponse.ownedUserItems: array expected");
+                    message.ownedUserItems = [];
+                    for (let i = 0; i < object.ownedUserItems.length; ++i) {
+                        if (typeof object.ownedUserItems[i] !== "object")
+                            throw TypeError(".wm.protobuf.BingoReceivableItemsResponse.ownedUserItems: object expected");
+                        message.ownedUserItems[i] = $root.wm.protobuf.UserItem.fromObject(object.ownedUserItems[i]);
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a BingoReceivableItemsResponse message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.BingoReceivableItemsResponse
+             * @static
+             * @param {wm.protobuf.BingoReceivableItemsResponse} message BingoReceivableItemsResponse
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BingoReceivableItemsResponse.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.arrays || options.defaults)
+                    object.ownedUserItems = [];
+                if (options.defaults)
+                    object.error = options.enums === String ? "ERR_SUCCESS" : 0;
+                if (message.error != null && message.hasOwnProperty("error"))
+                    object.error = options.enums === String ? $root.wm.protobuf.ErrorCode[message.error] : message.error;
+                if (message.ownedUserItems && message.ownedUserItems.length) {
+                    object.ownedUserItems = [];
+                    for (let j = 0; j < message.ownedUserItems.length; ++j)
+                        object.ownedUserItems[j] = $root.wm.protobuf.UserItem.toObject(message.ownedUserItems[j], options);
+                }
+                return object;
+            };
+
+            /**
+             * Converts this BingoReceivableItemsResponse to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.BingoReceivableItemsResponse
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BingoReceivableItemsResponse.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for BingoReceivableItemsResponse
+             * @function getTypeUrl
+             * @memberof wm.protobuf.BingoReceivableItemsResponse
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            BingoReceivableItemsResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.BingoReceivableItemsResponse";
+            };
+
+            return BingoReceivableItemsResponse;
+        })();
+
+        protobuf.MergeBingoCardRequest = (function() {
+
+            /**
+             * Properties of a MergeBingoCardRequest.
+             * @memberof wm.protobuf
+             * @interface IMergeBingoCardRequest
+             * @property {Array.<wm.protobuf.MergeBingoCardRequest.IUser>|null} [userList] MergeBingoCardRequest userList
+             */
+
+            /**
+             * Constructs a new MergeBingoCardRequest.
+             * @memberof wm.protobuf
+             * @classdesc Represents a MergeBingoCardRequest.
+             * @implements IMergeBingoCardRequest
+             * @constructor
+             * @param {wm.protobuf.IMergeBingoCardRequest=} [properties] Properties to set
+             */
+            function MergeBingoCardRequest(properties) {
+                this.userList = [];
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * MergeBingoCardRequest userList.
+             * @member {Array.<wm.protobuf.MergeBingoCardRequest.IUser>} userList
+             * @memberof wm.protobuf.MergeBingoCardRequest
+             * @instance
+             */
+            MergeBingoCardRequest.prototype.userList = $util.emptyArray;
+
+            /**
+             * Creates a new MergeBingoCardRequest instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.MergeBingoCardRequest
+             * @static
+             * @param {wm.protobuf.IMergeBingoCardRequest=} [properties] Properties to set
+             * @returns {wm.protobuf.MergeBingoCardRequest} MergeBingoCardRequest instance
+             */
+            MergeBingoCardRequest.create = function create(properties) {
+                return new MergeBingoCardRequest(properties);
+            };
+
+            /**
+             * Encodes the specified MergeBingoCardRequest message. Does not implicitly {@link wm.protobuf.MergeBingoCardRequest.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.MergeBingoCardRequest
+             * @static
+             * @param {wm.protobuf.IMergeBingoCardRequest} message MergeBingoCardRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MergeBingoCardRequest.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.userList != null && message.userList.length)
+                    for (let i = 0; i < message.userList.length; ++i)
+                        $root.wm.protobuf.MergeBingoCardRequest.User.encode(message.userList[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified MergeBingoCardRequest message, length delimited. Does not implicitly {@link wm.protobuf.MergeBingoCardRequest.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.MergeBingoCardRequest
+             * @static
+             * @param {wm.protobuf.IMergeBingoCardRequest} message MergeBingoCardRequest message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MergeBingoCardRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a MergeBingoCardRequest message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.MergeBingoCardRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.MergeBingoCardRequest} MergeBingoCardRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MergeBingoCardRequest.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.MergeBingoCardRequest();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            if (!(message.userList && message.userList.length))
+                                message.userList = [];
+                            message.userList.push($root.wm.protobuf.MergeBingoCardRequest.User.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a MergeBingoCardRequest message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.MergeBingoCardRequest
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.MergeBingoCardRequest} MergeBingoCardRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MergeBingoCardRequest.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a MergeBingoCardRequest message.
+             * @function verify
+             * @memberof wm.protobuf.MergeBingoCardRequest
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            MergeBingoCardRequest.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.userList != null && message.hasOwnProperty("userList")) {
+                    if (!Array.isArray(message.userList))
+                        return "userList: array expected";
+                    for (let i = 0; i < message.userList.length; ++i) {
+                        let error = $root.wm.protobuf.MergeBingoCardRequest.User.verify(message.userList[i]);
+                        if (error)
+                            return "userList." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a MergeBingoCardRequest message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.MergeBingoCardRequest
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.MergeBingoCardRequest} MergeBingoCardRequest
+             */
+            MergeBingoCardRequest.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.MergeBingoCardRequest)
+                    return object;
+                let message = new $root.wm.protobuf.MergeBingoCardRequest();
+                if (object.userList) {
+                    if (!Array.isArray(object.userList))
+                        throw TypeError(".wm.protobuf.MergeBingoCardRequest.userList: array expected");
+                    message.userList = [];
+                    for (let i = 0; i < object.userList.length; ++i) {
+                        if (typeof object.userList[i] !== "object")
+                            throw TypeError(".wm.protobuf.MergeBingoCardRequest.userList: object expected");
+                        message.userList[i] = $root.wm.protobuf.MergeBingoCardRequest.User.fromObject(object.userList[i]);
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a MergeBingoCardRequest message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.MergeBingoCardRequest
+             * @static
+             * @param {wm.protobuf.MergeBingoCardRequest} message MergeBingoCardRequest
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            MergeBingoCardRequest.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.arrays || options.defaults)
+                    object.userList = [];
+                if (message.userList && message.userList.length) {
+                    object.userList = [];
+                    for (let j = 0; j < message.userList.length; ++j)
+                        object.userList[j] = $root.wm.protobuf.MergeBingoCardRequest.User.toObject(message.userList[j], options);
+                }
+                return object;
+            };
+
+            /**
+             * Converts this MergeBingoCardRequest to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.MergeBingoCardRequest
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            MergeBingoCardRequest.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for MergeBingoCardRequest
+             * @function getTypeUrl
+             * @memberof wm.protobuf.MergeBingoCardRequest
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            MergeBingoCardRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.MergeBingoCardRequest";
+            };
+
+            MergeBingoCardRequest.User = (function() {
+
+                /**
+                 * Properties of a User.
+                 * @memberof wm.protobuf.MergeBingoCardRequest
+                 * @interface IUser
+                 * @property {string|null} [cardChipId] User cardChipId
+                 * @property {string|null} [accessCode] User accessCode
+                 * @property {number|null} [cardTypeCode] User cardTypeCode
+                 * @property {number|null} [cardRegionCode] User cardRegionCode
+                 * @property {wm.protobuf.DeviceType|null} [device] User device
+                 */
+
+                /**
+                 * Constructs a new User.
+                 * @memberof wm.protobuf.MergeBingoCardRequest
+                 * @classdesc Represents a User.
+                 * @implements IUser
+                 * @constructor
+                 * @param {wm.protobuf.MergeBingoCardRequest.IUser=} [properties] Properties to set
+                 */
+                function User(properties) {
+                    if (properties)
+                        for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * User cardChipId.
+                 * @member {string} cardChipId
+                 * @memberof wm.protobuf.MergeBingoCardRequest.User
+                 * @instance
+                 */
+                User.prototype.cardChipId = "";
+
+                /**
+                 * User accessCode.
+                 * @member {string} accessCode
+                 * @memberof wm.protobuf.MergeBingoCardRequest.User
+                 * @instance
+                 */
+                User.prototype.accessCode = "";
+
+                /**
+                 * User cardTypeCode.
+                 * @member {number} cardTypeCode
+                 * @memberof wm.protobuf.MergeBingoCardRequest.User
+                 * @instance
+                 */
+                User.prototype.cardTypeCode = 0;
+
+                /**
+                 * User cardRegionCode.
+                 * @member {number} cardRegionCode
+                 * @memberof wm.protobuf.MergeBingoCardRequest.User
+                 * @instance
+                 */
+                User.prototype.cardRegionCode = 0;
+
+                /**
+                 * User device.
+                 * @member {wm.protobuf.DeviceType} device
+                 * @memberof wm.protobuf.MergeBingoCardRequest.User
+                 * @instance
+                 */
+                User.prototype.device = 0;
+
+                /**
+                 * Creates a new User instance using the specified properties.
+                 * @function create
+                 * @memberof wm.protobuf.MergeBingoCardRequest.User
+                 * @static
+                 * @param {wm.protobuf.MergeBingoCardRequest.IUser=} [properties] Properties to set
+                 * @returns {wm.protobuf.MergeBingoCardRequest.User} User instance
+                 */
+                User.create = function create(properties) {
+                    return new User(properties);
+                };
+
+                /**
+                 * Encodes the specified User message. Does not implicitly {@link wm.protobuf.MergeBingoCardRequest.User.verify|verify} messages.
+                 * @function encode
+                 * @memberof wm.protobuf.MergeBingoCardRequest.User
+                 * @static
+                 * @param {wm.protobuf.MergeBingoCardRequest.IUser} message User message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                User.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.cardChipId != null && Object.hasOwnProperty.call(message, "cardChipId"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.cardChipId);
+                    if (message.accessCode != null && Object.hasOwnProperty.call(message, "accessCode"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.accessCode);
+                    if (message.cardTypeCode != null && Object.hasOwnProperty.call(message, "cardTypeCode"))
+                        writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.cardTypeCode);
+                    if (message.cardRegionCode != null && Object.hasOwnProperty.call(message, "cardRegionCode"))
+                        writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.cardRegionCode);
+                    if (message.device != null && Object.hasOwnProperty.call(message, "device"))
+                        writer.uint32(/* id 5, wireType 0 =*/40).int32(message.device);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified User message, length delimited. Does not implicitly {@link wm.protobuf.MergeBingoCardRequest.User.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof wm.protobuf.MergeBingoCardRequest.User
+                 * @static
+                 * @param {wm.protobuf.MergeBingoCardRequest.IUser} message User message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                User.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a User message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof wm.protobuf.MergeBingoCardRequest.User
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {wm.protobuf.MergeBingoCardRequest.User} User
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                User.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.MergeBingoCardRequest.User();
+                    while (reader.pos < end) {
+                        let tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.cardChipId = reader.string();
+                                break;
+                            }
+                        case 2: {
+                                message.accessCode = reader.string();
+                                break;
+                            }
+                        case 3: {
+                                message.cardTypeCode = reader.uint32();
+                                break;
+                            }
+                        case 4: {
+                                message.cardRegionCode = reader.uint32();
+                                break;
+                            }
+                        case 5: {
+                                message.device = reader.int32();
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+
+                /**
+                 * Decodes a User message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof wm.protobuf.MergeBingoCardRequest.User
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {wm.protobuf.MergeBingoCardRequest.User} User
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                User.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a User message.
+                 * @function verify
+                 * @memberof wm.protobuf.MergeBingoCardRequest.User
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                User.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.cardChipId != null && message.hasOwnProperty("cardChipId"))
+                        if (!$util.isString(message.cardChipId))
+                            return "cardChipId: string expected";
+                    if (message.accessCode != null && message.hasOwnProperty("accessCode"))
+                        if (!$util.isString(message.accessCode))
+                            return "accessCode: string expected";
+                    if (message.cardTypeCode != null && message.hasOwnProperty("cardTypeCode"))
+                        if (!$util.isInteger(message.cardTypeCode))
+                            return "cardTypeCode: integer expected";
+                    if (message.cardRegionCode != null && message.hasOwnProperty("cardRegionCode"))
+                        if (!$util.isInteger(message.cardRegionCode))
+                            return "cardRegionCode: integer expected";
+                    if (message.device != null && message.hasOwnProperty("device"))
+                        switch (message.device) {
+                        default:
+                            return "device: enum value expected";
+                        case 0:
+                        case 1:
+                            break;
+                        }
+                    return null;
+                };
+
+                /**
+                 * Creates a User message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof wm.protobuf.MergeBingoCardRequest.User
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {wm.protobuf.MergeBingoCardRequest.User} User
+                 */
+                User.fromObject = function fromObject(object) {
+                    if (object instanceof $root.wm.protobuf.MergeBingoCardRequest.User)
+                        return object;
+                    let message = new $root.wm.protobuf.MergeBingoCardRequest.User();
+                    if (object.cardChipId != null)
+                        message.cardChipId = String(object.cardChipId);
+                    if (object.accessCode != null)
+                        message.accessCode = String(object.accessCode);
+                    if (object.cardTypeCode != null)
+                        message.cardTypeCode = object.cardTypeCode >>> 0;
+                    if (object.cardRegionCode != null)
+                        message.cardRegionCode = object.cardRegionCode >>> 0;
+                    switch (object.device) {
+                    case "DEVICE_CARD":
+                    case 0:
+                        message.device = 0;
+                        break;
+                    case "DEVICE_PHONE":
+                    case 1:
+                        message.device = 1;
+                        break;
+                    }
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a User message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof wm.protobuf.MergeBingoCardRequest.User
+                 * @static
+                 * @param {wm.protobuf.MergeBingoCardRequest.User} message User
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                User.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    let object = {};
+                    if (options.defaults) {
+                        object.cardChipId = "";
+                        object.accessCode = "";
+                        object.cardTypeCode = 0;
+                        object.cardRegionCode = 0;
+                        object.device = options.enums === String ? "DEVICE_CARD" : 0;
+                    }
+                    if (message.cardChipId != null && message.hasOwnProperty("cardChipId"))
+                        object.cardChipId = message.cardChipId;
+                    if (message.accessCode != null && message.hasOwnProperty("accessCode"))
+                        object.accessCode = message.accessCode;
+                    if (message.cardTypeCode != null && message.hasOwnProperty("cardTypeCode"))
+                        object.cardTypeCode = message.cardTypeCode;
+                    if (message.cardRegionCode != null && message.hasOwnProperty("cardRegionCode"))
+                        object.cardRegionCode = message.cardRegionCode;
+                    if (message.device != null && message.hasOwnProperty("device"))
+                        object.device = options.enums === String ? $root.wm.protobuf.DeviceType[message.device] : message.device;
+                    return object;
+                };
+
+                /**
+                 * Converts this User to JSON.
+                 * @function toJSON
+                 * @memberof wm.protobuf.MergeBingoCardRequest.User
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                User.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the default type url for User
+                 * @function getTypeUrl
+                 * @memberof wm.protobuf.MergeBingoCardRequest.User
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                User.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/wm.protobuf.MergeBingoCardRequest.User";
+                };
+
+                return User;
+            })();
+
+            return MergeBingoCardRequest;
+        })();
+
+        protobuf.MergeBingoCardResponse = (function() {
+
+            /**
+             * Properties of a MergeBingoCardResponse.
+             * @memberof wm.protobuf
+             * @interface IMergeBingoCardResponse
+             * @property {wm.protobuf.ErrorCode} error MergeBingoCardResponse error
+             * @property {Array.<wm.protobuf.MergeBingoCardResponse.ICardBeforeMerge>|null} [cardBeforeMergeList] MergeBingoCardResponse cardBeforeMergeList
+             * @property {Array.<number>|null} [acquiredBingoNumbers] MergeBingoCardResponse acquiredBingoNumbers
+             */
+
+            /**
+             * Constructs a new MergeBingoCardResponse.
+             * @memberof wm.protobuf
+             * @classdesc Represents a MergeBingoCardResponse.
+             * @implements IMergeBingoCardResponse
+             * @constructor
+             * @param {wm.protobuf.IMergeBingoCardResponse=} [properties] Properties to set
+             */
+            function MergeBingoCardResponse(properties) {
+                this.cardBeforeMergeList = [];
+                this.acquiredBingoNumbers = [];
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * MergeBingoCardResponse error.
+             * @member {wm.protobuf.ErrorCode} error
+             * @memberof wm.protobuf.MergeBingoCardResponse
+             * @instance
+             */
+            MergeBingoCardResponse.prototype.error = 0;
+
+            /**
+             * MergeBingoCardResponse cardBeforeMergeList.
+             * @member {Array.<wm.protobuf.MergeBingoCardResponse.ICardBeforeMerge>} cardBeforeMergeList
+             * @memberof wm.protobuf.MergeBingoCardResponse
+             * @instance
+             */
+            MergeBingoCardResponse.prototype.cardBeforeMergeList = $util.emptyArray;
+
+            /**
+             * MergeBingoCardResponse acquiredBingoNumbers.
+             * @member {Array.<number>} acquiredBingoNumbers
+             * @memberof wm.protobuf.MergeBingoCardResponse
+             * @instance
+             */
+            MergeBingoCardResponse.prototype.acquiredBingoNumbers = $util.emptyArray;
+
+            /**
+             * Creates a new MergeBingoCardResponse instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.MergeBingoCardResponse
+             * @static
+             * @param {wm.protobuf.IMergeBingoCardResponse=} [properties] Properties to set
+             * @returns {wm.protobuf.MergeBingoCardResponse} MergeBingoCardResponse instance
+             */
+            MergeBingoCardResponse.create = function create(properties) {
+                return new MergeBingoCardResponse(properties);
+            };
+
+            /**
+             * Encodes the specified MergeBingoCardResponse message. Does not implicitly {@link wm.protobuf.MergeBingoCardResponse.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.MergeBingoCardResponse
+             * @static
+             * @param {wm.protobuf.IMergeBingoCardResponse} message MergeBingoCardResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MergeBingoCardResponse.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.error);
+                if (message.cardBeforeMergeList != null && message.cardBeforeMergeList.length)
+                    for (let i = 0; i < message.cardBeforeMergeList.length; ++i)
+                        $root.wm.protobuf.MergeBingoCardResponse.CardBeforeMerge.encode(message.cardBeforeMergeList[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.acquiredBingoNumbers != null && message.acquiredBingoNumbers.length)
+                    for (let i = 0; i < message.acquiredBingoNumbers.length; ++i)
+                        writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.acquiredBingoNumbers[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified MergeBingoCardResponse message, length delimited. Does not implicitly {@link wm.protobuf.MergeBingoCardResponse.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.MergeBingoCardResponse
+             * @static
+             * @param {wm.protobuf.IMergeBingoCardResponse} message MergeBingoCardResponse message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            MergeBingoCardResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a MergeBingoCardResponse message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.MergeBingoCardResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.MergeBingoCardResponse} MergeBingoCardResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MergeBingoCardResponse.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.MergeBingoCardResponse();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.error = reader.int32();
+                            break;
+                        }
+                    case 2: {
+                            if (!(message.cardBeforeMergeList && message.cardBeforeMergeList.length))
+                                message.cardBeforeMergeList = [];
+                            message.cardBeforeMergeList.push($root.wm.protobuf.MergeBingoCardResponse.CardBeforeMerge.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    case 3: {
+                            if (!(message.acquiredBingoNumbers && message.acquiredBingoNumbers.length))
+                                message.acquiredBingoNumbers = [];
+                            if ((tag & 7) === 2) {
+                                let end2 = reader.uint32() + reader.pos;
+                                while (reader.pos < end2)
+                                    message.acquiredBingoNumbers.push(reader.uint32());
+                            } else
+                                message.acquiredBingoNumbers.push(reader.uint32());
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("error"))
+                    throw $util.ProtocolError("missing required 'error'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a MergeBingoCardResponse message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.MergeBingoCardResponse
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.MergeBingoCardResponse} MergeBingoCardResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            MergeBingoCardResponse.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a MergeBingoCardResponse message.
+             * @function verify
+             * @memberof wm.protobuf.MergeBingoCardResponse
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            MergeBingoCardResponse.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                switch (message.error) {
+                default:
+                    return "error: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 9:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
+                    break;
+                }
+                if (message.cardBeforeMergeList != null && message.hasOwnProperty("cardBeforeMergeList")) {
+                    if (!Array.isArray(message.cardBeforeMergeList))
+                        return "cardBeforeMergeList: array expected";
+                    for (let i = 0; i < message.cardBeforeMergeList.length; ++i) {
+                        let error = $root.wm.protobuf.MergeBingoCardResponse.CardBeforeMerge.verify(message.cardBeforeMergeList[i]);
+                        if (error)
+                            return "cardBeforeMergeList." + error;
+                    }
+                }
+                if (message.acquiredBingoNumbers != null && message.hasOwnProperty("acquiredBingoNumbers")) {
+                    if (!Array.isArray(message.acquiredBingoNumbers))
+                        return "acquiredBingoNumbers: array expected";
+                    for (let i = 0; i < message.acquiredBingoNumbers.length; ++i)
+                        if (!$util.isInteger(message.acquiredBingoNumbers[i]))
+                            return "acquiredBingoNumbers: integer[] expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a MergeBingoCardResponse message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.MergeBingoCardResponse
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.MergeBingoCardResponse} MergeBingoCardResponse
+             */
+            MergeBingoCardResponse.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.MergeBingoCardResponse)
+                    return object;
+                let message = new $root.wm.protobuf.MergeBingoCardResponse();
+                switch (object.error) {
+                case "ERR_SUCCESS":
+                case 0:
+                    message.error = 0;
+                    break;
+                case "ERR_REQUEST":
+                case 1:
+                    message.error = 1;
+                    break;
+                case "ERR_NOT_FOUND":
+                case 2:
+                    message.error = 2;
+                    break;
+                case "ERR_ID_SERVER":
+                case 3:
+                    message.error = 3;
+                    break;
+                case "ERR_ID_BANNED":
+                case 4:
+                    message.error = 4;
+                    break;
+                case "ERR_USER_LOCKED":
+                case 5:
+                    message.error = 5;
+                    break;
+                case "ERR_USER_VERSION":
+                case 6:
+                    message.error = 6;
+                    break;
+                case "ERR_NAME_CONFLICTED":
+                case 7:
+                    message.error = 7;
+                    break;
+                case "ERR_FORBIDDEN":
+                case 9:
+                    message.error = 9;
+                    break;
+                case "ERR_USER_SUCCEEDED":
+                case 11:
+                    message.error = 11;
+                    break;
+                case "ERR_BEING_TRANSFERRED":
+                case 12:
+                    message.error = 12;
+                    break;
+                case "ERR_SCRATCH_LOCKED":
+                case 13:
+                    message.error = 13;
+                    break;
+                case "ERR_BINGO_REVENGE_LOCKED":
+                case 14:
+                    message.error = 14;
+                    break;
+                case "ERR_BINGO_ALREDY_LINKED":
+                case 15:
+                    message.error = 15;
+                    break;
+                case "ERR_BINGO_FINISHED":
+                case 16:
+                    message.error = 16;
+                    break;
+                case "ERR_BINGO_REACHED_MAX_USER":
+                case 17:
+                    message.error = 17;
+                    break;
+                case "ERR_CAR_NOT_FOUND":
+                case 18:
+                    message.error = 18;
+                    break;
+                case "ERR_BINGO_CARD_NOT_FOUND":
+                case 19:
+                    message.error = 19;
+                    break;
+                }
+                if (object.cardBeforeMergeList) {
+                    if (!Array.isArray(object.cardBeforeMergeList))
+                        throw TypeError(".wm.protobuf.MergeBingoCardResponse.cardBeforeMergeList: array expected");
+                    message.cardBeforeMergeList = [];
+                    for (let i = 0; i < object.cardBeforeMergeList.length; ++i) {
+                        if (typeof object.cardBeforeMergeList[i] !== "object")
+                            throw TypeError(".wm.protobuf.MergeBingoCardResponse.cardBeforeMergeList: object expected");
+                        message.cardBeforeMergeList[i] = $root.wm.protobuf.MergeBingoCardResponse.CardBeforeMerge.fromObject(object.cardBeforeMergeList[i]);
+                    }
+                }
+                if (object.acquiredBingoNumbers) {
+                    if (!Array.isArray(object.acquiredBingoNumbers))
+                        throw TypeError(".wm.protobuf.MergeBingoCardResponse.acquiredBingoNumbers: array expected");
+                    message.acquiredBingoNumbers = [];
+                    for (let i = 0; i < object.acquiredBingoNumbers.length; ++i)
+                        message.acquiredBingoNumbers[i] = object.acquiredBingoNumbers[i] >>> 0;
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a MergeBingoCardResponse message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.MergeBingoCardResponse
+             * @static
+             * @param {wm.protobuf.MergeBingoCardResponse} message MergeBingoCardResponse
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            MergeBingoCardResponse.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.arrays || options.defaults) {
+                    object.cardBeforeMergeList = [];
+                    object.acquiredBingoNumbers = [];
+                }
+                if (options.defaults)
+                    object.error = options.enums === String ? "ERR_SUCCESS" : 0;
+                if (message.error != null && message.hasOwnProperty("error"))
+                    object.error = options.enums === String ? $root.wm.protobuf.ErrorCode[message.error] : message.error;
+                if (message.cardBeforeMergeList && message.cardBeforeMergeList.length) {
+                    object.cardBeforeMergeList = [];
+                    for (let j = 0; j < message.cardBeforeMergeList.length; ++j)
+                        object.cardBeforeMergeList[j] = $root.wm.protobuf.MergeBingoCardResponse.CardBeforeMerge.toObject(message.cardBeforeMergeList[j], options);
+                }
+                if (message.acquiredBingoNumbers && message.acquiredBingoNumbers.length) {
+                    object.acquiredBingoNumbers = [];
+                    for (let j = 0; j < message.acquiredBingoNumbers.length; ++j)
+                        object.acquiredBingoNumbers[j] = message.acquiredBingoNumbers[j];
+                }
+                return object;
+            };
+
+            /**
+             * Converts this MergeBingoCardResponse to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.MergeBingoCardResponse
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            MergeBingoCardResponse.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for MergeBingoCardResponse
+             * @function getTypeUrl
+             * @memberof wm.protobuf.MergeBingoCardResponse
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            MergeBingoCardResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.MergeBingoCardResponse";
+            };
+
+            MergeBingoCardResponse.CardBeforeMerge = (function() {
+
+                /**
+                 * Properties of a CardBeforeMerge.
+                 * @memberof wm.protobuf.MergeBingoCardResponse
+                 * @interface ICardBeforeMerge
+                 * @property {wm.protobuf.ErrorCode} error CardBeforeMerge error
+                 * @property {wm.protobuf.TransferState|null} [transferState] CardBeforeMerge transferState
+                 * @property {number|null} [carId] CardBeforeMerge carId
+                 * @property {string|null} [carName] CardBeforeMerge carName
+                 * @property {number|null} [unlockAt] CardBeforeMerge unlockAt
+                 * @property {Array.<number>|null} [acquiredBingoNumbers] CardBeforeMerge acquiredBingoNumbers
+                 */
+
+                /**
+                 * Constructs a new CardBeforeMerge.
+                 * @memberof wm.protobuf.MergeBingoCardResponse
+                 * @classdesc Represents a CardBeforeMerge.
+                 * @implements ICardBeforeMerge
+                 * @constructor
+                 * @param {wm.protobuf.MergeBingoCardResponse.ICardBeforeMerge=} [properties] Properties to set
+                 */
+                function CardBeforeMerge(properties) {
+                    this.acquiredBingoNumbers = [];
+                    if (properties)
+                        for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * CardBeforeMerge error.
+                 * @member {wm.protobuf.ErrorCode} error
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @instance
+                 */
+                CardBeforeMerge.prototype.error = 0;
+
+                /**
+                 * CardBeforeMerge transferState.
+                 * @member {wm.protobuf.TransferState} transferState
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @instance
+                 */
+                CardBeforeMerge.prototype.transferState = 0;
+
+                /**
+                 * CardBeforeMerge carId.
+                 * @member {number} carId
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @instance
+                 */
+                CardBeforeMerge.prototype.carId = 0;
+
+                /**
+                 * CardBeforeMerge carName.
+                 * @member {string} carName
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @instance
+                 */
+                CardBeforeMerge.prototype.carName = "";
+
+                /**
+                 * CardBeforeMerge unlockAt.
+                 * @member {number} unlockAt
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @instance
+                 */
+                CardBeforeMerge.prototype.unlockAt = 0;
+
+                /**
+                 * CardBeforeMerge acquiredBingoNumbers.
+                 * @member {Array.<number>} acquiredBingoNumbers
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @instance
+                 */
+                CardBeforeMerge.prototype.acquiredBingoNumbers = $util.emptyArray;
+
+                /**
+                 * Creates a new CardBeforeMerge instance using the specified properties.
+                 * @function create
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @static
+                 * @param {wm.protobuf.MergeBingoCardResponse.ICardBeforeMerge=} [properties] Properties to set
+                 * @returns {wm.protobuf.MergeBingoCardResponse.CardBeforeMerge} CardBeforeMerge instance
+                 */
+                CardBeforeMerge.create = function create(properties) {
+                    return new CardBeforeMerge(properties);
+                };
+
+                /**
+                 * Encodes the specified CardBeforeMerge message. Does not implicitly {@link wm.protobuf.MergeBingoCardResponse.CardBeforeMerge.verify|verify} messages.
+                 * @function encode
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @static
+                 * @param {wm.protobuf.MergeBingoCardResponse.ICardBeforeMerge} message CardBeforeMerge message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                CardBeforeMerge.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.error);
+                    if (message.transferState != null && Object.hasOwnProperty.call(message, "transferState"))
+                        writer.uint32(/* id 2, wireType 0 =*/16).int32(message.transferState);
+                    if (message.carId != null && Object.hasOwnProperty.call(message, "carId"))
+                        writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.carId);
+                    if (message.carName != null && Object.hasOwnProperty.call(message, "carName"))
+                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.carName);
+                    if (message.unlockAt != null && Object.hasOwnProperty.call(message, "unlockAt"))
+                        writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.unlockAt);
+                    if (message.acquiredBingoNumbers != null && message.acquiredBingoNumbers.length)
+                        for (let i = 0; i < message.acquiredBingoNumbers.length; ++i)
+                            writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.acquiredBingoNumbers[i]);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified CardBeforeMerge message, length delimited. Does not implicitly {@link wm.protobuf.MergeBingoCardResponse.CardBeforeMerge.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @static
+                 * @param {wm.protobuf.MergeBingoCardResponse.ICardBeforeMerge} message CardBeforeMerge message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                CardBeforeMerge.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a CardBeforeMerge message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {wm.protobuf.MergeBingoCardResponse.CardBeforeMerge} CardBeforeMerge
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                CardBeforeMerge.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.MergeBingoCardResponse.CardBeforeMerge();
+                    while (reader.pos < end) {
+                        let tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.error = reader.int32();
+                                break;
+                            }
+                        case 2: {
+                                message.transferState = reader.int32();
+                                break;
+                            }
+                        case 3: {
+                                message.carId = reader.uint32();
+                                break;
+                            }
+                        case 4: {
+                                message.carName = reader.string();
+                                break;
+                            }
+                        case 5: {
+                                message.unlockAt = reader.uint32();
+                                break;
+                            }
+                        case 6: {
+                                if (!(message.acquiredBingoNumbers && message.acquiredBingoNumbers.length))
+                                    message.acquiredBingoNumbers = [];
+                                if ((tag & 7) === 2) {
+                                    let end2 = reader.uint32() + reader.pos;
+                                    while (reader.pos < end2)
+                                        message.acquiredBingoNumbers.push(reader.uint32());
+                                } else
+                                    message.acquiredBingoNumbers.push(reader.uint32());
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    if (!message.hasOwnProperty("error"))
+                        throw $util.ProtocolError("missing required 'error'", { instance: message });
+                    return message;
+                };
+
+                /**
+                 * Decodes a CardBeforeMerge message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {wm.protobuf.MergeBingoCardResponse.CardBeforeMerge} CardBeforeMerge
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                CardBeforeMerge.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a CardBeforeMerge message.
+                 * @function verify
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                CardBeforeMerge.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    switch (message.error) {
+                    default:
+                        return "error: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 9:
+                    case 11:
+                    case 12:
+                    case 13:
+                    case 14:
+                    case 15:
+                    case 16:
+                    case 17:
+                    case 18:
+                    case 19:
+                        break;
+                    }
+                    if (message.transferState != null && message.hasOwnProperty("transferState"))
+                        switch (message.transferState) {
+                        default:
+                            return "transferState: enum value expected";
+                        case 0:
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                            break;
+                        }
+                    if (message.carId != null && message.hasOwnProperty("carId"))
+                        if (!$util.isInteger(message.carId))
+                            return "carId: integer expected";
+                    if (message.carName != null && message.hasOwnProperty("carName"))
+                        if (!$util.isString(message.carName))
+                            return "carName: string expected";
+                    if (message.unlockAt != null && message.hasOwnProperty("unlockAt"))
+                        if (!$util.isInteger(message.unlockAt))
+                            return "unlockAt: integer expected";
+                    if (message.acquiredBingoNumbers != null && message.hasOwnProperty("acquiredBingoNumbers")) {
+                        if (!Array.isArray(message.acquiredBingoNumbers))
+                            return "acquiredBingoNumbers: array expected";
+                        for (let i = 0; i < message.acquiredBingoNumbers.length; ++i)
+                            if (!$util.isInteger(message.acquiredBingoNumbers[i]))
+                                return "acquiredBingoNumbers: integer[] expected";
+                    }
+                    return null;
+                };
+
+                /**
+                 * Creates a CardBeforeMerge message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {wm.protobuf.MergeBingoCardResponse.CardBeforeMerge} CardBeforeMerge
+                 */
+                CardBeforeMerge.fromObject = function fromObject(object) {
+                    if (object instanceof $root.wm.protobuf.MergeBingoCardResponse.CardBeforeMerge)
+                        return object;
+                    let message = new $root.wm.protobuf.MergeBingoCardResponse.CardBeforeMerge();
+                    switch (object.error) {
+                    case "ERR_SUCCESS":
+                    case 0:
+                        message.error = 0;
+                        break;
+                    case "ERR_REQUEST":
+                    case 1:
+                        message.error = 1;
+                        break;
+                    case "ERR_NOT_FOUND":
+                    case 2:
+                        message.error = 2;
+                        break;
+                    case "ERR_ID_SERVER":
+                    case 3:
+                        message.error = 3;
+                        break;
+                    case "ERR_ID_BANNED":
+                    case 4:
+                        message.error = 4;
+                        break;
+                    case "ERR_USER_LOCKED":
+                    case 5:
+                        message.error = 5;
+                        break;
+                    case "ERR_USER_VERSION":
+                    case 6:
+                        message.error = 6;
+                        break;
+                    case "ERR_NAME_CONFLICTED":
+                    case 7:
+                        message.error = 7;
+                        break;
+                    case "ERR_FORBIDDEN":
+                    case 9:
+                        message.error = 9;
+                        break;
+                    case "ERR_USER_SUCCEEDED":
+                    case 11:
+                        message.error = 11;
+                        break;
+                    case "ERR_BEING_TRANSFERRED":
+                    case 12:
+                        message.error = 12;
+                        break;
+                    case "ERR_SCRATCH_LOCKED":
+                    case 13:
+                        message.error = 13;
+                        break;
+                    case "ERR_BINGO_REVENGE_LOCKED":
+                    case 14:
+                        message.error = 14;
+                        break;
+                    case "ERR_BINGO_ALREDY_LINKED":
+                    case 15:
+                        message.error = 15;
+                        break;
+                    case "ERR_BINGO_FINISHED":
+                    case 16:
+                        message.error = 16;
+                        break;
+                    case "ERR_BINGO_REACHED_MAX_USER":
+                    case 17:
+                        message.error = 17;
+                        break;
+                    case "ERR_CAR_NOT_FOUND":
+                    case 18:
+                        message.error = 18;
+                        break;
+                    case "ERR_BINGO_CARD_NOT_FOUND":
+                    case 19:
+                        message.error = 19;
+                        break;
+                    }
+                    switch (object.transferState) {
+                    case "NOT_REGISTERED":
+                    case 0:
+                        message.transferState = 0;
+                        break;
+                    case "NEW_REGISTRATION":
+                    case 1:
+                        message.transferState = 1;
+                        break;
+                    case "TRANSFER_REQUIRED":
+                    case 2:
+                        message.transferState = 2;
+                        break;
+                    case "TRANSFERRING":
+                    case 3:
+                        message.transferState = 3;
+                        break;
+                    case "TRANSFERRED":
+                    case 4:
+                        message.transferState = 4;
+                        break;
+                    }
+                    if (object.carId != null)
+                        message.carId = object.carId >>> 0;
+                    if (object.carName != null)
+                        message.carName = String(object.carName);
+                    if (object.unlockAt != null)
+                        message.unlockAt = object.unlockAt >>> 0;
+                    if (object.acquiredBingoNumbers) {
+                        if (!Array.isArray(object.acquiredBingoNumbers))
+                            throw TypeError(".wm.protobuf.MergeBingoCardResponse.CardBeforeMerge.acquiredBingoNumbers: array expected");
+                        message.acquiredBingoNumbers = [];
+                        for (let i = 0; i < object.acquiredBingoNumbers.length; ++i)
+                            message.acquiredBingoNumbers[i] = object.acquiredBingoNumbers[i] >>> 0;
+                    }
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a CardBeforeMerge message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @static
+                 * @param {wm.protobuf.MergeBingoCardResponse.CardBeforeMerge} message CardBeforeMerge
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                CardBeforeMerge.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    let object = {};
+                    if (options.arrays || options.defaults)
+                        object.acquiredBingoNumbers = [];
+                    if (options.defaults) {
+                        object.error = options.enums === String ? "ERR_SUCCESS" : 0;
+                        object.transferState = options.enums === String ? "NOT_REGISTERED" : 0;
+                        object.carId = 0;
+                        object.carName = "";
+                        object.unlockAt = 0;
+                    }
+                    if (message.error != null && message.hasOwnProperty("error"))
+                        object.error = options.enums === String ? $root.wm.protobuf.ErrorCode[message.error] : message.error;
+                    if (message.transferState != null && message.hasOwnProperty("transferState"))
+                        object.transferState = options.enums === String ? $root.wm.protobuf.TransferState[message.transferState] : message.transferState;
+                    if (message.carId != null && message.hasOwnProperty("carId"))
+                        object.carId = message.carId;
+                    if (message.carName != null && message.hasOwnProperty("carName"))
+                        object.carName = message.carName;
+                    if (message.unlockAt != null && message.hasOwnProperty("unlockAt"))
+                        object.unlockAt = message.unlockAt;
+                    if (message.acquiredBingoNumbers && message.acquiredBingoNumbers.length) {
+                        object.acquiredBingoNumbers = [];
+                        for (let j = 0; j < message.acquiredBingoNumbers.length; ++j)
+                            object.acquiredBingoNumbers[j] = message.acquiredBingoNumbers[j];
+                    }
+                    return object;
+                };
+
+                /**
+                 * Converts this CardBeforeMerge to JSON.
+                 * @function toJSON
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                CardBeforeMerge.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the default type url for CardBeforeMerge
+                 * @function getTypeUrl
+                 * @memberof wm.protobuf.MergeBingoCardResponse.CardBeforeMerge
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                CardBeforeMerge.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/wm.protobuf.MergeBingoCardResponse.CardBeforeMerge";
+                };
+
+                return CardBeforeMerge;
+            })();
+
+            return MergeBingoCardResponse;
+        })();
+
         protobuf.Car = (function() {
 
             /**
@@ -46778,6 +58211,7 @@ export const wm = $root.wm = (() => {
              * @property {number|null} [ghostLevel] Car ghostLevel
              * @property {string|null} [country] Car country
              * @property {string|null} [searchCode] Car searchCode
+             * @property {number|null} [customFrame] Car customFrame
              */
 
             /**
@@ -47092,6 +58526,14 @@ export const wm = $root.wm = (() => {
             Car.prototype.searchCode = "";
 
             /**
+             * Car customFrame.
+             * @member {number} customFrame
+             * @memberof wm.protobuf.Car
+             * @instance
+             */
+            Car.prototype.customFrame = 0;
+
+            /**
              * Creates a new Car instance using the specified properties.
              * @function create
              * @memberof wm.protobuf.Car
@@ -47173,6 +58615,8 @@ export const wm = $root.wm = (() => {
                     writer.uint32(/* id 50, wireType 2 =*/402).string(message.country);
                 if (message.searchCode != null && Object.hasOwnProperty.call(message, "searchCode"))
                     writer.uint32(/* id 51, wireType 2 =*/410).string(message.searchCode);
+                if (message.customFrame != null && Object.hasOwnProperty.call(message, "customFrame"))
+                    writer.uint32(/* id 52, wireType 0 =*/416).uint32(message.customFrame);
                 return writer;
             };
 
@@ -47355,6 +58799,10 @@ export const wm = $root.wm = (() => {
                             message.searchCode = reader.string();
                             break;
                         }
+                    case 52: {
+                            message.customFrame = reader.uint32();
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -47521,6 +58969,9 @@ export const wm = $root.wm = (() => {
                 if (message.searchCode != null && message.hasOwnProperty("searchCode"))
                     if (!$util.isString(message.searchCode))
                         return "searchCode: string expected";
+                if (message.customFrame != null && message.hasOwnProperty("customFrame"))
+                    if (!$util.isInteger(message.customFrame))
+                        return "customFrame: integer expected";
                 return null;
             };
 
@@ -47616,6 +59067,8 @@ export const wm = $root.wm = (() => {
                     message.country = String(object.country);
                 if (object.searchCode != null)
                     message.searchCode = String(object.searchCode);
+                if (object.customFrame != null)
+                    message.customFrame = object.customFrame >>> 0;
                 return message;
             };
 
@@ -47670,6 +59123,7 @@ export const wm = $root.wm = (() => {
                     object.ghostLevel = 0;
                     object.country = "";
                     object.searchCode = "";
+                    object.customFrame = 0;
                 }
                 if (message.carId != null && message.hasOwnProperty("carId"))
                     object.carId = message.carId;
@@ -47745,6 +59199,8 @@ export const wm = $root.wm = (() => {
                     object.country = message.country;
                 if (message.searchCode != null && message.hasOwnProperty("searchCode"))
                     object.searchCode = message.searchCode;
+                if (message.customFrame != null && message.hasOwnProperty("customFrame"))
+                    object.customFrame = message.customFrame;
                 return object;
             };
 
@@ -48710,6 +60166,7 @@ export const wm = $root.wm = (() => {
                 case 15:
                 case 16:
                 case 17:
+                case 18:
                 case 19:
                 case 22:
                 case 24:
@@ -48801,6 +60258,10 @@ export const wm = $root.wm = (() => {
                 case "CAT_NAME_PLATE":
                 case 17:
                     message.category = 17;
+                    break;
+                case "CAT_CUSTOM_FRAME":
+                case 18:
+                    message.category = 18;
                     break;
                 case "CAT_NUMBER":
                 case 19:
@@ -50515,7 +61976,7 @@ export const wm = $root.wm = (() => {
              * @memberof wm.protobuf.GhostCar
              * @instance
              */
-            GhostCar.prototype.trailId = 0;
+            GhostCar.prototype.trailId = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
             /**
              * Creates a new GhostCar instance using the specified properties.
@@ -50765,7 +62226,11 @@ export const wm = $root.wm = (() => {
                     object.ramp = 0;
                     object.nonhuman = false;
                     object.type = options.enums === String ? "GHOST_NORMAL" : 1;
-                    object.trailId = 0;
+                    if ($util.Long) {
+                        let long = new $util.Long(0, 0, true);
+                        object.trailId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.trailId = options.longs === String ? "0" : 0;
                     object.path = 0;
                 }
                 if (message.car != null && message.hasOwnProperty("car"))
@@ -52441,6 +63906,1509 @@ export const wm = $root.wm = (() => {
             return GhostCompetitionSchedule;
         })();
 
+        protobuf.GhostKoshienSchedule = (function() {
+
+            /**
+             * Properties of a GhostKoshienSchedule.
+             * @memberof wm.protobuf
+             * @interface IGhostKoshienSchedule
+             * @property {number} koshienId GhostKoshienSchedule koshienId
+             * @property {number} qualifyingFirstPeriodStartAt GhostKoshienSchedule qualifyingFirstPeriodStartAt
+             * @property {number} qualifyingFirstPeriodCloseAt GhostKoshienSchedule qualifyingFirstPeriodCloseAt
+             * @property {number} qualifyingSecondPeriodStartAt GhostKoshienSchedule qualifyingSecondPeriodStartAt
+             * @property {number} qualifyingSecondPeriodCloseAt GhostKoshienSchedule qualifyingSecondPeriodCloseAt
+             * @property {number} regionFinalStartAt GhostKoshienSchedule regionFinalStartAt
+             * @property {number} regionFinalCloseAt GhostKoshienSchedule regionFinalCloseAt
+             * @property {number} koshienStartAt GhostKoshienSchedule koshienStartAt
+             * @property {number} koshienCloseAt GhostKoshienSchedule koshienCloseAt
+             * @property {number} lengthOfPeriod GhostKoshienSchedule lengthOfPeriod
+             * @property {number} lengthOfInterval GhostKoshienSchedule lengthOfInterval
+             * @property {number} area GhostKoshienSchedule area
+             * @property {number} aftereventStartAt GhostKoshienSchedule aftereventStartAt
+             * @property {number} aftereventEndAt GhostKoshienSchedule aftereventEndAt
+             */
+
+            /**
+             * Constructs a new GhostKoshienSchedule.
+             * @memberof wm.protobuf
+             * @classdesc Represents a GhostKoshienSchedule.
+             * @implements IGhostKoshienSchedule
+             * @constructor
+             * @param {wm.protobuf.IGhostKoshienSchedule=} [properties] Properties to set
+             */
+            function GhostKoshienSchedule(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * GhostKoshienSchedule koshienId.
+             * @member {number} koshienId
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @instance
+             */
+            GhostKoshienSchedule.prototype.koshienId = 0;
+
+            /**
+             * GhostKoshienSchedule qualifyingFirstPeriodStartAt.
+             * @member {number} qualifyingFirstPeriodStartAt
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @instance
+             */
+            GhostKoshienSchedule.prototype.qualifyingFirstPeriodStartAt = 0;
+
+            /**
+             * GhostKoshienSchedule qualifyingFirstPeriodCloseAt.
+             * @member {number} qualifyingFirstPeriodCloseAt
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @instance
+             */
+            GhostKoshienSchedule.prototype.qualifyingFirstPeriodCloseAt = 0;
+
+            /**
+             * GhostKoshienSchedule qualifyingSecondPeriodStartAt.
+             * @member {number} qualifyingSecondPeriodStartAt
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @instance
+             */
+            GhostKoshienSchedule.prototype.qualifyingSecondPeriodStartAt = 0;
+
+            /**
+             * GhostKoshienSchedule qualifyingSecondPeriodCloseAt.
+             * @member {number} qualifyingSecondPeriodCloseAt
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @instance
+             */
+            GhostKoshienSchedule.prototype.qualifyingSecondPeriodCloseAt = 0;
+
+            /**
+             * GhostKoshienSchedule regionFinalStartAt.
+             * @member {number} regionFinalStartAt
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @instance
+             */
+            GhostKoshienSchedule.prototype.regionFinalStartAt = 0;
+
+            /**
+             * GhostKoshienSchedule regionFinalCloseAt.
+             * @member {number} regionFinalCloseAt
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @instance
+             */
+            GhostKoshienSchedule.prototype.regionFinalCloseAt = 0;
+
+            /**
+             * GhostKoshienSchedule koshienStartAt.
+             * @member {number} koshienStartAt
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @instance
+             */
+            GhostKoshienSchedule.prototype.koshienStartAt = 0;
+
+            /**
+             * GhostKoshienSchedule koshienCloseAt.
+             * @member {number} koshienCloseAt
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @instance
+             */
+            GhostKoshienSchedule.prototype.koshienCloseAt = 0;
+
+            /**
+             * GhostKoshienSchedule lengthOfPeriod.
+             * @member {number} lengthOfPeriod
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @instance
+             */
+            GhostKoshienSchedule.prototype.lengthOfPeriod = 0;
+
+            /**
+             * GhostKoshienSchedule lengthOfInterval.
+             * @member {number} lengthOfInterval
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @instance
+             */
+            GhostKoshienSchedule.prototype.lengthOfInterval = 0;
+
+            /**
+             * GhostKoshienSchedule area.
+             * @member {number} area
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @instance
+             */
+            GhostKoshienSchedule.prototype.area = 0;
+
+            /**
+             * GhostKoshienSchedule aftereventStartAt.
+             * @member {number} aftereventStartAt
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @instance
+             */
+            GhostKoshienSchedule.prototype.aftereventStartAt = 0;
+
+            /**
+             * GhostKoshienSchedule aftereventEndAt.
+             * @member {number} aftereventEndAt
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @instance
+             */
+            GhostKoshienSchedule.prototype.aftereventEndAt = 0;
+
+            /**
+             * Creates a new GhostKoshienSchedule instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @static
+             * @param {wm.protobuf.IGhostKoshienSchedule=} [properties] Properties to set
+             * @returns {wm.protobuf.GhostKoshienSchedule} GhostKoshienSchedule instance
+             */
+            GhostKoshienSchedule.create = function create(properties) {
+                return new GhostKoshienSchedule(properties);
+            };
+
+            /**
+             * Encodes the specified GhostKoshienSchedule message. Does not implicitly {@link wm.protobuf.GhostKoshienSchedule.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @static
+             * @param {wm.protobuf.IGhostKoshienSchedule} message GhostKoshienSchedule message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GhostKoshienSchedule.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.koshienId);
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.qualifyingFirstPeriodStartAt);
+                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.qualifyingFirstPeriodCloseAt);
+                writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.qualifyingSecondPeriodStartAt);
+                writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.qualifyingSecondPeriodCloseAt);
+                writer.uint32(/* id 6, wireType 0 =*/48).uint32(message.regionFinalStartAt);
+                writer.uint32(/* id 7, wireType 0 =*/56).uint32(message.regionFinalCloseAt);
+                writer.uint32(/* id 9, wireType 0 =*/72).uint32(message.koshienStartAt);
+                writer.uint32(/* id 10, wireType 0 =*/80).uint32(message.koshienCloseAt);
+                writer.uint32(/* id 12, wireType 0 =*/96).uint32(message.lengthOfPeriod);
+                writer.uint32(/* id 13, wireType 0 =*/104).uint32(message.lengthOfInterval);
+                writer.uint32(/* id 14, wireType 0 =*/112).uint32(message.area);
+                writer.uint32(/* id 15, wireType 0 =*/120).uint32(message.aftereventStartAt);
+                writer.uint32(/* id 16, wireType 0 =*/128).uint32(message.aftereventEndAt);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified GhostKoshienSchedule message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienSchedule.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @static
+             * @param {wm.protobuf.IGhostKoshienSchedule} message GhostKoshienSchedule message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GhostKoshienSchedule.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a GhostKoshienSchedule message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.GhostKoshienSchedule} GhostKoshienSchedule
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GhostKoshienSchedule.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.GhostKoshienSchedule();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.koshienId = reader.uint32();
+                            break;
+                        }
+                    case 2: {
+                            message.qualifyingFirstPeriodStartAt = reader.uint32();
+                            break;
+                        }
+                    case 3: {
+                            message.qualifyingFirstPeriodCloseAt = reader.uint32();
+                            break;
+                        }
+                    case 4: {
+                            message.qualifyingSecondPeriodStartAt = reader.uint32();
+                            break;
+                        }
+                    case 5: {
+                            message.qualifyingSecondPeriodCloseAt = reader.uint32();
+                            break;
+                        }
+                    case 6: {
+                            message.regionFinalStartAt = reader.uint32();
+                            break;
+                        }
+                    case 7: {
+                            message.regionFinalCloseAt = reader.uint32();
+                            break;
+                        }
+                    case 9: {
+                            message.koshienStartAt = reader.uint32();
+                            break;
+                        }
+                    case 10: {
+                            message.koshienCloseAt = reader.uint32();
+                            break;
+                        }
+                    case 12: {
+                            message.lengthOfPeriod = reader.uint32();
+                            break;
+                        }
+                    case 13: {
+                            message.lengthOfInterval = reader.uint32();
+                            break;
+                        }
+                    case 14: {
+                            message.area = reader.uint32();
+                            break;
+                        }
+                    case 15: {
+                            message.aftereventStartAt = reader.uint32();
+                            break;
+                        }
+                    case 16: {
+                            message.aftereventEndAt = reader.uint32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("koshienId"))
+                    throw $util.ProtocolError("missing required 'koshienId'", { instance: message });
+                if (!message.hasOwnProperty("qualifyingFirstPeriodStartAt"))
+                    throw $util.ProtocolError("missing required 'qualifyingFirstPeriodStartAt'", { instance: message });
+                if (!message.hasOwnProperty("qualifyingFirstPeriodCloseAt"))
+                    throw $util.ProtocolError("missing required 'qualifyingFirstPeriodCloseAt'", { instance: message });
+                if (!message.hasOwnProperty("qualifyingSecondPeriodStartAt"))
+                    throw $util.ProtocolError("missing required 'qualifyingSecondPeriodStartAt'", { instance: message });
+                if (!message.hasOwnProperty("qualifyingSecondPeriodCloseAt"))
+                    throw $util.ProtocolError("missing required 'qualifyingSecondPeriodCloseAt'", { instance: message });
+                if (!message.hasOwnProperty("regionFinalStartAt"))
+                    throw $util.ProtocolError("missing required 'regionFinalStartAt'", { instance: message });
+                if (!message.hasOwnProperty("regionFinalCloseAt"))
+                    throw $util.ProtocolError("missing required 'regionFinalCloseAt'", { instance: message });
+                if (!message.hasOwnProperty("koshienStartAt"))
+                    throw $util.ProtocolError("missing required 'koshienStartAt'", { instance: message });
+                if (!message.hasOwnProperty("koshienCloseAt"))
+                    throw $util.ProtocolError("missing required 'koshienCloseAt'", { instance: message });
+                if (!message.hasOwnProperty("lengthOfPeriod"))
+                    throw $util.ProtocolError("missing required 'lengthOfPeriod'", { instance: message });
+                if (!message.hasOwnProperty("lengthOfInterval"))
+                    throw $util.ProtocolError("missing required 'lengthOfInterval'", { instance: message });
+                if (!message.hasOwnProperty("area"))
+                    throw $util.ProtocolError("missing required 'area'", { instance: message });
+                if (!message.hasOwnProperty("aftereventStartAt"))
+                    throw $util.ProtocolError("missing required 'aftereventStartAt'", { instance: message });
+                if (!message.hasOwnProperty("aftereventEndAt"))
+                    throw $util.ProtocolError("missing required 'aftereventEndAt'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a GhostKoshienSchedule message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.GhostKoshienSchedule} GhostKoshienSchedule
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GhostKoshienSchedule.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a GhostKoshienSchedule message.
+             * @function verify
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            GhostKoshienSchedule.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (!$util.isInteger(message.koshienId))
+                    return "koshienId: integer expected";
+                if (!$util.isInteger(message.qualifyingFirstPeriodStartAt))
+                    return "qualifyingFirstPeriodStartAt: integer expected";
+                if (!$util.isInteger(message.qualifyingFirstPeriodCloseAt))
+                    return "qualifyingFirstPeriodCloseAt: integer expected";
+                if (!$util.isInteger(message.qualifyingSecondPeriodStartAt))
+                    return "qualifyingSecondPeriodStartAt: integer expected";
+                if (!$util.isInteger(message.qualifyingSecondPeriodCloseAt))
+                    return "qualifyingSecondPeriodCloseAt: integer expected";
+                if (!$util.isInteger(message.regionFinalStartAt))
+                    return "regionFinalStartAt: integer expected";
+                if (!$util.isInteger(message.regionFinalCloseAt))
+                    return "regionFinalCloseAt: integer expected";
+                if (!$util.isInteger(message.koshienStartAt))
+                    return "koshienStartAt: integer expected";
+                if (!$util.isInteger(message.koshienCloseAt))
+                    return "koshienCloseAt: integer expected";
+                if (!$util.isInteger(message.lengthOfPeriod))
+                    return "lengthOfPeriod: integer expected";
+                if (!$util.isInteger(message.lengthOfInterval))
+                    return "lengthOfInterval: integer expected";
+                if (!$util.isInteger(message.area))
+                    return "area: integer expected";
+                if (!$util.isInteger(message.aftereventStartAt))
+                    return "aftereventStartAt: integer expected";
+                if (!$util.isInteger(message.aftereventEndAt))
+                    return "aftereventEndAt: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a GhostKoshienSchedule message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.GhostKoshienSchedule} GhostKoshienSchedule
+             */
+            GhostKoshienSchedule.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.GhostKoshienSchedule)
+                    return object;
+                let message = new $root.wm.protobuf.GhostKoshienSchedule();
+                if (object.koshienId != null)
+                    message.koshienId = object.koshienId >>> 0;
+                if (object.qualifyingFirstPeriodStartAt != null)
+                    message.qualifyingFirstPeriodStartAt = object.qualifyingFirstPeriodStartAt >>> 0;
+                if (object.qualifyingFirstPeriodCloseAt != null)
+                    message.qualifyingFirstPeriodCloseAt = object.qualifyingFirstPeriodCloseAt >>> 0;
+                if (object.qualifyingSecondPeriodStartAt != null)
+                    message.qualifyingSecondPeriodStartAt = object.qualifyingSecondPeriodStartAt >>> 0;
+                if (object.qualifyingSecondPeriodCloseAt != null)
+                    message.qualifyingSecondPeriodCloseAt = object.qualifyingSecondPeriodCloseAt >>> 0;
+                if (object.regionFinalStartAt != null)
+                    message.regionFinalStartAt = object.regionFinalStartAt >>> 0;
+                if (object.regionFinalCloseAt != null)
+                    message.regionFinalCloseAt = object.regionFinalCloseAt >>> 0;
+                if (object.koshienStartAt != null)
+                    message.koshienStartAt = object.koshienStartAt >>> 0;
+                if (object.koshienCloseAt != null)
+                    message.koshienCloseAt = object.koshienCloseAt >>> 0;
+                if (object.lengthOfPeriod != null)
+                    message.lengthOfPeriod = object.lengthOfPeriod >>> 0;
+                if (object.lengthOfInterval != null)
+                    message.lengthOfInterval = object.lengthOfInterval >>> 0;
+                if (object.area != null)
+                    message.area = object.area >>> 0;
+                if (object.aftereventStartAt != null)
+                    message.aftereventStartAt = object.aftereventStartAt >>> 0;
+                if (object.aftereventEndAt != null)
+                    message.aftereventEndAt = object.aftereventEndAt >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a GhostKoshienSchedule message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @static
+             * @param {wm.protobuf.GhostKoshienSchedule} message GhostKoshienSchedule
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            GhostKoshienSchedule.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.defaults) {
+                    object.koshienId = 0;
+                    object.qualifyingFirstPeriodStartAt = 0;
+                    object.qualifyingFirstPeriodCloseAt = 0;
+                    object.qualifyingSecondPeriodStartAt = 0;
+                    object.qualifyingSecondPeriodCloseAt = 0;
+                    object.regionFinalStartAt = 0;
+                    object.regionFinalCloseAt = 0;
+                    object.koshienStartAt = 0;
+                    object.koshienCloseAt = 0;
+                    object.lengthOfPeriod = 0;
+                    object.lengthOfInterval = 0;
+                    object.area = 0;
+                    object.aftereventStartAt = 0;
+                    object.aftereventEndAt = 0;
+                }
+                if (message.koshienId != null && message.hasOwnProperty("koshienId"))
+                    object.koshienId = message.koshienId;
+                if (message.qualifyingFirstPeriodStartAt != null && message.hasOwnProperty("qualifyingFirstPeriodStartAt"))
+                    object.qualifyingFirstPeriodStartAt = message.qualifyingFirstPeriodStartAt;
+                if (message.qualifyingFirstPeriodCloseAt != null && message.hasOwnProperty("qualifyingFirstPeriodCloseAt"))
+                    object.qualifyingFirstPeriodCloseAt = message.qualifyingFirstPeriodCloseAt;
+                if (message.qualifyingSecondPeriodStartAt != null && message.hasOwnProperty("qualifyingSecondPeriodStartAt"))
+                    object.qualifyingSecondPeriodStartAt = message.qualifyingSecondPeriodStartAt;
+                if (message.qualifyingSecondPeriodCloseAt != null && message.hasOwnProperty("qualifyingSecondPeriodCloseAt"))
+                    object.qualifyingSecondPeriodCloseAt = message.qualifyingSecondPeriodCloseAt;
+                if (message.regionFinalStartAt != null && message.hasOwnProperty("regionFinalStartAt"))
+                    object.regionFinalStartAt = message.regionFinalStartAt;
+                if (message.regionFinalCloseAt != null && message.hasOwnProperty("regionFinalCloseAt"))
+                    object.regionFinalCloseAt = message.regionFinalCloseAt;
+                if (message.koshienStartAt != null && message.hasOwnProperty("koshienStartAt"))
+                    object.koshienStartAt = message.koshienStartAt;
+                if (message.koshienCloseAt != null && message.hasOwnProperty("koshienCloseAt"))
+                    object.koshienCloseAt = message.koshienCloseAt;
+                if (message.lengthOfPeriod != null && message.hasOwnProperty("lengthOfPeriod"))
+                    object.lengthOfPeriod = message.lengthOfPeriod;
+                if (message.lengthOfInterval != null && message.hasOwnProperty("lengthOfInterval"))
+                    object.lengthOfInterval = message.lengthOfInterval;
+                if (message.area != null && message.hasOwnProperty("area"))
+                    object.area = message.area;
+                if (message.aftereventStartAt != null && message.hasOwnProperty("aftereventStartAt"))
+                    object.aftereventStartAt = message.aftereventStartAt;
+                if (message.aftereventEndAt != null && message.hasOwnProperty("aftereventEndAt"))
+                    object.aftereventEndAt = message.aftereventEndAt;
+                return object;
+            };
+
+            /**
+             * Converts this GhostKoshienSchedule to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            GhostKoshienSchedule.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for GhostKoshienSchedule
+             * @function getTypeUrl
+             * @memberof wm.protobuf.GhostKoshienSchedule
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            GhostKoshienSchedule.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.GhostKoshienSchedule";
+            };
+
+            return GhostKoshienSchedule;
+        })();
+
+        protobuf.GhostKoshienPrize = (function() {
+
+            /**
+             * Properties of a GhostKoshienPrize.
+             * @memberof wm.protobuf
+             * @interface IGhostKoshienPrize
+             * @property {wm.protobuf.ICarItem} firstParticipationPrize GhostKoshienPrize firstParticipationPrize
+             * @property {wm.protobuf.ICarItem} secondParticipationPrize GhostKoshienPrize secondParticipationPrize
+             * @property {wm.protobuf.ICarItem} regionParticipationPrize GhostKoshienPrize regionParticipationPrize
+             * @property {wm.protobuf.ICarItem} participationPrize GhostKoshienPrize participationPrize
+             * @property {wm.protobuf.ICarItem} firstMvpPrize GhostKoshienPrize firstMvpPrize
+             * @property {wm.protobuf.ICarItem} secondMvpPrize GhostKoshienPrize secondMvpPrize
+             * @property {wm.protobuf.ICarItem} regionMvpPrize GhostKoshienPrize regionMvpPrize
+             * @property {wm.protobuf.ICarItem} mvpPrize GhostKoshienPrize mvpPrize
+             * @property {wm.protobuf.ICarItem} winnerPrize GhostKoshienPrize winnerPrize
+             * @property {wm.protobuf.ICarItem} secondPlacePrize GhostKoshienPrize secondPlacePrize
+             * @property {wm.protobuf.ICarItem} aftereventRivalMarker GhostKoshienPrize aftereventRivalMarker
+             * @property {string} aftereventSpecialTitle GhostKoshienPrize aftereventSpecialTitle
+             */
+
+            /**
+             * Constructs a new GhostKoshienPrize.
+             * @memberof wm.protobuf
+             * @classdesc Represents a GhostKoshienPrize.
+             * @implements IGhostKoshienPrize
+             * @constructor
+             * @param {wm.protobuf.IGhostKoshienPrize=} [properties] Properties to set
+             */
+            function GhostKoshienPrize(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * GhostKoshienPrize firstParticipationPrize.
+             * @member {wm.protobuf.ICarItem} firstParticipationPrize
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @instance
+             */
+            GhostKoshienPrize.prototype.firstParticipationPrize = null;
+
+            /**
+             * GhostKoshienPrize secondParticipationPrize.
+             * @member {wm.protobuf.ICarItem} secondParticipationPrize
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @instance
+             */
+            GhostKoshienPrize.prototype.secondParticipationPrize = null;
+
+            /**
+             * GhostKoshienPrize regionParticipationPrize.
+             * @member {wm.protobuf.ICarItem} regionParticipationPrize
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @instance
+             */
+            GhostKoshienPrize.prototype.regionParticipationPrize = null;
+
+            /**
+             * GhostKoshienPrize participationPrize.
+             * @member {wm.protobuf.ICarItem} participationPrize
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @instance
+             */
+            GhostKoshienPrize.prototype.participationPrize = null;
+
+            /**
+             * GhostKoshienPrize firstMvpPrize.
+             * @member {wm.protobuf.ICarItem} firstMvpPrize
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @instance
+             */
+            GhostKoshienPrize.prototype.firstMvpPrize = null;
+
+            /**
+             * GhostKoshienPrize secondMvpPrize.
+             * @member {wm.protobuf.ICarItem} secondMvpPrize
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @instance
+             */
+            GhostKoshienPrize.prototype.secondMvpPrize = null;
+
+            /**
+             * GhostKoshienPrize regionMvpPrize.
+             * @member {wm.protobuf.ICarItem} regionMvpPrize
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @instance
+             */
+            GhostKoshienPrize.prototype.regionMvpPrize = null;
+
+            /**
+             * GhostKoshienPrize mvpPrize.
+             * @member {wm.protobuf.ICarItem} mvpPrize
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @instance
+             */
+            GhostKoshienPrize.prototype.mvpPrize = null;
+
+            /**
+             * GhostKoshienPrize winnerPrize.
+             * @member {wm.protobuf.ICarItem} winnerPrize
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @instance
+             */
+            GhostKoshienPrize.prototype.winnerPrize = null;
+
+            /**
+             * GhostKoshienPrize secondPlacePrize.
+             * @member {wm.protobuf.ICarItem} secondPlacePrize
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @instance
+             */
+            GhostKoshienPrize.prototype.secondPlacePrize = null;
+
+            /**
+             * GhostKoshienPrize aftereventRivalMarker.
+             * @member {wm.protobuf.ICarItem} aftereventRivalMarker
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @instance
+             */
+            GhostKoshienPrize.prototype.aftereventRivalMarker = null;
+
+            /**
+             * GhostKoshienPrize aftereventSpecialTitle.
+             * @member {string} aftereventSpecialTitle
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @instance
+             */
+            GhostKoshienPrize.prototype.aftereventSpecialTitle = "";
+
+            /**
+             * Creates a new GhostKoshienPrize instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @static
+             * @param {wm.protobuf.IGhostKoshienPrize=} [properties] Properties to set
+             * @returns {wm.protobuf.GhostKoshienPrize} GhostKoshienPrize instance
+             */
+            GhostKoshienPrize.create = function create(properties) {
+                return new GhostKoshienPrize(properties);
+            };
+
+            /**
+             * Encodes the specified GhostKoshienPrize message. Does not implicitly {@link wm.protobuf.GhostKoshienPrize.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @static
+             * @param {wm.protobuf.IGhostKoshienPrize} message GhostKoshienPrize message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GhostKoshienPrize.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                $root.wm.protobuf.CarItem.encode(message.firstParticipationPrize, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                $root.wm.protobuf.CarItem.encode(message.secondParticipationPrize, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                $root.wm.protobuf.CarItem.encode(message.regionParticipationPrize, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                $root.wm.protobuf.CarItem.encode(message.participationPrize, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                $root.wm.protobuf.CarItem.encode(message.firstMvpPrize, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                $root.wm.protobuf.CarItem.encode(message.secondMvpPrize, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                $root.wm.protobuf.CarItem.encode(message.regionMvpPrize, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+                $root.wm.protobuf.CarItem.encode(message.mvpPrize, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
+                $root.wm.protobuf.CarItem.encode(message.winnerPrize, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
+                $root.wm.protobuf.CarItem.encode(message.secondPlacePrize, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
+                $root.wm.protobuf.CarItem.encode(message.aftereventRivalMarker, writer.uint32(/* id 11, wireType 2 =*/90).fork()).ldelim();
+                writer.uint32(/* id 12, wireType 2 =*/98).string(message.aftereventSpecialTitle);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified GhostKoshienPrize message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienPrize.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @static
+             * @param {wm.protobuf.IGhostKoshienPrize} message GhostKoshienPrize message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GhostKoshienPrize.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a GhostKoshienPrize message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.GhostKoshienPrize} GhostKoshienPrize
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GhostKoshienPrize.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.GhostKoshienPrize();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.firstParticipationPrize = $root.wm.protobuf.CarItem.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 2: {
+                            message.secondParticipationPrize = $root.wm.protobuf.CarItem.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 3: {
+                            message.regionParticipationPrize = $root.wm.protobuf.CarItem.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 4: {
+                            message.participationPrize = $root.wm.protobuf.CarItem.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 5: {
+                            message.firstMvpPrize = $root.wm.protobuf.CarItem.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 6: {
+                            message.secondMvpPrize = $root.wm.protobuf.CarItem.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 7: {
+                            message.regionMvpPrize = $root.wm.protobuf.CarItem.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 8: {
+                            message.mvpPrize = $root.wm.protobuf.CarItem.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 9: {
+                            message.winnerPrize = $root.wm.protobuf.CarItem.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 10: {
+                            message.secondPlacePrize = $root.wm.protobuf.CarItem.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 11: {
+                            message.aftereventRivalMarker = $root.wm.protobuf.CarItem.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 12: {
+                            message.aftereventSpecialTitle = reader.string();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("firstParticipationPrize"))
+                    throw $util.ProtocolError("missing required 'firstParticipationPrize'", { instance: message });
+                if (!message.hasOwnProperty("secondParticipationPrize"))
+                    throw $util.ProtocolError("missing required 'secondParticipationPrize'", { instance: message });
+                if (!message.hasOwnProperty("regionParticipationPrize"))
+                    throw $util.ProtocolError("missing required 'regionParticipationPrize'", { instance: message });
+                if (!message.hasOwnProperty("participationPrize"))
+                    throw $util.ProtocolError("missing required 'participationPrize'", { instance: message });
+                if (!message.hasOwnProperty("firstMvpPrize"))
+                    throw $util.ProtocolError("missing required 'firstMvpPrize'", { instance: message });
+                if (!message.hasOwnProperty("secondMvpPrize"))
+                    throw $util.ProtocolError("missing required 'secondMvpPrize'", { instance: message });
+                if (!message.hasOwnProperty("regionMvpPrize"))
+                    throw $util.ProtocolError("missing required 'regionMvpPrize'", { instance: message });
+                if (!message.hasOwnProperty("mvpPrize"))
+                    throw $util.ProtocolError("missing required 'mvpPrize'", { instance: message });
+                if (!message.hasOwnProperty("winnerPrize"))
+                    throw $util.ProtocolError("missing required 'winnerPrize'", { instance: message });
+                if (!message.hasOwnProperty("secondPlacePrize"))
+                    throw $util.ProtocolError("missing required 'secondPlacePrize'", { instance: message });
+                if (!message.hasOwnProperty("aftereventRivalMarker"))
+                    throw $util.ProtocolError("missing required 'aftereventRivalMarker'", { instance: message });
+                if (!message.hasOwnProperty("aftereventSpecialTitle"))
+                    throw $util.ProtocolError("missing required 'aftereventSpecialTitle'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a GhostKoshienPrize message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.GhostKoshienPrize} GhostKoshienPrize
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GhostKoshienPrize.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a GhostKoshienPrize message.
+             * @function verify
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            GhostKoshienPrize.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                {
+                    let error = $root.wm.protobuf.CarItem.verify(message.firstParticipationPrize);
+                    if (error)
+                        return "firstParticipationPrize." + error;
+                }
+                {
+                    let error = $root.wm.protobuf.CarItem.verify(message.secondParticipationPrize);
+                    if (error)
+                        return "secondParticipationPrize." + error;
+                }
+                {
+                    let error = $root.wm.protobuf.CarItem.verify(message.regionParticipationPrize);
+                    if (error)
+                        return "regionParticipationPrize." + error;
+                }
+                {
+                    let error = $root.wm.protobuf.CarItem.verify(message.participationPrize);
+                    if (error)
+                        return "participationPrize." + error;
+                }
+                {
+                    let error = $root.wm.protobuf.CarItem.verify(message.firstMvpPrize);
+                    if (error)
+                        return "firstMvpPrize." + error;
+                }
+                {
+                    let error = $root.wm.protobuf.CarItem.verify(message.secondMvpPrize);
+                    if (error)
+                        return "secondMvpPrize." + error;
+                }
+                {
+                    let error = $root.wm.protobuf.CarItem.verify(message.regionMvpPrize);
+                    if (error)
+                        return "regionMvpPrize." + error;
+                }
+                {
+                    let error = $root.wm.protobuf.CarItem.verify(message.mvpPrize);
+                    if (error)
+                        return "mvpPrize." + error;
+                }
+                {
+                    let error = $root.wm.protobuf.CarItem.verify(message.winnerPrize);
+                    if (error)
+                        return "winnerPrize." + error;
+                }
+                {
+                    let error = $root.wm.protobuf.CarItem.verify(message.secondPlacePrize);
+                    if (error)
+                        return "secondPlacePrize." + error;
+                }
+                {
+                    let error = $root.wm.protobuf.CarItem.verify(message.aftereventRivalMarker);
+                    if (error)
+                        return "aftereventRivalMarker." + error;
+                }
+                if (!$util.isString(message.aftereventSpecialTitle))
+                    return "aftereventSpecialTitle: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a GhostKoshienPrize message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.GhostKoshienPrize} GhostKoshienPrize
+             */
+            GhostKoshienPrize.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.GhostKoshienPrize)
+                    return object;
+                let message = new $root.wm.protobuf.GhostKoshienPrize();
+                if (object.firstParticipationPrize != null) {
+                    if (typeof object.firstParticipationPrize !== "object")
+                        throw TypeError(".wm.protobuf.GhostKoshienPrize.firstParticipationPrize: object expected");
+                    message.firstParticipationPrize = $root.wm.protobuf.CarItem.fromObject(object.firstParticipationPrize);
+                }
+                if (object.secondParticipationPrize != null) {
+                    if (typeof object.secondParticipationPrize !== "object")
+                        throw TypeError(".wm.protobuf.GhostKoshienPrize.secondParticipationPrize: object expected");
+                    message.secondParticipationPrize = $root.wm.protobuf.CarItem.fromObject(object.secondParticipationPrize);
+                }
+                if (object.regionParticipationPrize != null) {
+                    if (typeof object.regionParticipationPrize !== "object")
+                        throw TypeError(".wm.protobuf.GhostKoshienPrize.regionParticipationPrize: object expected");
+                    message.regionParticipationPrize = $root.wm.protobuf.CarItem.fromObject(object.regionParticipationPrize);
+                }
+                if (object.participationPrize != null) {
+                    if (typeof object.participationPrize !== "object")
+                        throw TypeError(".wm.protobuf.GhostKoshienPrize.participationPrize: object expected");
+                    message.participationPrize = $root.wm.protobuf.CarItem.fromObject(object.participationPrize);
+                }
+                if (object.firstMvpPrize != null) {
+                    if (typeof object.firstMvpPrize !== "object")
+                        throw TypeError(".wm.protobuf.GhostKoshienPrize.firstMvpPrize: object expected");
+                    message.firstMvpPrize = $root.wm.protobuf.CarItem.fromObject(object.firstMvpPrize);
+                }
+                if (object.secondMvpPrize != null) {
+                    if (typeof object.secondMvpPrize !== "object")
+                        throw TypeError(".wm.protobuf.GhostKoshienPrize.secondMvpPrize: object expected");
+                    message.secondMvpPrize = $root.wm.protobuf.CarItem.fromObject(object.secondMvpPrize);
+                }
+                if (object.regionMvpPrize != null) {
+                    if (typeof object.regionMvpPrize !== "object")
+                        throw TypeError(".wm.protobuf.GhostKoshienPrize.regionMvpPrize: object expected");
+                    message.regionMvpPrize = $root.wm.protobuf.CarItem.fromObject(object.regionMvpPrize);
+                }
+                if (object.mvpPrize != null) {
+                    if (typeof object.mvpPrize !== "object")
+                        throw TypeError(".wm.protobuf.GhostKoshienPrize.mvpPrize: object expected");
+                    message.mvpPrize = $root.wm.protobuf.CarItem.fromObject(object.mvpPrize);
+                }
+                if (object.winnerPrize != null) {
+                    if (typeof object.winnerPrize !== "object")
+                        throw TypeError(".wm.protobuf.GhostKoshienPrize.winnerPrize: object expected");
+                    message.winnerPrize = $root.wm.protobuf.CarItem.fromObject(object.winnerPrize);
+                }
+                if (object.secondPlacePrize != null) {
+                    if (typeof object.secondPlacePrize !== "object")
+                        throw TypeError(".wm.protobuf.GhostKoshienPrize.secondPlacePrize: object expected");
+                    message.secondPlacePrize = $root.wm.protobuf.CarItem.fromObject(object.secondPlacePrize);
+                }
+                if (object.aftereventRivalMarker != null) {
+                    if (typeof object.aftereventRivalMarker !== "object")
+                        throw TypeError(".wm.protobuf.GhostKoshienPrize.aftereventRivalMarker: object expected");
+                    message.aftereventRivalMarker = $root.wm.protobuf.CarItem.fromObject(object.aftereventRivalMarker);
+                }
+                if (object.aftereventSpecialTitle != null)
+                    message.aftereventSpecialTitle = String(object.aftereventSpecialTitle);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a GhostKoshienPrize message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @static
+             * @param {wm.protobuf.GhostKoshienPrize} message GhostKoshienPrize
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            GhostKoshienPrize.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.defaults) {
+                    object.firstParticipationPrize = null;
+                    object.secondParticipationPrize = null;
+                    object.regionParticipationPrize = null;
+                    object.participationPrize = null;
+                    object.firstMvpPrize = null;
+                    object.secondMvpPrize = null;
+                    object.regionMvpPrize = null;
+                    object.mvpPrize = null;
+                    object.winnerPrize = null;
+                    object.secondPlacePrize = null;
+                    object.aftereventRivalMarker = null;
+                    object.aftereventSpecialTitle = "";
+                }
+                if (message.firstParticipationPrize != null && message.hasOwnProperty("firstParticipationPrize"))
+                    object.firstParticipationPrize = $root.wm.protobuf.CarItem.toObject(message.firstParticipationPrize, options);
+                if (message.secondParticipationPrize != null && message.hasOwnProperty("secondParticipationPrize"))
+                    object.secondParticipationPrize = $root.wm.protobuf.CarItem.toObject(message.secondParticipationPrize, options);
+                if (message.regionParticipationPrize != null && message.hasOwnProperty("regionParticipationPrize"))
+                    object.regionParticipationPrize = $root.wm.protobuf.CarItem.toObject(message.regionParticipationPrize, options);
+                if (message.participationPrize != null && message.hasOwnProperty("participationPrize"))
+                    object.participationPrize = $root.wm.protobuf.CarItem.toObject(message.participationPrize, options);
+                if (message.firstMvpPrize != null && message.hasOwnProperty("firstMvpPrize"))
+                    object.firstMvpPrize = $root.wm.protobuf.CarItem.toObject(message.firstMvpPrize, options);
+                if (message.secondMvpPrize != null && message.hasOwnProperty("secondMvpPrize"))
+                    object.secondMvpPrize = $root.wm.protobuf.CarItem.toObject(message.secondMvpPrize, options);
+                if (message.regionMvpPrize != null && message.hasOwnProperty("regionMvpPrize"))
+                    object.regionMvpPrize = $root.wm.protobuf.CarItem.toObject(message.regionMvpPrize, options);
+                if (message.mvpPrize != null && message.hasOwnProperty("mvpPrize"))
+                    object.mvpPrize = $root.wm.protobuf.CarItem.toObject(message.mvpPrize, options);
+                if (message.winnerPrize != null && message.hasOwnProperty("winnerPrize"))
+                    object.winnerPrize = $root.wm.protobuf.CarItem.toObject(message.winnerPrize, options);
+                if (message.secondPlacePrize != null && message.hasOwnProperty("secondPlacePrize"))
+                    object.secondPlacePrize = $root.wm.protobuf.CarItem.toObject(message.secondPlacePrize, options);
+                if (message.aftereventRivalMarker != null && message.hasOwnProperty("aftereventRivalMarker"))
+                    object.aftereventRivalMarker = $root.wm.protobuf.CarItem.toObject(message.aftereventRivalMarker, options);
+                if (message.aftereventSpecialTitle != null && message.hasOwnProperty("aftereventSpecialTitle"))
+                    object.aftereventSpecialTitle = message.aftereventSpecialTitle;
+                return object;
+            };
+
+            /**
+             * Converts this GhostKoshienPrize to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            GhostKoshienPrize.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for GhostKoshienPrize
+             * @function getTypeUrl
+             * @memberof wm.protobuf.GhostKoshienPrize
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            GhostKoshienPrize.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.GhostKoshienPrize";
+            };
+
+            return GhostKoshienPrize;
+        })();
+
+        protobuf.GhostKoshienWonShop = (function() {
+
+            /**
+             * Properties of a GhostKoshienWonShop.
+             * @memberof wm.protobuf
+             * @interface IGhostKoshienWonShop
+             * @property {number} koshienId GhostKoshienWonShop koshienId
+             * @property {string} shopName GhostKoshienWonShop shopName
+             * @property {number} rank GhostKoshienWonShop rank
+             */
+
+            /**
+             * Constructs a new GhostKoshienWonShop.
+             * @memberof wm.protobuf
+             * @classdesc Represents a GhostKoshienWonShop.
+             * @implements IGhostKoshienWonShop
+             * @constructor
+             * @param {wm.protobuf.IGhostKoshienWonShop=} [properties] Properties to set
+             */
+            function GhostKoshienWonShop(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * GhostKoshienWonShop koshienId.
+             * @member {number} koshienId
+             * @memberof wm.protobuf.GhostKoshienWonShop
+             * @instance
+             */
+            GhostKoshienWonShop.prototype.koshienId = 0;
+
+            /**
+             * GhostKoshienWonShop shopName.
+             * @member {string} shopName
+             * @memberof wm.protobuf.GhostKoshienWonShop
+             * @instance
+             */
+            GhostKoshienWonShop.prototype.shopName = "";
+
+            /**
+             * GhostKoshienWonShop rank.
+             * @member {number} rank
+             * @memberof wm.protobuf.GhostKoshienWonShop
+             * @instance
+             */
+            GhostKoshienWonShop.prototype.rank = 0;
+
+            /**
+             * Creates a new GhostKoshienWonShop instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.GhostKoshienWonShop
+             * @static
+             * @param {wm.protobuf.IGhostKoshienWonShop=} [properties] Properties to set
+             * @returns {wm.protobuf.GhostKoshienWonShop} GhostKoshienWonShop instance
+             */
+            GhostKoshienWonShop.create = function create(properties) {
+                return new GhostKoshienWonShop(properties);
+            };
+
+            /**
+             * Encodes the specified GhostKoshienWonShop message. Does not implicitly {@link wm.protobuf.GhostKoshienWonShop.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.GhostKoshienWonShop
+             * @static
+             * @param {wm.protobuf.IGhostKoshienWonShop} message GhostKoshienWonShop message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GhostKoshienWonShop.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.koshienId);
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.shopName);
+                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.rank);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified GhostKoshienWonShop message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienWonShop.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.GhostKoshienWonShop
+             * @static
+             * @param {wm.protobuf.IGhostKoshienWonShop} message GhostKoshienWonShop message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GhostKoshienWonShop.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a GhostKoshienWonShop message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.GhostKoshienWonShop
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.GhostKoshienWonShop} GhostKoshienWonShop
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GhostKoshienWonShop.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.GhostKoshienWonShop();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.koshienId = reader.uint32();
+                            break;
+                        }
+                    case 2: {
+                            message.shopName = reader.string();
+                            break;
+                        }
+                    case 3: {
+                            message.rank = reader.uint32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("koshienId"))
+                    throw $util.ProtocolError("missing required 'koshienId'", { instance: message });
+                if (!message.hasOwnProperty("shopName"))
+                    throw $util.ProtocolError("missing required 'shopName'", { instance: message });
+                if (!message.hasOwnProperty("rank"))
+                    throw $util.ProtocolError("missing required 'rank'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a GhostKoshienWonShop message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.GhostKoshienWonShop
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.GhostKoshienWonShop} GhostKoshienWonShop
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GhostKoshienWonShop.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a GhostKoshienWonShop message.
+             * @function verify
+             * @memberof wm.protobuf.GhostKoshienWonShop
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            GhostKoshienWonShop.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (!$util.isInteger(message.koshienId))
+                    return "koshienId: integer expected";
+                if (!$util.isString(message.shopName))
+                    return "shopName: string expected";
+                if (!$util.isInteger(message.rank))
+                    return "rank: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a GhostKoshienWonShop message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.GhostKoshienWonShop
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.GhostKoshienWonShop} GhostKoshienWonShop
+             */
+            GhostKoshienWonShop.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.GhostKoshienWonShop)
+                    return object;
+                let message = new $root.wm.protobuf.GhostKoshienWonShop();
+                if (object.koshienId != null)
+                    message.koshienId = object.koshienId >>> 0;
+                if (object.shopName != null)
+                    message.shopName = String(object.shopName);
+                if (object.rank != null)
+                    message.rank = object.rank >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a GhostKoshienWonShop message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.GhostKoshienWonShop
+             * @static
+             * @param {wm.protobuf.GhostKoshienWonShop} message GhostKoshienWonShop
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            GhostKoshienWonShop.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.defaults) {
+                    object.koshienId = 0;
+                    object.shopName = "";
+                    object.rank = 0;
+                }
+                if (message.koshienId != null && message.hasOwnProperty("koshienId"))
+                    object.koshienId = message.koshienId;
+                if (message.shopName != null && message.hasOwnProperty("shopName"))
+                    object.shopName = message.shopName;
+                if (message.rank != null && message.hasOwnProperty("rank"))
+                    object.rank = message.rank;
+                return object;
+            };
+
+            /**
+             * Converts this GhostKoshienWonShop to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.GhostKoshienWonShop
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            GhostKoshienWonShop.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for GhostKoshienWonShop
+             * @function getTypeUrl
+             * @memberof wm.protobuf.GhostKoshienWonShop
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            GhostKoshienWonShop.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.GhostKoshienWonShop";
+            };
+
+            return GhostKoshienWonShop;
+        })();
+
+        protobuf.GhostKoshienRoundRank = (function() {
+
+            /**
+             * Properties of a GhostKoshienRoundRank.
+             * @memberof wm.protobuf
+             * @interface IGhostKoshienRoundRank
+             * @property {number} roundId GhostKoshienRoundRank roundId
+             * @property {number} rank GhostKoshienRoundRank rank
+             */
+
+            /**
+             * Constructs a new GhostKoshienRoundRank.
+             * @memberof wm.protobuf
+             * @classdesc Represents a GhostKoshienRoundRank.
+             * @implements IGhostKoshienRoundRank
+             * @constructor
+             * @param {wm.protobuf.IGhostKoshienRoundRank=} [properties] Properties to set
+             */
+            function GhostKoshienRoundRank(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * GhostKoshienRoundRank roundId.
+             * @member {number} roundId
+             * @memberof wm.protobuf.GhostKoshienRoundRank
+             * @instance
+             */
+            GhostKoshienRoundRank.prototype.roundId = 0;
+
+            /**
+             * GhostKoshienRoundRank rank.
+             * @member {number} rank
+             * @memberof wm.protobuf.GhostKoshienRoundRank
+             * @instance
+             */
+            GhostKoshienRoundRank.prototype.rank = 0;
+
+            /**
+             * Creates a new GhostKoshienRoundRank instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.GhostKoshienRoundRank
+             * @static
+             * @param {wm.protobuf.IGhostKoshienRoundRank=} [properties] Properties to set
+             * @returns {wm.protobuf.GhostKoshienRoundRank} GhostKoshienRoundRank instance
+             */
+            GhostKoshienRoundRank.create = function create(properties) {
+                return new GhostKoshienRoundRank(properties);
+            };
+
+            /**
+             * Encodes the specified GhostKoshienRoundRank message. Does not implicitly {@link wm.protobuf.GhostKoshienRoundRank.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.GhostKoshienRoundRank
+             * @static
+             * @param {wm.protobuf.IGhostKoshienRoundRank} message GhostKoshienRoundRank message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GhostKoshienRoundRank.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.roundId);
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.rank);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified GhostKoshienRoundRank message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienRoundRank.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.GhostKoshienRoundRank
+             * @static
+             * @param {wm.protobuf.IGhostKoshienRoundRank} message GhostKoshienRoundRank message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GhostKoshienRoundRank.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a GhostKoshienRoundRank message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.GhostKoshienRoundRank
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.GhostKoshienRoundRank} GhostKoshienRoundRank
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GhostKoshienRoundRank.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.GhostKoshienRoundRank();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.roundId = reader.uint32();
+                            break;
+                        }
+                    case 2: {
+                            message.rank = reader.uint32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("roundId"))
+                    throw $util.ProtocolError("missing required 'roundId'", { instance: message });
+                if (!message.hasOwnProperty("rank"))
+                    throw $util.ProtocolError("missing required 'rank'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a GhostKoshienRoundRank message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.GhostKoshienRoundRank
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.GhostKoshienRoundRank} GhostKoshienRoundRank
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GhostKoshienRoundRank.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a GhostKoshienRoundRank message.
+             * @function verify
+             * @memberof wm.protobuf.GhostKoshienRoundRank
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            GhostKoshienRoundRank.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (!$util.isInteger(message.roundId))
+                    return "roundId: integer expected";
+                if (!$util.isInteger(message.rank))
+                    return "rank: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a GhostKoshienRoundRank message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.GhostKoshienRoundRank
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.GhostKoshienRoundRank} GhostKoshienRoundRank
+             */
+            GhostKoshienRoundRank.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.GhostKoshienRoundRank)
+                    return object;
+                let message = new $root.wm.protobuf.GhostKoshienRoundRank();
+                if (object.roundId != null)
+                    message.roundId = object.roundId >>> 0;
+                if (object.rank != null)
+                    message.rank = object.rank >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a GhostKoshienRoundRank message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.GhostKoshienRoundRank
+             * @static
+             * @param {wm.protobuf.GhostKoshienRoundRank} message GhostKoshienRoundRank
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            GhostKoshienRoundRank.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.defaults) {
+                    object.roundId = 0;
+                    object.rank = 0;
+                }
+                if (message.roundId != null && message.hasOwnProperty("roundId"))
+                    object.roundId = message.roundId;
+                if (message.rank != null && message.hasOwnProperty("rank"))
+                    object.rank = message.rank;
+                return object;
+            };
+
+            /**
+             * Converts this GhostKoshienRoundRank to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.GhostKoshienRoundRank
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            GhostKoshienRoundRank.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for GhostKoshienRoundRank
+             * @function getTypeUrl
+             * @memberof wm.protobuf.GhostKoshienRoundRank
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            GhostKoshienRoundRank.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.GhostKoshienRoundRank";
+            };
+
+            return GhostKoshienRoundRank;
+        })();
+
         protobuf.GhostCompetitionParameter = (function() {
 
             /**
@@ -53590,6 +66558,7 @@ export const wm = $root.wm = (() => {
                     case 15:
                     case 16:
                     case 17:
+                    case 18:
                     case 19:
                     case 22:
                     case 24:
@@ -53680,6 +66649,10 @@ export const wm = $root.wm = (() => {
                     case "CAT_NAME_PLATE":
                     case 17:
                         message.category = 17;
+                        break;
+                    case "CAT_CUSTOM_FRAME":
+                    case 18:
+                        message.category = 18;
                         break;
                     case "CAT_NUMBER":
                     case 19:
@@ -54025,6 +66998,7 @@ export const wm = $root.wm = (() => {
                 case 15:
                 case 16:
                 case 17:
+                case 18:
                 case 19:
                 case 22:
                 case 24:
@@ -54125,6 +67099,10 @@ export const wm = $root.wm = (() => {
                 case "CAT_NAME_PLATE":
                 case 17:
                     message.category = 17;
+                    break;
+                case "CAT_CUSTOM_FRAME":
+                case 18:
+                    message.category = 18;
                     break;
                 case "CAT_NUMBER":
                 case 19:
@@ -55752,6 +68730,655 @@ export const wm = $root.wm = (() => {
             };
 
             return CarEntry;
+        })();
+
+        protobuf.BingoRevengeCar = (function() {
+
+            /**
+             * Properties of a BingoRevengeCar.
+             * @memberof wm.protobuf
+             * @interface IBingoRevengeCar
+             * @property {wm.protobuf.IGhostCar} ghost BingoRevengeCar ghost
+             * @property {number} revengeNumber BingoRevengeCar revengeNumber
+             * @property {boolean} locked BingoRevengeCar locked
+             */
+
+            /**
+             * Constructs a new BingoRevengeCar.
+             * @memberof wm.protobuf
+             * @classdesc Represents a BingoRevengeCar.
+             * @implements IBingoRevengeCar
+             * @constructor
+             * @param {wm.protobuf.IBingoRevengeCar=} [properties] Properties to set
+             */
+            function BingoRevengeCar(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * BingoRevengeCar ghost.
+             * @member {wm.protobuf.IGhostCar} ghost
+             * @memberof wm.protobuf.BingoRevengeCar
+             * @instance
+             */
+            BingoRevengeCar.prototype.ghost = null;
+
+            /**
+             * BingoRevengeCar revengeNumber.
+             * @member {number} revengeNumber
+             * @memberof wm.protobuf.BingoRevengeCar
+             * @instance
+             */
+            BingoRevengeCar.prototype.revengeNumber = 0;
+
+            /**
+             * BingoRevengeCar locked.
+             * @member {boolean} locked
+             * @memberof wm.protobuf.BingoRevengeCar
+             * @instance
+             */
+            BingoRevengeCar.prototype.locked = false;
+
+            /**
+             * Creates a new BingoRevengeCar instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.BingoRevengeCar
+             * @static
+             * @param {wm.protobuf.IBingoRevengeCar=} [properties] Properties to set
+             * @returns {wm.protobuf.BingoRevengeCar} BingoRevengeCar instance
+             */
+            BingoRevengeCar.create = function create(properties) {
+                return new BingoRevengeCar(properties);
+            };
+
+            /**
+             * Encodes the specified BingoRevengeCar message. Does not implicitly {@link wm.protobuf.BingoRevengeCar.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.BingoRevengeCar
+             * @static
+             * @param {wm.protobuf.IBingoRevengeCar} message BingoRevengeCar message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BingoRevengeCar.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                $root.wm.protobuf.GhostCar.encode(message.ghost, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.revengeNumber);
+                writer.uint32(/* id 3, wireType 0 =*/24).bool(message.locked);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified BingoRevengeCar message, length delimited. Does not implicitly {@link wm.protobuf.BingoRevengeCar.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.BingoRevengeCar
+             * @static
+             * @param {wm.protobuf.IBingoRevengeCar} message BingoRevengeCar message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BingoRevengeCar.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a BingoRevengeCar message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.BingoRevengeCar
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.BingoRevengeCar} BingoRevengeCar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BingoRevengeCar.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.BingoRevengeCar();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.ghost = $root.wm.protobuf.GhostCar.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 2: {
+                            message.revengeNumber = reader.uint32();
+                            break;
+                        }
+                    case 3: {
+                            message.locked = reader.bool();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("ghost"))
+                    throw $util.ProtocolError("missing required 'ghost'", { instance: message });
+                if (!message.hasOwnProperty("revengeNumber"))
+                    throw $util.ProtocolError("missing required 'revengeNumber'", { instance: message });
+                if (!message.hasOwnProperty("locked"))
+                    throw $util.ProtocolError("missing required 'locked'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a BingoRevengeCar message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.BingoRevengeCar
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.BingoRevengeCar} BingoRevengeCar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BingoRevengeCar.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a BingoRevengeCar message.
+             * @function verify
+             * @memberof wm.protobuf.BingoRevengeCar
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BingoRevengeCar.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                {
+                    let error = $root.wm.protobuf.GhostCar.verify(message.ghost);
+                    if (error)
+                        return "ghost." + error;
+                }
+                if (!$util.isInteger(message.revengeNumber))
+                    return "revengeNumber: integer expected";
+                if (typeof message.locked !== "boolean")
+                    return "locked: boolean expected";
+                return null;
+            };
+
+            /**
+             * Creates a BingoRevengeCar message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.BingoRevengeCar
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.BingoRevengeCar} BingoRevengeCar
+             */
+            BingoRevengeCar.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.BingoRevengeCar)
+                    return object;
+                let message = new $root.wm.protobuf.BingoRevengeCar();
+                if (object.ghost != null) {
+                    if (typeof object.ghost !== "object")
+                        throw TypeError(".wm.protobuf.BingoRevengeCar.ghost: object expected");
+                    message.ghost = $root.wm.protobuf.GhostCar.fromObject(object.ghost);
+                }
+                if (object.revengeNumber != null)
+                    message.revengeNumber = object.revengeNumber >>> 0;
+                if (object.locked != null)
+                    message.locked = Boolean(object.locked);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a BingoRevengeCar message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.BingoRevengeCar
+             * @static
+             * @param {wm.protobuf.BingoRevengeCar} message BingoRevengeCar
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BingoRevengeCar.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.defaults) {
+                    object.ghost = null;
+                    object.revengeNumber = 0;
+                    object.locked = false;
+                }
+                if (message.ghost != null && message.hasOwnProperty("ghost"))
+                    object.ghost = $root.wm.protobuf.GhostCar.toObject(message.ghost, options);
+                if (message.revengeNumber != null && message.hasOwnProperty("revengeNumber"))
+                    object.revengeNumber = message.revengeNumber;
+                if (message.locked != null && message.hasOwnProperty("locked"))
+                    object.locked = message.locked;
+                return object;
+            };
+
+            /**
+             * Converts this BingoRevengeCar to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.BingoRevengeCar
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BingoRevengeCar.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for BingoRevengeCar
+             * @function getTypeUrl
+             * @memberof wm.protobuf.BingoRevengeCar
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            BingoRevengeCar.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.BingoRevengeCar";
+            };
+
+            return BingoRevengeCar;
+        })();
+
+        protobuf.BingoPrize = (function() {
+
+            /**
+             * Properties of a BingoPrize.
+             * @memberof wm.protobuf
+             * @interface IBingoPrize
+             * @property {number} bingoPatterns BingoPrize bingoPatterns
+             * @property {wm.protobuf.ItemCategory} category BingoPrize category
+             * @property {number} itemId BingoPrize itemId
+             */
+
+            /**
+             * Constructs a new BingoPrize.
+             * @memberof wm.protobuf
+             * @classdesc Represents a BingoPrize.
+             * @implements IBingoPrize
+             * @constructor
+             * @param {wm.protobuf.IBingoPrize=} [properties] Properties to set
+             */
+            function BingoPrize(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * BingoPrize bingoPatterns.
+             * @member {number} bingoPatterns
+             * @memberof wm.protobuf.BingoPrize
+             * @instance
+             */
+            BingoPrize.prototype.bingoPatterns = 0;
+
+            /**
+             * BingoPrize category.
+             * @member {wm.protobuf.ItemCategory} category
+             * @memberof wm.protobuf.BingoPrize
+             * @instance
+             */
+            BingoPrize.prototype.category = 1;
+
+            /**
+             * BingoPrize itemId.
+             * @member {number} itemId
+             * @memberof wm.protobuf.BingoPrize
+             * @instance
+             */
+            BingoPrize.prototype.itemId = 0;
+
+            /**
+             * Creates a new BingoPrize instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.BingoPrize
+             * @static
+             * @param {wm.protobuf.IBingoPrize=} [properties] Properties to set
+             * @returns {wm.protobuf.BingoPrize} BingoPrize instance
+             */
+            BingoPrize.create = function create(properties) {
+                return new BingoPrize(properties);
+            };
+
+            /**
+             * Encodes the specified BingoPrize message. Does not implicitly {@link wm.protobuf.BingoPrize.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.BingoPrize
+             * @static
+             * @param {wm.protobuf.IBingoPrize} message BingoPrize message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BingoPrize.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.bingoPatterns);
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.category);
+                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.itemId);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified BingoPrize message, length delimited. Does not implicitly {@link wm.protobuf.BingoPrize.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.BingoPrize
+             * @static
+             * @param {wm.protobuf.IBingoPrize} message BingoPrize message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BingoPrize.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a BingoPrize message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.BingoPrize
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.BingoPrize} BingoPrize
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BingoPrize.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.BingoPrize();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.bingoPatterns = reader.uint32();
+                            break;
+                        }
+                    case 2: {
+                            message.category = reader.int32();
+                            break;
+                        }
+                    case 3: {
+                            message.itemId = reader.uint32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("bingoPatterns"))
+                    throw $util.ProtocolError("missing required 'bingoPatterns'", { instance: message });
+                if (!message.hasOwnProperty("category"))
+                    throw $util.ProtocolError("missing required 'category'", { instance: message });
+                if (!message.hasOwnProperty("itemId"))
+                    throw $util.ProtocolError("missing required 'itemId'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a BingoPrize message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.BingoPrize
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.BingoPrize} BingoPrize
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BingoPrize.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a BingoPrize message.
+             * @function verify
+             * @memberof wm.protobuf.BingoPrize
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BingoPrize.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (!$util.isInteger(message.bingoPatterns))
+                    return "bingoPatterns: integer expected";
+                switch (message.category) {
+                default:
+                    return "category: enum value expected";
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                case 19:
+                case 22:
+                case 24:
+                case 25:
+                case 26:
+                case 27:
+                case 28:
+                case 201:
+                case 202:
+                case 203:
+                case 400:
+                case 300:
+                case 301:
+                    break;
+                }
+                if (!$util.isInteger(message.itemId))
+                    return "itemId: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a BingoPrize message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.BingoPrize
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.BingoPrize} BingoPrize
+             */
+            BingoPrize.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.BingoPrize)
+                    return object;
+                let message = new $root.wm.protobuf.BingoPrize();
+                if (object.bingoPatterns != null)
+                    message.bingoPatterns = object.bingoPatterns >>> 0;
+                switch (object.category) {
+                case "CAT_CUSTOM_COLOR":
+                case 1:
+                    message.category = 1;
+                    break;
+                case "CAT_WHEEL":
+                case 2:
+                    message.category = 2;
+                    break;
+                case "CAT_AERO":
+                case 3:
+                    message.category = 3;
+                    break;
+                case "CAT_BONNET":
+                case 4:
+                    message.category = 4;
+                    break;
+                case "CAT_WING":
+                case 5:
+                    message.category = 5;
+                    break;
+                case "CAT_MIRROR":
+                case 6:
+                    message.category = 6;
+                    break;
+                case "CAT_NEON":
+                case 8:
+                    message.category = 8;
+                    break;
+                case "CAT_TRUNK":
+                case 9:
+                    message.category = 9;
+                    break;
+                case "CAT_NUMBER_PLATE":
+                case 10:
+                    message.category = 10;
+                    break;
+                case "CAT_GT_WING":
+                case 12:
+                    message.category = 12;
+                    break;
+                case "CAT_AURA_MOTIF":
+                case 14:
+                    message.category = 14;
+                    break;
+                case "CAT_METER":
+                case 15:
+                    message.category = 15;
+                    break;
+                case "CAT_BGM":
+                case 16:
+                    message.category = 16;
+                    break;
+                case "CAT_NAME_PLATE":
+                case 17:
+                    message.category = 17;
+                    break;
+                case "CAT_CUSTOM_FRAME":
+                case 18:
+                    message.category = 18;
+                    break;
+                case "CAT_NUMBER":
+                case 19:
+                    message.category = 19;
+                    break;
+                case "CAT_BGM_TRACK":
+                case 22:
+                    message.category = 22;
+                    break;
+                case "CAT_WINDOW_STICKER_FONT":
+                case 24:
+                    message.category = 24;
+                    break;
+                case "CAT_WINDOW_DECORATION":
+                case 25:
+                    message.category = 25;
+                    break;
+                case "CAT_RIVAL_MARKER":
+                case 26:
+                    message.category = 26;
+                    break;
+                case "CAT_STAMP":
+                case 27:
+                    message.category = 27;
+                    break;
+                case "CAT_TERMINAL_BACKGROUND":
+                case 28:
+                    message.category = 28;
+                    break;
+                case "CAT_CAR_TICKET":
+                case 201:
+                    message.category = 201;
+                    break;
+                case "CAT_CONSUMPTION_ITEM":
+                case 202:
+                    message.category = 202;
+                    break;
+                case "CAT_CAR_TICKET_FREE":
+                case 203:
+                    message.category = 203;
+                    break;
+                case "CAT_CAR_TITLE":
+                case 400:
+                    message.category = 400;
+                    break;
+                case "CAT_AERO_FULLSET":
+                case 300:
+                    message.category = 300;
+                    break;
+                case "CAT_AERO_LIMITED":
+                case 301:
+                    message.category = 301;
+                    break;
+                }
+                if (object.itemId != null)
+                    message.itemId = object.itemId >>> 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a BingoPrize message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.BingoPrize
+             * @static
+             * @param {wm.protobuf.BingoPrize} message BingoPrize
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BingoPrize.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.defaults) {
+                    object.bingoPatterns = 0;
+                    object.category = options.enums === String ? "CAT_CUSTOM_COLOR" : 1;
+                    object.itemId = 0;
+                }
+                if (message.bingoPatterns != null && message.hasOwnProperty("bingoPatterns"))
+                    object.bingoPatterns = message.bingoPatterns;
+                if (message.category != null && message.hasOwnProperty("category"))
+                    object.category = options.enums === String ? $root.wm.protobuf.ItemCategory[message.category] : message.category;
+                if (message.itemId != null && message.hasOwnProperty("itemId"))
+                    object.itemId = message.itemId;
+                return object;
+            };
+
+            /**
+             * Converts this BingoPrize to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.BingoPrize
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BingoPrize.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for BingoPrize
+             * @function getTypeUrl
+             * @memberof wm.protobuf.BingoPrize
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            BingoPrize.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.BingoPrize";
+            };
+
+            return BingoPrize;
         })();
 
         protobuf.CarTuning = (function() {
@@ -58047,7 +71674,7 @@ export const wm = $root.wm = (() => {
              * @memberof wm.protobuf.GhostCompetitionTarget
              * @instance
              */
-            GhostCompetitionTarget.prototype.trailId = 0;
+            GhostCompetitionTarget.prototype.trailId = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
 
             /**
              * GhostCompetitionTarget updatedAt.
@@ -58277,7 +71904,11 @@ export const wm = $root.wm = (() => {
                     object.competitionId = 0;
                     object.specialGhostId = 0;
                     object.ghostCar = null;
-                    object.trailId = 0;
+                    if ($util.Long) {
+                        let long = new $util.Long(0, 0, true);
+                        object.trailId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.trailId = options.longs === String ? "0" : 0;
                     object.updatedAt = 0;
                     object.competitionSchedule = null;
                 }
@@ -58326,6 +71957,526 @@ export const wm = $root.wm = (() => {
             };
 
             return GhostCompetitionTarget;
+        })();
+
+        protobuf.GhostKoshienParticipatingShop = (function() {
+
+            /**
+             * Properties of a GhostKoshienParticipatingShop.
+             * @memberof wm.protobuf
+             * @interface IGhostKoshienParticipatingShop
+             * @property {number} koshienId GhostKoshienParticipatingShop koshienId
+             * @property {Array.<wm.protobuf.IGhostKoshienRoundRank>|null} [roundRank] GhostKoshienParticipatingShop roundRank
+             * @property {Array.<wm.protobuf.GhostKoshienParticipatingShop.IParticipantShop>|null} [participantStore] GhostKoshienParticipatingShop participantStore
+             */
+
+            /**
+             * Constructs a new GhostKoshienParticipatingShop.
+             * @memberof wm.protobuf
+             * @classdesc Represents a GhostKoshienParticipatingShop.
+             * @implements IGhostKoshienParticipatingShop
+             * @constructor
+             * @param {wm.protobuf.IGhostKoshienParticipatingShop=} [properties] Properties to set
+             */
+            function GhostKoshienParticipatingShop(properties) {
+                this.roundRank = [];
+                this.participantStore = [];
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * GhostKoshienParticipatingShop koshienId.
+             * @member {number} koshienId
+             * @memberof wm.protobuf.GhostKoshienParticipatingShop
+             * @instance
+             */
+            GhostKoshienParticipatingShop.prototype.koshienId = 0;
+
+            /**
+             * GhostKoshienParticipatingShop roundRank.
+             * @member {Array.<wm.protobuf.IGhostKoshienRoundRank>} roundRank
+             * @memberof wm.protobuf.GhostKoshienParticipatingShop
+             * @instance
+             */
+            GhostKoshienParticipatingShop.prototype.roundRank = $util.emptyArray;
+
+            /**
+             * GhostKoshienParticipatingShop participantStore.
+             * @member {Array.<wm.protobuf.GhostKoshienParticipatingShop.IParticipantShop>} participantStore
+             * @memberof wm.protobuf.GhostKoshienParticipatingShop
+             * @instance
+             */
+            GhostKoshienParticipatingShop.prototype.participantStore = $util.emptyArray;
+
+            /**
+             * Creates a new GhostKoshienParticipatingShop instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.GhostKoshienParticipatingShop
+             * @static
+             * @param {wm.protobuf.IGhostKoshienParticipatingShop=} [properties] Properties to set
+             * @returns {wm.protobuf.GhostKoshienParticipatingShop} GhostKoshienParticipatingShop instance
+             */
+            GhostKoshienParticipatingShop.create = function create(properties) {
+                return new GhostKoshienParticipatingShop(properties);
+            };
+
+            /**
+             * Encodes the specified GhostKoshienParticipatingShop message. Does not implicitly {@link wm.protobuf.GhostKoshienParticipatingShop.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.GhostKoshienParticipatingShop
+             * @static
+             * @param {wm.protobuf.IGhostKoshienParticipatingShop} message GhostKoshienParticipatingShop message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GhostKoshienParticipatingShop.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.koshienId);
+                if (message.roundRank != null && message.roundRank.length)
+                    for (let i = 0; i < message.roundRank.length; ++i)
+                        $root.wm.protobuf.GhostKoshienRoundRank.encode(message.roundRank[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.participantStore != null && message.participantStore.length)
+                    for (let i = 0; i < message.participantStore.length; ++i)
+                        $root.wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop.encode(message.participantStore[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified GhostKoshienParticipatingShop message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienParticipatingShop.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.GhostKoshienParticipatingShop
+             * @static
+             * @param {wm.protobuf.IGhostKoshienParticipatingShop} message GhostKoshienParticipatingShop message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GhostKoshienParticipatingShop.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a GhostKoshienParticipatingShop message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.GhostKoshienParticipatingShop
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.GhostKoshienParticipatingShop} GhostKoshienParticipatingShop
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GhostKoshienParticipatingShop.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.GhostKoshienParticipatingShop();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.koshienId = reader.uint32();
+                            break;
+                        }
+                    case 2: {
+                            if (!(message.roundRank && message.roundRank.length))
+                                message.roundRank = [];
+                            message.roundRank.push($root.wm.protobuf.GhostKoshienRoundRank.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    case 3: {
+                            if (!(message.participantStore && message.participantStore.length))
+                                message.participantStore = [];
+                            message.participantStore.push($root.wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("koshienId"))
+                    throw $util.ProtocolError("missing required 'koshienId'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a GhostKoshienParticipatingShop message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.GhostKoshienParticipatingShop
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.GhostKoshienParticipatingShop} GhostKoshienParticipatingShop
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GhostKoshienParticipatingShop.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a GhostKoshienParticipatingShop message.
+             * @function verify
+             * @memberof wm.protobuf.GhostKoshienParticipatingShop
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            GhostKoshienParticipatingShop.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (!$util.isInteger(message.koshienId))
+                    return "koshienId: integer expected";
+                if (message.roundRank != null && message.hasOwnProperty("roundRank")) {
+                    if (!Array.isArray(message.roundRank))
+                        return "roundRank: array expected";
+                    for (let i = 0; i < message.roundRank.length; ++i) {
+                        let error = $root.wm.protobuf.GhostKoshienRoundRank.verify(message.roundRank[i]);
+                        if (error)
+                            return "roundRank." + error;
+                    }
+                }
+                if (message.participantStore != null && message.hasOwnProperty("participantStore")) {
+                    if (!Array.isArray(message.participantStore))
+                        return "participantStore: array expected";
+                    for (let i = 0; i < message.participantStore.length; ++i) {
+                        let error = $root.wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop.verify(message.participantStore[i]);
+                        if (error)
+                            return "participantStore." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a GhostKoshienParticipatingShop message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.GhostKoshienParticipatingShop
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.GhostKoshienParticipatingShop} GhostKoshienParticipatingShop
+             */
+            GhostKoshienParticipatingShop.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.GhostKoshienParticipatingShop)
+                    return object;
+                let message = new $root.wm.protobuf.GhostKoshienParticipatingShop();
+                if (object.koshienId != null)
+                    message.koshienId = object.koshienId >>> 0;
+                if (object.roundRank) {
+                    if (!Array.isArray(object.roundRank))
+                        throw TypeError(".wm.protobuf.GhostKoshienParticipatingShop.roundRank: array expected");
+                    message.roundRank = [];
+                    for (let i = 0; i < object.roundRank.length; ++i) {
+                        if (typeof object.roundRank[i] !== "object")
+                            throw TypeError(".wm.protobuf.GhostKoshienParticipatingShop.roundRank: object expected");
+                        message.roundRank[i] = $root.wm.protobuf.GhostKoshienRoundRank.fromObject(object.roundRank[i]);
+                    }
+                }
+                if (object.participantStore) {
+                    if (!Array.isArray(object.participantStore))
+                        throw TypeError(".wm.protobuf.GhostKoshienParticipatingShop.participantStore: array expected");
+                    message.participantStore = [];
+                    for (let i = 0; i < object.participantStore.length; ++i) {
+                        if (typeof object.participantStore[i] !== "object")
+                            throw TypeError(".wm.protobuf.GhostKoshienParticipatingShop.participantStore: object expected");
+                        message.participantStore[i] = $root.wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop.fromObject(object.participantStore[i]);
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a GhostKoshienParticipatingShop message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.GhostKoshienParticipatingShop
+             * @static
+             * @param {wm.protobuf.GhostKoshienParticipatingShop} message GhostKoshienParticipatingShop
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            GhostKoshienParticipatingShop.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.arrays || options.defaults) {
+                    object.roundRank = [];
+                    object.participantStore = [];
+                }
+                if (options.defaults)
+                    object.koshienId = 0;
+                if (message.koshienId != null && message.hasOwnProperty("koshienId"))
+                    object.koshienId = message.koshienId;
+                if (message.roundRank && message.roundRank.length) {
+                    object.roundRank = [];
+                    for (let j = 0; j < message.roundRank.length; ++j)
+                        object.roundRank[j] = $root.wm.protobuf.GhostKoshienRoundRank.toObject(message.roundRank[j], options);
+                }
+                if (message.participantStore && message.participantStore.length) {
+                    object.participantStore = [];
+                    for (let j = 0; j < message.participantStore.length; ++j)
+                        object.participantStore[j] = $root.wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop.toObject(message.participantStore[j], options);
+                }
+                return object;
+            };
+
+            /**
+             * Converts this GhostKoshienParticipatingShop to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.GhostKoshienParticipatingShop
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            GhostKoshienParticipatingShop.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for GhostKoshienParticipatingShop
+             * @function getTypeUrl
+             * @memberof wm.protobuf.GhostKoshienParticipatingShop
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            GhostKoshienParticipatingShop.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.GhostKoshienParticipatingShop";
+            };
+
+            GhostKoshienParticipatingShop.ParticipantShop = (function() {
+
+                /**
+                 * Properties of a ParticipantShop.
+                 * @memberof wm.protobuf.GhostKoshienParticipatingShop
+                 * @interface IParticipantShop
+                 * @property {string} name ParticipantShop name
+                 * @property {number} regionId ParticipantShop regionId
+                 */
+
+                /**
+                 * Constructs a new ParticipantShop.
+                 * @memberof wm.protobuf.GhostKoshienParticipatingShop
+                 * @classdesc Represents a ParticipantShop.
+                 * @implements IParticipantShop
+                 * @constructor
+                 * @param {wm.protobuf.GhostKoshienParticipatingShop.IParticipantShop=} [properties] Properties to set
+                 */
+                function ParticipantShop(properties) {
+                    if (properties)
+                        for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                /**
+                 * ParticipantShop name.
+                 * @member {string} name
+                 * @memberof wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop
+                 * @instance
+                 */
+                ParticipantShop.prototype.name = "";
+
+                /**
+                 * ParticipantShop regionId.
+                 * @member {number} regionId
+                 * @memberof wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop
+                 * @instance
+                 */
+                ParticipantShop.prototype.regionId = 0;
+
+                /**
+                 * Creates a new ParticipantShop instance using the specified properties.
+                 * @function create
+                 * @memberof wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop
+                 * @static
+                 * @param {wm.protobuf.GhostKoshienParticipatingShop.IParticipantShop=} [properties] Properties to set
+                 * @returns {wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop} ParticipantShop instance
+                 */
+                ParticipantShop.create = function create(properties) {
+                    return new ParticipantShop(properties);
+                };
+
+                /**
+                 * Encodes the specified ParticipantShop message. Does not implicitly {@link wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop.verify|verify} messages.
+                 * @function encode
+                 * @memberof wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop
+                 * @static
+                 * @param {wm.protobuf.GhostKoshienParticipatingShop.IParticipantShop} message ParticipantShop message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                ParticipantShop.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                    writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.regionId);
+                    return writer;
+                };
+
+                /**
+                 * Encodes the specified ParticipantShop message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop
+                 * @static
+                 * @param {wm.protobuf.GhostKoshienParticipatingShop.IParticipantShop} message ParticipantShop message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                ParticipantShop.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                /**
+                 * Decodes a ParticipantShop message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop} ParticipantShop
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                ParticipantShop.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop();
+                    while (reader.pos < end) {
+                        let tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.name = reader.string();
+                                break;
+                            }
+                        case 2: {
+                                message.regionId = reader.uint32();
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    if (!message.hasOwnProperty("name"))
+                        throw $util.ProtocolError("missing required 'name'", { instance: message });
+                    if (!message.hasOwnProperty("regionId"))
+                        throw $util.ProtocolError("missing required 'regionId'", { instance: message });
+                    return message;
+                };
+
+                /**
+                 * Decodes a ParticipantShop message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop} ParticipantShop
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                ParticipantShop.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                /**
+                 * Verifies a ParticipantShop message.
+                 * @function verify
+                 * @memberof wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                ParticipantShop.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (!$util.isString(message.name))
+                        return "name: string expected";
+                    if (!$util.isInteger(message.regionId))
+                        return "regionId: integer expected";
+                    return null;
+                };
+
+                /**
+                 * Creates a ParticipantShop message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop} ParticipantShop
+                 */
+                ParticipantShop.fromObject = function fromObject(object) {
+                    if (object instanceof $root.wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop)
+                        return object;
+                    let message = new $root.wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop();
+                    if (object.name != null)
+                        message.name = String(object.name);
+                    if (object.regionId != null)
+                        message.regionId = object.regionId >>> 0;
+                    return message;
+                };
+
+                /**
+                 * Creates a plain object from a ParticipantShop message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop
+                 * @static
+                 * @param {wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop} message ParticipantShop
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                ParticipantShop.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    let object = {};
+                    if (options.defaults) {
+                        object.name = "";
+                        object.regionId = 0;
+                    }
+                    if (message.name != null && message.hasOwnProperty("name"))
+                        object.name = message.name;
+                    if (message.regionId != null && message.hasOwnProperty("regionId"))
+                        object.regionId = message.regionId;
+                    return object;
+                };
+
+                /**
+                 * Converts this ParticipantShop to JSON.
+                 * @function toJSON
+                 * @memberof wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                ParticipantShop.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                /**
+                 * Gets the default type url for ParticipantShop
+                 * @function getTypeUrl
+                 * @memberof wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                ParticipantShop.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop";
+                };
+
+                return ParticipantShop;
+            })();
+
+            return GhostKoshienParticipatingShop;
         })();
 
         protobuf.GhostExpeditionRanking = (function() {
@@ -58853,15 +73004,382 @@ export const wm = $root.wm = (() => {
             return GhostExpeditionParticipants;
         })();
 
+        protobuf.GhostKoshienTarget = (function() {
+
+            /**
+             * Properties of a GhostKoshienTarget.
+             * @memberof wm.protobuf
+             * @interface IGhostKoshienTarget
+             * @property {number} koshienId GhostKoshienTarget koshienId
+             * @property {wm.protobuf.IGhostCar} ghostCar GhostKoshienTarget ghostCar
+             * @property {number|Long} trailId GhostKoshienTarget trailId
+             * @property {number} updatedAt GhostKoshienTarget updatedAt
+             * @property {number} koshienPeriodId GhostKoshienTarget koshienPeriodId
+             * @property {number|null} [regionId] GhostKoshienTarget regionId
+             * @property {wm.protobuf.IPlace|null} [participantShop] GhostKoshienTarget participantShop
+             */
+
+            /**
+             * Constructs a new GhostKoshienTarget.
+             * @memberof wm.protobuf
+             * @classdesc Represents a GhostKoshienTarget.
+             * @implements IGhostKoshienTarget
+             * @constructor
+             * @param {wm.protobuf.IGhostKoshienTarget=} [properties] Properties to set
+             */
+            function GhostKoshienTarget(properties) {
+                if (properties)
+                    for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * GhostKoshienTarget koshienId.
+             * @member {number} koshienId
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @instance
+             */
+            GhostKoshienTarget.prototype.koshienId = 0;
+
+            /**
+             * GhostKoshienTarget ghostCar.
+             * @member {wm.protobuf.IGhostCar} ghostCar
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @instance
+             */
+            GhostKoshienTarget.prototype.ghostCar = null;
+
+            /**
+             * GhostKoshienTarget trailId.
+             * @member {number|Long} trailId
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @instance
+             */
+            GhostKoshienTarget.prototype.trailId = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+
+            /**
+             * GhostKoshienTarget updatedAt.
+             * @member {number} updatedAt
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @instance
+             */
+            GhostKoshienTarget.prototype.updatedAt = 0;
+
+            /**
+             * GhostKoshienTarget koshienPeriodId.
+             * @member {number} koshienPeriodId
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @instance
+             */
+            GhostKoshienTarget.prototype.koshienPeriodId = 0;
+
+            /**
+             * GhostKoshienTarget regionId.
+             * @member {number} regionId
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @instance
+             */
+            GhostKoshienTarget.prototype.regionId = 0;
+
+            /**
+             * GhostKoshienTarget participantShop.
+             * @member {wm.protobuf.IPlace|null|undefined} participantShop
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @instance
+             */
+            GhostKoshienTarget.prototype.participantShop = null;
+
+            /**
+             * Creates a new GhostKoshienTarget instance using the specified properties.
+             * @function create
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @static
+             * @param {wm.protobuf.IGhostKoshienTarget=} [properties] Properties to set
+             * @returns {wm.protobuf.GhostKoshienTarget} GhostKoshienTarget instance
+             */
+            GhostKoshienTarget.create = function create(properties) {
+                return new GhostKoshienTarget(properties);
+            };
+
+            /**
+             * Encodes the specified GhostKoshienTarget message. Does not implicitly {@link wm.protobuf.GhostKoshienTarget.verify|verify} messages.
+             * @function encode
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @static
+             * @param {wm.protobuf.IGhostKoshienTarget} message GhostKoshienTarget message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GhostKoshienTarget.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.koshienId);
+                $root.wm.protobuf.GhostCar.encode(message.ghostCar, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                writer.uint32(/* id 4, wireType 0 =*/32).uint64(message.trailId);
+                writer.uint32(/* id 5, wireType 0 =*/40).uint32(message.updatedAt);
+                writer.uint32(/* id 7, wireType 0 =*/56).uint32(message.koshienPeriodId);
+                if (message.regionId != null && Object.hasOwnProperty.call(message, "regionId"))
+                    writer.uint32(/* id 8, wireType 0 =*/64).uint32(message.regionId);
+                if (message.participantShop != null && Object.hasOwnProperty.call(message, "participantShop"))
+                    $root.wm.protobuf.Place.encode(message.participantShop, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified GhostKoshienTarget message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienTarget.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @static
+             * @param {wm.protobuf.IGhostKoshienTarget} message GhostKoshienTarget message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GhostKoshienTarget.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a GhostKoshienTarget message from the specified reader or buffer.
+             * @function decode
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {wm.protobuf.GhostKoshienTarget} GhostKoshienTarget
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GhostKoshienTarget.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                let end = length === undefined ? reader.len : reader.pos + length, message = new $root.wm.protobuf.GhostKoshienTarget();
+                while (reader.pos < end) {
+                    let tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.koshienId = reader.uint32();
+                            break;
+                        }
+                    case 3: {
+                            message.ghostCar = $root.wm.protobuf.GhostCar.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 4: {
+                            message.trailId = reader.uint64();
+                            break;
+                        }
+                    case 5: {
+                            message.updatedAt = reader.uint32();
+                            break;
+                        }
+                    case 7: {
+                            message.koshienPeriodId = reader.uint32();
+                            break;
+                        }
+                    case 8: {
+                            message.regionId = reader.uint32();
+                            break;
+                        }
+                    case 9: {
+                            message.participantShop = $root.wm.protobuf.Place.decode(reader, reader.uint32());
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                if (!message.hasOwnProperty("koshienId"))
+                    throw $util.ProtocolError("missing required 'koshienId'", { instance: message });
+                if (!message.hasOwnProperty("ghostCar"))
+                    throw $util.ProtocolError("missing required 'ghostCar'", { instance: message });
+                if (!message.hasOwnProperty("trailId"))
+                    throw $util.ProtocolError("missing required 'trailId'", { instance: message });
+                if (!message.hasOwnProperty("updatedAt"))
+                    throw $util.ProtocolError("missing required 'updatedAt'", { instance: message });
+                if (!message.hasOwnProperty("koshienPeriodId"))
+                    throw $util.ProtocolError("missing required 'koshienPeriodId'", { instance: message });
+                return message;
+            };
+
+            /**
+             * Decodes a GhostKoshienTarget message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {wm.protobuf.GhostKoshienTarget} GhostKoshienTarget
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GhostKoshienTarget.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a GhostKoshienTarget message.
+             * @function verify
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            GhostKoshienTarget.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (!$util.isInteger(message.koshienId))
+                    return "koshienId: integer expected";
+                {
+                    let error = $root.wm.protobuf.GhostCar.verify(message.ghostCar);
+                    if (error)
+                        return "ghostCar." + error;
+                }
+                if (!$util.isInteger(message.trailId) && !(message.trailId && $util.isInteger(message.trailId.low) && $util.isInteger(message.trailId.high)))
+                    return "trailId: integer|Long expected";
+                if (!$util.isInteger(message.updatedAt))
+                    return "updatedAt: integer expected";
+                if (!$util.isInteger(message.koshienPeriodId))
+                    return "koshienPeriodId: integer expected";
+                if (message.regionId != null && message.hasOwnProperty("regionId"))
+                    if (!$util.isInteger(message.regionId))
+                        return "regionId: integer expected";
+                if (message.participantShop != null && message.hasOwnProperty("participantShop")) {
+                    let error = $root.wm.protobuf.Place.verify(message.participantShop);
+                    if (error)
+                        return "participantShop." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a GhostKoshienTarget message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {wm.protobuf.GhostKoshienTarget} GhostKoshienTarget
+             */
+            GhostKoshienTarget.fromObject = function fromObject(object) {
+                if (object instanceof $root.wm.protobuf.GhostKoshienTarget)
+                    return object;
+                let message = new $root.wm.protobuf.GhostKoshienTarget();
+                if (object.koshienId != null)
+                    message.koshienId = object.koshienId >>> 0;
+                if (object.ghostCar != null) {
+                    if (typeof object.ghostCar !== "object")
+                        throw TypeError(".wm.protobuf.GhostKoshienTarget.ghostCar: object expected");
+                    message.ghostCar = $root.wm.protobuf.GhostCar.fromObject(object.ghostCar);
+                }
+                if (object.trailId != null)
+                    if ($util.Long)
+                        (message.trailId = $util.Long.fromValue(object.trailId)).unsigned = true;
+                    else if (typeof object.trailId === "string")
+                        message.trailId = parseInt(object.trailId, 10);
+                    else if (typeof object.trailId === "number")
+                        message.trailId = object.trailId;
+                    else if (typeof object.trailId === "object")
+                        message.trailId = new $util.LongBits(object.trailId.low >>> 0, object.trailId.high >>> 0).toNumber(true);
+                if (object.updatedAt != null)
+                    message.updatedAt = object.updatedAt >>> 0;
+                if (object.koshienPeriodId != null)
+                    message.koshienPeriodId = object.koshienPeriodId >>> 0;
+                if (object.regionId != null)
+                    message.regionId = object.regionId >>> 0;
+                if (object.participantShop != null) {
+                    if (typeof object.participantShop !== "object")
+                        throw TypeError(".wm.protobuf.GhostKoshienTarget.participantShop: object expected");
+                    message.participantShop = $root.wm.protobuf.Place.fromObject(object.participantShop);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a GhostKoshienTarget message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @static
+             * @param {wm.protobuf.GhostKoshienTarget} message GhostKoshienTarget
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            GhostKoshienTarget.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                let object = {};
+                if (options.defaults) {
+                    object.koshienId = 0;
+                    object.ghostCar = null;
+                    if ($util.Long) {
+                        let long = new $util.Long(0, 0, true);
+                        object.trailId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.trailId = options.longs === String ? "0" : 0;
+                    object.updatedAt = 0;
+                    object.koshienPeriodId = 0;
+                    object.regionId = 0;
+                    object.participantShop = null;
+                }
+                if (message.koshienId != null && message.hasOwnProperty("koshienId"))
+                    object.koshienId = message.koshienId;
+                if (message.ghostCar != null && message.hasOwnProperty("ghostCar"))
+                    object.ghostCar = $root.wm.protobuf.GhostCar.toObject(message.ghostCar, options);
+                if (message.trailId != null && message.hasOwnProperty("trailId"))
+                    if (typeof message.trailId === "number")
+                        object.trailId = options.longs === String ? String(message.trailId) : message.trailId;
+                    else
+                        object.trailId = options.longs === String ? $util.Long.prototype.toString.call(message.trailId) : options.longs === Number ? new $util.LongBits(message.trailId.low >>> 0, message.trailId.high >>> 0).toNumber(true) : message.trailId;
+                if (message.updatedAt != null && message.hasOwnProperty("updatedAt"))
+                    object.updatedAt = message.updatedAt;
+                if (message.koshienPeriodId != null && message.hasOwnProperty("koshienPeriodId"))
+                    object.koshienPeriodId = message.koshienPeriodId;
+                if (message.regionId != null && message.hasOwnProperty("regionId"))
+                    object.regionId = message.regionId;
+                if (message.participantShop != null && message.hasOwnProperty("participantShop"))
+                    object.participantShop = $root.wm.protobuf.Place.toObject(message.participantShop, options);
+                return object;
+            };
+
+            /**
+             * Converts this GhostKoshienTarget to JSON.
+             * @function toJSON
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            GhostKoshienTarget.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            /**
+             * Gets the default type url for GhostKoshienTarget
+             * @function getTypeUrl
+             * @memberof wm.protobuf.GhostKoshienTarget
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            GhostKoshienTarget.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/wm.protobuf.GhostKoshienTarget";
+            };
+
+            return GhostKoshienTarget;
+        })();
+
         /**
          * SystemConstant enum.
          * @name wm.protobuf.SystemConstant
          * @enum {number}
-         * @property {number} PROTOBUF_MESSAGE_REVISION=10029 PROTOBUF_MESSAGE_REVISION value
+         * @property {number} PROTOBUF_MESSAGE_REVISION=12056 PROTOBUF_MESSAGE_REVISION value
          */
         protobuf.SystemConstant = (function() {
             const valuesById = {}, values = Object.create(valuesById);
-            values[valuesById[10029] = "PROTOBUF_MESSAGE_REVISION"] = 10029;
+            values[valuesById[12056] = "PROTOBUF_MESSAGE_REVISION"] = 12056;
             return values;
         })();
 
@@ -58881,6 +73399,12 @@ export const wm = $root.wm = (() => {
          * @property {number} ERR_USER_SUCCEEDED=11 ERR_USER_SUCCEEDED value
          * @property {number} ERR_BEING_TRANSFERRED=12 ERR_BEING_TRANSFERRED value
          * @property {number} ERR_SCRATCH_LOCKED=13 ERR_SCRATCH_LOCKED value
+         * @property {number} ERR_BINGO_REVENGE_LOCKED=14 ERR_BINGO_REVENGE_LOCKED value
+         * @property {number} ERR_BINGO_ALREDY_LINKED=15 ERR_BINGO_ALREDY_LINKED value
+         * @property {number} ERR_BINGO_FINISHED=16 ERR_BINGO_FINISHED value
+         * @property {number} ERR_BINGO_REACHED_MAX_USER=17 ERR_BINGO_REACHED_MAX_USER value
+         * @property {number} ERR_CAR_NOT_FOUND=18 ERR_CAR_NOT_FOUND value
+         * @property {number} ERR_BINGO_CARD_NOT_FOUND=19 ERR_BINGO_CARD_NOT_FOUND value
          */
         protobuf.ErrorCode = (function() {
             const valuesById = {}, values = Object.create(valuesById);
@@ -58896,6 +73420,12 @@ export const wm = $root.wm = (() => {
             values[valuesById[11] = "ERR_USER_SUCCEEDED"] = 11;
             values[valuesById[12] = "ERR_BEING_TRANSFERRED"] = 12;
             values[valuesById[13] = "ERR_SCRATCH_LOCKED"] = 13;
+            values[valuesById[14] = "ERR_BINGO_REVENGE_LOCKED"] = 14;
+            values[valuesById[15] = "ERR_BINGO_ALREDY_LINKED"] = 15;
+            values[valuesById[16] = "ERR_BINGO_FINISHED"] = 16;
+            values[valuesById[17] = "ERR_BINGO_REACHED_MAX_USER"] = 17;
+            values[valuesById[18] = "ERR_CAR_NOT_FOUND"] = 18;
+            values[valuesById[19] = "ERR_BINGO_CARD_NOT_FOUND"] = 19;
             return values;
         })();
 
@@ -58967,6 +73497,7 @@ export const wm = $root.wm = (() => {
          * @property {number} CAT_METER=15 CAT_METER value
          * @property {number} CAT_BGM=16 CAT_BGM value
          * @property {number} CAT_NAME_PLATE=17 CAT_NAME_PLATE value
+         * @property {number} CAT_CUSTOM_FRAME=18 CAT_CUSTOM_FRAME value
          * @property {number} CAT_NUMBER=19 CAT_NUMBER value
          * @property {number} CAT_BGM_TRACK=22 CAT_BGM_TRACK value
          * @property {number} CAT_WINDOW_STICKER_FONT=24 CAT_WINDOW_STICKER_FONT value
@@ -58997,6 +73528,7 @@ export const wm = $root.wm = (() => {
             values[valuesById[15] = "CAT_METER"] = 15;
             values[valuesById[16] = "CAT_BGM"] = 16;
             values[valuesById[17] = "CAT_NAME_PLATE"] = 17;
+            values[valuesById[18] = "CAT_CUSTOM_FRAME"] = 18;
             values[valuesById[19] = "CAT_NUMBER"] = 19;
             values[valuesById[22] = "CAT_BGM_TRACK"] = 22;
             values[valuesById[24] = "CAT_WINDOW_STICKER_FONT"] = 24;
@@ -59069,6 +73601,16 @@ export const wm = $root.wm = (() => {
          * @property {number} TUTORIAL_ID_GHOST_TROPHY=49 TUTORIAL_ID_GHOST_TROPHY value
          * @property {number} TUTORIAL_ID_GHOST_SELECT=50 TUTORIAL_ID_GHOST_SELECT value
          * @property {number} TUTORIAL_ID_GHOST_SELECT_BY_SAME_PLACE=51 TUTORIAL_ID_GHOST_SELECT_BY_SAME_PLACE value
+         * @property {number} TUTORIAL_ID_GHOST_BINGO_NEW=52 TUTORIAL_ID_GHOST_BINGO_NEW value
+         * @property {number} TUTORIAL_ID_UNUSED_53=53 TUTORIAL_ID_UNUSED_53 value
+         * @property {number} TUTORIAL_ID_GHOST_BINGO_LINK=54 TUTORIAL_ID_GHOST_BINGO_LINK value
+         * @property {number} TUTORIAL_ID_GHOST_KOSHIEN_NEW=55 TUTORIAL_ID_GHOST_KOSHIEN_NEW value
+         * @property {number} TUTORIAL_ID_GHOST_KOSHIEN_NOTICE=56 TUTORIAL_ID_GHOST_KOSHIEN_NOTICE value
+         * @property {number} TUTORIAL_ID_GHOST_KOSHIEN_MVP_UPDATE=57 TUTORIAL_ID_GHOST_KOSHIEN_MVP_UPDATE value
+         * @property {number} TUTORIAL_ID_BINGO_LUCKY_CHANCE=58 TUTORIAL_ID_BINGO_LUCKY_CHANCE value
+         * @property {number} TUTORIAL_ID_GHOST_KOSHIEN_FINISHED=59 TUTORIAL_ID_GHOST_KOSHIEN_FINISHED value
+         * @property {number} TUTORIAL_ID_GHOST_KOSHIEN_AFTEREVENT=60 TUTORIAL_ID_GHOST_KOSHIEN_AFTEREVENT value
+         * @property {number} TUTORIAL_ID_GHOST_BINGO_AREA=61 TUTORIAL_ID_GHOST_BINGO_AREA value
          */
         protobuf.TutorialType = (function() {
             const valuesById = {}, values = Object.create(valuesById);
@@ -59124,6 +73666,16 @@ export const wm = $root.wm = (() => {
             values[valuesById[49] = "TUTORIAL_ID_GHOST_TROPHY"] = 49;
             values[valuesById[50] = "TUTORIAL_ID_GHOST_SELECT"] = 50;
             values[valuesById[51] = "TUTORIAL_ID_GHOST_SELECT_BY_SAME_PLACE"] = 51;
+            values[valuesById[52] = "TUTORIAL_ID_GHOST_BINGO_NEW"] = 52;
+            values[valuesById[53] = "TUTORIAL_ID_UNUSED_53"] = 53;
+            values[valuesById[54] = "TUTORIAL_ID_GHOST_BINGO_LINK"] = 54;
+            values[valuesById[55] = "TUTORIAL_ID_GHOST_KOSHIEN_NEW"] = 55;
+            values[valuesById[56] = "TUTORIAL_ID_GHOST_KOSHIEN_NOTICE"] = 56;
+            values[valuesById[57] = "TUTORIAL_ID_GHOST_KOSHIEN_MVP_UPDATE"] = 57;
+            values[valuesById[58] = "TUTORIAL_ID_BINGO_LUCKY_CHANCE"] = 58;
+            values[valuesById[59] = "TUTORIAL_ID_GHOST_KOSHIEN_FINISHED"] = 59;
+            values[valuesById[60] = "TUTORIAL_ID_GHOST_KOSHIEN_AFTEREVENT"] = 60;
+            values[valuesById[61] = "TUTORIAL_ID_GHOST_BINGO_AREA"] = 61;
             return values;
         })();
 
@@ -59196,6 +73748,8 @@ export const wm = $root.wm = (() => {
          * @property {number} GHOST_SELECT_BY_REGION_STATION=23 GHOST_SELECT_BY_REGION_STATION value
          * @property {number} GHOST_SELECT_BY_REGION_BOSS=24 GHOST_SELECT_BY_REGION_BOSS value
          * @property {number} GHOST_SELECT_BY_REGION_PLACE=25 GHOST_SELECT_BY_REGION_PLACE value
+         * @property {number} GHOST_BINGO_CHALLENGE=26 GHOST_BINGO_CHALLENGE value
+         * @property {number} GHOST_KOSHIEN=27 GHOST_KOSHIEN value
          */
         protobuf.GhostSelectionMethod = (function() {
             const valuesById = {}, values = Object.create(valuesById);
@@ -59224,6 +73778,8 @@ export const wm = $root.wm = (() => {
             values[valuesById[23] = "GHOST_SELECT_BY_REGION_STATION"] = 23;
             values[valuesById[24] = "GHOST_SELECT_BY_REGION_BOSS"] = 24;
             values[valuesById[25] = "GHOST_SELECT_BY_REGION_PLACE"] = 25;
+            values[valuesById[26] = "GHOST_BINGO_CHALLENGE"] = 26;
+            values[valuesById[27] = "GHOST_KOSHIEN"] = 27;
             return values;
         })();
 
@@ -59350,6 +73906,36 @@ export const wm = $root.wm = (() => {
         })();
 
         /**
+         * GhostKoshienParticipantState enum.
+         * @name wm.protobuf.GhostKoshienParticipantState
+         * @enum {number}
+         * @property {number} KOSHIEN_NOT_PARTICIPATED=1 KOSHIEN_NOT_PARTICIPATED value
+         * @property {number} KOSHIEN_FIRST_QUALIFIED=2 KOSHIEN_FIRST_QUALIFIED value
+         * @property {number} KOSHIEN_SECOND_QUALIFIED=3 KOSHIEN_SECOND_QUALIFIED value
+         * @property {number} KOSHIEN_REGION_PARTICIPATED=4 KOSHIEN_REGION_PARTICIPATED value
+         * @property {number} KOSHIEN_PARTICIPATED=5 KOSHIEN_PARTICIPATED value
+         * @property {number} KOSHIEN_FIRST_QUALIFIED_LOSE=6 KOSHIEN_FIRST_QUALIFIED_LOSE value
+         * @property {number} KOSHIEN_SECOND_QUALIFIED_LOSE=7 KOSHIEN_SECOND_QUALIFIED_LOSE value
+         * @property {number} KOSHIEN_REGION_PARTICIPATED_LOSE=8 KOSHIEN_REGION_PARTICIPATED_LOSE value
+         * @property {number} KOSHIEN_WON=9 KOSHIEN_WON value
+         * @property {number} KOSHIEN_UNUSED=10 KOSHIEN_UNUSED value
+         */
+        protobuf.GhostKoshienParticipantState = (function() {
+            const valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[1] = "KOSHIEN_NOT_PARTICIPATED"] = 1;
+            values[valuesById[2] = "KOSHIEN_FIRST_QUALIFIED"] = 2;
+            values[valuesById[3] = "KOSHIEN_SECOND_QUALIFIED"] = 3;
+            values[valuesById[4] = "KOSHIEN_REGION_PARTICIPATED"] = 4;
+            values[valuesById[5] = "KOSHIEN_PARTICIPATED"] = 5;
+            values[valuesById[6] = "KOSHIEN_FIRST_QUALIFIED_LOSE"] = 6;
+            values[valuesById[7] = "KOSHIEN_SECOND_QUALIFIED_LOSE"] = 7;
+            values[valuesById[8] = "KOSHIEN_REGION_PARTICIPATED_LOSE"] = 8;
+            values[valuesById[9] = "KOSHIEN_WON"] = 9;
+            values[valuesById[10] = "KOSHIEN_UNUSED"] = 10;
+            return values;
+        })();
+
+        /**
          * ScreenshotType enum.
          * @name wm.protobuf.ScreenshotType
          * @enum {number}
@@ -59363,6 +73949,7 @@ export const wm = $root.wm = (() => {
          * @property {number} SS_GHOST_COMPETITION_RESULT=8 SS_GHOST_COMPETITION_RESULT value
          * @property {number} SS_TIME_ATTACK_RESULT=9 SS_TIME_ATTACK_RESULT value
          * @property {number} SS_LEVEL_UP=10 SS_LEVEL_UP value
+         * @property {number} SS_GHOST_KOSHIEN_RESULT=11 SS_GHOST_KOSHIEN_RESULT value
          */
         protobuf.ScreenshotType = (function() {
             const valuesById = {}, values = Object.create(valuesById);
@@ -59376,6 +73963,7 @@ export const wm = $root.wm = (() => {
             values[valuesById[8] = "SS_GHOST_COMPETITION_RESULT"] = 8;
             values[valuesById[9] = "SS_TIME_ATTACK_RESULT"] = 9;
             values[valuesById[10] = "SS_LEVEL_UP"] = 10;
+            values[valuesById[11] = "SS_GHOST_KOSHIEN_RESULT"] = 11;
             return values;
         })();
 

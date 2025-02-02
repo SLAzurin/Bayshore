@@ -62,6 +62,9 @@ export default class UserModule extends Module {
 					ghostVs_2Locked: false, // TODO: Maybe... idk
 					ghostVs_3Locked: false, // TODO: Maybe... idk
 					ghostHighwayLocked: false, // TODO: Maybe... idk
+					bingoMismatchNumberAcquiredCount: 0, 
+					receivedNumOfItems: 0,
+					bingoPlayedCount: 0
 				};
 
 				if (!body.cardChipId || !body.accessCode) 
@@ -140,6 +143,16 @@ export default class UserModule extends Module {
 								false, // TUTORIAL_ID_GHOST_TROPHY = 49,
 								false, // TUTORIAL_ID_GHOST_SELECT = 50,
 								false, // TUTORIAL_ID_GHOST_SELECT_BY_SAME_PLACE = 51
+								false, // TUTORIAL_ID_GHOST_BINGO_NEW = 52,
+								false, // TUTORIAL_ID_UNUSED_53 = 53,
+								false, // TUTORIAL_ID_GHOST_BINGO_LINK = 54,
+								false, // TUTORIAL_ID_GHOST_KOSHIEN_NEW = 55,
+								false, // TUTORIAL_ID_GHOST_KOSHIEN_NOTICE = 56,
+								false, // TUTORIAL_ID_GHOST_KOSHIEN_MVP_UPDATE = 57,
+								false, // TUTORIAL_ID_BINGO_LUCKY_CHANCE = 58,
+								false, // TUTORIAL_ID_GHOST_KOSHIEN_FINISHED = 59,
+								false, // TUTORIAL_ID_GHOST_KOSHIEN_AFTEREVENT = 60,
+								false  // TUTORIAL_ID_GHOST_BINGO_AREA = 61
 							],
 						}
 					});
@@ -396,6 +409,10 @@ export default class UserModule extends Module {
 				ghostVs_2Locked: false,
 				ghostVs_3Locked: false,
 				ghostHighwayLocked: false,
+
+				bingoMismatchNumberAcquiredCount: 0, 
+				receivedNumOfItems: 0,
+				bingoPlayedCount: 0
 			}
 
 			

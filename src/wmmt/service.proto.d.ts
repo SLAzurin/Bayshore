@@ -250,6 +250,20 @@ export namespace wm {
             public load_ghost_competition_info(request: wm.protobuf.ILoadGhostCompetitionInfoRequest): Promise<wm.protobuf.LoadGhostCompetitionInfoResponse>;
 
             /**
+             * Calls load_ghost_koshien_info.
+             * @param request LoadGhostKoshienInfoRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and LoadGhostKoshienInfoResponse
+             */
+            public load_ghost_koshien_info(request: wm.protobuf.ILoadGhostKoshienInfoRequest, callback: wm.protobuf.Rpc.load_ghost_koshien_infoCallback): void;
+
+            /**
+             * Calls load_ghost_koshien_info.
+             * @param request LoadGhostKoshienInfoRequest message or plain object
+             * @returns Promise
+             */
+            public load_ghost_koshien_info(request: wm.protobuf.ILoadGhostKoshienInfoRequest): Promise<wm.protobuf.LoadGhostKoshienInfoResponse>;
+
+            /**
              * Calls load_time_attack_record.
              * @param request LoadTimeAttackRecordRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and LoadTimeAttackRecordResponse
@@ -402,6 +416,48 @@ export namespace wm {
              * @returns Promise
              */
             public load_ghost_competition_ranking(request: wm.protobuf.ILoadGhostCompetitionRankingRequest): Promise<wm.protobuf.LoadGhostCompetitionRankingResponse>;
+
+            /**
+             * Calls load_ghost_koshien_ranking.
+             * @param request LoadGhostKoshienRankingRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and LoadGhostKoshienRankingResponse
+             */
+            public load_ghost_koshien_ranking(request: wm.protobuf.ILoadGhostKoshienRankingRequest, callback: wm.protobuf.Rpc.load_ghost_koshien_rankingCallback): void;
+
+            /**
+             * Calls load_ghost_koshien_ranking.
+             * @param request LoadGhostKoshienRankingRequest message or plain object
+             * @returns Promise
+             */
+            public load_ghost_koshien_ranking(request: wm.protobuf.ILoadGhostKoshienRankingRequest): Promise<wm.protobuf.LoadGhostKoshienRankingResponse>;
+
+            /**
+             * Calls load_ghost_koshien_round.
+             * @param request LoadGhostKoshienRoundRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and LoadGhostKoshienRoundResponse
+             */
+            public load_ghost_koshien_round(request: wm.protobuf.ILoadGhostKoshienRoundRequest, callback: wm.protobuf.Rpc.load_ghost_koshien_roundCallback): void;
+
+            /**
+             * Calls load_ghost_koshien_round.
+             * @param request LoadGhostKoshienRoundRequest message or plain object
+             * @returns Promise
+             */
+            public load_ghost_koshien_round(request: wm.protobuf.ILoadGhostKoshienRoundRequest): Promise<wm.protobuf.LoadGhostKoshienRoundResponse>;
+
+            /**
+             * Calls load_ghost_koshien_mvp.
+             * @param request LoadGhostKoshienMvpRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and LoadGhostKoshienMvpResponse
+             */
+            public load_ghost_koshien_mvp(request: wm.protobuf.ILoadGhostKoshienMvpRequest, callback: wm.protobuf.Rpc.load_ghost_koshien_mvpCallback): void;
+
+            /**
+             * Calls load_ghost_koshien_mvp.
+             * @param request LoadGhostKoshienMvpRequest message or plain object
+             * @returns Promise
+             */
+            public load_ghost_koshien_mvp(request: wm.protobuf.ILoadGhostKoshienMvpRequest): Promise<wm.protobuf.LoadGhostKoshienMvpResponse>;
 
             /**
              * Calls load_unreceived_user_items.
@@ -656,6 +712,62 @@ export namespace wm {
             public load_ghost_expedition_target_by_path(request: wm.protobuf.ILoadGhostExpeditionTargetByPathRequest): Promise<wm.protobuf.LoadGhostExpeditionTargetByPathResponse>;
 
             /**
+             * Calls load_ghost_bingo_targets.
+             * @param request LoadGhostBingoTargetsRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and LoadGhostBingoTargetsResponse
+             */
+            public load_ghost_bingo_targets(request: wm.protobuf.ILoadGhostBingoTargetsRequest, callback: wm.protobuf.Rpc.load_ghost_bingo_targetsCallback): void;
+
+            /**
+             * Calls load_ghost_bingo_targets.
+             * @param request LoadGhostBingoTargetsRequest message or plain object
+             * @returns Promise
+             */
+            public load_ghost_bingo_targets(request: wm.protobuf.ILoadGhostBingoTargetsRequest): Promise<wm.protobuf.LoadGhostBingoTargetsResponse>;
+
+            /**
+             * Calls load_bingo_stats.
+             * @param request LoadBingoStatsRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and LoadBingoStatsResponse
+             */
+            public load_bingo_stats(request: wm.protobuf.ILoadBingoStatsRequest, callback: wm.protobuf.Rpc.load_bingo_statsCallback): void;
+
+            /**
+             * Calls load_bingo_stats.
+             * @param request LoadBingoStatsRequest message or plain object
+             * @returns Promise
+             */
+            public load_bingo_stats(request: wm.protobuf.ILoadBingoStatsRequest): Promise<wm.protobuf.LoadBingoStatsResponse>;
+
+            /**
+             * Calls merge_bingo_card.
+             * @param request MergeBingoCardRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and MergeBingoCardResponse
+             */
+            public merge_bingo_card(request: wm.protobuf.IMergeBingoCardRequest, callback: wm.protobuf.Rpc.merge_bingo_cardCallback): void;
+
+            /**
+             * Calls merge_bingo_card.
+             * @param request MergeBingoCardRequest message or plain object
+             * @returns Promise
+             */
+            public merge_bingo_card(request: wm.protobuf.IMergeBingoCardRequest): Promise<wm.protobuf.MergeBingoCardResponse>;
+
+            /**
+             * Calls bingo_receivable_items.
+             * @param request BingoReceivableItemsRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and BingoReceivableItemsResponse
+             */
+            public bingo_receivable_items(request: wm.protobuf.IBingoReceivableItemsRequest, callback: wm.protobuf.Rpc.bingo_receivable_itemsCallback): void;
+
+            /**
+             * Calls bingo_receivable_items.
+             * @param request BingoReceivableItemsRequest message or plain object
+             * @returns Promise
+             */
+            public bingo_receivable_items(request: wm.protobuf.IBingoReceivableItemsRequest): Promise<wm.protobuf.BingoReceivableItemsResponse>;
+
+            /**
              * Calls search_cars.
              * @param request SearchCarsRequest message or plain object
              * @param callback Node-style callback called with the error, if any, and SearchCarsResponse
@@ -841,6 +953,13 @@ export namespace wm {
             type load_ghost_competition_infoCallback = (error: (Error|null), response?: wm.protobuf.LoadGhostCompetitionInfoResponse) => void;
 
             /**
+             * Callback as used by {@link wm.protobuf.Rpc#load_ghost_koshien_info}.
+             * @param error Error, if any
+             * @param [response] LoadGhostKoshienInfoResponse
+             */
+            type load_ghost_koshien_infoCallback = (error: (Error|null), response?: wm.protobuf.LoadGhostKoshienInfoResponse) => void;
+
+            /**
              * Callback as used by {@link wm.protobuf.Rpc#load_time_attack_record}.
              * @param error Error, if any
              * @param [response] LoadTimeAttackRecordResponse
@@ -916,6 +1035,27 @@ export namespace wm {
              * @param [response] LoadGhostCompetitionRankingResponse
              */
             type load_ghost_competition_rankingCallback = (error: (Error|null), response?: wm.protobuf.LoadGhostCompetitionRankingResponse) => void;
+
+            /**
+             * Callback as used by {@link wm.protobuf.Rpc#load_ghost_koshien_ranking}.
+             * @param error Error, if any
+             * @param [response] LoadGhostKoshienRankingResponse
+             */
+            type load_ghost_koshien_rankingCallback = (error: (Error|null), response?: wm.protobuf.LoadGhostKoshienRankingResponse) => void;
+
+            /**
+             * Callback as used by {@link wm.protobuf.Rpc#load_ghost_koshien_round}.
+             * @param error Error, if any
+             * @param [response] LoadGhostKoshienRoundResponse
+             */
+            type load_ghost_koshien_roundCallback = (error: (Error|null), response?: wm.protobuf.LoadGhostKoshienRoundResponse) => void;
+
+            /**
+             * Callback as used by {@link wm.protobuf.Rpc#load_ghost_koshien_mvp}.
+             * @param error Error, if any
+             * @param [response] LoadGhostKoshienMvpResponse
+             */
+            type load_ghost_koshien_mvpCallback = (error: (Error|null), response?: wm.protobuf.LoadGhostKoshienMvpResponse) => void;
 
             /**
              * Callback as used by {@link wm.protobuf.Rpc#load_unreceived_user_items}.
@@ -1042,6 +1182,34 @@ export namespace wm {
              * @param [response] LoadGhostExpeditionTargetByPathResponse
              */
             type load_ghost_expedition_target_by_pathCallback = (error: (Error|null), response?: wm.protobuf.LoadGhostExpeditionTargetByPathResponse) => void;
+
+            /**
+             * Callback as used by {@link wm.protobuf.Rpc#load_ghost_bingo_targets}.
+             * @param error Error, if any
+             * @param [response] LoadGhostBingoTargetsResponse
+             */
+            type load_ghost_bingo_targetsCallback = (error: (Error|null), response?: wm.protobuf.LoadGhostBingoTargetsResponse) => void;
+
+            /**
+             * Callback as used by {@link wm.protobuf.Rpc#load_bingo_stats}.
+             * @param error Error, if any
+             * @param [response] LoadBingoStatsResponse
+             */
+            type load_bingo_statsCallback = (error: (Error|null), response?: wm.protobuf.LoadBingoStatsResponse) => void;
+
+            /**
+             * Callback as used by {@link wm.protobuf.Rpc#merge_bingo_card}.
+             * @param error Error, if any
+             * @param [response] MergeBingoCardResponse
+             */
+            type merge_bingo_cardCallback = (error: (Error|null), response?: wm.protobuf.MergeBingoCardResponse) => void;
+
+            /**
+             * Callback as used by {@link wm.protobuf.Rpc#bingo_receivable_items}.
+             * @param error Error, if any
+             * @param [response] BingoReceivableItemsResponse
+             */
+            type bingo_receivable_itemsCallback = (error: (Error|null), response?: wm.protobuf.BingoReceivableItemsResponse) => void;
 
             /**
              * Callback as used by {@link wm.protobuf.Rpc#search_cars}.
@@ -1184,6 +1352,34 @@ export namespace wm {
             public ghost_competition_target(request: wm.protobuf.IGhostCompetitionTargetQuery): Promise<wm.protobuf.GhostCompetitionTarget>;
 
             /**
+             * Calls ghost_koshien_target.
+             * @param request GhostKoshienTargetQuery message or plain object
+             * @param callback Node-style callback called with the error, if any, and GhostKoshienTarget
+             */
+            public ghost_koshien_target(request: wm.protobuf.IGhostKoshienTargetQuery, callback: wm.protobuf.Resource.ghost_koshien_targetCallback): void;
+
+            /**
+             * Calls ghost_koshien_target.
+             * @param request GhostKoshienTargetQuery message or plain object
+             * @returns Promise
+             */
+            public ghost_koshien_target(request: wm.protobuf.IGhostKoshienTargetQuery): Promise<wm.protobuf.GhostKoshienTarget>;
+
+            /**
+             * Calls ghost_koshien_participating_shop.
+             * @param request GhostKoshienParticipatingShopQuery message or plain object
+             * @param callback Node-style callback called with the error, if any, and GhostKoshienParticipatingShop
+             */
+            public ghost_koshien_participating_shop(request: wm.protobuf.IGhostKoshienParticipatingShopQuery, callback: wm.protobuf.Resource.ghost_koshien_participating_shopCallback): void;
+
+            /**
+             * Calls ghost_koshien_participating_shop.
+             * @param request GhostKoshienParticipatingShopQuery message or plain object
+             * @returns Promise
+             */
+            public ghost_koshien_participating_shop(request: wm.protobuf.IGhostKoshienParticipatingShopQuery): Promise<wm.protobuf.GhostKoshienParticipatingShop>;
+
+            /**
              * Calls ghost_expedition_ranking.
              * @param request GhostExpeditionRankingQuery message or plain object
              * @param callback Node-style callback called with the error, if any, and GhostExpeditionRanking
@@ -1297,6 +1493,20 @@ export namespace wm {
              * @param [response] GhostCompetitionTarget
              */
             type ghost_competition_targetCallback = (error: (Error|null), response?: wm.protobuf.GhostCompetitionTarget) => void;
+
+            /**
+             * Callback as used by {@link wm.protobuf.Resource#ghost_koshien_target}.
+             * @param error Error, if any
+             * @param [response] GhostKoshienTarget
+             */
+            type ghost_koshien_targetCallback = (error: (Error|null), response?: wm.protobuf.GhostKoshienTarget) => void;
+
+            /**
+             * Callback as used by {@link wm.protobuf.Resource#ghost_koshien_participating_shop}.
+             * @param error Error, if any
+             * @param [response] GhostKoshienParticipatingShop
+             */
+            type ghost_koshien_participating_shopCallback = (error: (Error|null), response?: wm.protobuf.GhostKoshienParticipatingShop) => void;
 
             /**
              * Callback as used by {@link wm.protobuf.Resource#ghost_expedition_ranking}.
@@ -1970,6 +2180,230 @@ export namespace wm {
 
             /**
              * Gets the default type url for GhostCompetitionTargetQuery
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a GhostKoshienTargetQuery. */
+        interface IGhostKoshienTargetQuery {
+
+            /** GhostKoshienTargetQuery koshienId */
+            koshienId: number;
+
+            /** GhostKoshienTargetQuery roundId */
+            roundId: number;
+
+            /** GhostKoshienTargetQuery koshienPeriodId */
+            koshienPeriodId: number;
+
+            /** GhostKoshienTargetQuery regionId */
+            regionId?: (number|null);
+        }
+
+        /** Represents a GhostKoshienTargetQuery. */
+        class GhostKoshienTargetQuery implements IGhostKoshienTargetQuery {
+
+            /**
+             * Constructs a new GhostKoshienTargetQuery.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IGhostKoshienTargetQuery);
+
+            /** GhostKoshienTargetQuery koshienId. */
+            public koshienId: number;
+
+            /** GhostKoshienTargetQuery roundId. */
+            public roundId: number;
+
+            /** GhostKoshienTargetQuery koshienPeriodId. */
+            public koshienPeriodId: number;
+
+            /** GhostKoshienTargetQuery regionId. */
+            public regionId: number;
+
+            /**
+             * Creates a new GhostKoshienTargetQuery instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GhostKoshienTargetQuery instance
+             */
+            public static create(properties?: wm.protobuf.IGhostKoshienTargetQuery): wm.protobuf.GhostKoshienTargetQuery;
+
+            /**
+             * Encodes the specified GhostKoshienTargetQuery message. Does not implicitly {@link wm.protobuf.GhostKoshienTargetQuery.verify|verify} messages.
+             * @param message GhostKoshienTargetQuery message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IGhostKoshienTargetQuery, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GhostKoshienTargetQuery message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienTargetQuery.verify|verify} messages.
+             * @param message GhostKoshienTargetQuery message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IGhostKoshienTargetQuery, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GhostKoshienTargetQuery message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GhostKoshienTargetQuery
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.GhostKoshienTargetQuery;
+
+            /**
+             * Decodes a GhostKoshienTargetQuery message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GhostKoshienTargetQuery
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.GhostKoshienTargetQuery;
+
+            /**
+             * Verifies a GhostKoshienTargetQuery message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GhostKoshienTargetQuery message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GhostKoshienTargetQuery
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.GhostKoshienTargetQuery;
+
+            /**
+             * Creates a plain object from a GhostKoshienTargetQuery message. Also converts values to other types if specified.
+             * @param message GhostKoshienTargetQuery
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.GhostKoshienTargetQuery, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GhostKoshienTargetQuery to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GhostKoshienTargetQuery
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a GhostKoshienParticipatingShopQuery. */
+        interface IGhostKoshienParticipatingShopQuery {
+
+            /** GhostKoshienParticipatingShopQuery koshienId */
+            koshienId: number;
+
+            /** GhostKoshienParticipatingShopQuery placeId */
+            placeId: string;
+
+            /** GhostKoshienParticipatingShopQuery roundId */
+            roundId: number;
+        }
+
+        /** Represents a GhostKoshienParticipatingShopQuery. */
+        class GhostKoshienParticipatingShopQuery implements IGhostKoshienParticipatingShopQuery {
+
+            /**
+             * Constructs a new GhostKoshienParticipatingShopQuery.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IGhostKoshienParticipatingShopQuery);
+
+            /** GhostKoshienParticipatingShopQuery koshienId. */
+            public koshienId: number;
+
+            /** GhostKoshienParticipatingShopQuery placeId. */
+            public placeId: string;
+
+            /** GhostKoshienParticipatingShopQuery roundId. */
+            public roundId: number;
+
+            /**
+             * Creates a new GhostKoshienParticipatingShopQuery instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GhostKoshienParticipatingShopQuery instance
+             */
+            public static create(properties?: wm.protobuf.IGhostKoshienParticipatingShopQuery): wm.protobuf.GhostKoshienParticipatingShopQuery;
+
+            /**
+             * Encodes the specified GhostKoshienParticipatingShopQuery message. Does not implicitly {@link wm.protobuf.GhostKoshienParticipatingShopQuery.verify|verify} messages.
+             * @param message GhostKoshienParticipatingShopQuery message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IGhostKoshienParticipatingShopQuery, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GhostKoshienParticipatingShopQuery message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienParticipatingShopQuery.verify|verify} messages.
+             * @param message GhostKoshienParticipatingShopQuery message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IGhostKoshienParticipatingShopQuery, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GhostKoshienParticipatingShopQuery message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GhostKoshienParticipatingShopQuery
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.GhostKoshienParticipatingShopQuery;
+
+            /**
+             * Decodes a GhostKoshienParticipatingShopQuery message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GhostKoshienParticipatingShopQuery
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.GhostKoshienParticipatingShopQuery;
+
+            /**
+             * Verifies a GhostKoshienParticipatingShopQuery message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GhostKoshienParticipatingShopQuery message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GhostKoshienParticipatingShopQuery
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.GhostKoshienParticipatingShopQuery;
+
+            /**
+             * Creates a plain object from a GhostKoshienParticipatingShopQuery message. Also converts values to other types if specified.
+             * @param message GhostKoshienParticipatingShopQuery
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.GhostKoshienParticipatingShopQuery, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GhostKoshienParticipatingShopQuery to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GhostKoshienParticipatingShopQuery
              * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
              * @returns The default type url
              */
@@ -4046,6 +4480,30 @@ export namespace wm {
 
             /** RegisterSystemInfoResponse expeditionEventWasHeld */
             expeditionEventWasHeld?: (boolean|null);
+
+            /** RegisterSystemInfoResponse bingoNumbers */
+            bingoNumbers?: (number[]|null);
+
+            /** RegisterSystemInfoResponse bingoPrize */
+            bingoPrize?: (wm.protobuf.IBingoPrize[]|null);
+
+            /** RegisterSystemInfoResponse koshienWonShopName */
+            koshienWonShopName?: (wm.protobuf.IGhostKoshienWonShop[]|null);
+
+            /** RegisterSystemInfoResponse koshienInfo */
+            koshienInfo?: (wm.protobuf.RegisterSystemInfoResponse.IGhostKoshienInfo|null);
+
+            /** RegisterSystemInfoResponse koshienEventWasHeld */
+            koshienEventWasHeld?: (boolean|null);
+
+            /** RegisterSystemInfoResponse specialPresentItem */
+            specialPresentItem?: (wm.protobuf.ICarItem|null);
+
+            /** RegisterSystemInfoResponse previousKoshienId */
+            previousKoshienId?: (number|null);
+
+            /** RegisterSystemInfoResponse previousKoshienPrize */
+            previousKoshienPrize?: (wm.protobuf.IGhostKoshienPrize|null);
         }
 
         /** Represents a RegisterSystemInfoResponse. */
@@ -4095,6 +4553,30 @@ export namespace wm {
 
             /** RegisterSystemInfoResponse expeditionEventWasHeld. */
             public expeditionEventWasHeld: boolean;
+
+            /** RegisterSystemInfoResponse bingoNumbers. */
+            public bingoNumbers: number[];
+
+            /** RegisterSystemInfoResponse bingoPrize. */
+            public bingoPrize: wm.protobuf.IBingoPrize[];
+
+            /** RegisterSystemInfoResponse koshienWonShopName. */
+            public koshienWonShopName: wm.protobuf.IGhostKoshienWonShop[];
+
+            /** RegisterSystemInfoResponse koshienInfo. */
+            public koshienInfo?: (wm.protobuf.RegisterSystemInfoResponse.IGhostKoshienInfo|null);
+
+            /** RegisterSystemInfoResponse koshienEventWasHeld. */
+            public koshienEventWasHeld: boolean;
+
+            /** RegisterSystemInfoResponse specialPresentItem. */
+            public specialPresentItem?: (wm.protobuf.ICarItem|null);
+
+            /** RegisterSystemInfoResponse previousKoshienId. */
+            public previousKoshienId: number;
+
+            /** RegisterSystemInfoResponse previousKoshienPrize. */
+            public previousKoshienPrize?: (wm.protobuf.IGhostKoshienPrize|null);
 
             /**
              * Creates a new RegisterSystemInfoResponse instance using the specified properties.
@@ -4172,6 +4654,130 @@ export namespace wm {
              * @returns The default type url
              */
             public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace RegisterSystemInfoResponse {
+
+            /** Properties of a GhostKoshienInfo. */
+            interface IGhostKoshienInfo {
+
+                /** GhostKoshienInfo koshienSchedule */
+                koshienSchedule: wm.protobuf.IGhostKoshienSchedule;
+
+                /** GhostKoshienInfo koshienPrize */
+                koshienPrize: wm.protobuf.IGhostKoshienPrize;
+
+                /** GhostKoshienInfo reception */
+                reception: boolean;
+
+                /** GhostKoshienInfo isKoshienShop */
+                isKoshienShop?: (boolean|null);
+
+                /** GhostKoshienInfo qualified */
+                qualified: boolean;
+            }
+
+            /** Represents a GhostKoshienInfo. */
+            class GhostKoshienInfo implements IGhostKoshienInfo {
+
+                /**
+                 * Constructs a new GhostKoshienInfo.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: wm.protobuf.RegisterSystemInfoResponse.IGhostKoshienInfo);
+
+                /** GhostKoshienInfo koshienSchedule. */
+                public koshienSchedule: wm.protobuf.IGhostKoshienSchedule;
+
+                /** GhostKoshienInfo koshienPrize. */
+                public koshienPrize: wm.protobuf.IGhostKoshienPrize;
+
+                /** GhostKoshienInfo reception. */
+                public reception: boolean;
+
+                /** GhostKoshienInfo isKoshienShop. */
+                public isKoshienShop: boolean;
+
+                /** GhostKoshienInfo qualified. */
+                public qualified: boolean;
+
+                /**
+                 * Creates a new GhostKoshienInfo instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns GhostKoshienInfo instance
+                 */
+                public static create(properties?: wm.protobuf.RegisterSystemInfoResponse.IGhostKoshienInfo): wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo;
+
+                /**
+                 * Encodes the specified GhostKoshienInfo message. Does not implicitly {@link wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo.verify|verify} messages.
+                 * @param message GhostKoshienInfo message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: wm.protobuf.RegisterSystemInfoResponse.IGhostKoshienInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified GhostKoshienInfo message, length delimited. Does not implicitly {@link wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo.verify|verify} messages.
+                 * @param message GhostKoshienInfo message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: wm.protobuf.RegisterSystemInfoResponse.IGhostKoshienInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a GhostKoshienInfo message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns GhostKoshienInfo
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo;
+
+                /**
+                 * Decodes a GhostKoshienInfo message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns GhostKoshienInfo
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo;
+
+                /**
+                 * Verifies a GhostKoshienInfo message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a GhostKoshienInfo message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns GhostKoshienInfo
+                 */
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo;
+
+                /**
+                 * Creates a plain object from a GhostKoshienInfo message. Also converts values to other types if specified.
+                 * @param message GhostKoshienInfo
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: wm.protobuf.RegisterSystemInfoResponse.GhostKoshienInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this GhostKoshienInfo to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for GhostKoshienInfo
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
         }
 
         /** Properties of a RegisterSystemStatsRequest. */
@@ -5077,6 +5683,27 @@ export namespace wm {
 
             /** LoadUserResponse ghostHighwayLocked */
             ghostHighwayLocked: boolean;
+
+            /** LoadUserResponse bingoMismatchNumberAcquiredCount */
+            bingoMismatchNumberAcquiredCount: number;
+
+            /** LoadUserResponse previousAcquiredBingoPrize */
+            previousAcquiredBingoPrize?: (wm.protobuf.IBingoPrize[]|null);
+
+            /** LoadUserResponse koshienUserState */
+            koshienUserState?: (wm.protobuf.GhostKoshienParticipantState|null);
+
+            /** LoadUserResponse koshienLastPlayedState */
+            koshienLastPlayedState?: (wm.protobuf.GhostKoshienParticipantState|null);
+
+            /** LoadUserResponse koshienRegistPlaceId */
+            koshienRegistPlaceId?: (string|null);
+
+            /** LoadUserResponse receivedNumOfItems */
+            receivedNumOfItems: number;
+
+            /** LoadUserResponse bingoPlayedCount */
+            bingoPlayedCount: number;
         }
 
         /** Represents a LoadUserResponse. */
@@ -5174,6 +5801,27 @@ export namespace wm {
 
             /** LoadUserResponse ghostHighwayLocked. */
             public ghostHighwayLocked: boolean;
+
+            /** LoadUserResponse bingoMismatchNumberAcquiredCount. */
+            public bingoMismatchNumberAcquiredCount: number;
+
+            /** LoadUserResponse previousAcquiredBingoPrize. */
+            public previousAcquiredBingoPrize: wm.protobuf.IBingoPrize[];
+
+            /** LoadUserResponse koshienUserState. */
+            public koshienUserState: wm.protobuf.GhostKoshienParticipantState;
+
+            /** LoadUserResponse koshienLastPlayedState. */
+            public koshienLastPlayedState: wm.protobuf.GhostKoshienParticipantState;
+
+            /** LoadUserResponse koshienRegistPlaceId. */
+            public koshienRegistPlaceId: string;
+
+            /** LoadUserResponse receivedNumOfItems. */
+            public receivedNumOfItems: number;
+
+            /** LoadUserResponse bingoPlayedCount. */
+            public bingoPlayedCount: number;
 
             /**
              * Creates a new LoadUserResponse instance using the specified properties.
@@ -5275,6 +5923,12 @@ export namespace wm {
 
                 /** CarState driveLastPlayedAt */
                 driveLastPlayedAt?: (number|null);
+
+                /** CarState koshienState */
+                koshienState?: (wm.protobuf.GhostKoshienParticipantState|null);
+
+                /** CarState koshienQualified */
+                koshienQualified?: (boolean|null);
             }
 
             /** Represents a CarState. */
@@ -5303,6 +5957,12 @@ export namespace wm {
 
                 /** CarState driveLastPlayedAt. */
                 public driveLastPlayedAt: number;
+
+                /** CarState koshienState. */
+                public koshienState: wm.protobuf.GhostKoshienParticipantState;
+
+                /** CarState koshienQualified. */
+                public koshienQualified: boolean;
 
                 /**
                  * Creates a new CarState instance using the specified properties.
@@ -6146,6 +6806,9 @@ export namespace wm {
 
             /** LoadCarResponse ghostExpeditionState */
             ghostExpeditionState?: (wm.protobuf.GhostExpeditionParticipantState|null);
+
+            /** LoadCarResponse koshienPrize */
+            koshienPrize?: (wm.protobuf.ICarItem[]|null);
         }
 
         /** Represents a LoadCarResponse. */
@@ -6330,6 +6993,9 @@ export namespace wm {
 
             /** LoadCarResponse ghostExpeditionState. */
             public ghostExpeditionState: wm.protobuf.GhostExpeditionParticipantState;
+
+            /** LoadCarResponse koshienPrize. */
+            public koshienPrize: wm.protobuf.ICarItem[];
 
             /**
              * Creates a new LoadCarResponse instance using the specified properties.
@@ -7853,6 +8519,9 @@ export namespace wm {
 
             /** SaveGameResultRequest rgResult */
             rgResult?: (wm.protobuf.SaveGameResultRequest.IGhostBattleResult|null);
+
+            /** SaveGameResultRequest koshienLastPlayedState */
+            koshienLastPlayedState?: (wm.protobuf.GhostKoshienParticipantState|null);
         }
 
         /** Represents a SaveGameResultRequest. */
@@ -7923,6 +8592,9 @@ export namespace wm {
 
             /** SaveGameResultRequest rgResult. */
             public rgResult?: (wm.protobuf.SaveGameResultRequest.IGhostBattleResult|null);
+
+            /** SaveGameResultRequest koshienLastPlayedState. */
+            public koshienLastPlayedState: wm.protobuf.GhostKoshienParticipantState;
 
             /**
              * Creates a new SaveGameResultRequest instance using the specified properties.
@@ -8348,6 +9020,9 @@ export namespace wm {
                 /** VersusBattleResult vsStarCount */
                 vsStarCount?: (number|null);
 
+                /** VersusBattleResult vsStarCountMax */
+                vsStarCountMax?: (number|null);
+
                 /** VersusBattleResult vsCoolOrWild */
                 vsCoolOrWild?: (number|null);
 
@@ -8402,6 +9077,9 @@ export namespace wm {
 
                 /** VersusBattleResult vsStarCount. */
                 public vsStarCount: number;
+
+                /** VersusBattleResult vsStarCountMax. */
+                public vsStarCountMax: number;
 
                 /** VersusBattleResult vsCoolOrWild. */
                 public vsCoolOrWild: number;
@@ -8561,6 +9239,15 @@ export namespace wm {
 
                 /** GhostBattleResult highwayResult */
                 highwayResult?: (wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostHighwayResult|null);
+
+                /** GhostBattleResult koshienId */
+                koshienId?: (number|null);
+
+                /** GhostBattleResult koshienPeriodId */
+                koshienPeriodId?: (number|null);
+
+                /** GhostBattleResult koshienUpdateCount */
+                koshienUpdateCount?: (number|null);
             }
 
             /** Represents a GhostBattleResult. */
@@ -8631,6 +9318,15 @@ export namespace wm {
 
                 /** GhostBattleResult highwayResult. */
                 public highwayResult?: (wm.protobuf.SaveGameResultRequest.GhostBattleResult.IGhostHighwayResult|null);
+
+                /** GhostBattleResult koshienId. */
+                public koshienId: number;
+
+                /** GhostBattleResult koshienPeriodId. */
+                public koshienPeriodId: number;
+
+                /** GhostBattleResult koshienUpdateCount. */
+                public koshienUpdateCount: number;
 
                 /**
                  * Creates a new GhostBattleResult instance using the specified properties.
@@ -8729,6 +9425,9 @@ export namespace wm {
 
                     /** GhostBattleOpponent receiveStamp */
                     receiveStamp?: (boolean|null);
+
+                    /** GhostBattleOpponent bingoNumber */
+                    bingoNumber?: (number|null);
                 }
 
                 /** Represents a GhostBattleOpponent. */
@@ -8754,6 +9453,9 @@ export namespace wm {
 
                     /** GhostBattleOpponent receiveStamp. */
                     public receiveStamp: boolean;
+
+                    /** GhostBattleOpponent bingoNumber. */
+                    public bingoNumber: number;
 
                     /**
                      * Creates a new GhostBattleOpponent instance using the specified properties.
@@ -9645,6 +10347,9 @@ export namespace wm {
 
             /** LoadGhostBattleInfoResponse stampReturnStats */
             stampReturnStats?: (number[]|null);
+
+            /** LoadGhostBattleInfoResponse acquiredBingoNumbers */
+            acquiredBingoNumbers?: (number[]|null);
         }
 
         /** Represents a LoadGhostBattleInfoResponse. */
@@ -9691,6 +10396,9 @@ export namespace wm {
 
             /** LoadGhostBattleInfoResponse stampReturnStats. */
             public stampReturnStats: number[];
+
+            /** LoadGhostBattleInfoResponse acquiredBingoNumbers. */
+            public acquiredBingoNumbers: number[];
 
             /**
              * Creates a new LoadGhostBattleInfoResponse instance using the specified properties.
@@ -10542,6 +11250,260 @@ export namespace wm {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a LoadGhostKoshienInfoRequest. */
+        interface ILoadGhostKoshienInfoRequest {
+
+            /** LoadGhostKoshienInfoRequest carId */
+            carId: number;
+
+            /** LoadGhostKoshienInfoRequest koshienId */
+            koshienId: number;
+
+            /** LoadGhostKoshienInfoRequest placeId */
+            placeId: string;
+        }
+
+        /** Represents a LoadGhostKoshienInfoRequest. */
+        class LoadGhostKoshienInfoRequest implements ILoadGhostKoshienInfoRequest {
+
+            /**
+             * Constructs a new LoadGhostKoshienInfoRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostKoshienInfoRequest);
+
+            /** LoadGhostKoshienInfoRequest carId. */
+            public carId: number;
+
+            /** LoadGhostKoshienInfoRequest koshienId. */
+            public koshienId: number;
+
+            /** LoadGhostKoshienInfoRequest placeId. */
+            public placeId: string;
+
+            /**
+             * Creates a new LoadGhostKoshienInfoRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostKoshienInfoRequest instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostKoshienInfoRequest): wm.protobuf.LoadGhostKoshienInfoRequest;
+
+            /**
+             * Encodes the specified LoadGhostKoshienInfoRequest message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienInfoRequest.verify|verify} messages.
+             * @param message LoadGhostKoshienInfoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostKoshienInfoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostKoshienInfoRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienInfoRequest.verify|verify} messages.
+             * @param message LoadGhostKoshienInfoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostKoshienInfoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostKoshienInfoRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostKoshienInfoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostKoshienInfoRequest;
+
+            /**
+             * Decodes a LoadGhostKoshienInfoRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostKoshienInfoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostKoshienInfoRequest;
+
+            /**
+             * Verifies a LoadGhostKoshienInfoRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostKoshienInfoRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostKoshienInfoRequest
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostKoshienInfoRequest;
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienInfoRequest message. Also converts values to other types if specified.
+             * @param message LoadGhostKoshienInfoRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostKoshienInfoRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostKoshienInfoRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienInfoRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a LoadGhostKoshienInfoResponse. */
+        interface ILoadGhostKoshienInfoResponse {
+
+            /** LoadGhostKoshienInfoResponse error */
+            error: wm.protobuf.ErrorCode;
+
+            /** LoadGhostKoshienInfoResponse koshienPeriodId */
+            koshienPeriodId?: (number|null);
+
+            /** LoadGhostKoshienInfoResponse closed */
+            closed: boolean;
+
+            /** LoadGhostKoshienInfoResponse result */
+            result?: (number|null);
+
+            /** LoadGhostKoshienInfoResponse rank */
+            rank?: (number|null);
+
+            /** LoadGhostKoshienInfoResponse topShop */
+            topShop?: (wm.protobuf.IPlace[]|null);
+
+            /** LoadGhostKoshienInfoResponse parameters */
+            parameters?: (number[]|null);
+
+            /** LoadGhostKoshienInfoResponse isGhostControl */
+            isGhostControl: boolean;
+
+            /** LoadGhostKoshienInfoResponse topResults */
+            topResults?: (number[]|null);
+        }
+
+        /** Represents a LoadGhostKoshienInfoResponse. */
+        class LoadGhostKoshienInfoResponse implements ILoadGhostKoshienInfoResponse {
+
+            /**
+             * Constructs a new LoadGhostKoshienInfoResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostKoshienInfoResponse);
+
+            /** LoadGhostKoshienInfoResponse error. */
+            public error: wm.protobuf.ErrorCode;
+
+            /** LoadGhostKoshienInfoResponse koshienPeriodId. */
+            public koshienPeriodId: number;
+
+            /** LoadGhostKoshienInfoResponse closed. */
+            public closed: boolean;
+
+            /** LoadGhostKoshienInfoResponse result. */
+            public result: number;
+
+            /** LoadGhostKoshienInfoResponse rank. */
+            public rank: number;
+
+            /** LoadGhostKoshienInfoResponse topShop. */
+            public topShop: wm.protobuf.IPlace[];
+
+            /** LoadGhostKoshienInfoResponse parameters. */
+            public parameters: number[];
+
+            /** LoadGhostKoshienInfoResponse isGhostControl. */
+            public isGhostControl: boolean;
+
+            /** LoadGhostKoshienInfoResponse topResults. */
+            public topResults: number[];
+
+            /**
+             * Creates a new LoadGhostKoshienInfoResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostKoshienInfoResponse instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostKoshienInfoResponse): wm.protobuf.LoadGhostKoshienInfoResponse;
+
+            /**
+             * Encodes the specified LoadGhostKoshienInfoResponse message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienInfoResponse.verify|verify} messages.
+             * @param message LoadGhostKoshienInfoResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostKoshienInfoResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostKoshienInfoResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienInfoResponse.verify|verify} messages.
+             * @param message LoadGhostKoshienInfoResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostKoshienInfoResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostKoshienInfoResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostKoshienInfoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostKoshienInfoResponse;
+
+            /**
+             * Decodes a LoadGhostKoshienInfoResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostKoshienInfoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostKoshienInfoResponse;
+
+            /**
+             * Verifies a LoadGhostKoshienInfoResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostKoshienInfoResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostKoshienInfoResponse
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostKoshienInfoResponse;
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienInfoResponse message. Also converts values to other types if specified.
+             * @param message LoadGhostKoshienInfoResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostKoshienInfoResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostKoshienInfoResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienInfoResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a LoadTimeAttackRecordRequest. */
         interface ILoadTimeAttackRecordRequest {
 
@@ -11355,6 +12317,9 @@ export namespace wm {
 
             /** LoadTerminalInformationResponse restrictedModels */
             restrictedModels?: (number[]|null);
+
+            /** LoadTerminalInformationResponse availableTickets */
+            availableTickets?: (wm.protobuf.IUserItem[]|null);
         }
 
         /** Represents a LoadTerminalInformationResponse. */
@@ -11395,6 +12360,9 @@ export namespace wm {
 
             /** LoadTerminalInformationResponse restrictedModels. */
             public restrictedModels: number[];
+
+            /** LoadTerminalInformationResponse availableTickets. */
+            public availableTickets: wm.protobuf.IUserItem[];
 
             /**
              * Creates a new LoadTerminalInformationResponse instance using the specified properties.
@@ -12854,6 +13822,1555 @@ export namespace wm {
             }
         }
 
+        /** Properties of a LoadGhostKoshienRankingRequest. */
+        interface ILoadGhostKoshienRankingRequest {
+
+            /** LoadGhostKoshienRankingRequest carId */
+            carId: number;
+
+            /** LoadGhostKoshienRankingRequest koshienId */
+            koshienId: number;
+
+            /** LoadGhostKoshienRankingRequest placeId */
+            placeId: string;
+
+            /** LoadGhostKoshienRankingRequest roundId */
+            roundId: number;
+        }
+
+        /** Represents a LoadGhostKoshienRankingRequest. */
+        class LoadGhostKoshienRankingRequest implements ILoadGhostKoshienRankingRequest {
+
+            /**
+             * Constructs a new LoadGhostKoshienRankingRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostKoshienRankingRequest);
+
+            /** LoadGhostKoshienRankingRequest carId. */
+            public carId: number;
+
+            /** LoadGhostKoshienRankingRequest koshienId. */
+            public koshienId: number;
+
+            /** LoadGhostKoshienRankingRequest placeId. */
+            public placeId: string;
+
+            /** LoadGhostKoshienRankingRequest roundId. */
+            public roundId: number;
+
+            /**
+             * Creates a new LoadGhostKoshienRankingRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostKoshienRankingRequest instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostKoshienRankingRequest): wm.protobuf.LoadGhostKoshienRankingRequest;
+
+            /**
+             * Encodes the specified LoadGhostKoshienRankingRequest message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingRequest.verify|verify} messages.
+             * @param message LoadGhostKoshienRankingRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostKoshienRankingRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostKoshienRankingRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingRequest.verify|verify} messages.
+             * @param message LoadGhostKoshienRankingRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostKoshienRankingRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostKoshienRankingRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostKoshienRankingRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostKoshienRankingRequest;
+
+            /**
+             * Decodes a LoadGhostKoshienRankingRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostKoshienRankingRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostKoshienRankingRequest;
+
+            /**
+             * Verifies a LoadGhostKoshienRankingRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostKoshienRankingRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostKoshienRankingRequest
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostKoshienRankingRequest;
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienRankingRequest message. Also converts values to other types if specified.
+             * @param message LoadGhostKoshienRankingRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostKoshienRankingRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostKoshienRankingRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienRankingRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a LoadGhostKoshienRankingResponse. */
+        interface ILoadGhostKoshienRankingResponse {
+
+            /** LoadGhostKoshienRankingResponse error */
+            error: wm.protobuf.ErrorCode;
+
+            /** LoadGhostKoshienRankingResponse roundQualified */
+            roundQualified?: (boolean[]|null);
+
+            /** LoadGhostKoshienRankingResponse koshienSchedule */
+            koshienSchedule?: (wm.protobuf.IGhostKoshienSchedule|null);
+
+            /** LoadGhostKoshienRankingResponse ownRankingEntry */
+            ownRankingEntry?: (wm.protobuf.LoadGhostKoshienRankingResponse.IUserInfo|null);
+
+            /** LoadGhostKoshienRankingResponse rankingEntries */
+            rankingEntries?: (wm.protobuf.LoadGhostKoshienRankingResponse.IEntry[]|null);
+
+            /** LoadGhostKoshienRankingResponse rankingUpdatedAt */
+            rankingUpdatedAt?: (number|null);
+
+            /** LoadGhostKoshienRankingResponse ownRecord */
+            ownRecord?: (wm.protobuf.LoadGhostKoshienRankingResponse.IRecord|null);
+
+            /** LoadGhostKoshienRankingResponse placeRecord */
+            placeRecord?: (wm.protobuf.LoadGhostKoshienRankingResponse.IPlaceRecord|null);
+        }
+
+        /** Represents a LoadGhostKoshienRankingResponse. */
+        class LoadGhostKoshienRankingResponse implements ILoadGhostKoshienRankingResponse {
+
+            /**
+             * Constructs a new LoadGhostKoshienRankingResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostKoshienRankingResponse);
+
+            /** LoadGhostKoshienRankingResponse error. */
+            public error: wm.protobuf.ErrorCode;
+
+            /** LoadGhostKoshienRankingResponse roundQualified. */
+            public roundQualified: boolean[];
+
+            /** LoadGhostKoshienRankingResponse koshienSchedule. */
+            public koshienSchedule?: (wm.protobuf.IGhostKoshienSchedule|null);
+
+            /** LoadGhostKoshienRankingResponse ownRankingEntry. */
+            public ownRankingEntry?: (wm.protobuf.LoadGhostKoshienRankingResponse.IUserInfo|null);
+
+            /** LoadGhostKoshienRankingResponse rankingEntries. */
+            public rankingEntries: wm.protobuf.LoadGhostKoshienRankingResponse.IEntry[];
+
+            /** LoadGhostKoshienRankingResponse rankingUpdatedAt. */
+            public rankingUpdatedAt: number;
+
+            /** LoadGhostKoshienRankingResponse ownRecord. */
+            public ownRecord?: (wm.protobuf.LoadGhostKoshienRankingResponse.IRecord|null);
+
+            /** LoadGhostKoshienRankingResponse placeRecord. */
+            public placeRecord?: (wm.protobuf.LoadGhostKoshienRankingResponse.IPlaceRecord|null);
+
+            /**
+             * Creates a new LoadGhostKoshienRankingResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostKoshienRankingResponse instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostKoshienRankingResponse): wm.protobuf.LoadGhostKoshienRankingResponse;
+
+            /**
+             * Encodes the specified LoadGhostKoshienRankingResponse message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.verify|verify} messages.
+             * @param message LoadGhostKoshienRankingResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostKoshienRankingResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostKoshienRankingResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.verify|verify} messages.
+             * @param message LoadGhostKoshienRankingResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostKoshienRankingResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostKoshienRankingResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostKoshienRankingResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostKoshienRankingResponse;
+
+            /**
+             * Decodes a LoadGhostKoshienRankingResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostKoshienRankingResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostKoshienRankingResponse;
+
+            /**
+             * Verifies a LoadGhostKoshienRankingResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostKoshienRankingResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostKoshienRankingResponse
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostKoshienRankingResponse;
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienRankingResponse message. Also converts values to other types if specified.
+             * @param message LoadGhostKoshienRankingResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostKoshienRankingResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostKoshienRankingResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienRankingResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace LoadGhostKoshienRankingResponse {
+
+            /** Properties of a UserInfo. */
+            interface IUserInfo {
+
+                /** UserInfo result */
+                result: number;
+
+                /** UserInfo regionId */
+                regionId: number;
+
+                /** UserInfo placeId */
+                placeId: string;
+
+                /** UserInfo name */
+                name: string;
+
+                /** UserInfo model */
+                model: number;
+
+                /** UserInfo roundRank */
+                roundRank?: (wm.protobuf.IGhostKoshienRoundRank[]|null);
+
+                /** UserInfo visualModel */
+                visualModel: number;
+
+                /** UserInfo defaultColor */
+                defaultColor: number;
+            }
+
+            /** Represents a UserInfo. */
+            class UserInfo implements IUserInfo {
+
+                /**
+                 * Constructs a new UserInfo.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: wm.protobuf.LoadGhostKoshienRankingResponse.IUserInfo);
+
+                /** UserInfo result. */
+                public result: number;
+
+                /** UserInfo regionId. */
+                public regionId: number;
+
+                /** UserInfo placeId. */
+                public placeId: string;
+
+                /** UserInfo name. */
+                public name: string;
+
+                /** UserInfo model. */
+                public model: number;
+
+                /** UserInfo roundRank. */
+                public roundRank: wm.protobuf.IGhostKoshienRoundRank[];
+
+                /** UserInfo visualModel. */
+                public visualModel: number;
+
+                /** UserInfo defaultColor. */
+                public defaultColor: number;
+
+                /**
+                 * Creates a new UserInfo instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns UserInfo instance
+                 */
+                public static create(properties?: wm.protobuf.LoadGhostKoshienRankingResponse.IUserInfo): wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo;
+
+                /**
+                 * Encodes the specified UserInfo message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo.verify|verify} messages.
+                 * @param message UserInfo message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: wm.protobuf.LoadGhostKoshienRankingResponse.IUserInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified UserInfo message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo.verify|verify} messages.
+                 * @param message UserInfo message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: wm.protobuf.LoadGhostKoshienRankingResponse.IUserInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a UserInfo message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns UserInfo
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo;
+
+                /**
+                 * Decodes a UserInfo message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns UserInfo
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo;
+
+                /**
+                 * Verifies a UserInfo message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a UserInfo message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns UserInfo
+                 */
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo;
+
+                /**
+                 * Creates a plain object from a UserInfo message. Also converts values to other types if specified.
+                 * @param message UserInfo
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: wm.protobuf.LoadGhostKoshienRankingResponse.UserInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this UserInfo to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for UserInfo
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+
+            /** Properties of an Entry. */
+            interface IEntry {
+
+                /** Entry rank */
+                rank: number;
+
+                /** Entry result */
+                result: number;
+
+                /** Entry regionId */
+                regionId: number;
+
+                /** Entry placeId */
+                placeId: string;
+
+                /** Entry model */
+                model: number;
+
+                /** Entry shopName */
+                shopName: string;
+
+                /** Entry playedAt */
+                playedAt: number;
+
+                /** Entry visualModel */
+                visualModel: number;
+
+                /** Entry defaultColor */
+                defaultColor: number;
+            }
+
+            /** Represents an Entry. */
+            class Entry implements IEntry {
+
+                /**
+                 * Constructs a new Entry.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: wm.protobuf.LoadGhostKoshienRankingResponse.IEntry);
+
+                /** Entry rank. */
+                public rank: number;
+
+                /** Entry result. */
+                public result: number;
+
+                /** Entry regionId. */
+                public regionId: number;
+
+                /** Entry placeId. */
+                public placeId: string;
+
+                /** Entry model. */
+                public model: number;
+
+                /** Entry shopName. */
+                public shopName: string;
+
+                /** Entry playedAt. */
+                public playedAt: number;
+
+                /** Entry visualModel. */
+                public visualModel: number;
+
+                /** Entry defaultColor. */
+                public defaultColor: number;
+
+                /**
+                 * Creates a new Entry instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns Entry instance
+                 */
+                public static create(properties?: wm.protobuf.LoadGhostKoshienRankingResponse.IEntry): wm.protobuf.LoadGhostKoshienRankingResponse.Entry;
+
+                /**
+                 * Encodes the specified Entry message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.Entry.verify|verify} messages.
+                 * @param message Entry message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: wm.protobuf.LoadGhostKoshienRankingResponse.IEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified Entry message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.Entry.verify|verify} messages.
+                 * @param message Entry message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: wm.protobuf.LoadGhostKoshienRankingResponse.IEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes an Entry message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns Entry
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostKoshienRankingResponse.Entry;
+
+                /**
+                 * Decodes an Entry message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns Entry
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostKoshienRankingResponse.Entry;
+
+                /**
+                 * Verifies an Entry message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates an Entry message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns Entry
+                 */
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostKoshienRankingResponse.Entry;
+
+                /**
+                 * Creates a plain object from an Entry message. Also converts values to other types if specified.
+                 * @param message Entry
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: wm.protobuf.LoadGhostKoshienRankingResponse.Entry, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this Entry to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for Entry
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+
+            /** Properties of a Record. */
+            interface IRecord {
+
+                /** Record challengeCount */
+                challengeCount: number;
+
+                /** Record updateCount */
+                updateCount: number;
+
+                /** Record result */
+                result: number;
+            }
+
+            /** Represents a Record. */
+            class Record implements IRecord {
+
+                /**
+                 * Constructs a new Record.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: wm.protobuf.LoadGhostKoshienRankingResponse.IRecord);
+
+                /** Record challengeCount. */
+                public challengeCount: number;
+
+                /** Record updateCount. */
+                public updateCount: number;
+
+                /** Record result. */
+                public result: number;
+
+                /**
+                 * Creates a new Record instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns Record instance
+                 */
+                public static create(properties?: wm.protobuf.LoadGhostKoshienRankingResponse.IRecord): wm.protobuf.LoadGhostKoshienRankingResponse.Record;
+
+                /**
+                 * Encodes the specified Record message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.Record.verify|verify} messages.
+                 * @param message Record message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: wm.protobuf.LoadGhostKoshienRankingResponse.IRecord, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified Record message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.Record.verify|verify} messages.
+                 * @param message Record message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: wm.protobuf.LoadGhostKoshienRankingResponse.IRecord, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a Record message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns Record
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostKoshienRankingResponse.Record;
+
+                /**
+                 * Decodes a Record message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns Record
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostKoshienRankingResponse.Record;
+
+                /**
+                 * Verifies a Record message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a Record message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns Record
+                 */
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostKoshienRankingResponse.Record;
+
+                /**
+                 * Creates a plain object from a Record message. Also converts values to other types if specified.
+                 * @param message Record
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: wm.protobuf.LoadGhostKoshienRankingResponse.Record, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this Record to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for Record
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+
+            /** Properties of a PlaceRecord. */
+            interface IPlaceRecord {
+
+                /** PlaceRecord challengeCount */
+                challengeCount?: (wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar[]|null);
+
+                /** PlaceRecord updateCount */
+                updateCount?: (wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar[]|null);
+
+                /** PlaceRecord result */
+                result?: (wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar[]|null);
+            }
+
+            /** Represents a PlaceRecord. */
+            class PlaceRecord implements IPlaceRecord {
+
+                /**
+                 * Constructs a new PlaceRecord.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: wm.protobuf.LoadGhostKoshienRankingResponse.IPlaceRecord);
+
+                /** PlaceRecord challengeCount. */
+                public challengeCount: wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar[];
+
+                /** PlaceRecord updateCount. */
+                public updateCount: wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar[];
+
+                /** PlaceRecord result. */
+                public result: wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar[];
+
+                /**
+                 * Creates a new PlaceRecord instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns PlaceRecord instance
+                 */
+                public static create(properties?: wm.protobuf.LoadGhostKoshienRankingResponse.IPlaceRecord): wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord;
+
+                /**
+                 * Encodes the specified PlaceRecord message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.verify|verify} messages.
+                 * @param message PlaceRecord message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: wm.protobuf.LoadGhostKoshienRankingResponse.IPlaceRecord, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified PlaceRecord message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.verify|verify} messages.
+                 * @param message PlaceRecord message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: wm.protobuf.LoadGhostKoshienRankingResponse.IPlaceRecord, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a PlaceRecord message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns PlaceRecord
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord;
+
+                /**
+                 * Decodes a PlaceRecord message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns PlaceRecord
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord;
+
+                /**
+                 * Verifies a PlaceRecord message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a PlaceRecord message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns PlaceRecord
+                 */
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord;
+
+                /**
+                 * Creates a plain object from a PlaceRecord message. Also converts values to other types if specified.
+                 * @param message PlaceRecord
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this PlaceRecord to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for PlaceRecord
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+
+            namespace PlaceRecord {
+
+                /** Properties of a ParticipantCar. */
+                interface IParticipantCar {
+
+                    /** ParticipantCar carId */
+                    carId: number;
+
+                    /** ParticipantCar result */
+                    result?: (number|null);
+
+                    /** ParticipantCar challengeCount */
+                    challengeCount?: (number|null);
+
+                    /** ParticipantCar updateCount */
+                    updateCount?: (number|null);
+                }
+
+                /** Represents a ParticipantCar. */
+                class ParticipantCar implements IParticipantCar {
+
+                    /**
+                     * Constructs a new ParticipantCar.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar);
+
+                    /** ParticipantCar carId. */
+                    public carId: number;
+
+                    /** ParticipantCar result. */
+                    public result: number;
+
+                    /** ParticipantCar challengeCount. */
+                    public challengeCount: number;
+
+                    /** ParticipantCar updateCount. */
+                    public updateCount: number;
+
+                    /**
+                     * Creates a new ParticipantCar instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns ParticipantCar instance
+                     */
+                    public static create(properties?: wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar): wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar;
+
+                    /**
+                     * Encodes the specified ParticipantCar message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.verify|verify} messages.
+                     * @param message ParticipantCar message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified ParticipantCar message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar.verify|verify} messages.
+                     * @param message ParticipantCar message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.IParticipantCar, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a ParticipantCar message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns ParticipantCar
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar;
+
+                    /**
+                     * Decodes a ParticipantCar message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns ParticipantCar
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar;
+
+                    /**
+                     * Verifies a ParticipantCar message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a ParticipantCar message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns ParticipantCar
+                     */
+                    public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar;
+
+                    /**
+                     * Creates a plain object from a ParticipantCar message. Also converts values to other types if specified.
+                     * @param message ParticipantCar
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: wm.protobuf.LoadGhostKoshienRankingResponse.PlaceRecord.ParticipantCar, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this ParticipantCar to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for ParticipantCar
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+            }
+        }
+
+        /** Properties of a LoadGhostKoshienRoundRequest. */
+        interface ILoadGhostKoshienRoundRequest {
+
+            /** LoadGhostKoshienRoundRequest userId */
+            userId: number;
+
+            /** LoadGhostKoshienRoundRequest koshienId */
+            koshienId: number;
+
+            /** LoadGhostKoshienRoundRequest roundId */
+            roundId: number;
+        }
+
+        /** Represents a LoadGhostKoshienRoundRequest. */
+        class LoadGhostKoshienRoundRequest implements ILoadGhostKoshienRoundRequest {
+
+            /**
+             * Constructs a new LoadGhostKoshienRoundRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostKoshienRoundRequest);
+
+            /** LoadGhostKoshienRoundRequest userId. */
+            public userId: number;
+
+            /** LoadGhostKoshienRoundRequest koshienId. */
+            public koshienId: number;
+
+            /** LoadGhostKoshienRoundRequest roundId. */
+            public roundId: number;
+
+            /**
+             * Creates a new LoadGhostKoshienRoundRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostKoshienRoundRequest instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostKoshienRoundRequest): wm.protobuf.LoadGhostKoshienRoundRequest;
+
+            /**
+             * Encodes the specified LoadGhostKoshienRoundRequest message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRoundRequest.verify|verify} messages.
+             * @param message LoadGhostKoshienRoundRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostKoshienRoundRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostKoshienRoundRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRoundRequest.verify|verify} messages.
+             * @param message LoadGhostKoshienRoundRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostKoshienRoundRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostKoshienRoundRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostKoshienRoundRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostKoshienRoundRequest;
+
+            /**
+             * Decodes a LoadGhostKoshienRoundRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostKoshienRoundRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostKoshienRoundRequest;
+
+            /**
+             * Verifies a LoadGhostKoshienRoundRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostKoshienRoundRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostKoshienRoundRequest
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostKoshienRoundRequest;
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienRoundRequest message. Also converts values to other types if specified.
+             * @param message LoadGhostKoshienRoundRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostKoshienRoundRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostKoshienRoundRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienRoundRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a LoadGhostKoshienRoundResponse. */
+        interface ILoadGhostKoshienRoundResponse {
+
+            /** LoadGhostKoshienRoundResponse participantShop */
+            participantShop?: (wm.protobuf.IPlace|null);
+
+            /** LoadGhostKoshienRoundResponse currentQualified */
+            currentQualified: boolean;
+
+            /** LoadGhostKoshienRoundResponse previousRoundQualified */
+            previousRoundQualified?: (boolean|null);
+
+            /** LoadGhostKoshienRoundResponse koshienRepresentedCar */
+            koshienRepresentedCar?: (wm.protobuf.LoadGhostKoshienRoundResponse.IGhostKoshienRepresentedCar[]|null);
+        }
+
+        /** Represents a LoadGhostKoshienRoundResponse. */
+        class LoadGhostKoshienRoundResponse implements ILoadGhostKoshienRoundResponse {
+
+            /**
+             * Constructs a new LoadGhostKoshienRoundResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostKoshienRoundResponse);
+
+            /** LoadGhostKoshienRoundResponse participantShop. */
+            public participantShop?: (wm.protobuf.IPlace|null);
+
+            /** LoadGhostKoshienRoundResponse currentQualified. */
+            public currentQualified: boolean;
+
+            /** LoadGhostKoshienRoundResponse previousRoundQualified. */
+            public previousRoundQualified: boolean;
+
+            /** LoadGhostKoshienRoundResponse koshienRepresentedCar. */
+            public koshienRepresentedCar: wm.protobuf.LoadGhostKoshienRoundResponse.IGhostKoshienRepresentedCar[];
+
+            /**
+             * Creates a new LoadGhostKoshienRoundResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostKoshienRoundResponse instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostKoshienRoundResponse): wm.protobuf.LoadGhostKoshienRoundResponse;
+
+            /**
+             * Encodes the specified LoadGhostKoshienRoundResponse message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRoundResponse.verify|verify} messages.
+             * @param message LoadGhostKoshienRoundResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostKoshienRoundResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostKoshienRoundResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRoundResponse.verify|verify} messages.
+             * @param message LoadGhostKoshienRoundResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostKoshienRoundResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostKoshienRoundResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostKoshienRoundResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostKoshienRoundResponse;
+
+            /**
+             * Decodes a LoadGhostKoshienRoundResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostKoshienRoundResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostKoshienRoundResponse;
+
+            /**
+             * Verifies a LoadGhostKoshienRoundResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostKoshienRoundResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostKoshienRoundResponse
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostKoshienRoundResponse;
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienRoundResponse message. Also converts values to other types if specified.
+             * @param message LoadGhostKoshienRoundResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostKoshienRoundResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostKoshienRoundResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienRoundResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace LoadGhostKoshienRoundResponse {
+
+            /** Properties of a GhostKoshienRepresentedCar. */
+            interface IGhostKoshienRepresentedCar {
+
+                /** GhostKoshienRepresentedCar representedCar */
+                representedCar: wm.protobuf.ICar;
+
+                /** GhostKoshienRepresentedCar representedShop */
+                representedShop?: (wm.protobuf.IPlace|null);
+            }
+
+            /** Represents a GhostKoshienRepresentedCar. */
+            class GhostKoshienRepresentedCar implements IGhostKoshienRepresentedCar {
+
+                /**
+                 * Constructs a new GhostKoshienRepresentedCar.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: wm.protobuf.LoadGhostKoshienRoundResponse.IGhostKoshienRepresentedCar);
+
+                /** GhostKoshienRepresentedCar representedCar. */
+                public representedCar: wm.protobuf.ICar;
+
+                /** GhostKoshienRepresentedCar representedShop. */
+                public representedShop?: (wm.protobuf.IPlace|null);
+
+                /**
+                 * Creates a new GhostKoshienRepresentedCar instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns GhostKoshienRepresentedCar instance
+                 */
+                public static create(properties?: wm.protobuf.LoadGhostKoshienRoundResponse.IGhostKoshienRepresentedCar): wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar;
+
+                /**
+                 * Encodes the specified GhostKoshienRepresentedCar message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar.verify|verify} messages.
+                 * @param message GhostKoshienRepresentedCar message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: wm.protobuf.LoadGhostKoshienRoundResponse.IGhostKoshienRepresentedCar, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified GhostKoshienRepresentedCar message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar.verify|verify} messages.
+                 * @param message GhostKoshienRepresentedCar message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: wm.protobuf.LoadGhostKoshienRoundResponse.IGhostKoshienRepresentedCar, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a GhostKoshienRepresentedCar message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns GhostKoshienRepresentedCar
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar;
+
+                /**
+                 * Decodes a GhostKoshienRepresentedCar message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns GhostKoshienRepresentedCar
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar;
+
+                /**
+                 * Verifies a GhostKoshienRepresentedCar message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a GhostKoshienRepresentedCar message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns GhostKoshienRepresentedCar
+                 */
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar;
+
+                /**
+                 * Creates a plain object from a GhostKoshienRepresentedCar message. Also converts values to other types if specified.
+                 * @param message GhostKoshienRepresentedCar
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: wm.protobuf.LoadGhostKoshienRoundResponse.GhostKoshienRepresentedCar, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this GhostKoshienRepresentedCar to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for GhostKoshienRepresentedCar
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+        }
+
+        /** Properties of a LoadGhostKoshienMvpRequest. */
+        interface ILoadGhostKoshienMvpRequest {
+
+            /** LoadGhostKoshienMvpRequest userId */
+            userId: number;
+
+            /** LoadGhostKoshienMvpRequest koshienId */
+            koshienId: number;
+
+            /** LoadGhostKoshienMvpRequest roundId */
+            roundId: number;
+        }
+
+        /** Represents a LoadGhostKoshienMvpRequest. */
+        class LoadGhostKoshienMvpRequest implements ILoadGhostKoshienMvpRequest {
+
+            /**
+             * Constructs a new LoadGhostKoshienMvpRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostKoshienMvpRequest);
+
+            /** LoadGhostKoshienMvpRequest userId. */
+            public userId: number;
+
+            /** LoadGhostKoshienMvpRequest koshienId. */
+            public koshienId: number;
+
+            /** LoadGhostKoshienMvpRequest roundId. */
+            public roundId: number;
+
+            /**
+             * Creates a new LoadGhostKoshienMvpRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostKoshienMvpRequest instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostKoshienMvpRequest): wm.protobuf.LoadGhostKoshienMvpRequest;
+
+            /**
+             * Encodes the specified LoadGhostKoshienMvpRequest message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienMvpRequest.verify|verify} messages.
+             * @param message LoadGhostKoshienMvpRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostKoshienMvpRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostKoshienMvpRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienMvpRequest.verify|verify} messages.
+             * @param message LoadGhostKoshienMvpRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostKoshienMvpRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostKoshienMvpRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostKoshienMvpRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostKoshienMvpRequest;
+
+            /**
+             * Decodes a LoadGhostKoshienMvpRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostKoshienMvpRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostKoshienMvpRequest;
+
+            /**
+             * Verifies a LoadGhostKoshienMvpRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostKoshienMvpRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostKoshienMvpRequest
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostKoshienMvpRequest;
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienMvpRequest message. Also converts values to other types if specified.
+             * @param message LoadGhostKoshienMvpRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostKoshienMvpRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostKoshienMvpRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienMvpRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a LoadGhostKoshienMvpResponse. */
+        interface ILoadGhostKoshienMvpResponse {
+
+            /** LoadGhostKoshienMvpResponse shopName */
+            shopName: string;
+
+            /** LoadGhostKoshienMvpResponse resultMvpCar */
+            resultMvpCar: wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar;
+
+            /** LoadGhostKoshienMvpResponse challengeMvpCar */
+            challengeMvpCar: wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar;
+
+            /** LoadGhostKoshienMvpResponse updateMvpCar */
+            updateMvpCar: wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar;
+        }
+
+        /** Represents a LoadGhostKoshienMvpResponse. */
+        class LoadGhostKoshienMvpResponse implements ILoadGhostKoshienMvpResponse {
+
+            /**
+             * Constructs a new LoadGhostKoshienMvpResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostKoshienMvpResponse);
+
+            /** LoadGhostKoshienMvpResponse shopName. */
+            public shopName: string;
+
+            /** LoadGhostKoshienMvpResponse resultMvpCar. */
+            public resultMvpCar: wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar;
+
+            /** LoadGhostKoshienMvpResponse challengeMvpCar. */
+            public challengeMvpCar: wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar;
+
+            /** LoadGhostKoshienMvpResponse updateMvpCar. */
+            public updateMvpCar: wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar;
+
+            /**
+             * Creates a new LoadGhostKoshienMvpResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostKoshienMvpResponse instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostKoshienMvpResponse): wm.protobuf.LoadGhostKoshienMvpResponse;
+
+            /**
+             * Encodes the specified LoadGhostKoshienMvpResponse message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienMvpResponse.verify|verify} messages.
+             * @param message LoadGhostKoshienMvpResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostKoshienMvpResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostKoshienMvpResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienMvpResponse.verify|verify} messages.
+             * @param message LoadGhostKoshienMvpResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostKoshienMvpResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostKoshienMvpResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostKoshienMvpResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostKoshienMvpResponse;
+
+            /**
+             * Decodes a LoadGhostKoshienMvpResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostKoshienMvpResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostKoshienMvpResponse;
+
+            /**
+             * Verifies a LoadGhostKoshienMvpResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostKoshienMvpResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostKoshienMvpResponse
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostKoshienMvpResponse;
+
+            /**
+             * Creates a plain object from a LoadGhostKoshienMvpResponse message. Also converts values to other types if specified.
+             * @param message LoadGhostKoshienMvpResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostKoshienMvpResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostKoshienMvpResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostKoshienMvpResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace LoadGhostKoshienMvpResponse {
+
+            /** Properties of a GhostKoshienMvpCar. */
+            interface IGhostKoshienMvpCar {
+
+                /** GhostKoshienMvpCar mvpCar */
+                mvpCar: wm.protobuf.ICar;
+
+                /** GhostKoshienMvpCar result */
+                result?: (number|null);
+
+                /** GhostKoshienMvpCar challengeCount */
+                challengeCount?: (number|null);
+
+                /** GhostKoshienMvpCar updateCount */
+                updateCount?: (number|null);
+            }
+
+            /** Represents a GhostKoshienMvpCar. */
+            class GhostKoshienMvpCar implements IGhostKoshienMvpCar {
+
+                /**
+                 * Constructs a new GhostKoshienMvpCar.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar);
+
+                /** GhostKoshienMvpCar mvpCar. */
+                public mvpCar: wm.protobuf.ICar;
+
+                /** GhostKoshienMvpCar result. */
+                public result: number;
+
+                /** GhostKoshienMvpCar challengeCount. */
+                public challengeCount: number;
+
+                /** GhostKoshienMvpCar updateCount. */
+                public updateCount: number;
+
+                /**
+                 * Creates a new GhostKoshienMvpCar instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns GhostKoshienMvpCar instance
+                 */
+                public static create(properties?: wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar): wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar;
+
+                /**
+                 * Encodes the specified GhostKoshienMvpCar message. Does not implicitly {@link wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.verify|verify} messages.
+                 * @param message GhostKoshienMvpCar message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified GhostKoshienMvpCar message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar.verify|verify} messages.
+                 * @param message GhostKoshienMvpCar message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: wm.protobuf.LoadGhostKoshienMvpResponse.IGhostKoshienMvpCar, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a GhostKoshienMvpCar message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns GhostKoshienMvpCar
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar;
+
+                /**
+                 * Decodes a GhostKoshienMvpCar message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns GhostKoshienMvpCar
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar;
+
+                /**
+                 * Verifies a GhostKoshienMvpCar message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a GhostKoshienMvpCar message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns GhostKoshienMvpCar
+                 */
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar;
+
+                /**
+                 * Creates a plain object from a GhostKoshienMvpCar message. Also converts values to other types if specified.
+                 * @param message GhostKoshienMvpCar
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: wm.protobuf.LoadGhostKoshienMvpResponse.GhostKoshienMvpCar, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this GhostKoshienMvpCar to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for GhostKoshienMvpCar
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+        }
+
         /** Properties of a LoadUnreceivedUserItemsRequest. */
         interface ILoadUnreceivedUserItemsRequest {
 
@@ -13710,6 +16227,9 @@ export namespace wm {
 
             /** SaveScreenshotRequest levelUpMetadata */
             levelUpMetadata?: (wm.protobuf.SaveScreenshotRequest.ILevelUpMetadata|null);
+
+            /** SaveScreenshotRequest koshienResultMetadata */
+            koshienResultMetadata?: (wm.protobuf.SaveScreenshotRequest.IGhostKoshienResultMetadata|null);
         }
 
         /** Represents a SaveScreenshotRequest. */
@@ -13768,6 +16288,9 @@ export namespace wm {
 
             /** SaveScreenshotRequest levelUpMetadata. */
             public levelUpMetadata?: (wm.protobuf.SaveScreenshotRequest.ILevelUpMetadata|null);
+
+            /** SaveScreenshotRequest koshienResultMetadata. */
+            public koshienResultMetadata?: (wm.protobuf.SaveScreenshotRequest.IGhostKoshienResultMetadata|null);
 
             /**
              * Creates a new SaveScreenshotRequest instance using the specified properties.
@@ -14981,6 +17504,121 @@ export namespace wm {
 
                 /**
                  * Gets the default type url for LevelUpMetadata
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+
+            /** Properties of a GhostKoshienResultMetadata. */
+            interface IGhostKoshienResultMetadata {
+
+                /** GhostKoshienResultMetadata tunePower */
+                tunePower: number;
+
+                /** GhostKoshienResultMetadata tuneHandling */
+                tuneHandling: number;
+
+                /** GhostKoshienResultMetadata rank */
+                rank?: (number|null);
+
+                /** GhostKoshienResultMetadata result */
+                result: number;
+            }
+
+            /** Represents a GhostKoshienResultMetadata. */
+            class GhostKoshienResultMetadata implements IGhostKoshienResultMetadata {
+
+                /**
+                 * Constructs a new GhostKoshienResultMetadata.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: wm.protobuf.SaveScreenshotRequest.IGhostKoshienResultMetadata);
+
+                /** GhostKoshienResultMetadata tunePower. */
+                public tunePower: number;
+
+                /** GhostKoshienResultMetadata tuneHandling. */
+                public tuneHandling: number;
+
+                /** GhostKoshienResultMetadata rank. */
+                public rank: number;
+
+                /** GhostKoshienResultMetadata result. */
+                public result: number;
+
+                /**
+                 * Creates a new GhostKoshienResultMetadata instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns GhostKoshienResultMetadata instance
+                 */
+                public static create(properties?: wm.protobuf.SaveScreenshotRequest.IGhostKoshienResultMetadata): wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata;
+
+                /**
+                 * Encodes the specified GhostKoshienResultMetadata message. Does not implicitly {@link wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata.verify|verify} messages.
+                 * @param message GhostKoshienResultMetadata message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: wm.protobuf.SaveScreenshotRequest.IGhostKoshienResultMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified GhostKoshienResultMetadata message, length delimited. Does not implicitly {@link wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata.verify|verify} messages.
+                 * @param message GhostKoshienResultMetadata message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: wm.protobuf.SaveScreenshotRequest.IGhostKoshienResultMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a GhostKoshienResultMetadata message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns GhostKoshienResultMetadata
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata;
+
+                /**
+                 * Decodes a GhostKoshienResultMetadata message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns GhostKoshienResultMetadata
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata;
+
+                /**
+                 * Verifies a GhostKoshienResultMetadata message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a GhostKoshienResultMetadata message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns GhostKoshienResultMetadata
+                 */
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata;
+
+                /**
+                 * Creates a plain object from a GhostKoshienResultMetadata message. Also converts values to other types if specified.
+                 * @param message GhostKoshienResultMetadata
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: wm.protobuf.SaveScreenshotRequest.GhostKoshienResultMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this GhostKoshienResultMetadata to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for GhostKoshienResultMetadata
                  * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
                  * @returns The default type url
                  */
@@ -19998,6 +22636,1208 @@ export namespace wm {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a LoadGhostBingoTargetsRequest. */
+        interface ILoadGhostBingoTargetsRequest {
+
+            /** LoadGhostBingoTargetsRequest carId */
+            carId: number;
+
+            /** LoadGhostBingoTargetsRequest area */
+            area: number;
+        }
+
+        /** Represents a LoadGhostBingoTargetsRequest. */
+        class LoadGhostBingoTargetsRequest implements ILoadGhostBingoTargetsRequest {
+
+            /**
+             * Constructs a new LoadGhostBingoTargetsRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostBingoTargetsRequest);
+
+            /** LoadGhostBingoTargetsRequest carId. */
+            public carId: number;
+
+            /** LoadGhostBingoTargetsRequest area. */
+            public area: number;
+
+            /**
+             * Creates a new LoadGhostBingoTargetsRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostBingoTargetsRequest instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostBingoTargetsRequest): wm.protobuf.LoadGhostBingoTargetsRequest;
+
+            /**
+             * Encodes the specified LoadGhostBingoTargetsRequest message. Does not implicitly {@link wm.protobuf.LoadGhostBingoTargetsRequest.verify|verify} messages.
+             * @param message LoadGhostBingoTargetsRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostBingoTargetsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostBingoTargetsRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostBingoTargetsRequest.verify|verify} messages.
+             * @param message LoadGhostBingoTargetsRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostBingoTargetsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostBingoTargetsRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostBingoTargetsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostBingoTargetsRequest;
+
+            /**
+             * Decodes a LoadGhostBingoTargetsRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostBingoTargetsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostBingoTargetsRequest;
+
+            /**
+             * Verifies a LoadGhostBingoTargetsRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostBingoTargetsRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostBingoTargetsRequest
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostBingoTargetsRequest;
+
+            /**
+             * Creates a plain object from a LoadGhostBingoTargetsRequest message. Also converts values to other types if specified.
+             * @param message LoadGhostBingoTargetsRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostBingoTargetsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostBingoTargetsRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostBingoTargetsRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a LoadGhostBingoTargetsResponse. */
+        interface ILoadGhostBingoTargetsResponse {
+
+            /** LoadGhostBingoTargetsResponse error */
+            error: wm.protobuf.ErrorCode;
+
+            /** LoadGhostBingoTargetsResponse ghosts */
+            ghosts?: (wm.protobuf.IGhostCar[]|null);
+
+            /** LoadGhostBingoTargetsResponse selectionMethod */
+            selectionMethod: wm.protobuf.PathSelectionMethod;
+
+            /** LoadGhostBingoTargetsResponse rates */
+            rates?: (wm.protobuf.LoadGhostBingoTargetsResponse.IRate[]|null);
+        }
+
+        /** Represents a LoadGhostBingoTargetsResponse. */
+        class LoadGhostBingoTargetsResponse implements ILoadGhostBingoTargetsResponse {
+
+            /**
+             * Constructs a new LoadGhostBingoTargetsResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadGhostBingoTargetsResponse);
+
+            /** LoadGhostBingoTargetsResponse error. */
+            public error: wm.protobuf.ErrorCode;
+
+            /** LoadGhostBingoTargetsResponse ghosts. */
+            public ghosts: wm.protobuf.IGhostCar[];
+
+            /** LoadGhostBingoTargetsResponse selectionMethod. */
+            public selectionMethod: wm.protobuf.PathSelectionMethod;
+
+            /** LoadGhostBingoTargetsResponse rates. */
+            public rates: wm.protobuf.LoadGhostBingoTargetsResponse.IRate[];
+
+            /**
+             * Creates a new LoadGhostBingoTargetsResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadGhostBingoTargetsResponse instance
+             */
+            public static create(properties?: wm.protobuf.ILoadGhostBingoTargetsResponse): wm.protobuf.LoadGhostBingoTargetsResponse;
+
+            /**
+             * Encodes the specified LoadGhostBingoTargetsResponse message. Does not implicitly {@link wm.protobuf.LoadGhostBingoTargetsResponse.verify|verify} messages.
+             * @param message LoadGhostBingoTargetsResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadGhostBingoTargetsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadGhostBingoTargetsResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostBingoTargetsResponse.verify|verify} messages.
+             * @param message LoadGhostBingoTargetsResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadGhostBingoTargetsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadGhostBingoTargetsResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadGhostBingoTargetsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostBingoTargetsResponse;
+
+            /**
+             * Decodes a LoadGhostBingoTargetsResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadGhostBingoTargetsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostBingoTargetsResponse;
+
+            /**
+             * Verifies a LoadGhostBingoTargetsResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadGhostBingoTargetsResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadGhostBingoTargetsResponse
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostBingoTargetsResponse;
+
+            /**
+             * Creates a plain object from a LoadGhostBingoTargetsResponse message. Also converts values to other types if specified.
+             * @param message LoadGhostBingoTargetsResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadGhostBingoTargetsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadGhostBingoTargetsResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadGhostBingoTargetsResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace LoadGhostBingoTargetsResponse {
+
+            /** Properties of a Rate. */
+            interface IRate {
+
+                /** Rate carId */
+                carId: number;
+
+                /** Rate type */
+                type: wm.protobuf.GhostRateType;
+
+                /** Rate rate */
+                rate?: (number|null);
+            }
+
+            /** Represents a Rate. */
+            class Rate implements IRate {
+
+                /**
+                 * Constructs a new Rate.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: wm.protobuf.LoadGhostBingoTargetsResponse.IRate);
+
+                /** Rate carId. */
+                public carId: number;
+
+                /** Rate type. */
+                public type: wm.protobuf.GhostRateType;
+
+                /** Rate rate. */
+                public rate: number;
+
+                /**
+                 * Creates a new Rate instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns Rate instance
+                 */
+                public static create(properties?: wm.protobuf.LoadGhostBingoTargetsResponse.IRate): wm.protobuf.LoadGhostBingoTargetsResponse.Rate;
+
+                /**
+                 * Encodes the specified Rate message. Does not implicitly {@link wm.protobuf.LoadGhostBingoTargetsResponse.Rate.verify|verify} messages.
+                 * @param message Rate message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: wm.protobuf.LoadGhostBingoTargetsResponse.IRate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified Rate message, length delimited. Does not implicitly {@link wm.protobuf.LoadGhostBingoTargetsResponse.Rate.verify|verify} messages.
+                 * @param message Rate message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: wm.protobuf.LoadGhostBingoTargetsResponse.IRate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a Rate message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns Rate
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadGhostBingoTargetsResponse.Rate;
+
+                /**
+                 * Decodes a Rate message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns Rate
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadGhostBingoTargetsResponse.Rate;
+
+                /**
+                 * Verifies a Rate message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a Rate message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns Rate
+                 */
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadGhostBingoTargetsResponse.Rate;
+
+                /**
+                 * Creates a plain object from a Rate message. Also converts values to other types if specified.
+                 * @param message Rate
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: wm.protobuf.LoadGhostBingoTargetsResponse.Rate, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this Rate to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for Rate
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+        }
+
+        /** Properties of a LoadBingoStatsRequest. */
+        interface ILoadBingoStatsRequest {
+
+            /** LoadBingoStatsRequest userId */
+            userId: number;
+        }
+
+        /** Represents a LoadBingoStatsRequest. */
+        class LoadBingoStatsRequest implements ILoadBingoStatsRequest {
+
+            /**
+             * Constructs a new LoadBingoStatsRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadBingoStatsRequest);
+
+            /** LoadBingoStatsRequest userId. */
+            public userId: number;
+
+            /**
+             * Creates a new LoadBingoStatsRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadBingoStatsRequest instance
+             */
+            public static create(properties?: wm.protobuf.ILoadBingoStatsRequest): wm.protobuf.LoadBingoStatsRequest;
+
+            /**
+             * Encodes the specified LoadBingoStatsRequest message. Does not implicitly {@link wm.protobuf.LoadBingoStatsRequest.verify|verify} messages.
+             * @param message LoadBingoStatsRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadBingoStatsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadBingoStatsRequest message, length delimited. Does not implicitly {@link wm.protobuf.LoadBingoStatsRequest.verify|verify} messages.
+             * @param message LoadBingoStatsRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadBingoStatsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadBingoStatsRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadBingoStatsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadBingoStatsRequest;
+
+            /**
+             * Decodes a LoadBingoStatsRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadBingoStatsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadBingoStatsRequest;
+
+            /**
+             * Verifies a LoadBingoStatsRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadBingoStatsRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadBingoStatsRequest
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadBingoStatsRequest;
+
+            /**
+             * Creates a plain object from a LoadBingoStatsRequest message. Also converts values to other types if specified.
+             * @param message LoadBingoStatsRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadBingoStatsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadBingoStatsRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadBingoStatsRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a LoadBingoStatsResponse. */
+        interface ILoadBingoStatsResponse {
+
+            /** LoadBingoStatsResponse error */
+            error: wm.protobuf.ErrorCode;
+
+            /** LoadBingoStatsResponse acquiredBingoNumbers */
+            acquiredBingoNumbers?: (number[]|null);
+
+            /** LoadBingoStatsResponse receivedNumOfItems */
+            receivedNumOfItems: number;
+
+            /** LoadBingoStatsResponse unreceivedItems */
+            unreceivedItems: boolean;
+        }
+
+        /** Represents a LoadBingoStatsResponse. */
+        class LoadBingoStatsResponse implements ILoadBingoStatsResponse {
+
+            /**
+             * Constructs a new LoadBingoStatsResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.ILoadBingoStatsResponse);
+
+            /** LoadBingoStatsResponse error. */
+            public error: wm.protobuf.ErrorCode;
+
+            /** LoadBingoStatsResponse acquiredBingoNumbers. */
+            public acquiredBingoNumbers: number[];
+
+            /** LoadBingoStatsResponse receivedNumOfItems. */
+            public receivedNumOfItems: number;
+
+            /** LoadBingoStatsResponse unreceivedItems. */
+            public unreceivedItems: boolean;
+
+            /**
+             * Creates a new LoadBingoStatsResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns LoadBingoStatsResponse instance
+             */
+            public static create(properties?: wm.protobuf.ILoadBingoStatsResponse): wm.protobuf.LoadBingoStatsResponse;
+
+            /**
+             * Encodes the specified LoadBingoStatsResponse message. Does not implicitly {@link wm.protobuf.LoadBingoStatsResponse.verify|verify} messages.
+             * @param message LoadBingoStatsResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.ILoadBingoStatsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified LoadBingoStatsResponse message, length delimited. Does not implicitly {@link wm.protobuf.LoadBingoStatsResponse.verify|verify} messages.
+             * @param message LoadBingoStatsResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.ILoadBingoStatsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a LoadBingoStatsResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns LoadBingoStatsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.LoadBingoStatsResponse;
+
+            /**
+             * Decodes a LoadBingoStatsResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns LoadBingoStatsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.LoadBingoStatsResponse;
+
+            /**
+             * Verifies a LoadBingoStatsResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a LoadBingoStatsResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns LoadBingoStatsResponse
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.LoadBingoStatsResponse;
+
+            /**
+             * Creates a plain object from a LoadBingoStatsResponse message. Also converts values to other types if specified.
+             * @param message LoadBingoStatsResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.LoadBingoStatsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this LoadBingoStatsResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for LoadBingoStatsResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a BingoReceivableItemsRequest. */
+        interface IBingoReceivableItemsRequest {
+
+            /** BingoReceivableItemsRequest userId */
+            userId: number;
+        }
+
+        /** Represents a BingoReceivableItemsRequest. */
+        class BingoReceivableItemsRequest implements IBingoReceivableItemsRequest {
+
+            /**
+             * Constructs a new BingoReceivableItemsRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IBingoReceivableItemsRequest);
+
+            /** BingoReceivableItemsRequest userId. */
+            public userId: number;
+
+            /**
+             * Creates a new BingoReceivableItemsRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BingoReceivableItemsRequest instance
+             */
+            public static create(properties?: wm.protobuf.IBingoReceivableItemsRequest): wm.protobuf.BingoReceivableItemsRequest;
+
+            /**
+             * Encodes the specified BingoReceivableItemsRequest message. Does not implicitly {@link wm.protobuf.BingoReceivableItemsRequest.verify|verify} messages.
+             * @param message BingoReceivableItemsRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IBingoReceivableItemsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BingoReceivableItemsRequest message, length delimited. Does not implicitly {@link wm.protobuf.BingoReceivableItemsRequest.verify|verify} messages.
+             * @param message BingoReceivableItemsRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IBingoReceivableItemsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BingoReceivableItemsRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BingoReceivableItemsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.BingoReceivableItemsRequest;
+
+            /**
+             * Decodes a BingoReceivableItemsRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BingoReceivableItemsRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.BingoReceivableItemsRequest;
+
+            /**
+             * Verifies a BingoReceivableItemsRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BingoReceivableItemsRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BingoReceivableItemsRequest
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.BingoReceivableItemsRequest;
+
+            /**
+             * Creates a plain object from a BingoReceivableItemsRequest message. Also converts values to other types if specified.
+             * @param message BingoReceivableItemsRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.BingoReceivableItemsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BingoReceivableItemsRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for BingoReceivableItemsRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a BingoReceivableItemsResponse. */
+        interface IBingoReceivableItemsResponse {
+
+            /** BingoReceivableItemsResponse error */
+            error: wm.protobuf.ErrorCode;
+
+            /** BingoReceivableItemsResponse ownedUserItems */
+            ownedUserItems?: (wm.protobuf.IUserItem[]|null);
+        }
+
+        /** Represents a BingoReceivableItemsResponse. */
+        class BingoReceivableItemsResponse implements IBingoReceivableItemsResponse {
+
+            /**
+             * Constructs a new BingoReceivableItemsResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IBingoReceivableItemsResponse);
+
+            /** BingoReceivableItemsResponse error. */
+            public error: wm.protobuf.ErrorCode;
+
+            /** BingoReceivableItemsResponse ownedUserItems. */
+            public ownedUserItems: wm.protobuf.IUserItem[];
+
+            /**
+             * Creates a new BingoReceivableItemsResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BingoReceivableItemsResponse instance
+             */
+            public static create(properties?: wm.protobuf.IBingoReceivableItemsResponse): wm.protobuf.BingoReceivableItemsResponse;
+
+            /**
+             * Encodes the specified BingoReceivableItemsResponse message. Does not implicitly {@link wm.protobuf.BingoReceivableItemsResponse.verify|verify} messages.
+             * @param message BingoReceivableItemsResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IBingoReceivableItemsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BingoReceivableItemsResponse message, length delimited. Does not implicitly {@link wm.protobuf.BingoReceivableItemsResponse.verify|verify} messages.
+             * @param message BingoReceivableItemsResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IBingoReceivableItemsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BingoReceivableItemsResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BingoReceivableItemsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.BingoReceivableItemsResponse;
+
+            /**
+             * Decodes a BingoReceivableItemsResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BingoReceivableItemsResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.BingoReceivableItemsResponse;
+
+            /**
+             * Verifies a BingoReceivableItemsResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BingoReceivableItemsResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BingoReceivableItemsResponse
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.BingoReceivableItemsResponse;
+
+            /**
+             * Creates a plain object from a BingoReceivableItemsResponse message. Also converts values to other types if specified.
+             * @param message BingoReceivableItemsResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.BingoReceivableItemsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BingoReceivableItemsResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for BingoReceivableItemsResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a MergeBingoCardRequest. */
+        interface IMergeBingoCardRequest {
+
+            /** MergeBingoCardRequest userList */
+            userList?: (wm.protobuf.MergeBingoCardRequest.IUser[]|null);
+        }
+
+        /** Represents a MergeBingoCardRequest. */
+        class MergeBingoCardRequest implements IMergeBingoCardRequest {
+
+            /**
+             * Constructs a new MergeBingoCardRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IMergeBingoCardRequest);
+
+            /** MergeBingoCardRequest userList. */
+            public userList: wm.protobuf.MergeBingoCardRequest.IUser[];
+
+            /**
+             * Creates a new MergeBingoCardRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns MergeBingoCardRequest instance
+             */
+            public static create(properties?: wm.protobuf.IMergeBingoCardRequest): wm.protobuf.MergeBingoCardRequest;
+
+            /**
+             * Encodes the specified MergeBingoCardRequest message. Does not implicitly {@link wm.protobuf.MergeBingoCardRequest.verify|verify} messages.
+             * @param message MergeBingoCardRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IMergeBingoCardRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified MergeBingoCardRequest message, length delimited. Does not implicitly {@link wm.protobuf.MergeBingoCardRequest.verify|verify} messages.
+             * @param message MergeBingoCardRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IMergeBingoCardRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a MergeBingoCardRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns MergeBingoCardRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.MergeBingoCardRequest;
+
+            /**
+             * Decodes a MergeBingoCardRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns MergeBingoCardRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.MergeBingoCardRequest;
+
+            /**
+             * Verifies a MergeBingoCardRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a MergeBingoCardRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns MergeBingoCardRequest
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.MergeBingoCardRequest;
+
+            /**
+             * Creates a plain object from a MergeBingoCardRequest message. Also converts values to other types if specified.
+             * @param message MergeBingoCardRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.MergeBingoCardRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this MergeBingoCardRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for MergeBingoCardRequest
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace MergeBingoCardRequest {
+
+            /** Properties of a User. */
+            interface IUser {
+
+                /** User cardChipId */
+                cardChipId?: (string|null);
+
+                /** User accessCode */
+                accessCode?: (string|null);
+
+                /** User cardTypeCode */
+                cardTypeCode?: (number|null);
+
+                /** User cardRegionCode */
+                cardRegionCode?: (number|null);
+
+                /** User device */
+                device?: (wm.protobuf.DeviceType|null);
+            }
+
+            /** Represents a User. */
+            class User implements IUser {
+
+                /**
+                 * Constructs a new User.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: wm.protobuf.MergeBingoCardRequest.IUser);
+
+                /** User cardChipId. */
+                public cardChipId: string;
+
+                /** User accessCode. */
+                public accessCode: string;
+
+                /** User cardTypeCode. */
+                public cardTypeCode: number;
+
+                /** User cardRegionCode. */
+                public cardRegionCode: number;
+
+                /** User device. */
+                public device: wm.protobuf.DeviceType;
+
+                /**
+                 * Creates a new User instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns User instance
+                 */
+                public static create(properties?: wm.protobuf.MergeBingoCardRequest.IUser): wm.protobuf.MergeBingoCardRequest.User;
+
+                /**
+                 * Encodes the specified User message. Does not implicitly {@link wm.protobuf.MergeBingoCardRequest.User.verify|verify} messages.
+                 * @param message User message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: wm.protobuf.MergeBingoCardRequest.IUser, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified User message, length delimited. Does not implicitly {@link wm.protobuf.MergeBingoCardRequest.User.verify|verify} messages.
+                 * @param message User message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: wm.protobuf.MergeBingoCardRequest.IUser, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a User message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns User
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.MergeBingoCardRequest.User;
+
+                /**
+                 * Decodes a User message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns User
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.MergeBingoCardRequest.User;
+
+                /**
+                 * Verifies a User message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a User message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns User
+                 */
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.MergeBingoCardRequest.User;
+
+                /**
+                 * Creates a plain object from a User message. Also converts values to other types if specified.
+                 * @param message User
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: wm.protobuf.MergeBingoCardRequest.User, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this User to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for User
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+        }
+
+        /** Properties of a MergeBingoCardResponse. */
+        interface IMergeBingoCardResponse {
+
+            /** MergeBingoCardResponse error */
+            error: wm.protobuf.ErrorCode;
+
+            /** MergeBingoCardResponse cardBeforeMergeList */
+            cardBeforeMergeList?: (wm.protobuf.MergeBingoCardResponse.ICardBeforeMerge[]|null);
+
+            /** MergeBingoCardResponse acquiredBingoNumbers */
+            acquiredBingoNumbers?: (number[]|null);
+        }
+
+        /** Represents a MergeBingoCardResponse. */
+        class MergeBingoCardResponse implements IMergeBingoCardResponse {
+
+            /**
+             * Constructs a new MergeBingoCardResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IMergeBingoCardResponse);
+
+            /** MergeBingoCardResponse error. */
+            public error: wm.protobuf.ErrorCode;
+
+            /** MergeBingoCardResponse cardBeforeMergeList. */
+            public cardBeforeMergeList: wm.protobuf.MergeBingoCardResponse.ICardBeforeMerge[];
+
+            /** MergeBingoCardResponse acquiredBingoNumbers. */
+            public acquiredBingoNumbers: number[];
+
+            /**
+             * Creates a new MergeBingoCardResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns MergeBingoCardResponse instance
+             */
+            public static create(properties?: wm.protobuf.IMergeBingoCardResponse): wm.protobuf.MergeBingoCardResponse;
+
+            /**
+             * Encodes the specified MergeBingoCardResponse message. Does not implicitly {@link wm.protobuf.MergeBingoCardResponse.verify|verify} messages.
+             * @param message MergeBingoCardResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IMergeBingoCardResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified MergeBingoCardResponse message, length delimited. Does not implicitly {@link wm.protobuf.MergeBingoCardResponse.verify|verify} messages.
+             * @param message MergeBingoCardResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IMergeBingoCardResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a MergeBingoCardResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns MergeBingoCardResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.MergeBingoCardResponse;
+
+            /**
+             * Decodes a MergeBingoCardResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns MergeBingoCardResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.MergeBingoCardResponse;
+
+            /**
+             * Verifies a MergeBingoCardResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a MergeBingoCardResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns MergeBingoCardResponse
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.MergeBingoCardResponse;
+
+            /**
+             * Creates a plain object from a MergeBingoCardResponse message. Also converts values to other types if specified.
+             * @param message MergeBingoCardResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.MergeBingoCardResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this MergeBingoCardResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for MergeBingoCardResponse
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace MergeBingoCardResponse {
+
+            /** Properties of a CardBeforeMerge. */
+            interface ICardBeforeMerge {
+
+                /** CardBeforeMerge error */
+                error: wm.protobuf.ErrorCode;
+
+                /** CardBeforeMerge transferState */
+                transferState?: (wm.protobuf.TransferState|null);
+
+                /** CardBeforeMerge carId */
+                carId?: (number|null);
+
+                /** CardBeforeMerge carName */
+                carName?: (string|null);
+
+                /** CardBeforeMerge unlockAt */
+                unlockAt?: (number|null);
+
+                /** CardBeforeMerge acquiredBingoNumbers */
+                acquiredBingoNumbers?: (number[]|null);
+            }
+
+            /** Represents a CardBeforeMerge. */
+            class CardBeforeMerge implements ICardBeforeMerge {
+
+                /**
+                 * Constructs a new CardBeforeMerge.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: wm.protobuf.MergeBingoCardResponse.ICardBeforeMerge);
+
+                /** CardBeforeMerge error. */
+                public error: wm.protobuf.ErrorCode;
+
+                /** CardBeforeMerge transferState. */
+                public transferState: wm.protobuf.TransferState;
+
+                /** CardBeforeMerge carId. */
+                public carId: number;
+
+                /** CardBeforeMerge carName. */
+                public carName: string;
+
+                /** CardBeforeMerge unlockAt. */
+                public unlockAt: number;
+
+                /** CardBeforeMerge acquiredBingoNumbers. */
+                public acquiredBingoNumbers: number[];
+
+                /**
+                 * Creates a new CardBeforeMerge instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns CardBeforeMerge instance
+                 */
+                public static create(properties?: wm.protobuf.MergeBingoCardResponse.ICardBeforeMerge): wm.protobuf.MergeBingoCardResponse.CardBeforeMerge;
+
+                /**
+                 * Encodes the specified CardBeforeMerge message. Does not implicitly {@link wm.protobuf.MergeBingoCardResponse.CardBeforeMerge.verify|verify} messages.
+                 * @param message CardBeforeMerge message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: wm.protobuf.MergeBingoCardResponse.ICardBeforeMerge, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified CardBeforeMerge message, length delimited. Does not implicitly {@link wm.protobuf.MergeBingoCardResponse.CardBeforeMerge.verify|verify} messages.
+                 * @param message CardBeforeMerge message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: wm.protobuf.MergeBingoCardResponse.ICardBeforeMerge, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a CardBeforeMerge message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns CardBeforeMerge
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.MergeBingoCardResponse.CardBeforeMerge;
+
+                /**
+                 * Decodes a CardBeforeMerge message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns CardBeforeMerge
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.MergeBingoCardResponse.CardBeforeMerge;
+
+                /**
+                 * Verifies a CardBeforeMerge message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a CardBeforeMerge message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns CardBeforeMerge
+                 */
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.MergeBingoCardResponse.CardBeforeMerge;
+
+                /**
+                 * Creates a plain object from a CardBeforeMerge message. Also converts values to other types if specified.
+                 * @param message CardBeforeMerge
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: wm.protobuf.MergeBingoCardResponse.CardBeforeMerge, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this CardBeforeMerge to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for CardBeforeMerge
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+        }
+
         /** Properties of a Car. */
         interface ICar {
 
@@ -20111,6 +23951,9 @@ export namespace wm {
 
             /** Car searchCode */
             searchCode?: (string|null);
+
+            /** Car customFrame */
+            customFrame?: (number|null);
         }
 
         /** Represents a Car. */
@@ -20232,6 +24075,9 @@ export namespace wm {
 
             /** Car searchCode. */
             public searchCode: string;
+
+            /** Car customFrame. */
+            public customFrame: number;
 
             /**
              * Creates a new Car instance using the specified properties.
@@ -22040,6 +25886,556 @@ export namespace wm {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a GhostKoshienSchedule. */
+        interface IGhostKoshienSchedule {
+
+            /** GhostKoshienSchedule koshienId */
+            koshienId: number;
+
+            /** GhostKoshienSchedule qualifyingFirstPeriodStartAt */
+            qualifyingFirstPeriodStartAt: number;
+
+            /** GhostKoshienSchedule qualifyingFirstPeriodCloseAt */
+            qualifyingFirstPeriodCloseAt: number;
+
+            /** GhostKoshienSchedule qualifyingSecondPeriodStartAt */
+            qualifyingSecondPeriodStartAt: number;
+
+            /** GhostKoshienSchedule qualifyingSecondPeriodCloseAt */
+            qualifyingSecondPeriodCloseAt: number;
+
+            /** GhostKoshienSchedule regionFinalStartAt */
+            regionFinalStartAt: number;
+
+            /** GhostKoshienSchedule regionFinalCloseAt */
+            regionFinalCloseAt: number;
+
+            /** GhostKoshienSchedule koshienStartAt */
+            koshienStartAt: number;
+
+            /** GhostKoshienSchedule koshienCloseAt */
+            koshienCloseAt: number;
+
+            /** GhostKoshienSchedule lengthOfPeriod */
+            lengthOfPeriod: number;
+
+            /** GhostKoshienSchedule lengthOfInterval */
+            lengthOfInterval: number;
+
+            /** GhostKoshienSchedule area */
+            area: number;
+
+            /** GhostKoshienSchedule aftereventStartAt */
+            aftereventStartAt: number;
+
+            /** GhostKoshienSchedule aftereventEndAt */
+            aftereventEndAt: number;
+        }
+
+        /** Represents a GhostKoshienSchedule. */
+        class GhostKoshienSchedule implements IGhostKoshienSchedule {
+
+            /**
+             * Constructs a new GhostKoshienSchedule.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IGhostKoshienSchedule);
+
+            /** GhostKoshienSchedule koshienId. */
+            public koshienId: number;
+
+            /** GhostKoshienSchedule qualifyingFirstPeriodStartAt. */
+            public qualifyingFirstPeriodStartAt: number;
+
+            /** GhostKoshienSchedule qualifyingFirstPeriodCloseAt. */
+            public qualifyingFirstPeriodCloseAt: number;
+
+            /** GhostKoshienSchedule qualifyingSecondPeriodStartAt. */
+            public qualifyingSecondPeriodStartAt: number;
+
+            /** GhostKoshienSchedule qualifyingSecondPeriodCloseAt. */
+            public qualifyingSecondPeriodCloseAt: number;
+
+            /** GhostKoshienSchedule regionFinalStartAt. */
+            public regionFinalStartAt: number;
+
+            /** GhostKoshienSchedule regionFinalCloseAt. */
+            public regionFinalCloseAt: number;
+
+            /** GhostKoshienSchedule koshienStartAt. */
+            public koshienStartAt: number;
+
+            /** GhostKoshienSchedule koshienCloseAt. */
+            public koshienCloseAt: number;
+
+            /** GhostKoshienSchedule lengthOfPeriod. */
+            public lengthOfPeriod: number;
+
+            /** GhostKoshienSchedule lengthOfInterval. */
+            public lengthOfInterval: number;
+
+            /** GhostKoshienSchedule area. */
+            public area: number;
+
+            /** GhostKoshienSchedule aftereventStartAt. */
+            public aftereventStartAt: number;
+
+            /** GhostKoshienSchedule aftereventEndAt. */
+            public aftereventEndAt: number;
+
+            /**
+             * Creates a new GhostKoshienSchedule instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GhostKoshienSchedule instance
+             */
+            public static create(properties?: wm.protobuf.IGhostKoshienSchedule): wm.protobuf.GhostKoshienSchedule;
+
+            /**
+             * Encodes the specified GhostKoshienSchedule message. Does not implicitly {@link wm.protobuf.GhostKoshienSchedule.verify|verify} messages.
+             * @param message GhostKoshienSchedule message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IGhostKoshienSchedule, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GhostKoshienSchedule message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienSchedule.verify|verify} messages.
+             * @param message GhostKoshienSchedule message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IGhostKoshienSchedule, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GhostKoshienSchedule message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GhostKoshienSchedule
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.GhostKoshienSchedule;
+
+            /**
+             * Decodes a GhostKoshienSchedule message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GhostKoshienSchedule
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.GhostKoshienSchedule;
+
+            /**
+             * Verifies a GhostKoshienSchedule message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GhostKoshienSchedule message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GhostKoshienSchedule
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.GhostKoshienSchedule;
+
+            /**
+             * Creates a plain object from a GhostKoshienSchedule message. Also converts values to other types if specified.
+             * @param message GhostKoshienSchedule
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.GhostKoshienSchedule, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GhostKoshienSchedule to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GhostKoshienSchedule
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a GhostKoshienPrize. */
+        interface IGhostKoshienPrize {
+
+            /** GhostKoshienPrize firstParticipationPrize */
+            firstParticipationPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize secondParticipationPrize */
+            secondParticipationPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize regionParticipationPrize */
+            regionParticipationPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize participationPrize */
+            participationPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize firstMvpPrize */
+            firstMvpPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize secondMvpPrize */
+            secondMvpPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize regionMvpPrize */
+            regionMvpPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize mvpPrize */
+            mvpPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize winnerPrize */
+            winnerPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize secondPlacePrize */
+            secondPlacePrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize aftereventRivalMarker */
+            aftereventRivalMarker: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize aftereventSpecialTitle */
+            aftereventSpecialTitle: string;
+        }
+
+        /** Represents a GhostKoshienPrize. */
+        class GhostKoshienPrize implements IGhostKoshienPrize {
+
+            /**
+             * Constructs a new GhostKoshienPrize.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IGhostKoshienPrize);
+
+            /** GhostKoshienPrize firstParticipationPrize. */
+            public firstParticipationPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize secondParticipationPrize. */
+            public secondParticipationPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize regionParticipationPrize. */
+            public regionParticipationPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize participationPrize. */
+            public participationPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize firstMvpPrize. */
+            public firstMvpPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize secondMvpPrize. */
+            public secondMvpPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize regionMvpPrize. */
+            public regionMvpPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize mvpPrize. */
+            public mvpPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize winnerPrize. */
+            public winnerPrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize secondPlacePrize. */
+            public secondPlacePrize: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize aftereventRivalMarker. */
+            public aftereventRivalMarker: wm.protobuf.ICarItem;
+
+            /** GhostKoshienPrize aftereventSpecialTitle. */
+            public aftereventSpecialTitle: string;
+
+            /**
+             * Creates a new GhostKoshienPrize instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GhostKoshienPrize instance
+             */
+            public static create(properties?: wm.protobuf.IGhostKoshienPrize): wm.protobuf.GhostKoshienPrize;
+
+            /**
+             * Encodes the specified GhostKoshienPrize message. Does not implicitly {@link wm.protobuf.GhostKoshienPrize.verify|verify} messages.
+             * @param message GhostKoshienPrize message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IGhostKoshienPrize, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GhostKoshienPrize message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienPrize.verify|verify} messages.
+             * @param message GhostKoshienPrize message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IGhostKoshienPrize, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GhostKoshienPrize message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GhostKoshienPrize
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.GhostKoshienPrize;
+
+            /**
+             * Decodes a GhostKoshienPrize message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GhostKoshienPrize
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.GhostKoshienPrize;
+
+            /**
+             * Verifies a GhostKoshienPrize message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GhostKoshienPrize message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GhostKoshienPrize
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.GhostKoshienPrize;
+
+            /**
+             * Creates a plain object from a GhostKoshienPrize message. Also converts values to other types if specified.
+             * @param message GhostKoshienPrize
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.GhostKoshienPrize, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GhostKoshienPrize to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GhostKoshienPrize
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a GhostKoshienWonShop. */
+        interface IGhostKoshienWonShop {
+
+            /** GhostKoshienWonShop koshienId */
+            koshienId: number;
+
+            /** GhostKoshienWonShop shopName */
+            shopName: string;
+
+            /** GhostKoshienWonShop rank */
+            rank: number;
+        }
+
+        /** Represents a GhostKoshienWonShop. */
+        class GhostKoshienWonShop implements IGhostKoshienWonShop {
+
+            /**
+             * Constructs a new GhostKoshienWonShop.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IGhostKoshienWonShop);
+
+            /** GhostKoshienWonShop koshienId. */
+            public koshienId: number;
+
+            /** GhostKoshienWonShop shopName. */
+            public shopName: string;
+
+            /** GhostKoshienWonShop rank. */
+            public rank: number;
+
+            /**
+             * Creates a new GhostKoshienWonShop instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GhostKoshienWonShop instance
+             */
+            public static create(properties?: wm.protobuf.IGhostKoshienWonShop): wm.protobuf.GhostKoshienWonShop;
+
+            /**
+             * Encodes the specified GhostKoshienWonShop message. Does not implicitly {@link wm.protobuf.GhostKoshienWonShop.verify|verify} messages.
+             * @param message GhostKoshienWonShop message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IGhostKoshienWonShop, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GhostKoshienWonShop message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienWonShop.verify|verify} messages.
+             * @param message GhostKoshienWonShop message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IGhostKoshienWonShop, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GhostKoshienWonShop message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GhostKoshienWonShop
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.GhostKoshienWonShop;
+
+            /**
+             * Decodes a GhostKoshienWonShop message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GhostKoshienWonShop
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.GhostKoshienWonShop;
+
+            /**
+             * Verifies a GhostKoshienWonShop message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GhostKoshienWonShop message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GhostKoshienWonShop
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.GhostKoshienWonShop;
+
+            /**
+             * Creates a plain object from a GhostKoshienWonShop message. Also converts values to other types if specified.
+             * @param message GhostKoshienWonShop
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.GhostKoshienWonShop, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GhostKoshienWonShop to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GhostKoshienWonShop
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a GhostKoshienRoundRank. */
+        interface IGhostKoshienRoundRank {
+
+            /** GhostKoshienRoundRank roundId */
+            roundId: number;
+
+            /** GhostKoshienRoundRank rank */
+            rank: number;
+        }
+
+        /** Represents a GhostKoshienRoundRank. */
+        class GhostKoshienRoundRank implements IGhostKoshienRoundRank {
+
+            /**
+             * Constructs a new GhostKoshienRoundRank.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IGhostKoshienRoundRank);
+
+            /** GhostKoshienRoundRank roundId. */
+            public roundId: number;
+
+            /** GhostKoshienRoundRank rank. */
+            public rank: number;
+
+            /**
+             * Creates a new GhostKoshienRoundRank instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GhostKoshienRoundRank instance
+             */
+            public static create(properties?: wm.protobuf.IGhostKoshienRoundRank): wm.protobuf.GhostKoshienRoundRank;
+
+            /**
+             * Encodes the specified GhostKoshienRoundRank message. Does not implicitly {@link wm.protobuf.GhostKoshienRoundRank.verify|verify} messages.
+             * @param message GhostKoshienRoundRank message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IGhostKoshienRoundRank, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GhostKoshienRoundRank message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienRoundRank.verify|verify} messages.
+             * @param message GhostKoshienRoundRank message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IGhostKoshienRoundRank, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GhostKoshienRoundRank message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GhostKoshienRoundRank
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.GhostKoshienRoundRank;
+
+            /**
+             * Decodes a GhostKoshienRoundRank message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GhostKoshienRoundRank
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.GhostKoshienRoundRank;
+
+            /**
+             * Verifies a GhostKoshienRoundRank message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GhostKoshienRoundRank message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GhostKoshienRoundRank
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.GhostKoshienRoundRank;
+
+            /**
+             * Creates a plain object from a GhostKoshienRoundRank message. Also converts values to other types if specified.
+             * @param message GhostKoshienRoundRank
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.GhostKoshienRoundRank, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GhostKoshienRoundRank to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GhostKoshienRoundRank
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a GhostCompetitionParameter. */
         interface IGhostCompetitionParameter {
 
@@ -23302,6 +27698,224 @@ export namespace wm {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a BingoRevengeCar. */
+        interface IBingoRevengeCar {
+
+            /** BingoRevengeCar ghost */
+            ghost: wm.protobuf.IGhostCar;
+
+            /** BingoRevengeCar revengeNumber */
+            revengeNumber: number;
+
+            /** BingoRevengeCar locked */
+            locked: boolean;
+        }
+
+        /** Represents a BingoRevengeCar. */
+        class BingoRevengeCar implements IBingoRevengeCar {
+
+            /**
+             * Constructs a new BingoRevengeCar.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IBingoRevengeCar);
+
+            /** BingoRevengeCar ghost. */
+            public ghost: wm.protobuf.IGhostCar;
+
+            /** BingoRevengeCar revengeNumber. */
+            public revengeNumber: number;
+
+            /** BingoRevengeCar locked. */
+            public locked: boolean;
+
+            /**
+             * Creates a new BingoRevengeCar instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BingoRevengeCar instance
+             */
+            public static create(properties?: wm.protobuf.IBingoRevengeCar): wm.protobuf.BingoRevengeCar;
+
+            /**
+             * Encodes the specified BingoRevengeCar message. Does not implicitly {@link wm.protobuf.BingoRevengeCar.verify|verify} messages.
+             * @param message BingoRevengeCar message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IBingoRevengeCar, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BingoRevengeCar message, length delimited. Does not implicitly {@link wm.protobuf.BingoRevengeCar.verify|verify} messages.
+             * @param message BingoRevengeCar message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IBingoRevengeCar, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BingoRevengeCar message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BingoRevengeCar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.BingoRevengeCar;
+
+            /**
+             * Decodes a BingoRevengeCar message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BingoRevengeCar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.BingoRevengeCar;
+
+            /**
+             * Verifies a BingoRevengeCar message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BingoRevengeCar message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BingoRevengeCar
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.BingoRevengeCar;
+
+            /**
+             * Creates a plain object from a BingoRevengeCar message. Also converts values to other types if specified.
+             * @param message BingoRevengeCar
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.BingoRevengeCar, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BingoRevengeCar to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for BingoRevengeCar
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a BingoPrize. */
+        interface IBingoPrize {
+
+            /** BingoPrize bingoPatterns */
+            bingoPatterns: number;
+
+            /** BingoPrize category */
+            category: wm.protobuf.ItemCategory;
+
+            /** BingoPrize itemId */
+            itemId: number;
+        }
+
+        /** Represents a BingoPrize. */
+        class BingoPrize implements IBingoPrize {
+
+            /**
+             * Constructs a new BingoPrize.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IBingoPrize);
+
+            /** BingoPrize bingoPatterns. */
+            public bingoPatterns: number;
+
+            /** BingoPrize category. */
+            public category: wm.protobuf.ItemCategory;
+
+            /** BingoPrize itemId. */
+            public itemId: number;
+
+            /**
+             * Creates a new BingoPrize instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BingoPrize instance
+             */
+            public static create(properties?: wm.protobuf.IBingoPrize): wm.protobuf.BingoPrize;
+
+            /**
+             * Encodes the specified BingoPrize message. Does not implicitly {@link wm.protobuf.BingoPrize.verify|verify} messages.
+             * @param message BingoPrize message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IBingoPrize, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BingoPrize message, length delimited. Does not implicitly {@link wm.protobuf.BingoPrize.verify|verify} messages.
+             * @param message BingoPrize message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IBingoPrize, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BingoPrize message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BingoPrize
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.BingoPrize;
+
+            /**
+             * Decodes a BingoPrize message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BingoPrize
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.BingoPrize;
+
+            /**
+             * Verifies a BingoPrize message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BingoPrize message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BingoPrize
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.BingoPrize;
+
+            /**
+             * Creates a plain object from a BingoPrize message. Also converts values to other types if specified.
+             * @param message BingoPrize
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.BingoPrize, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BingoPrize to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for BingoPrize
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a CarTuning. */
         interface ICarTuning {
 
@@ -24322,6 +28936,221 @@ export namespace wm {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a GhostKoshienParticipatingShop. */
+        interface IGhostKoshienParticipatingShop {
+
+            /** GhostKoshienParticipatingShop koshienId */
+            koshienId: number;
+
+            /** GhostKoshienParticipatingShop roundRank */
+            roundRank?: (wm.protobuf.IGhostKoshienRoundRank[]|null);
+
+            /** GhostKoshienParticipatingShop participantStore */
+            participantStore?: (wm.protobuf.GhostKoshienParticipatingShop.IParticipantShop[]|null);
+        }
+
+        /** Represents a GhostKoshienParticipatingShop. */
+        class GhostKoshienParticipatingShop implements IGhostKoshienParticipatingShop {
+
+            /**
+             * Constructs a new GhostKoshienParticipatingShop.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IGhostKoshienParticipatingShop);
+
+            /** GhostKoshienParticipatingShop koshienId. */
+            public koshienId: number;
+
+            /** GhostKoshienParticipatingShop roundRank. */
+            public roundRank: wm.protobuf.IGhostKoshienRoundRank[];
+
+            /** GhostKoshienParticipatingShop participantStore. */
+            public participantStore: wm.protobuf.GhostKoshienParticipatingShop.IParticipantShop[];
+
+            /**
+             * Creates a new GhostKoshienParticipatingShop instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GhostKoshienParticipatingShop instance
+             */
+            public static create(properties?: wm.protobuf.IGhostKoshienParticipatingShop): wm.protobuf.GhostKoshienParticipatingShop;
+
+            /**
+             * Encodes the specified GhostKoshienParticipatingShop message. Does not implicitly {@link wm.protobuf.GhostKoshienParticipatingShop.verify|verify} messages.
+             * @param message GhostKoshienParticipatingShop message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IGhostKoshienParticipatingShop, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GhostKoshienParticipatingShop message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienParticipatingShop.verify|verify} messages.
+             * @param message GhostKoshienParticipatingShop message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IGhostKoshienParticipatingShop, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GhostKoshienParticipatingShop message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GhostKoshienParticipatingShop
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.GhostKoshienParticipatingShop;
+
+            /**
+             * Decodes a GhostKoshienParticipatingShop message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GhostKoshienParticipatingShop
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.GhostKoshienParticipatingShop;
+
+            /**
+             * Verifies a GhostKoshienParticipatingShop message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GhostKoshienParticipatingShop message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GhostKoshienParticipatingShop
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.GhostKoshienParticipatingShop;
+
+            /**
+             * Creates a plain object from a GhostKoshienParticipatingShop message. Also converts values to other types if specified.
+             * @param message GhostKoshienParticipatingShop
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.GhostKoshienParticipatingShop, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GhostKoshienParticipatingShop to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GhostKoshienParticipatingShop
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace GhostKoshienParticipatingShop {
+
+            /** Properties of a ParticipantShop. */
+            interface IParticipantShop {
+
+                /** ParticipantShop name */
+                name: string;
+
+                /** ParticipantShop regionId */
+                regionId: number;
+            }
+
+            /** Represents a ParticipantShop. */
+            class ParticipantShop implements IParticipantShop {
+
+                /**
+                 * Constructs a new ParticipantShop.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: wm.protobuf.GhostKoshienParticipatingShop.IParticipantShop);
+
+                /** ParticipantShop name. */
+                public name: string;
+
+                /** ParticipantShop regionId. */
+                public regionId: number;
+
+                /**
+                 * Creates a new ParticipantShop instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns ParticipantShop instance
+                 */
+                public static create(properties?: wm.protobuf.GhostKoshienParticipatingShop.IParticipantShop): wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop;
+
+                /**
+                 * Encodes the specified ParticipantShop message. Does not implicitly {@link wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop.verify|verify} messages.
+                 * @param message ParticipantShop message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: wm.protobuf.GhostKoshienParticipatingShop.IParticipantShop, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified ParticipantShop message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop.verify|verify} messages.
+                 * @param message ParticipantShop message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: wm.protobuf.GhostKoshienParticipatingShop.IParticipantShop, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a ParticipantShop message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns ParticipantShop
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop;
+
+                /**
+                 * Decodes a ParticipantShop message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns ParticipantShop
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop;
+
+                /**
+                 * Verifies a ParticipantShop message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a ParticipantShop message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns ParticipantShop
+                 */
+                public static fromObject(object: { [k: string]: any }): wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop;
+
+                /**
+                 * Creates a plain object from a ParticipantShop message. Also converts values to other types if specified.
+                 * @param message ParticipantShop
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: wm.protobuf.GhostKoshienParticipatingShop.ParticipantShop, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this ParticipantShop to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for ParticipantShop
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+        }
+
         /** Properties of a GhostExpeditionRanking. */
         interface IGhostExpeditionRanking {
 
@@ -24534,9 +29363,142 @@ export namespace wm {
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
+        /** Properties of a GhostKoshienTarget. */
+        interface IGhostKoshienTarget {
+
+            /** GhostKoshienTarget koshienId */
+            koshienId: number;
+
+            /** GhostKoshienTarget ghostCar */
+            ghostCar: wm.protobuf.IGhostCar;
+
+            /** GhostKoshienTarget trailId */
+            trailId: (number|Long);
+
+            /** GhostKoshienTarget updatedAt */
+            updatedAt: number;
+
+            /** GhostKoshienTarget koshienPeriodId */
+            koshienPeriodId: number;
+
+            /** GhostKoshienTarget regionId */
+            regionId?: (number|null);
+
+            /** GhostKoshienTarget participantShop */
+            participantShop?: (wm.protobuf.IPlace|null);
+        }
+
+        /** Represents a GhostKoshienTarget. */
+        class GhostKoshienTarget implements IGhostKoshienTarget {
+
+            /**
+             * Constructs a new GhostKoshienTarget.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: wm.protobuf.IGhostKoshienTarget);
+
+            /** GhostKoshienTarget koshienId. */
+            public koshienId: number;
+
+            /** GhostKoshienTarget ghostCar. */
+            public ghostCar: wm.protobuf.IGhostCar;
+
+            /** GhostKoshienTarget trailId. */
+            public trailId: (number|Long);
+
+            /** GhostKoshienTarget updatedAt. */
+            public updatedAt: number;
+
+            /** GhostKoshienTarget koshienPeriodId. */
+            public koshienPeriodId: number;
+
+            /** GhostKoshienTarget regionId. */
+            public regionId: number;
+
+            /** GhostKoshienTarget participantShop. */
+            public participantShop?: (wm.protobuf.IPlace|null);
+
+            /**
+             * Creates a new GhostKoshienTarget instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GhostKoshienTarget instance
+             */
+            public static create(properties?: wm.protobuf.IGhostKoshienTarget): wm.protobuf.GhostKoshienTarget;
+
+            /**
+             * Encodes the specified GhostKoshienTarget message. Does not implicitly {@link wm.protobuf.GhostKoshienTarget.verify|verify} messages.
+             * @param message GhostKoshienTarget message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: wm.protobuf.IGhostKoshienTarget, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GhostKoshienTarget message, length delimited. Does not implicitly {@link wm.protobuf.GhostKoshienTarget.verify|verify} messages.
+             * @param message GhostKoshienTarget message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: wm.protobuf.IGhostKoshienTarget, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GhostKoshienTarget message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GhostKoshienTarget
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): wm.protobuf.GhostKoshienTarget;
+
+            /**
+             * Decodes a GhostKoshienTarget message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GhostKoshienTarget
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): wm.protobuf.GhostKoshienTarget;
+
+            /**
+             * Verifies a GhostKoshienTarget message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GhostKoshienTarget message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GhostKoshienTarget
+             */
+            public static fromObject(object: { [k: string]: any }): wm.protobuf.GhostKoshienTarget;
+
+            /**
+             * Creates a plain object from a GhostKoshienTarget message. Also converts values to other types if specified.
+             * @param message GhostKoshienTarget
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: wm.protobuf.GhostKoshienTarget, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GhostKoshienTarget to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GhostKoshienTarget
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** SystemConstant enum. */
         enum SystemConstant {
-            PROTOBUF_MESSAGE_REVISION = 10029
+            PROTOBUF_MESSAGE_REVISION = 12056
         }
 
         /** ErrorCode enum. */
@@ -24552,7 +29514,13 @@ export namespace wm {
             ERR_FORBIDDEN = 9,
             ERR_USER_SUCCEEDED = 11,
             ERR_BEING_TRANSFERRED = 12,
-            ERR_SCRATCH_LOCKED = 13
+            ERR_SCRATCH_LOCKED = 13,
+            ERR_BINGO_REVENGE_LOCKED = 14,
+            ERR_BINGO_ALREDY_LINKED = 15,
+            ERR_BINGO_FINISHED = 16,
+            ERR_BINGO_REACHED_MAX_USER = 17,
+            ERR_CAR_NOT_FOUND = 18,
+            ERR_BINGO_CARD_NOT_FOUND = 19
         }
 
         /** LineType enum. */
@@ -24593,6 +29561,7 @@ export namespace wm {
             CAT_METER = 15,
             CAT_BGM = 16,
             CAT_NAME_PLATE = 17,
+            CAT_CUSTOM_FRAME = 18,
             CAT_NUMBER = 19,
             CAT_BGM_TRACK = 22,
             CAT_WINDOW_STICKER_FONT = 24,
@@ -24661,7 +29630,17 @@ export namespace wm {
             TUTORIAL_ID_GHOST_HIGHWAY_BOSS = 48,
             TUTORIAL_ID_GHOST_TROPHY = 49,
             TUTORIAL_ID_GHOST_SELECT = 50,
-            TUTORIAL_ID_GHOST_SELECT_BY_SAME_PLACE = 51
+            TUTORIAL_ID_GHOST_SELECT_BY_SAME_PLACE = 51,
+            TUTORIAL_ID_GHOST_BINGO_NEW = 52,
+            TUTORIAL_ID_UNUSED_53 = 53,
+            TUTORIAL_ID_GHOST_BINGO_LINK = 54,
+            TUTORIAL_ID_GHOST_KOSHIEN_NEW = 55,
+            TUTORIAL_ID_GHOST_KOSHIEN_NOTICE = 56,
+            TUTORIAL_ID_GHOST_KOSHIEN_MVP_UPDATE = 57,
+            TUTORIAL_ID_BINGO_LUCKY_CHANCE = 58,
+            TUTORIAL_ID_GHOST_KOSHIEN_FINISHED = 59,
+            TUTORIAL_ID_GHOST_KOSHIEN_AFTEREVENT = 60,
+            TUTORIAL_ID_GHOST_BINGO_AREA = 61
         }
 
         /** GameMode enum. */
@@ -24708,7 +29687,9 @@ export namespace wm {
             GHOST_SELECT_BY_REGION_PLAYED = 22,
             GHOST_SELECT_BY_REGION_STATION = 23,
             GHOST_SELECT_BY_REGION_BOSS = 24,
-            GHOST_SELECT_BY_REGION_PLACE = 25
+            GHOST_SELECT_BY_REGION_PLACE = 25,
+            GHOST_BINGO_CHALLENGE = 26,
+            GHOST_KOSHIEN = 27
         }
 
         /** GhostRateType enum. */
@@ -24766,6 +29747,20 @@ export namespace wm {
             EXPEDITION_RESULT_CONFIRMED = 3
         }
 
+        /** GhostKoshienParticipantState enum. */
+        enum GhostKoshienParticipantState {
+            KOSHIEN_NOT_PARTICIPATED = 1,
+            KOSHIEN_FIRST_QUALIFIED = 2,
+            KOSHIEN_SECOND_QUALIFIED = 3,
+            KOSHIEN_REGION_PARTICIPATED = 4,
+            KOSHIEN_PARTICIPATED = 5,
+            KOSHIEN_FIRST_QUALIFIED_LOSE = 6,
+            KOSHIEN_SECOND_QUALIFIED_LOSE = 7,
+            KOSHIEN_REGION_PARTICIPATED_LOSE = 8,
+            KOSHIEN_WON = 9,
+            KOSHIEN_UNUSED = 10
+        }
+
         /** ScreenshotType enum. */
         enum ScreenshotType {
             SS_GHOST_BATTLE = 1,
@@ -24777,7 +29772,8 @@ export namespace wm {
             SS_ACQUIRING_CROWN = 7,
             SS_GHOST_COMPETITION_RESULT = 8,
             SS_TIME_ATTACK_RESULT = 9,
-            SS_LEVEL_UP = 10
+            SS_LEVEL_UP = 10,
+            SS_GHOST_KOSHIEN_RESULT = 11
         }
 
         /** TransferState enum. */
