@@ -11,9 +11,6 @@ COPY tsconfig*.json ./
 # Copy the entire app source tree
 COPY . .
 
-# Copy game configuration file
-COPY config.json .
-
 RUN apk add --no-cache openssl
 
 RUN npm install --legacy-peer-deps --frozen-lockfile
@@ -25,12 +22,15 @@ EXPOSE 10082
 # Service
 EXPOSE 9002
 
-# Compile protobuf definitions
-RUN npm run build_protos
-
 # Compile the application source code
-RUN npx tsc
 RUN npx prisma generate
+RUN npm run build_protos
+RUN npx tsc
 
 # Entrypoint
 CMD ["node", "dist"]
+
+ENV BAYSHORE_DATA_PATH /data
+COPY server_wangan.key server_wangan.crt /data/
+# Copy game configuration file
+COPY config.json .
