@@ -15,3 +15,10 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
+    ports:
+      - 6432:5432
+    volumes:
+      - bayshore_data_dockerized:/var/lib/postgresql/data
+
+volumes:
+  bayshore_data_dockerized:
