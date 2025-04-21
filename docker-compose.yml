@@ -1,14 +1,13 @@
 services:
   bayshore:
     build: .
-    volumes:
-      - ./:/src
     ports:
       - 8080:80
       - 10082:10082
       - 9002:9002
     restart: unless-stopped
     env_file: .env
+    init: true
   db:
     image: postgres:16-alpine
     restart: unless-stopped

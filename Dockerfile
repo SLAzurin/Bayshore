@@ -2,18 +2,14 @@ FROM node:18-alpine
 
 WORKDIR /server
 
-# Copy the package file over
-COPY package*.json ./
-
-# tsconfig definitions
-COPY tsconfig*.json ./
-
 # Copy the entire app source tree
-COPY . .
+COPY package.json package-lock.json convert_game_protos.js tsconfig.json tsconfig.proto.json .npmrc ./
+COPY src ./src
+COPY prisma ./prisma
 
 RUN apk add --no-cache openssl
 
-RUN npm install --legacy-peer-deps --frozen-lockfile
+RUN npm install --frozen-lockfile
 
 # ALLnet
 EXPOSE 80
@@ -30,7 +26,7 @@ RUN npx tsc
 # Entrypoint
 CMD ["node", "dist"]
 
-ENV BAYSHORE_DATA_PATH /data
-COPY server_wangan.key server_wangan.crt /data/
+COPY server_wangan.key server_wangan.crt /server/
+
 # Copy game configuration file
 COPY config.json .
