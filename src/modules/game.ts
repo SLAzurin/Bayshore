@@ -25,171 +25,140 @@ export default class GameModule {
 			// Get the request body for the save game result request
 			let body = wm.wm.protobuf.SaveGameResultRequest.decode(req.body);
 
-			// Get user's status
-			let user = await prisma.user.findFirst({
+			// Get the user's car
+			let car = await prisma.car.findFirst({
 				where: {
-					id: body.car?.userId!
+					carId: body.carId
+				},
+				include:{
+					gtWing: true,
+					lastPlayedPlace: true
 				}
 			});
 
-			if (!user?.userBanned)
+			// Declare some variable for message response
+			let ghostModePlay:boolean = false;
+			let updateNewTrail:boolean = true; 
+			let OCMModePlay:boolean = false; 
+
+			// Switch on the gamemode
+			switch (body.gameMode) 
 			{
-				// Get the user's car
-				let car = await prisma.car.findFirst({
-					where: {
-						carId: body.carId
-					},
-					include:{
-						gtWing: true,
-						lastPlayedPlace: true
-					}
-				});
-
-				// Declare some variable for message response
-				let ghostModePlay:boolean = false;
-				let updateNewTrail:boolean = true; 
-				let OCMModePlay:boolean = false; 
-
-				// Switch on the gamemode
-				switch (body.gameMode) 
+				// Save Story Result
+				case wm.wm.protobuf.GameMode.MODE_STORY:
 				{
-					// Save Story Result
-					case wm.wm.protobuf.GameMode.MODE_STORY:
-					{
-						// Calling save story result function (BASE_PATH/src/util/games/story.ts)
-						await story.saveStoryResult(body, car); 
+					// Calling save story result function (BASE_PATH/src/util/games/story.ts)
+					await story.saveStoryResult(body, car); 
 
-						// Break the switch case
-						break;
-					}
-
-					// Save Time Attack Result
-					case wm.wm.protobuf.GameMode.MODE_TIME_ATTACK:
-					{
-						// Calling save time attack result function (BASE_PATH/src/util/games/time_attack.ts)
-						await time_attack.saveTimeAttackResult(body);
-
-						// Break the switch case
-						break;
-					}
-
-					// Save Ghost Battle Result
-					case wm.wm.protobuf.GameMode.MODE_GHOST_BATTLE:
-					{
-						// Calling save ghost battle result function (BASE_PATH/src/util/games/ghost.ts)
-						let ghostReturn = await ghost.saveGhostBattleResult(body, car);
-
-						// Set this to tell the server if user is playing ghost battle mode
-						ghostModePlay = ghostReturn.ghostModePlay;
-
-						// For OCM : Disable update trail if current advantage distance record is not better than previous advantage distance record
-						// For Crown : Disable update trail if lose
-						// Ghost Battle will return true 
-						updateNewTrail = ghostReturn.updateNewTrail;
-
-						// Check if user playing OCM Ghost Battle Mode
-						OCMModePlay = ghostReturn.OCMModePlay;
-
-						// Break the switch case
-						break;
-					}
-
-					// Save Versus Battle Result
-					case wm.wm.protobuf.GameMode.MODE_VS_BATTLE:
-					{
-						// Calling save vs battle result function (BASE_PATH/src/util/games/versus.ts)
-						await versus.saveVersusBattleResult(body, car); 
-
-						// Break the switch case
-						break;
-					}
+					// Break the switch case
+					break;
 				}
 
-
-				// Check if earned some items
-				await gameFunction.getItem(body);
-
-				// Update Car Data
-				await gameFunction.updateCar(body, car);
-
-				// Update Car Order and Save Tutorial
-				await gameFunction.updateOrderTutorial(body);
-
-				// Every n*100 play give reward
-				// Check this feature config
-				let giveMeterReward = Config.getConfig().gameOptions.giveMeterReward; 
-
-				// Check if this feature activated and check if user's play count is n*100 play
-				if(giveMeterReward === 1 && body.playCount % 100 === 0 &&  body.playCount !== 0)
+				// Save Time Attack Result
+				case wm.wm.protobuf.GameMode.MODE_TIME_ATTACK:
 				{
-					// Calling give meter reward function (BASE_PATH/src/util/meter_reward.ts)
-					await meter_reward.giveMeterRewards(body);
+					// Calling save time attack result function (BASE_PATH/src/util/games/time_attack.ts)
+					await time_attack.saveTimeAttackResult(body);
+
+					// Break the switch case
+					break;
 				}
 
-				// Check ghost trail for n days old
-				let ghostTrailDays = Config.getConfig().gameOptions.ghostTrailAutodeleteDays;
-
-				// Call delete ghost trail function
-				if(ghostTrailDays != 0)
+				// Save Ghost Battle Result
+				case wm.wm.protobuf.GameMode.MODE_GHOST_BATTLE:
 				{
-					await ghost.deleteGhostTrail(body, ghostTrailDays); 
+					// Calling save ghost battle result function (BASE_PATH/src/util/games/ghost.ts)
+					let ghostReturn = await ghost.saveGhostBattleResult(body, car);
+
+					// Set this to tell the server if user is playing ghost battle mode
+					ghostModePlay = ghostReturn.ghostModePlay;
+
+					// For OCM : Disable update trail if current advantage distance record is not better than previous advantage distance record
+					// For Crown : Disable update trail if lose
+					// Ghost Battle will return true 
+					updateNewTrail = ghostReturn.updateNewTrail;
+
+					// Check if user playing OCM Ghost Battle Mode
+					OCMModePlay = ghostReturn.OCMModePlay;
+
+					// Break the switch case
+					break;
 				}
 
-				// -----------------------------------------------------------------------------------------------
-				// Additional Message for Response Data
-				let additionalSesionIdMsg = {};
-
-				// Ghost Battle mode or Crown Ghost Battle game mode is completed
-				if(ghostModePlay === true && OCMModePlay === false && updateNewTrail === true)
+				// Save Versus Battle Result
+				case wm.wm.protobuf.GameMode.MODE_VS_BATTLE:
 				{
-					additionalSesionIdMsg = {
+					// Calling save vs battle result function (BASE_PATH/src/util/games/versus.ts)
+					await versus.saveVersusBattleResult(body, car); 
 
-						// Set session for saving ghost trail Ghost Battle Mode or Crown Ghost Battle Mode
-						ghostSessionId: Math.floor(Math.random() * 100) + 1
-					}
+					// Break the switch case
+					break;
 				}
-				// OCM Battle game mode is completed
-				else if(ghostModePlay === true && OCMModePlay === true && updateNewTrail === true)
-				{ 
-					additionalSesionIdMsg = {
-
-						// Set session for saving ghost trail Competition (OCM) Ghost Battle Mode
-						ghostSessionId: Math.floor(Math.random() * 100) + 101
-					}
-				}
-				// -----------------------------------------------------------------------------------------------
-
-
-				// Response data
-				let msg = {
-					error: wm.wm.protobuf.ErrorCode.ERR_SUCCESS,
-
-					// Ghost Session ID
-					...additionalSesionIdMsg,
-
-					// Available Tickets (maybe for VS)
-					//availableTickets: wm.protobuf.UserItem[]
-				}
-				
-				// Encode the response
-				let message = wm.wm.protobuf.SaveGameResultResponse.encode(msg);
-
-				// Send the response to the client
-				common.sendResponse(message, res, req.rawHeaders);
 			}
-			else
+
+
+			// Check if earned some items
+			await gameFunction.getItem(body);
+
+			// Update Car Data
+			await gameFunction.updateCar(body, car);
+
+			// Update Car Order and Save Tutorial
+			await gameFunction.updateOrderTutorial(body);
+
+			// Every n*100 play give reward
+			// Check this feature config
+			let giveMeterReward = Config.getConfig().gameOptions.giveMeterReward; 
+
+			// Check if this feature activated and check if user's play count is n*100 play
+			if(giveMeterReward === 1 && body.playCount % 100 === 0 &&  body.playCount !== 0)
 			{
-				// Response data
-				let msg = {
-					error: wm.wm.protobuf.ErrorCode.ERR_FORBIDDEN,
-				}
-				
-				// Encode the response
-				let message = wm.wm.protobuf.SaveGameResultResponse.encode(msg);
-
-				// Send the response to the client
-				common.sendResponse(message, res, req.rawHeaders);
+				// Calling give meter reward function (BASE_PATH/src/util/meter_reward.ts)
+				await meter_reward.giveMeterRewards(body);
 			}
+
+
+			// -----------------------------------------------------------------------------------------------
+			// Additional Message for Response Data
+			let additionalSesionIdMsg = {};
+
+			// Ghost Battle mode or Crown Ghost Battle game mode is completed
+			if(ghostModePlay === true && OCMModePlay === false && updateNewTrail === true)
+			{
+				additionalSesionIdMsg = {
+
+					// Set session for saving ghost trail Ghost Battle Mode or Crown Ghost Battle Mode
+					ghostSessionId: Math.floor(Math.random() * 100) + 1
+				}
+			}
+			// OCM Battle game mode is completed
+			else if(ghostModePlay === true && OCMModePlay === true && updateNewTrail === true)
+			{ 
+				additionalSesionIdMsg = {
+
+					// Set session for saving ghost trail Competition (OCM) Ghost Battle Mode
+					ghostSessionId: Math.floor(Math.random() * 100) + 101
+				}
+			}
+			// -----------------------------------------------------------------------------------------------
+
+
+			// Response data
+			let msg = {
+				error: wm.wm.protobuf.ErrorCode.ERR_SUCCESS,
+
+				// Ghost Session ID
+				...additionalSesionIdMsg,
+
+				// Available Tickets (maybe for VS)
+				//availableTickets: wm.protobuf.UserItem[]
+			}
+			
+			// Encode the response
+			let message = wm.wm.protobuf.SaveGameResultResponse.encode(msg);
+
+            // Send the response to the client
+            common.sendResponse(message, res, req.rawHeaders);
 		})
 		
 
@@ -267,7 +236,7 @@ export default class GameModule {
 			// Perform the save screenshot request for the car
 			await gameFunction.saveScreenshot(body);
 
-			// Check obtained crown
+			// Check retire crown
 			let getCarCrown = await prisma.carCrownDetect.findFirst({
 				where:{
 					carId: body.carId,
@@ -277,7 +246,15 @@ export default class GameModule {
 
 			if(getCarCrown)
 			{
-				if(getCarCrown.status === 'finish')
+				if(getCarCrown.status === 'retire')
+				{
+					await prisma.carCrownDetect.delete({
+						where:{
+							id: getCarCrown.id
+						}
+					});
+				}
+				else if(getCarCrown.status === 'finish')
 				{
 					let timestamp = body.playedAt - body.timestamp;
 
@@ -328,6 +305,7 @@ export default class GameModule {
 							}
 						});
 
+
 						// Banned the user
 						let getUserId = await prisma.car.findFirst({
 							where:{
@@ -350,23 +328,15 @@ export default class GameModule {
 							});
 						}
 					}
-				}
-			}
-
-			// Remove retire entries
-			let retireCount = await prisma.carCrownDetect.findMany({
-				where: {
-					status: 'retire'
-				}
-			});
-
-			if (retireCount.length > 0)
-			{
-				await prisma.carCrownDetect.deleteMany({
-					where: {
-						status: 'retire'
+					else
+					{
+						await prisma.carCrownDetect.delete({
+							where:{
+								id: getCarCrown.id
+							}
+						});
 					}
-				});
+				}
 			}
 
 			// Response data

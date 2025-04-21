@@ -546,8 +546,7 @@ export default class GhostModule {
 					level: 65, // SSSSS
 					lastPlayedAt: checkGhostTrail!.playedAt,
 					country: 'JPN', // Change to JPN, old code -> 'IDN',
-					lastPlayedPlace: playedPlace,
-					ghostLevel: 10 // prevent 教育実習 title
+					lastPlayedPlace: playedPlace
 				});
 				
 				// Set Ghost stuff Value
