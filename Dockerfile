@@ -10,7 +10,7 @@ COPY prisma ./prisma
 RUN npm ci
 
 # Compile the application source code
-RUN npx prisma generate && npm run build
+RUN npm run build
 
 FROM node:18-alpine AS runner
 
