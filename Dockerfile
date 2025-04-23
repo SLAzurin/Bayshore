@@ -12,7 +12,7 @@ RUN npm ci
 # Compile the application source code
 RUN npm run build
 
-FROM node:18-alpine AS runner
+FROM node:22-alpine AS runner
 
 # Install OS dependencies
 RUN apk add --no-cache openssl
