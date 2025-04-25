@@ -1,6 +1,7 @@
 // Bayshore - a Wangan Midnight Maximum Tune 6 private server.
 // Made with love by Luna, and part of Project Asakura.
 
+import path from 'path';
 import express, { Router } from 'express';
 import {PrismaClient} from '@prisma/client';
 import https, {globalAgent} from 'https';
@@ -27,9 +28,9 @@ export const prisma = new PrismaClient();
 
 const appRouter = Router();
 
-const PORT_ALLNET = 80;
-const PORT_MUCHA = 10082;
-const PORT_BNGI = 9002;
+const PORT_ALLNET = Number(process.env['ALLNET_PORT'] ?? '80');
+const PORT_MUCHA = Number(process.env['MUCHA_PORT'] ?? '10082');
+const PORT_BNGI = Number(process.env['SERVICE_PORT'] ?? '9002');
 
 const app = express();
 const muchaApp = express();
@@ -79,12 +80,12 @@ allnetApp.use((req, res, next) => {
 });
 
 // Get all of the files in the modules directory
-let dirs = fs.readdirSync('dist/modules');
+let dirs = fs.readdirSync(path.join(path.dirname(__filename), 'modules'));
 // Loop over the files
 for (let i of dirs) 
 {
     // If the file is a .js file
-    if (i.endsWith('.js')) 
+    if (i.endsWith('.js') || i.endsWith('.ts')) 
     {
         // Require the module file
         let mod = require(`./modules/${i.substring(0, i.length - 3)}`); // .js extension
