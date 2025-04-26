@@ -3,6 +3,7 @@ name: Publish container
 on:
   push:
     branches: [dockerized-node22]
+  workflow_dispatch:
 
 defaults:
   run:
@@ -45,6 +46,9 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - build
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: docker/login-action@v3
         with:
