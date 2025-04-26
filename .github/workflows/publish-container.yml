@@ -67,3 +67,5 @@ jobs:
           docker manifest create "ghcr.io/${owner}/bayshore:${{ github.sha }}" \
             --amend "ghcr.io/${owner}/bayshore:manifest-arm64-${{ github.sha }}" \
             --amend "ghcr.io/${owner}/bayshore:manifest-x64-${{ github.sha }}"
+          docker manifest push "ghcr.io/${owner}/bayshore:latest"
+          docker manifest push "ghcr.io/${owner}/bayshore:${{ github.sha }}"
