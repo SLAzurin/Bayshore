@@ -40,7 +40,7 @@ jobs:
           # First, lowercase-ify owner
           export owner=${{ github.repository_owner }}
           export owner=${owner,,}
-          docker buildx build --platform linux/${{ matrix.build-targets.arch }} --push -t "ghcr.io/${owner}/bayshore:manifest-${{ matrix.build-targets.manifest-name }}-${{ github.sha }}" .
+          docker buildx build --platform linux/${{ matrix.build-targets.arch }} --push -t "ghcr.io/${owner}/bayshore:manifest-${{ matrix.build-targets.manifest-name }}-${{ github.sha }}" --provenance false .
   merge-container:
     runs-on: ubuntu-latest
     needs:
@@ -59,13 +59,12 @@ jobs:
           # First, lowercase-ify owner
           export owner=${{ github.repository_owner }}
           export owner=${owner,,}
-          docker pull "ghcr.io/${owner}/bayshore:manifest-x64-${{ github.sha }}"
-          docker pull "ghcr.io/${owner}/bayshore:manifest-arm64-${{ github.sha }}"
           docker manifest create "ghcr.io/${owner}/bayshore:latest" \
             --amend "ghcr.io/${owner}/bayshore:manifest-arm64-${{ github.sha }}" \
             --amend "ghcr.io/${owner}/bayshore:manifest-x64-${{ github.sha }}"
+          docker manifest push "ghcr.io/${owner}/bayshore:latest"
+
           docker manifest create "ghcr.io/${owner}/bayshore:${{ github.sha }}" \
             --amend "ghcr.io/${owner}/bayshore:manifest-arm64-${{ github.sha }}" \
             --amend "ghcr.io/${owner}/bayshore:manifest-x64-${{ github.sha }}"
-          docker manifest push "ghcr.io/${owner}/bayshore:latest"
           docker manifest push "ghcr.io/${owner}/bayshore:${{ github.sha }}"
