@@ -31,9 +31,11 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-          docker buildx build --platform linux/${{ matrix.build-targets.arch }} --load -t bayshore .
-          docker image tag bayshore ghcr.io/${{ github.repository_owner }}/bayshore:manifest-${{ matrix.build-targets.arch }}-${{ github.sha }}
-          docker image push ghcr.io/${{ github.repository_owner }}/bayshore:manifest-${{ matrix.build-targets.arch }}-${{ github.sha }}
+          # First, lowercase-ify owner
+          export owner=${{ github.repository_owner }}
+          export owner=${owner,,}
+          docker buildx build --platform linux/${{ matrix.build-targets.arch }} --load -t "ghcr.io/${owner}/bayshore:manifest-${{ matrix.build-targets.arch }}-${{ github.sha }}"" .
+          docker image push ghcr.io/owner/bayshore:manifest-${{ matrix.build-targets.arch }}-${{ github.sha }}
   merge-container:
     runs-on: ubuntu-latest
     needs:
@@ -45,10 +47,13 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-          docker pull ghcr.io/${{ github.repository_owner }}/bayshore:manifest-arm32v7-${{ github.sha }}
-          docker pull ghcr.io/${{ github.repository_owner }}/bayshore:manifest-arm64-${{ github.sha }}
-          docker pull ghcr.io/${{ github.repository_owner }}/bayshore:manifest-amd64-${{ github.sha }}
-          docker manifest create ghcr.io/${{ github.repository_owner }}/bayshore:latest \
-            --amend ghcr.io/${{ github.repository_owner }}/bayshore:manifest-arm32v7-${{ github.sha }} \
-            --amend ghcr.io/${{ github.repository_owner }}/bayshore:manifest-arm64-${{ github.sha }} \
-            --amend ghcr.io/${{ github.repository_owner }}/bayshore:manifest-amd64-${{ github.sha }}
+          # First, lowercase-ify owner
+          export owner=${{ github.repository_owner }}
+          export owner=${owner,,}
+          docker pull "ghcr.io/${owner}/bayshore:manifest-arm32v7-${{ github.sha }}"
+          docker pull "ghcr.io/${owner}/bayshore:manifest-arm64-${{ github.sha }}"
+          docker pull "ghcr.io/${owner}/bayshore:manifest-amd64-${{ github.sha }}"
+          docker manifest create "ghcr.io/${owner}/bayshore:latest" \
+            --amend "ghcr.io/${owner}/bayshore:manifest-arm32v7-${{ github.sha }}" \
+            --amend "ghcr.io/${owner}/bayshore:manifest-arm64-${{ github.sha }}" \
+            --amend "ghcr.io/${owner}/bayshore:manifest-amd64-${{ github.sha }}"
