@@ -1,0 +1,11 @@
+# To run this, you must run `docker compose -f docker-compose.yml -f docker-compose.optional.yml ...`
+# This adds a web gui for postgres. Totally optional
+services:
+  pgadmin:
+    image: docker.io/dpage/pgadmin4:latest
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: bayshore
+      PGADMIN_DEFAULT_PASSWORD: bayshore
+    ports:
+      - 5050:80
