@@ -18,7 +18,7 @@ jobs:
           - label: ubuntu-24.04-arm
             arch: arm64
           - label: ubuntu-24.04-arm
-            arch: arm32v7
+            arch: arm/v7
     permissions:
       contents: read
       packages: write
