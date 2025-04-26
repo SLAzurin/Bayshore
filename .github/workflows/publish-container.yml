@@ -40,7 +40,13 @@ jobs:
           # First, lowercase-ify owner
           export owner=${{ github.repository_owner }}
           export owner=${owner,,}
-          docker buildx build --platform linux/${{ matrix.build-targets.arch }} --push -t "ghcr.io/${owner}/bayshore:${{ matrix.build-targets.manifest-name }}-${{ github.sha }}" -t "ghcr.io/${owner}/bayshore:${{ matrix.build-targets.manifest-name }}-latest" --provenance false .
+          docker buildx build \
+            --platform linux/${{ matrix.build-targets.arch }} \
+            --push \
+            -t "ghcr.io/${owner}/bayshore:${{ matrix.build-targets.manifest-name }}-${{ github.sha }}" \
+            -t "ghcr.io/${owner}/bayshore:${{ matrix.build-targets.manifest-name }}-latest" \
+            --provenance false \
+            .
   merge-container:
     runs-on: ubuntu-latest
     needs:
