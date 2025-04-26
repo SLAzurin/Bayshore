@@ -19,10 +19,6 @@ jobs:
           - label: ubuntu-24.04-arm
             arch: arm64
             manifest-name: arm64
-            # If the c# implementation does not support arm32, simply remove this element from the array.
-          - label: ubuntu-24.04-arm
-            arch: arm/v7
-            manifest-name: arm32
     permissions:
       contents: read
       packages: write
@@ -60,14 +56,11 @@ jobs:
           # First, lowercase-ify owner
           export owner=${{ github.repository_owner }}
           export owner=${owner,,}
-          docker pull "ghcr.io/${owner}/bayshore:manifest-arm32v7-${{ github.sha }}"
+          docker pull "ghcr.io/${owner}/bayshore:manifest-x64-${{ github.sha }}"
           docker pull "ghcr.io/${owner}/bayshore:manifest-arm64-${{ github.sha }}"
-          docker pull "ghcr.io/${owner}/bayshore:manifest-amd64-${{ github.sha }}"
           docker manifest create "ghcr.io/${owner}/bayshore:latest" \
-            --amend "ghcr.io/${owner}/bayshore:manifest-arm32v7-${{ github.sha }}" \
             --amend "ghcr.io/${owner}/bayshore:manifest-arm64-${{ github.sha }}" \
-            --amend "ghcr.io/${owner}/bayshore:manifest-amd64-${{ github.sha }}"
+            --amend "ghcr.io/${owner}/bayshore:manifest-x64-${{ github.sha }}"
           docker manifest create "ghcr.io/${owner}/bayshore:${{ github.sha }}" \
-            --amend "ghcr.io/${owner}/bayshore:manifest-arm32v7-${{ github.sha }}" \
             --amend "ghcr.io/${owner}/bayshore:manifest-arm64-${{ github.sha }}" \
-            --amend "ghcr.io/${owner}/bayshore:manifest-amd64-${{ github.sha }}"
+            --amend "ghcr.io/${owner}/bayshore:manifest-x64-${{ github.sha }}"
